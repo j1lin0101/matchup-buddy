@@ -1,7 +1,7 @@
 {
   "character": "Absa",
   "slug": "Absa",
-  "scrapedAt": "2026-06-03T18:05:49.779Z",
+  "scrapedAt": "2026-06-03T19:44:09.335Z",
   "moves": [
     {
       "move": "Jab",
@@ -9,6 +9,18 @@
       "hitboxes": [
         {
           "hitbox": "Jab 1",
+          "shieldSafety": {
+            "min": -10,
+            "max": -8
+          },
+          "shieldRaw": "-10 to -8[-7 to -5]",
+          "tumblePercent": null,
+          "tumbleRaw": "Never",
+          "perCharacterTumble": {},
+          "perCharacterTumbleAerial": {}
+        },
+        {
+          "hitbox": "Jab 2",
           "shieldSafety": {
             "min": -10,
             "max": -8
@@ -86,6 +98,38 @@
             "ETALUS": 40,
             "KRAGG": 41,
             "LOXODONT": 41
+          },
+          "perCharacterTumbleAerial": {}
+        },
+        {
+          "hitbox": "Whip",
+          "shieldSafety": {
+            "min": -23,
+            "max": -22
+          },
+          "shieldRaw": "-23 to -22",
+          "tumblePercent": {
+            "min": 115,
+            "max": 142
+          },
+          "tumbleRaw": "115 - 142%",
+          "perCharacterTumble": {
+            "WRASTOR": 115,
+            "OLYMPIA": 120,
+            "ABSA": 121,
+            "MAYPUL": 123,
+            "FLEET": 125,
+            "CLAIREN": 126,
+            "RANNO": 128,
+            "FORSBURN": 132,
+            "ORCANE": 132,
+            "ZETTERBURN": 132,
+            "SLADE": 133,
+            "LA REINA": 136,
+            "GALVAN": 138,
+            "ETALUS": 140,
+            "KRAGG": 141,
+            "LOXODONT": 142
           },
           "perCharacterTumbleAerial": {}
         }
@@ -790,6 +834,38 @@
             "LOXODONT": 74
           },
           "perCharacterTumbleAerial": {}
+        },
+        {
+          "hitbox": "Charged",
+          "shieldSafety": {
+            "min": -30,
+            "max": -27
+          },
+          "shieldRaw": "-30 to -27",
+          "tumblePercent": {
+            "min": 0,
+            "max": 0
+          },
+          "tumbleRaw": "0 - 0%",
+          "perCharacterTumble": {
+            "WRASTOR": 0,
+            "OLYMPIA": 0,
+            "ABSA": 0,
+            "MAYPUL": 0,
+            "FLEET": 0,
+            "CLAIREN": 0,
+            "RANNO": 0,
+            "FORSBURN": 0,
+            "ORCANE": 0,
+            "ZETTERBURN": 0,
+            "SLADE": 0,
+            "LA REINA": 0,
+            "GALVAN": 0,
+            "ETALUS": 0,
+            "KRAGG": 0,
+            "LOXODONT": 0
+          },
+          "perCharacterTumbleAerial": {}
         }
       ]
     },
@@ -850,6 +926,22 @@
           "tumbleRaw": "385%",
           "perCharacterTumble": {},
           "perCharacterTumbleAerial": {}
+        },
+        {
+          "hitbox": "Blip",
+          "shieldSafety": {
+            "min": 3,
+            "max": 3,
+            "isStun": true
+          },
+          "shieldRaw": "Stun: 3",
+          "tumblePercent": {
+            "min": 385,
+            "max": 385
+          },
+          "tumbleRaw": "385%",
+          "perCharacterTumble": {},
+          "perCharacterTumbleAerial": {}
         }
       ]
     },
@@ -866,24 +958,19 @@
             "max": 19
           },
           "tumbleRaw": "13 - 19%",
-          "perCharacterTumble": {
-            "WRASTOR": 13,
-            "OLYMPIA": 14,
-            "ABSA": 14,
-            "MAYPUL": 15,
-            "FLEET": 15,
-            "CLAIREN": 15,
-            "RANNO": 16,
-            "FORSBURN": 17,
-            "ORCANE": 17,
-            "ZETTERBURN": 17,
-            "SLADE": 17,
-            "LA REINA": 17,
-            "GALVAN": 18,
-            "ETALUS": 18,
-            "KRAGG": 18,
-            "LOXODONT": 19
+          "perCharacterTumble": {},
+          "perCharacterTumbleAerial": {}
+        },
+        {
+          "hitbox": "Tick Tock",
+          "shieldSafety": null,
+          "shieldRaw": "+16 to +19",
+          "tumblePercent": {
+            "min": 13,
+            "max": 19
           },
+          "tumbleRaw": "13 - 19%",
+          "perCharacterTumble": {},
           "perCharacterTumbleAerial": {}
         }
       ]

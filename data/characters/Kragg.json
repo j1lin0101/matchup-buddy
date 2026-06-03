@@ -1,7 +1,7 @@
 {
   "character": "Kragg",
   "slug": "Kragg",
-  "scrapedAt": "2026-06-03T18:05:55.069Z",
+  "scrapedAt": "2026-06-03T19:44:14.467Z",
   "moves": [
     {
       "move": "Jab",
@@ -14,6 +14,50 @@
             "max": -16
           },
           "shieldRaw": "-17 to -16[-1 to +0]",
+          "tumblePercent": null,
+          "tumbleRaw": "Never",
+          "perCharacterTumble": {},
+          "perCharacterTumbleAerial": {}
+        },
+        {
+          "hitbox": "Jab 3",
+          "shieldSafety": {
+            "min": -24,
+            "max": -22
+          },
+          "shieldRaw": "-24 to -22",
+          "tumblePercent": {
+            "min": 19,
+            "max": 25
+          },
+          "tumbleRaw": "19 - 25%",
+          "perCharacterTumble": {
+            "WRASTOR": 19,
+            "OLYMPIA": 20,
+            "ABSA": 20,
+            "MAYPUL": 21,
+            "FLEET": 21,
+            "CLAIREN": 22,
+            "RANNO": 22,
+            "FORSBURN": 23,
+            "ORCANE": 23,
+            "ZETTERBURN": 23,
+            "SLADE": 23,
+            "LA REINA": 24,
+            "GALVAN": 24,
+            "ETALUS": 24,
+            "KRAGG": 25,
+            "LOXODONT": 25
+          },
+          "perCharacterTumbleAerial": {}
+        },
+        {
+          "hitbox": "Jab 1",
+          "shieldSafety": {
+            "min": -15,
+            "max": -14
+          },
+          "shieldRaw": "-15 to -14[-1 to +0]",
           "tumblePercent": null,
           "tumbleRaw": "Never",
           "perCharacterTumble": {},
@@ -860,6 +904,93 @@
             "LOXODONT": 105
           },
           "perCharacterTumbleAerial": {}
+        },
+        {
+          "hitbox": "Neutral",
+          "shieldSafety": null,
+          "shieldRaw": "N/A",
+          "tumblePercent": null,
+          "tumbleRaw": "☑️",
+          "perCharacterTumble": {
+            "WRASTOR": 22,
+            "OLYMPIA": 23,
+            "ABSA": 24,
+            "MAYPUL": 24,
+            "FLEET": 25,
+            "CLAIREN": 25,
+            "RANNO": 25,
+            "FORSBURN": 26,
+            "ORCANE": 26,
+            "ZETTERBURN": 26,
+            "SLADE": 27,
+            "LA REINA": 27,
+            "GALVAN": 28,
+            "ETALUS": 28,
+            "KRAGG": 29,
+            "LOXODONT": 29
+          },
+          "perCharacterTumbleAerial": {}
+        },
+        {
+          "hitbox": "Forward",
+          "shieldSafety": null,
+          "shieldRaw": "N/A",
+          "tumblePercent": null,
+          "tumbleRaw": "☑️",
+          "perCharacterTumble": {
+            "WRASTOR": 4,
+            "OLYMPIA": 5,
+            "ABSA": 5,
+            "MAYPUL": 5,
+            "FLEET": 5,
+            "CLAIREN": 5,
+            "RANNO": 6,
+            "FORSBURN": 6,
+            "ORCANE": 6,
+            "ZETTERBURN": 6,
+            "SLADE": 6,
+            "LA REINA": 6,
+            "GALVAN": 7,
+            "ETALUS": 7,
+            "KRAGG": 7,
+            "LOXODONT": 7
+          },
+          "perCharacterTumbleAerial": {}
+        },
+        {
+          "hitbox": "Up",
+          "shieldSafety": null,
+          "shieldRaw": "N/A",
+          "tumblePercent": null,
+          "tumbleRaw": "☑️",
+          "perCharacterTumble": {
+            "WRASTOR": 22,
+            "OLYMPIA": 23,
+            "ABSA": 24,
+            "MAYPUL": 24,
+            "FLEET": 25,
+            "CLAIREN": 25,
+            "RANNO": 25,
+            "FORSBURN": 26,
+            "ORCANE": 26,
+            "ZETTERBURN": 26,
+            "SLADE": 27,
+            "LA REINA": 27,
+            "GALVAN": 28,
+            "ETALUS": 28,
+            "KRAGG": 29,
+            "LOXODONT": 29
+          },
+          "perCharacterTumbleAerial": {}
+        },
+        {
+          "hitbox": "Down",
+          "shieldSafety": null,
+          "shieldRaw": "N/A",
+          "tumblePercent": null,
+          "tumbleRaw": "☑️",
+          "perCharacterTumble": {},
+          "perCharacterTumbleAerial": {}
         }
       ]
     },
@@ -992,6 +1123,25 @@
             "KRAGG": 0,
             "LOXODONT": 0
           },
+          "perCharacterTumbleAerial": {}
+        },
+        {
+          "hitbox": "Spike",
+          "shieldSafety": {
+            "min": -13,
+            "max": -11
+          },
+          "shieldRaw": "-13 to -11",
+          "tumblePercent": {
+            "min": 19,
+            "max": 26,
+            "aerial": {
+              "min": 15,
+              "max": 21
+            }
+          },
+          "tumbleRaw": "⛰️19 - 26%☁️15 - 21%",
+          "perCharacterTumble": {},
           "perCharacterTumbleAerial": {}
         }
       ]

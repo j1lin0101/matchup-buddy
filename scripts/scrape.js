@@ -89,6 +89,126 @@ function parseTumbleCell(text, hitbox) {
   if (aerialMatch)   hitbox.perCharacterTumbleAerial[charName] = parseInt(aerialMatch[1]);
 }
 
+/**
+ * Parses hitboxes + stats-for-nerds from a single attack-container element.
+ * Returns an array of hitbox objects (may be empty).
+ * Modifies `startupRef` in-place: { value } set to startup if not already set.
+ */
+function parseContainer($, container, startupRef, totalHitboxesSoFar) {
+  // Capture startup frames (only from the first container that has them)
+  if (startupRef.value === null) {
+    const startupTable = container.find('table').first();
+    const startupHeaders = startupTable.find('tr').first().find('th').map(function(_, th) {
+      return $(th).clone().find('.tooltiptext').remove().end().text().trim().toLowerCase();
+    }).toArray();
+    const startupColIdx = startupHeaders.findIndex(h => h.startsWith('startup'));
+    if (startupColIdx >= 0) {
+      const dataRow = startupTable.find('tbody tr').last().find('td');
+      const raw = $(dataRow[startupColIdx]).clone().find('.tooltiptext').remove().end().text().trim();
+      startupRef.value = parseStartup(raw);
+    }
+  }
+
+  // Find ALL primary hitbox tables — identified by having both "Shield Safety" AND "Damage"
+  // columns. This excludes the detailed stats-for-nerds shield breakdown tables, which lack
+  // a "Damage" column. Moves like Jab have one primary hitbox table per hit, all in one container.
+  const hitboxTables = container.find('table').filter(function(_, tbl) {
+    const headers = $(tbl).find('th').toArray().map(function(th) {
+      return $(th).text().trim().toLowerCase();
+    });
+    return headers.some(h => h.startsWith('shield safety')) && headers.some(h => h.startsWith('damage'));
+  });
+
+  if (!hitboxTables.length) return [];
+
+  const hitboxes = [];
+  hitboxTables.each(function(_, tbl) {
+    const rawHeaders = $(tbl).find('tr').first().find('th').map(function(_, th) {
+      return $(th).text().trim();
+    }).toArray();
+
+    const colIdx = (keyword) => rawHeaders.findIndex(h => h.toLowerCase().includes(keyword.toLowerCase()));
+    const hitboxCol = colIdx('hit');
+    const shieldCol = colIdx('shield safety');
+    const tumbleCol = colIdx('tumble');
+
+    if (shieldCol === -1) return;
+
+    $(tbl).find('tbody tr').each(function(_, row) {
+      const cells = $(row).find('td').map(function(_, td) {
+        return $(td).clone().find('.tooltiptext').remove().end().text().trim();
+      }).toArray();
+
+      if (!cells.length || !cells[0]) return;
+
+      const hitboxName = hitboxCol >= 0 ? cells[hitboxCol] : 'Hit ' + (totalHitboxesSoFar + hitboxes.length + 1);
+      if (hitboxName.startsWith('Unique:')) return;
+
+      const shieldRaw = shieldCol >= 0 ? cells[shieldCol] : '';
+      const tumbleRaw = tumbleCol >= 0 ? cells[tumbleCol] : '';
+
+      hitboxes.push({
+        hitbox:                   hitboxName,
+        shieldSafety:             parseShieldSafety(shieldRaw),
+        shieldRaw,
+        tumblePercent:            parseTumblePercent(tumbleRaw),
+        tumbleRaw,
+        perCharacterTumble:       {},
+        perCharacterTumbleAerial: {},
+      });
+    });
+  });
+
+  if (!hitboxes.length) return [];
+
+  // Parse per-character tumble % from the "Stats for Nerds" collapsible in THIS container
+  const nerdsCollapsible = container.find('[data-expandtext="Show Stats for Nerds"]').first();
+  if (nerdsCollapsible.length) {
+    const allPanels = {};
+    nerdsCollapsible.find('.tabber__panel').each(function(_, el) {
+      const id = ($(el).attr('id') || '').replace(/&amp;/g, '&');
+      allPanels[id.toLowerCase()] = $(el);
+    });
+
+    const hitboxTabIds = new Set(hitboxes.map(function(h) {
+      return ('tabber-' + toTabId(h.hitbox)).toLowerCase();
+    }));
+
+    const variantPanels = Object.keys(allPanels).filter(function(k) {
+      return !Array.from(hitboxTabIds).some(function(id) { return k.startsWith(id); });
+    });
+
+    hitboxes.forEach(function(h) {
+      const tabId = ('tabber-' + toTabId(h.hitbox)).toLowerCase();
+      let panel = allPanels[tabId];
+      if (!panel) {
+        const key = Object.keys(allPanels).find(k => k.startsWith(tabId));
+        if (key) panel = allPanels[key];
+      }
+      if (!panel && hitboxes.length === 1 && variantPanels.length > 0) {
+        const fallbackKey = variantPanels.find(function(k) {
+          return allPanels[k].find('.tumble-cell').toArray().some(function(cell) {
+            const m = $(cell).text().trim().match(/:\s*(\d+)%$/);
+            return m && parseInt(m[1]) > 0;
+          });
+        });
+        if (fallbackKey) panel = allPanels[fallbackKey];
+      }
+      if (!panel && hitboxes.length === 1) {
+        const directCells = nerdsCollapsible.find('.tumble-cell').not('.tabber__panel .tumble-cell');
+        if (directCells.length > 0) {
+          directCells.each(function(_, cell) { parseTumbleCell($(cell).text().trim(), h); });
+          return;
+        }
+      }
+      if (!panel) return;
+      panel.find('.tumble-cell').each(function(_, cell) { parseTumbleCell($(cell).text().trim(), h); });
+    });
+  }
+
+  return hitboxes;
+}
+
 function parseMoves($) {
   const moves = [];
 
@@ -100,132 +220,16 @@ function parseMoves($) {
     const container = $(headingDiv).nextAll('.attack-container').first();
     if (!container.length) return;
 
-    // Capture startup frames from the first table (Startup | Active | Endlag | IASA)
-    let startup = null;
-    const startupTable = container.find('table').first();
-    const startupHeaders = startupTable.find('tr').first().find('th').map(function(_, th) {
-      return $(th).clone().find('.tooltiptext').remove().end().text().trim().toLowerCase();
-    }).toArray();
-    const startupColIdx = startupHeaders.findIndex(h => h.startsWith('startup'));
-    if (startupColIdx >= 0) {
-      const dataRow = startupTable.find('tbody tr').last().find('td');
-      const raw = $(dataRow[startupColIdx]).clone().find('.tooltiptext').remove().end().text().trim();
-      startup = parseStartup(raw);
-    }
+    const startupRef = { value: null };
+    const hitboxes = parseContainer($, container, startupRef, 0);
 
-    // Find the hitbox table — the one with a "Shield Safety" header
-    const hitboxTable = container.find('table').filter(function(_, tbl) {
-      return $(tbl).find('th').toArray().some(th => $(th).text().includes('Shield Safety'));
-    }).first();
-
-    // If no hitbox table, still record the move with just startup data (e.g. Grab)
-    if (!hitboxTable.length) {
-      if (startup !== null) moves.push({ move: moveName, startup, hitboxes: [] });
+    // No hitbox tables found — record with startup only (e.g. Grab)
+    if (!hitboxes.length) {
+      if (startupRef.value !== null) moves.push({ move: moveName, startup: startupRef.value, hitboxes: [] });
       return;
     }
 
-    // Map column headers to indices (strip tooltip text — just use first word/phrase match)
-    const rawHeaders = hitboxTable.find('tr').first().find('th').map(function(_, th) {
-      return $(th).text().trim();
-    }).toArray();
-
-    const colIdx = (keyword) => rawHeaders.findIndex(h => h.toLowerCase().includes(keyword.toLowerCase()));
-    const hitboxCol  = colIdx('hit');
-    const shieldCol  = colIdx('shield safety');
-    const tumbleCol  = colIdx('tumble');
-
-    if (shieldCol === -1) return;
-
-    // Parse hitbox rows — skip rows where the first cell is empty (those are blank spacer rows)
-    // "Unique:" rows are property modifiers for the preceding hitbox, not separate hitboxes.
-    const hitboxes = [];
-    hitboxTable.find('tbody tr').each(function(_, row) {
-      const cells = $(row).find('td').map(function(_, td) {
-        // Get only direct text, stripping tooltip spans
-        return $(td).clone().find('.tooltiptext').remove().end().text().trim();
-      }).toArray();
-
-      if (!cells.length || !cells[0]) return; // skip empty/spacer rows
-
-      const hitboxName = hitboxCol >= 0 ? cells[hitboxCol] : 'Hit ' + (hitboxes.length + 1);
-
-      // "Unique:" rows are informational metadata — skip them
-      if (hitboxName.startsWith('Unique:')) return;
-
-      const shieldRaw = shieldCol >= 0 ? cells[shieldCol] : '';
-      const tumbleRaw = tumbleCol >= 0 ? cells[tumbleCol] : '';
-
-      hitboxes.push({
-        hitbox:                  hitboxName,
-        shieldSafety:            parseShieldSafety(shieldRaw),
-        shieldRaw,
-        tumblePercent:           parseTumblePercent(tumbleRaw),
-        tumbleRaw,
-        perCharacterTumble:      {},
-        perCharacterTumbleAerial: {},
-      });
-    });
-
-    if (!hitboxes.length) return;
-
-    // Parse per-character tumble % from the "Stats for Nerds" collapsible
-    const nerdsCollapsible = container.find('[data-expandtext="Show Stats for Nerds"]').first();
-    if (nerdsCollapsible.length) {
-      // Collect all tabber panels once, keyed by their id (decode HTML entities like &amp; → &)
-      const allPanels = {};
-      nerdsCollapsible.find('.tabber__panel').each(function(_, el) {
-        const id = ($(el).attr('id') || '').replace(/&amp;/g, '&');
-        allPanels[id.toLowerCase()] = $(el);
-      });
-
-      // Build set of panel keys that match any hitbox name
-      const hitboxTabIds = new Set(hitboxes.map(function(h) {
-        return ('tabber-' + toTabId(h.hitbox)).toLowerCase();
-      }));
-
-      // Panels whose IDs don't match any hitbox name are "variant" panels
-      // (e.g. tabber-Uncharged, tabber-Full_Charge) — used as fallback when
-      // there is only one hitbox and no name-matched panel exists.
-      const variantPanels = Object.keys(allPanels).filter(function(k) {
-        return !Array.from(hitboxTabIds).some(function(id) { return k.startsWith(id); });
-      });
-
-      hitboxes.forEach(function(h) {
-        const tabId = ('tabber-' + toTabId(h.hitbox)).toLowerCase();
-        // Try exact match first
-        let panel = allPanels[tabId];
-        // Fuzzy: find any panel id that starts with tabId (some get a _2 suffix for duplicates)
-        if (!panel) {
-          const key = Object.keys(allPanels).find(k => k.startsWith(tabId));
-          if (key) panel = allPanels[key];
-        }
-        // Fallback: if only one hitbox and panels are variant-named (e.g. Uncharged/Full_Charge),
-        // use the first variant panel that has non-zero tumble data
-        if (!panel && hitboxes.length === 1 && variantPanels.length > 0) {
-          const fallbackKey = variantPanels.find(function(k) {
-            return allPanels[k].find('.tumble-cell').toArray().some(function(cell) {
-              const m = $(cell).text().trim().match(/:\s*(\d+)%$/);
-              return m && parseInt(m[1]) > 0;
-            });
-          });
-          if (fallbackKey) panel = allPanels[fallbackKey];
-        }
-        // Last-resort fallback: if still no panel and there's only one hitbox,
-        // check for tumble-cells directly in the nerds section (no tabber at all)
-        if (!panel && hitboxes.length === 1) {
-          const directCells = nerdsCollapsible.find('.tumble-cell').not('.tabber__panel .tumble-cell');
-          if (directCells.length > 0) {
-            directCells.each(function(_, cell) { parseTumbleCell($(cell).text().trim(), h); });
-            return;
-          }
-        }
-        if (!panel) return;
-
-        panel.find('.tumble-cell').each(function(_, cell) { parseTumbleCell($(cell).text().trim(), h); });
-      });
-    }
-
-    moves.push({ move: moveName, startup, hitboxes });
+    moves.push({ move: moveName, startup: startupRef.value, hitboxes });
   });
 
   return moves;

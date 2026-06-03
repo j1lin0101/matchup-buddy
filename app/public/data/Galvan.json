@@ -1,7 +1,7 @@
 {
   "character": "Galvan",
   "slug": "Galvan",
-  "scrapedAt": "2026-06-03T18:06:04.421Z",
+  "scrapedAt": "2026-06-03T19:44:23.323Z",
   "moves": [
     {
       "move": "Jab",
@@ -49,6 +49,50 @@
             "KRAGG": 44,
             "LOXODONT": 44
           },
+          "perCharacterTumbleAerial": {}
+        },
+        {
+          "hitbox": "Jab 2",
+          "shieldSafety": {
+            "min": -19,
+            "max": -18
+          },
+          "shieldRaw": "-19 to -18[-6 to -5]",
+          "tumblePercent": {
+            "min": 73,
+            "max": 90
+          },
+          "tumbleRaw": "73 - 90%",
+          "perCharacterTumble": {
+            "WRASTOR": 73,
+            "OLYMPIA": 76,
+            "ABSA": 77,
+            "MAYPUL": 78,
+            "FLEET": 79,
+            "CLAIREN": 80,
+            "RANNO": 81,
+            "FORSBURN": 83,
+            "ORCANE": 83,
+            "ZETTERBURN": 83,
+            "SLADE": 84,
+            "LA REINA": 86,
+            "GALVAN": 87,
+            "ETALUS": 88,
+            "KRAGG": 89,
+            "LOXODONT": 90
+          },
+          "perCharacterTumbleAerial": {}
+        },
+        {
+          "hitbox": "Jab 1",
+          "shieldSafety": {
+            "min": -14,
+            "max": -13
+          },
+          "shieldRaw": "-14 to -13[-2 to -1]",
+          "tumblePercent": null,
+          "tumbleRaw": "Never",
+          "perCharacterTumble": {},
           "perCharacterTumbleAerial": {}
         }
       ]
@@ -1208,6 +1252,36 @@
           "tumbleRaw": "0%",
           "perCharacterTumble": {},
           "perCharacterTumbleAerial": {}
+        },
+        {
+          "hitbox": "Multihit",
+          "shieldSafety": {
+            "min": -30,
+            "max": -28
+          },
+          "shieldRaw": "-30 to -28",
+          "tumblePercent": {
+            "min": 0,
+            "max": 0
+          },
+          "tumbleRaw": "0%",
+          "perCharacterTumble": {},
+          "perCharacterTumbleAerial": {}
+        },
+        {
+          "hitbox": "Final",
+          "shieldSafety": {
+            "min": -27,
+            "max": -25
+          },
+          "shieldRaw": "-27 to -25",
+          "tumblePercent": {
+            "min": 0,
+            "max": 0
+          },
+          "tumbleRaw": "0%",
+          "perCharacterTumble": {},
+          "perCharacterTumbleAerial": {}
         }
       ]
     },
@@ -1224,6 +1298,45 @@
           "shieldRaw": "-8",
           "tumblePercent": null,
           "tumbleRaw": "☑️",
+          "perCharacterTumble": {},
+          "perCharacterTumbleAerial": {}
+        },
+        {
+          "hitbox": "Spike",
+          "shieldSafety": {
+            "min": -8,
+            "max": -6
+          },
+          "shieldRaw": "-8 to -6",
+          "tumblePercent": {
+            "min": 8,
+            "max": 11,
+            "aerial": {
+              "min": 0,
+              "max": 0
+            }
+          },
+          "tumbleRaw": "⛰️8 - 11%☁️0 - 0%",
+          "perCharacterTumble": {},
+          "perCharacterTumbleAerial": {}
+        },
+        {
+          "hitbox": "Spike",
+          "shieldSafety": {
+            "min": 6,
+            "max": 6,
+            "isStun": true
+          },
+          "shieldRaw": "Stun: 6",
+          "tumblePercent": {
+            "min": 8,
+            "max": 11,
+            "aerial": {
+              "min": 0,
+              "max": 0
+            }
+          },
+          "tumbleRaw": "⛰️8 - 11%☁️0 - 0%",
           "perCharacterTumble": {},
           "perCharacterTumbleAerial": {}
         }
