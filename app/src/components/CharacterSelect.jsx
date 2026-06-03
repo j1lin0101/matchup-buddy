@@ -20,7 +20,7 @@ const CHARACTER_COLORS = {
 }
 
 function iconPath(name) {
-  return `/icons/${name.replace(/ /g, '_')}.png`
+  return `${import.meta.env.BASE_URL}icons/${name.replace(/ /g, '_')}.png`
 }
 
 export default function CharacterSelect({ label, accentColor, selected, onSelect }) {
