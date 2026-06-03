@@ -23,8 +23,21 @@ function iconPath(name) {
   return `${import.meta.env.BASE_URL}icons/${name.replace(/ /g, '_')}.png`
 }
 
+function useNarrow(breakpoint = 600) {
+  const [narrow, setNarrow] = useState(() => window.innerWidth <= breakpoint)
+  useEffect(() => {
+    const mq = window.matchMedia(`(max-width: ${breakpoint}px)`)
+    const handler = e => setNarrow(e.matches)
+    mq.addEventListener('change', handler)
+    setNarrow(mq.matches)
+    return () => mq.removeEventListener('change', handler)
+  }, [breakpoint])
+  return narrow
+}
+
 export default function CharacterSelect({ label, accentColor, selected, onSelect }) {
   const [characters, setCharacters] = useState([])
+  const narrow = useNarrow(600)
 
   useEffect(() => {
     fetch(`${import.meta.env.BASE_URL}characters.json`)
@@ -46,90 +59,131 @@ export default function CharacterSelect({ label, accentColor, selected, onSelect
         {label}
       </h2>
 
-      {selected && (
-        <div style={{
-          display: 'flex',
-          alignItems: 'center',
-          gap: '12px',
-          marginBottom: '20px',
-          padding: '12px 16px',
-          background: 'var(--surface)',
-          border: `2px solid ${accentColor}`,
-          borderRadius: 'var(--radius)',
-        }}>
-          <img
-            src={iconPath(selected)}
-            alt={selected}
-            style={{ width: '40px', height: '40px', objectFit: 'contain', flexShrink: 0 }}
-          />
-          <span style={{ fontWeight: 600, fontSize: '1rem' }}>{selected}</span>
-          <button
-            onClick={() => onSelect(null)}
+      {narrow ? (
+        /* ── Dropdown mode (narrow screens) ── */
+        <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+          {selected && (
+            <img
+              src={iconPath(selected)}
+              alt={selected}
+              style={{ width: '36px', height: '36px', objectFit: 'contain', flexShrink: 0 }}
+            />
+          )}
+          <select
+            value={selected || ''}
+            onChange={e => onSelect(e.target.value || null)}
             style={{
-              marginLeft: 'auto',
-              background: 'none',
-              border: 'none',
-              color: 'var(--muted)',
+              flex: 1,
+              padding: '10px 12px',
+              background: 'var(--surface)',
+              border: `2px solid ${selected ? accentColor : 'var(--border)'}`,
+              borderRadius: 'var(--radius)',
+              color: selected ? 'var(--text)' : 'var(--muted)',
+              fontSize: '0.95rem',
+              fontWeight: selected ? 600 : 400,
               cursor: 'pointer',
-              fontSize: '1.1rem',
-              lineHeight: 1,
-              padding: '2px 6px',
+              appearance: 'none',
+              backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%23888899' d='M6 8L0 0h12z'/%3E%3C/svg%3E")`,
+              backgroundRepeat: 'no-repeat',
+              backgroundPosition: 'right 12px center',
+              paddingRight: '32px',
             }}
-            title="Clear selection"
           >
-            ✕
-          </button>
+            <option value="">— Select a character —</option>
+            {characters.map(name => (
+              <option key={name} value={name}>{name}</option>
+            ))}
+          </select>
         </div>
-      )}
-
-      <div className="char-tile-grid">
-        {characters.map(name => {
-          const isSelected = selected === name
-          const color = CHARACTER_COLORS[name] || '#444'
-          return (
-            <button
-              key={name}
-              onClick={() => onSelect(name)}
-              style={{
-                padding: '10px 6px',
-                background: isSelected ? color : 'var(--surface)',
-                border: `1px solid ${isSelected ? color : 'var(--border)'}`,
-                borderRadius: 'var(--radius)',
-                color: isSelected ? '#fff' : 'var(--text)',
-                fontSize: '0.72rem',
-                fontWeight: isSelected ? 700 : 400,
-                cursor: 'pointer',
-                transition: 'all 0.15s',
-                textAlign: 'center',
-                lineHeight: 1.3,
-                display: 'flex',
-                flexDirection: 'column',
-                alignItems: 'center',
-                gap: '6px',
-              }}
-              onMouseEnter={e => {
-                if (!isSelected) {
-                  e.currentTarget.style.borderColor = color
-                  e.currentTarget.style.background = color + '22'
-                }
-              }}
-              onMouseLeave={e => {
-                if (!isSelected) {
-                  e.currentTarget.style.borderColor = 'var(--border)'
-                  e.currentTarget.style.background = 'var(--surface)'
-                }
-              }}
-            >
+      ) : (
+        /* ── Tile grid mode (wide screens) ── */
+        <>
+          {selected && (
+            <div style={{
+              display: 'flex',
+              alignItems: 'center',
+              gap: '12px',
+              marginBottom: '20px',
+              padding: '12px 16px',
+              background: 'var(--surface)',
+              border: `2px solid ${accentColor}`,
+              borderRadius: 'var(--radius)',
+            }}>
               <img
-                src={iconPath(name)}
-                alt={name}
-                style={{ width: '48px', height: '48px', objectFit: 'contain' }}
+                src={iconPath(selected)}
+                alt={selected}
+                style={{ width: '40px', height: '40px', objectFit: 'contain', flexShrink: 0 }}
               />
-              {name}
-            </button>
-          )
-        })}
-      </div>
+              <span style={{ fontWeight: 600, fontSize: '1rem' }}>{selected}</span>
+              <button
+                onClick={() => onSelect(null)}
+                style={{
+                  marginLeft: 'auto',
+                  background: 'none',
+                  border: 'none',
+                  color: 'var(--muted)',
+                  cursor: 'pointer',
+                  fontSize: '1.1rem',
+                  lineHeight: 1,
+                  padding: '2px 6px',
+                }}
+                title="Clear selection"
+              >
+                ✕
+              </button>
+            </div>
+          )}
+
+          <div className="char-tile-grid">
+            {characters.map(name => {
+              const isSelected = selected === name
+              const color = CHARACTER_COLORS[name] || '#444'
+              return (
+                <button
+                  key={name}
+                  onClick={() => onSelect(name)}
+                  style={{
+                    padding: '10px 6px',
+                    background: isSelected ? color : 'var(--surface)',
+                    border: `1px solid ${isSelected ? color : 'var(--border)'}`,
+                    borderRadius: 'var(--radius)',
+                    color: isSelected ? '#fff' : 'var(--text)',
+                    fontSize: '0.72rem',
+                    fontWeight: isSelected ? 700 : 400,
+                    cursor: 'pointer',
+                    transition: 'all 0.15s',
+                    textAlign: 'center',
+                    lineHeight: 1.3,
+                    display: 'flex',
+                    flexDirection: 'column',
+                    alignItems: 'center',
+                    gap: '6px',
+                  }}
+                  onMouseEnter={e => {
+                    if (!isSelected) {
+                      e.currentTarget.style.borderColor = color
+                      e.currentTarget.style.background = color + '22'
+                    }
+                  }}
+                  onMouseLeave={e => {
+                    if (!isSelected) {
+                      e.currentTarget.style.borderColor = 'var(--border)'
+                      e.currentTarget.style.background = 'var(--surface)'
+                    }
+                  }}
+                >
+                  <img
+                    src={iconPath(name)}
+                    alt={name}
+                    style={{ width: '48px', height: '48px', objectFit: 'contain' }}
+                  />
+                  {name}
+                </button>
+              )
+            })}
+          </div>
+        </>
+      )}
     </div>
   )
 }
