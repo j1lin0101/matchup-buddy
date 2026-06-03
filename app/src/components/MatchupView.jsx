@@ -55,16 +55,16 @@ function Section({ title, accent, children }) {
 
 function SafestOptionsList({ charData, defenderOOSOptions }) {
   const options = useMemo(
-    () => getSafestOptions(charData, defenderOOSOptions),
+    () => getSafestOptions(charData, defenderOOSOptions).filter(o => (o.punishCount ?? 0) === 0),
     [charData, defenderOOSOptions]
   )
-  if (!options.length) return <p style={{ color: 'var(--muted)', fontSize: '0.85rem' }}>No safe or risky moves found.</p>
+  if (!options.length) return <p style={{ color: 'var(--muted)', fontSize: '0.85rem' }}>No safe moves found.</p>
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
       {options.map((o, i) => {
         const punishCount = o.punishCount ?? 0
-        const tagColor = punishCount === 0 ? 'var(--safe)' : 'var(--risky)'
-        const tagLabel = punishCount === 0 ? 'SAFE' : `RISKY (${punishCount})`
+        const tagColor = 'var(--safe)'
+        const tagLabel = 'SAFE'
         return (
           <div key={i} style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '0.83rem' }}>
             <span style={{
@@ -83,7 +83,7 @@ function SafestOptionsList({ charData, defenderOOSOptions }) {
 }
 
 function OOSList({ charData }) {
-  const options = useMemo(() => getOOSOptions(charData).slice(0, 8), [charData])
+  const options = useMemo(() => getOOSOptions(charData).slice(0, 5), [charData])
   if (!options.length) return <p style={{ color: 'var(--muted)', fontSize: '0.85rem' }}>No OOS data.</p>
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
@@ -390,12 +390,12 @@ export default function MatchupView({ myChar, oppChar, onBack }) {
         {/* Top row: safest options + OOS options */}
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr 1fr', gap: '16px' }}>
           {oppData && (
-            <Section title={`${oppChar}'s Safest Options`} accent="var(--accent2)">
+            <Section title={`${oppChar}'s Safe Options`} accent="var(--accent2)">
               <SafestOptionsList charData={oppData} defenderOOSOptions={myOOS} />
             </Section>
           )}
           {myData && (
-            <Section title={`${myChar}'s Safest Options`} accent="var(--accent)">
+            <Section title={`${myChar}'s Safe Options`} accent="var(--accent)">
               <SafestOptionsList charData={myData} defenderOOSOptions={oppOOS} />
             </Section>
           )}
