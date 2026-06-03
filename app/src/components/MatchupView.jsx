@@ -114,7 +114,37 @@ function OOSList({ charData }) {
   )
 }
 
-function MoveRow({ row, attackerName }) {
+function TumbleBadge({ row, defenderName }) {
+  let label = null
+  if (defenderName && row.perCharacterTumble) {
+    const key = defenderName.toUpperCase()
+    if (row.perCharacterTumble[key] !== undefined) {
+      label = `${row.perCharacterTumble[key]}%`
+    }
+  }
+  if (!label && row.tumblePercent) {
+    const { min, max } = row.tumblePercent
+    label = min === max ? `${min}%` : `${min}–${max}%`
+  }
+  if (!label) return <span style={{ color: 'var(--muted)', fontSize: '0.75rem' }}>—</span>
+  return (
+    <span style={{
+      display: 'inline-block',
+      padding: '2px 8px',
+      borderRadius: '4px',
+      background: 'var(--accent2)18',
+      color: 'var(--accent2)',
+      border: '1px solid var(--accent2)33',
+      fontSize: '0.75rem',
+      fontWeight: 700,
+      whiteSpace: 'nowrap',
+    }}>
+      {label}
+    </span>
+  )
+}
+
+function MoveRow({ row, attackerName, defenderName }) {
   const statusColor = row.isSafe ? SAFE_COLOR : row.isRisky ? RISKY_COLOR : PUNISH_COLOR
   const statusLabel = row.isSafe ? 'SAFE' : row.isRisky ? 'RISKY' : 'PUNISHABLE'
 
@@ -123,7 +153,7 @@ function MoveRow({ row, attackerName }) {
       padding: '10px 16px',
       borderBottom: '1px solid var(--border)',
       display: 'grid',
-      gridTemplateColumns: '90px 1fr 120px 1fr',
+      gridTemplateColumns: '90px 1fr 120px 90px 1fr',
       gap: '12px',
       alignItems: 'start',
       fontSize: '0.82rem',
@@ -160,6 +190,11 @@ function MoveRow({ row, attackerName }) {
         <ShieldBadge value={row.shieldSafety} />
       </div>
 
+      {/* Tumble % */}
+      <div style={{ textAlign: 'center' }}>
+        <TumbleBadge row={row} defenderName={defenderName} />
+      </div>
+
       {/* Punishes */}
       <div>
         {row.punishes && row.punishes.length > 0 ? (
@@ -188,7 +223,7 @@ function MoveRow({ row, attackerName }) {
   )
 }
 
-function CategoryAccordion({ category, rows, attackerName }) {
+function CategoryAccordion({ category, rows, attackerName, defenderName }) {
   const [open, setOpen] = useState(true)
   const safe      = rows.filter(r => r.isSafe).length
   const risky     = rows.filter(r => r.isRisky).length
@@ -241,7 +276,7 @@ function CategoryAccordion({ category, rows, attackerName }) {
             padding: '8px 16px',
             borderBottom: '1px solid var(--border)',
             display: 'grid',
-            gridTemplateColumns: '90px 1fr 120px 1fr',
+            gridTemplateColumns: '90px 1fr 120px 90px 1fr',
             gap: '12px',
             fontSize: '0.65rem',
             fontWeight: 700,
@@ -252,9 +287,10 @@ function CategoryAccordion({ category, rows, attackerName }) {
             <span>Status</span>
             <span>Move</span>
             <span style={{ textAlign: 'center' }}>On Shield</span>
+            <span style={{ textAlign: 'center' }}>Tumble %</span>
             <span>Punish Options</span>
           </div>
-          {rows.map((row, i) => <MoveRow key={i} row={row} attackerName={attackerName} />)}
+          {rows.map((row, i) => <MoveRow key={i} row={row} attackerName={attackerName} defenderName={defenderName} />)}
         </div>
       )}
     </div>
@@ -275,6 +311,7 @@ function BreakdownTable({ matchup }) {
             category={category}
             rows={rows}
             attackerName={matchup.attacker}
+            defenderName={matchup.defender}
           />
         )
       })}

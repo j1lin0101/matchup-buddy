@@ -245,18 +245,20 @@ function analyzeMatchup(attackerData, defenderData) {
       const isPunishable = punishes.length >= 4;
 
       results.push({
-        move:            move.move,
-        hitbox:          h.hitbox,
-        startup:         move.startup,
-        category:        getCategory(move.move),
-        shieldSafety:    shieldAdv,
-        shieldRaw:       h.shieldRaw,
+        move:               move.move,
+        hitbox:             h.hitbox,
+        startup:            move.startup,
+        category:           getCategory(move.move),
+        shieldSafety:       shieldAdv,
+        shieldRaw:          h.shieldRaw,
         isSafe,
         isRisky,
         isPunishable,
-        punishCount:     punishes.length,
+        punishCount:        punishes.length,
         defenderFrameAdv,
         punishes,
+        tumblePercent:      h.tumblePercent      ?? null,
+        perCharacterTumble: h.perCharacterTumble ?? {},
       });
     });
   });
