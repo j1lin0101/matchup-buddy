@@ -248,6 +248,16 @@ function MoveRow({ row, attackerName, defenderName }) {
   )
 }
 
+const TUMBLE_EARLY_COLOR  = '#00CED1'  // cyan   ≤40%
+const TUMBLE_MEDIUM_COLOR = '#F0E442'  // yellow ≤80%
+const TUMBLE_HIGH_COLOR   = '#DA70D6'  // orchid ≤130%
+
+function getTumbleNum(row, defKey) {
+  if (defKey && row.perCharacterTumble?.[defKey] !== undefined) return row.perCharacterTumble[defKey]
+  if (row.tumblePercent) return Math.round((row.tumblePercent.min + row.tumblePercent.max) / 2)
+  return null
+}
+
 function CategoryAccordion({ category, rows, attackerName, defenderName }) {
   const [open, setOpen] = useState(true)
   const [sortBy, setSortBy] = useState('shield')   // 'move' | 'shield' | 'tumble'
@@ -256,6 +266,24 @@ function CategoryAccordion({ category, rows, attackerName, defenderName }) {
   const safe      = rows.filter(r => r.isSafe).length
   const risky     = rows.filter(r => r.isRisky).length
   const punishable = rows.filter(r => r.isPunishable).length
+
+  const defKey = defenderName ? defenderName.toUpperCase() : null
+  // Count best tumble per move (use lowest of grounded/aerial when both exist)
+  const tumbleCounts = useMemo(() => {
+    // Dedupe by move name — take the lowest tumble threshold per move
+    const byMove = {}
+    rows.forEach(r => {
+      const t = getTumbleNum(r, defKey)
+      if (t === null) return
+      if (byMove[r.move] === undefined || t < byMove[r.move]) byMove[r.move] = t
+    })
+    const vals = Object.values(byMove)
+    return {
+      early:  vals.filter(t => t <= 40).length,
+      medium: vals.filter(t => t > 40 && t <= 80).length,
+      high:   vals.filter(t => t > 80 && t <= 130).length,
+    }
+  }, [rows, defKey])
 
   function handleSort(col) {
     if (sortBy === col) {
@@ -268,7 +296,6 @@ function CategoryAccordion({ category, rows, attackerName, defenderName }) {
   }
 
   const sorted = useMemo(() => {
-    const defKey = defenderName ? defenderName.toUpperCase() : null
     return [...rows].sort((a, b) => {
       let cmp = 0
       if (sortBy === 'move') {
@@ -276,20 +303,16 @@ function CategoryAccordion({ category, rows, attackerName, defenderName }) {
       } else if (sortBy === 'shield') {
         cmp = (a.shieldSafety?.max ?? -999) - (b.shieldSafety?.max ?? -999)
       } else if (sortBy === 'tumble') {
-        const getT = r => {
-          if (defKey && r.perCharacterTumble?.[defKey] !== undefined) return r.perCharacterTumble[defKey]
-          if (r.tumblePercent) return Math.round((r.tumblePercent.min + r.tumblePercent.max) / 2)
-          return 9999
-        }
+        const getT = r => getTumbleNum(r, defKey) ?? 9999
         cmp = getT(a) - getT(b)
       }
       return cmp * sortDir
     })
-  }, [rows, sortBy, sortDir, defenderName])
+  }, [rows, sortBy, sortDir, defKey])
 
   function SortHeader({ col, label, align }) {
     const active = sortBy === col
-    const arrow = active ? (sortDir > 0 ? ' ▲' : ' ▼') : ''
+    const arrow = active ? (sortDir > 0 ? ' ▲' : ' ▼') : ' ↕'
     return (
       <button
         onClick={() => handleSort(col)}
@@ -307,7 +330,7 @@ function CategoryAccordion({ category, rows, attackerName, defenderName }) {
           width: '100%',
         }}
       >
-        {label}{arrow}
+        {label}<span style={{ opacity: active ? 1 : 0.45 }}>{arrow}</span>
       </button>
     )
   }
@@ -347,6 +370,10 @@ function CategoryAccordion({ category, rows, attackerName, defenderName }) {
         <span style={{ color: SAFE_COLOR, fontSize: '0.72rem' }}>{safe} safe</span>
         <span style={{ color: RISKY_COLOR, fontSize: '0.72rem' }}>{risky} risky</span>
         <span style={{ color: PUNISH_COLOR, fontSize: '0.72rem' }}>{punishable} punishable</span>
+        <span style={{ width: '1px', height: '12px', background: 'var(--border)', margin: '0 4px' }} />
+        {tumbleCounts.early  > 0 && <span style={{ color: TUMBLE_EARLY_COLOR,  fontSize: '0.72rem' }}>{tumbleCounts.early} early KD</span>}
+        {tumbleCounts.medium > 0 && <span style={{ color: TUMBLE_MEDIUM_COLOR, fontSize: '0.72rem' }}>{tumbleCounts.medium} mid KD</span>}
+        {tumbleCounts.high   > 0 && <span style={{ color: TUMBLE_HIGH_COLOR,   fontSize: '0.72rem' }}>{tumbleCounts.high} high KD</span>}
         <span style={{ color: 'var(--muted)', fontSize: '0.7rem', marginLeft: '4px' }}>
           {open ? '▲' : '▼'}
         </span>
