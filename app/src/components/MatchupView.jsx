@@ -7,10 +7,9 @@ const SAFE_COLOR  = 'var(--safe)'
 const RISKY_COLOR = 'var(--risky)'
 const PUNISH_COLOR = 'var(--punish)'
 
-function ShieldBadge({ value }) {
+function ShieldBadge({ value, color }) {
   if (!value) return null
   const v = value.max
-  const color = v >= 0 ? SAFE_COLOR : v >= -3 ? RISKY_COLOR : PUNISH_COLOR
   const label = value.min === value.max ? `${v > 0 ? '+' : ''}${v}` : `${value.min} to ${value.max}`
   return (
     <span style={{
@@ -141,9 +140,9 @@ function TumbleBadge({ row, defenderName }) {
     display: 'inline-block',
     padding: '2px 8px',
     borderRadius: '4px',
-    background: 'var(--accent2)18',
-    color: 'var(--accent2)',
-    border: '1px solid var(--accent2)33',
+    background: 'var(--border)',
+    color: 'var(--muted)',
+    border: '1px solid var(--border)',
     fontSize: '0.75rem',
     fontWeight: 700,
     whiteSpace: 'nowrap',
@@ -153,7 +152,7 @@ function TumbleBadge({ row, defenderName }) {
     return (
       <div style={{ display: 'flex', flexDirection: 'column', gap: '3px', alignItems: 'center' }}>
         <span style={badgeStyle} title="Grounded">⛰ {grounded}</span>
-        <span style={{ ...badgeStyle, background: 'var(--accent)18', color: 'var(--accent)', border: '1px solid var(--accent)33' }} title="Airborne">☁ {aerial}</span>
+        <span style={badgeStyle} title="Airborne">☁ {aerial}</span>
       </div>
     )
   }
@@ -204,7 +203,7 @@ function MoveRow({ row, attackerName, defenderName }) {
 
       {/* Shield safety */}
       <div style={{ textAlign: 'center' }}>
-        <ShieldBadge value={row.shieldSafety} />
+        <ShieldBadge value={row.shieldSafety} color={statusColor} />
       </div>
 
       {/* Tumble % */}
