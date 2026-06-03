@@ -26,14 +26,31 @@ function parseShieldSafety(raw) {
   return null;
 }
 
-function parseTumblePercent(raw) {
-  if (!raw || raw.trim() === '—' || raw.trim() === '') return null;
-  const clean = raw.replace(/%/g, '').trim();
-  const range = clean.match(/(\d+)\s*[-–]\s*(\d+)/);
+function parseOneRange(str) {
+  if (!str) return null;
+  const s = str.replace(/%/g, '').trim();
+  const range = s.match(/(\d+)\s*[-–]\s*(\d+)/);
   if (range) return { min: parseInt(range[1]), max: parseInt(range[2]) };
-  const single = clean.match(/^(\d+)$/);
+  const single = s.match(/(\d+)/);
   if (single) { const v = parseInt(single[1]); return { min: v, max: v }; }
   return null;
+}
+
+function parseTumblePercent(raw) {
+  if (!raw || raw.trim() === '—' || raw.trim() === '') return null;
+  // Context format: "⛰️4 - 7%☁️0 - 0%" — split on the aerial emoji
+  if (raw.includes('☁')) {
+    const parts = raw.split(/☁/);
+    const grounded = parseOneRange(parts[0]);
+    const aerial   = parseOneRange(parts[1] || '');
+    if (!grounded) return null;
+    // Only attach aerial if it's meaningfully different
+    if (aerial && (aerial.min !== grounded.min || aerial.max !== grounded.max)) {
+      return { ...grounded, aerial };
+    }
+    return grounded;
+  }
+  return parseOneRange(raw);
 }
 
 // Slugify a hitbox name to match tabber panel IDs (e.g. "Arm (Weak)" → "Arm_(Weak)")
@@ -46,6 +63,30 @@ function parseStartup(raw) {
   if (!raw) return null;
   const m = raw.match(/^(\d+)/);
   return m ? parseInt(m[1]) : null;
+}
+
+/**
+ * Parses a tumble-cell text into a hitbox's perCharacterTumble / perCharacterTumbleAerial maps.
+ * Handles two formats:
+ *   Simple:  "CLAIREN: 172%"
+ *   Context: "CLAIREN: ⛰️When grounded.42%☁️When airborne.35%"
+ */
+function parseTumbleCell(text, hitbox) {
+  // Simple: "CLAIREN: 172%"
+  const simple = text.match(/^([A-Z][A-Z\s]+):\s*(\d+)%$/);
+  if (simple) {
+    hitbox.perCharacterTumble[simple[1].trim()] = parseInt(simple[2]);
+    return;
+  }
+  // Context: "CLAIREN: ⛰️...X%☁️...Y%"
+  const charMatch = text.match(/^([A-Z][A-Z\s]+):/);
+  if (!charMatch) return;
+  const charName = charMatch[1].trim();
+  const parts = text.split(/☁/);
+  const groundedMatch = parts[0].match(/(\d+)%/);
+  const aerialMatch   = parts[1] ? parts[1].match(/(\d+)%/) : null;
+  if (groundedMatch) hitbox.perCharacterTumble[charName]       = parseInt(groundedMatch[1]);
+  if (aerialMatch)   hitbox.perCharacterTumbleAerial[charName] = parseInt(aerialMatch[1]);
 }
 
 function parseMoves($) {
@@ -115,12 +156,13 @@ function parseMoves($) {
       const tumbleRaw = tumbleCol >= 0 ? cells[tumbleCol] : '';
 
       hitboxes.push({
-        hitbox:             hitboxName,
-        shieldSafety:       parseShieldSafety(shieldRaw),
+        hitbox:                  hitboxName,
+        shieldSafety:            parseShieldSafety(shieldRaw),
         shieldRaw,
-        tumblePercent:      parseTumblePercent(tumbleRaw),
+        tumblePercent:           parseTumblePercent(tumbleRaw),
         tumbleRaw,
-        perCharacterTumble: {},
+        perCharacterTumble:      {},
+        perCharacterTumbleAerial: {},
       });
     });
 
@@ -173,28 +215,13 @@ function parseMoves($) {
         if (!panel && hitboxes.length === 1) {
           const directCells = nerdsCollapsible.find('.tumble-cell').not('.tabber__panel .tumble-cell');
           if (directCells.length > 0) {
-            directCells.each(function(_, cell) {
-              const text = $(cell).text().trim();
-              const simple = text.match(/^([A-Z][A-Z\s]+):\s*(\d+)%$/);
-              if (simple) { h.perCharacterTumble[simple[1].trim()] = parseInt(simple[2]); return; }
-              const ctx = text.match(/^([A-Z][A-Z\s]+):\s*.*?(\d+)%/);
-              if (ctx) h.perCharacterTumble[ctx[1].trim()] = parseInt(ctx[2]);
-            });
+            directCells.each(function(_, cell) { parseTumbleCell($(cell).text().trim(), h); });
             return;
           }
         }
         if (!panel) return;
 
-        panel.find('.tumble-cell').each(function(_, cell) {
-          const text = $(cell).text().trim();
-          // Standard format:  "CLAIREN: 172%"
-          const simple = text.match(/^([A-Z][A-Z\s]+):\s*(\d+)%$/);
-          if (simple) { h.perCharacterTumble[simple[1].trim()] = parseInt(simple[2]); return; }
-          // Context format: "CLAIREN: ⛰️When grounded.42%☁️When airborne.35%"
-          // Use grounded value (⛰️) as the primary tumble threshold.
-          const ctx = text.match(/^([A-Z][A-Z\s]+):\s*.*?(\d+)%/);
-          if (ctx) h.perCharacterTumble[ctx[1].trim()] = parseInt(ctx[2]);
-        });
+        panel.find('.tumble-cell').each(function(_, cell) { parseTumbleCell($(cell).text().trim(), h); });
       });
     }
 

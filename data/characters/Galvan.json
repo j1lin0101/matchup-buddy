@@ -1,7 +1,7 @@
 {
   "character": "Galvan",
   "slug": "Galvan",
-  "scrapedAt": "2026-06-03T18:03:11.487Z",
+  "scrapedAt": "2026-06-03T18:06:04.421Z",
   "moves": [
     {
       "move": "Jab",
@@ -16,7 +16,8 @@
           "shieldRaw": "-32 to -30",
           "tumblePercent": null,
           "tumbleRaw": "Never",
-          "perCharacterTumble": {}
+          "perCharacterTumble": {},
+          "perCharacterTumbleAerial": {}
         },
         {
           "hitbox": "Final",
@@ -47,7 +48,8 @@
             "ETALUS": 43,
             "KRAGG": 44,
             "LOXODONT": 44
-          }
+          },
+          "perCharacterTumbleAerial": {}
         }
       ]
     },
@@ -84,7 +86,8 @@
             "ETALUS": 15,
             "KRAGG": 15,
             "LOXODONT": 15
-          }
+          },
+          "perCharacterTumbleAerial": {}
         },
         {
           "hitbox": "Tip Late & Tail",
@@ -115,7 +118,8 @@
             "ETALUS": 53,
             "KRAGG": 53,
             "LOXODONT": 54
-          }
+          },
+          "perCharacterTumbleAerial": {}
         }
       ]
     },
@@ -152,7 +156,8 @@
             "ETALUS": 19,
             "KRAGG": 20,
             "LOXODONT": 20
-          }
+          },
+          "perCharacterTumbleAerial": {}
         },
         {
           "hitbox": "Chest & Horn Late",
@@ -183,7 +188,8 @@
             "ETALUS": 38,
             "KRAGG": 39,
             "LOXODONT": 39
-          }
+          },
+          "perCharacterTumbleAerial": {}
         }
       ]
     },
@@ -200,7 +206,11 @@
           "shieldRaw": "-11 to -9",
           "tumblePercent": {
             "min": 23,
-            "max": 31
+            "max": 31,
+            "aerial": {
+              "min": 17,
+              "max": 23
+            }
           },
           "tumbleRaw": "⛰️23 - 31%☁️17 - 23%",
           "perCharacterTumble": {
@@ -220,6 +230,24 @@
             "ETALUS": 30,
             "KRAGG": 30,
             "LOXODONT": 31
+          },
+          "perCharacterTumbleAerial": {
+            "WRASTOR": 17,
+            "OLYMPIA": 18,
+            "ABSA": 19,
+            "MAYPUL": 19,
+            "FLEET": 20,
+            "CLAIREN": 20,
+            "RANNO": 20,
+            "FORSBURN": 21,
+            "ORCANE": 21,
+            "ZETTERBURN": 21,
+            "SLADE": 21,
+            "LA REINA": 22,
+            "GALVAN": 22,
+            "ETALUS": 23,
+            "KRAGG": 23,
+            "LOXODONT": 23
           }
         },
         {
@@ -251,7 +279,8 @@
             "ETALUS": 75,
             "KRAGG": 76,
             "LOXODONT": 77
-          }
+          },
+          "perCharacterTumbleAerial": {}
         }
       ]
     },
@@ -288,7 +317,8 @@
             "ETALUS": 0,
             "KRAGG": 0,
             "LOXODONT": 0
-          }
+          },
+          "perCharacterTumbleAerial": {}
         },
         {
           "hitbox": "Late",
@@ -319,7 +349,8 @@
             "ETALUS": 0,
             "KRAGG": 0,
             "LOXODONT": 0
-          }
+          },
+          "perCharacterTumbleAerial": {}
         }
       ]
     },
@@ -356,7 +387,8 @@
             "ETALUS": 2,
             "KRAGG": 2,
             "LOXODONT": 2
-          }
+          },
+          "perCharacterTumbleAerial": {}
         },
         {
           "hitbox": "Late",
@@ -387,7 +419,8 @@
             "ETALUS": 17,
             "KRAGG": 17,
             "LOXODONT": 17
-          }
+          },
+          "perCharacterTumbleAerial": {}
         }
       ]
     },
@@ -424,7 +457,8 @@
             "ETALUS": 0,
             "KRAGG": 0,
             "LOXODONT": 0
-          }
+          },
+          "perCharacterTumbleAerial": {}
         },
         {
           "hitbox": "Hit 2 (Downward)",
@@ -435,7 +469,11 @@
           "shieldRaw": "-16 to -15",
           "tumblePercent": {
             "min": 9,
-            "max": 13
+            "max": 13,
+            "aerial": {
+              "min": 0,
+              "max": 0
+            }
           },
           "tumbleRaw": "⛰️9 - 13%☁️0 - 0%",
           "perCharacterTumble": {
@@ -455,6 +493,24 @@
             "ETALUS": 13,
             "KRAGG": 13,
             "LOXODONT": 13
+          },
+          "perCharacterTumbleAerial": {
+            "WRASTOR": 0,
+            "OLYMPIA": 0,
+            "ABSA": 0,
+            "MAYPUL": 0,
+            "FLEET": 0,
+            "CLAIREN": 0,
+            "RANNO": 0,
+            "FORSBURN": 0,
+            "ORCANE": 0,
+            "ZETTERBURN": 0,
+            "SLADE": 0,
+            "LA REINA": 0,
+            "GALVAN": 0,
+            "ETALUS": 0,
+            "KRAGG": 0,
+            "LOXODONT": 0
           }
         }
       ]
@@ -492,7 +548,8 @@
             "ETALUS": 2,
             "KRAGG": 2,
             "LOXODONT": 2
-          }
+          },
+          "perCharacterTumbleAerial": {}
         }
       ]
     },
@@ -529,7 +586,8 @@
             "ETALUS": 21,
             "KRAGG": 21,
             "LOXODONT": 22
-          }
+          },
+          "perCharacterTumbleAerial": {}
         },
         {
           "hitbox": "Early Body",
@@ -560,7 +618,8 @@
             "ETALUS": 53,
             "KRAGG": 54,
             "LOXODONT": 54
-          }
+          },
+          "perCharacterTumbleAerial": {}
         },
         {
           "hitbox": "Late",
@@ -591,7 +650,8 @@
             "ETALUS": 85,
             "KRAGG": 86,
             "LOXODONT": 87
-          }
+          },
+          "perCharacterTumbleAerial": {}
         }
       ]
     },
@@ -628,7 +688,8 @@
             "ETALUS": 33,
             "KRAGG": 33,
             "LOXODONT": 33
-          }
+          },
+          "perCharacterTumbleAerial": {}
         },
         {
           "hitbox": "Galvanized",
@@ -659,7 +720,8 @@
             "ETALUS": 18,
             "KRAGG": 18,
             "LOXODONT": 18
-          }
+          },
+          "perCharacterTumbleAerial": {}
         }
       ]
     },
@@ -696,7 +758,8 @@
             "ETALUS": 30,
             "KRAGG": 30,
             "LOXODONT": 30
-          }
+          },
+          "perCharacterTumbleAerial": {}
         },
         {
           "hitbox": "Early Body",
@@ -727,7 +790,8 @@
             "ETALUS": 52,
             "KRAGG": 52,
             "LOXODONT": 53
-          }
+          },
+          "perCharacterTumbleAerial": {}
         },
         {
           "hitbox": "Late Foot",
@@ -758,7 +822,8 @@
             "ETALUS": 63,
             "KRAGG": 63,
             "LOXODONT": 64
-          }
+          },
+          "perCharacterTumbleAerial": {}
         },
         {
           "hitbox": "Late Body",
@@ -789,7 +854,8 @@
             "ETALUS": 85,
             "KRAGG": 85,
             "LOXODONT": 86
-          }
+          },
+          "perCharacterTumbleAerial": {}
         }
       ]
     },
@@ -826,7 +892,8 @@
             "ETALUS": 21,
             "KRAGG": 21,
             "LOXODONT": 22
-          }
+          },
+          "perCharacterTumbleAerial": {}
         },
         {
           "hitbox": "Late",
@@ -857,7 +924,8 @@
             "ETALUS": 54,
             "KRAGG": 54,
             "LOXODONT": 55
-          }
+          },
+          "perCharacterTumbleAerial": {}
         }
       ]
     },
@@ -874,7 +942,11 @@
           "shieldRaw": "-3",
           "tumblePercent": {
             "min": 34,
-            "max": 44
+            "max": 44,
+            "aerial": {
+              "min": 32,
+              "max": 42
+            }
           },
           "tumbleRaw": "⛰️34 - 44%☁️32 - 42%",
           "perCharacterTumble": {
@@ -894,6 +966,24 @@
             "ETALUS": 43,
             "KRAGG": 44,
             "LOXODONT": 44
+          },
+          "perCharacterTumbleAerial": {
+            "WRASTOR": 32,
+            "OLYMPIA": 34,
+            "ABSA": 34,
+            "MAYPUL": 35,
+            "FLEET": 36,
+            "CLAIREN": 36,
+            "RANNO": 37,
+            "FORSBURN": 38,
+            "ORCANE": 38,
+            "ZETTERBURN": 38,
+            "SLADE": 38,
+            "LA REINA": 39,
+            "GALVAN": 40,
+            "ETALUS": 41,
+            "KRAGG": 41,
+            "LOXODONT": 42
           }
         },
         {
@@ -905,7 +995,11 @@
           "shieldRaw": "-6",
           "tumblePercent": {
             "min": 55,
-            "max": 69
+            "max": 69,
+            "aerial": {
+              "min": 54,
+              "max": 68
+            }
           },
           "tumbleRaw": "⛰️55 - 69%☁️54 - 68%",
           "perCharacterTumble": {
@@ -925,6 +1019,23 @@
             "ETALUS": 68,
             "KRAGG": 68,
             "LOXODONT": 69
+          },
+          "perCharacterTumbleAerial": {
+            "WRASTOR": 54,
+            "OLYMPIA": 57,
+            "MAYPUL": 58,
+            "FLEET": 59,
+            "CLAIREN": 60,
+            "RANNO": 61,
+            "FORSBURN": 63,
+            "ORCANE": 63,
+            "ZETTERBURN": 63,
+            "SLADE": 63,
+            "LA REINA": 65,
+            "GALVAN": 66,
+            "ETALUS": 67,
+            "KRAGG": 67,
+            "LOXODONT": 68
           }
         }
       ]
@@ -963,7 +1074,8 @@
             "ETALUS": 90,
             "KRAGG": 91,
             "LOXODONT": 92
-          }
+          },
+          "perCharacterTumbleAerial": {}
         }
       ]
     },
@@ -980,7 +1092,8 @@
           "shieldRaw": "-40 to -38",
           "tumblePercent": null,
           "tumbleRaw": "Never",
-          "perCharacterTumble": {}
+          "perCharacterTumble": {},
+          "perCharacterTumbleAerial": {}
         },
         {
           "hitbox": "Final Normal",
@@ -1011,7 +1124,8 @@
             "ETALUS": 23,
             "KRAGG": 23,
             "LOXODONT": 23
-          }
+          },
+          "perCharacterTumbleAerial": {}
         },
         {
           "hitbox": "Multihit Reinforced",
@@ -1022,7 +1136,8 @@
           "shieldRaw": "-40 to -38",
           "tumblePercent": null,
           "tumbleRaw": "Never",
-          "perCharacterTumble": {}
+          "perCharacterTumble": {},
+          "perCharacterTumbleAerial": {}
         },
         {
           "hitbox": "Final Reinforced",
@@ -1053,7 +1168,8 @@
             "ETALUS": 19,
             "KRAGG": 19,
             "LOXODONT": 19
-          }
+          },
+          "perCharacterTumbleAerial": {}
         }
       ]
     },
@@ -1074,7 +1190,8 @@
             "max": 0
           },
           "tumbleRaw": "0%",
-          "perCharacterTumble": {}
+          "perCharacterTumble": {},
+          "perCharacterTumbleAerial": {}
         },
         {
           "hitbox": "Final",
@@ -1089,7 +1206,8 @@
             "max": 0
           },
           "tumbleRaw": "0%",
-          "perCharacterTumble": {}
+          "perCharacterTumble": {},
+          "perCharacterTumbleAerial": {}
         }
       ]
     },
@@ -1106,7 +1224,8 @@
           "shieldRaw": "-8",
           "tumblePercent": null,
           "tumbleRaw": "☑️",
-          "perCharacterTumble": {}
+          "perCharacterTumble": {},
+          "perCharacterTumbleAerial": {}
         }
       ]
     },
@@ -1124,7 +1243,8 @@
           "shieldRaw": "Stun: 6",
           "tumblePercent": null,
           "tumbleRaw": "Never",
-          "perCharacterTumble": {}
+          "perCharacterTumble": {},
+          "perCharacterTumbleAerial": {}
         }
       ]
     },
@@ -1142,7 +1262,8 @@
           "shieldRaw": "Stun: 2",
           "tumblePercent": null,
           "tumbleRaw": "Never",
-          "perCharacterTumble": {}
+          "perCharacterTumble": {},
+          "perCharacterTumbleAerial": {}
         }
       ]
     },
@@ -1163,7 +1284,8 @@
             "max": 0
           },
           "tumbleRaw": "0%",
-          "perCharacterTumble": {}
+          "perCharacterTumble": {},
+          "perCharacterTumbleAerial": {}
         }
       ]
     },
@@ -1180,7 +1302,8 @@
             "max": 0
           },
           "tumbleRaw": "0 - 0%",
-          "perCharacterTumble": {}
+          "perCharacterTumble": {},
+          "perCharacterTumbleAerial": {}
         }
       ]
     },
@@ -1198,7 +1321,8 @@
           "shieldRaw": "Stun: 3",
           "tumblePercent": null,
           "tumbleRaw": "☑️",
-          "perCharacterTumble": {}
+          "perCharacterTumble": {},
+          "perCharacterTumbleAerial": {}
         }
       ]
     },
@@ -1219,7 +1343,8 @@
             "max": 0
           },
           "tumbleRaw": "0%",
-          "perCharacterTumble": {}
+          "perCharacterTumble": {},
+          "perCharacterTumbleAerial": {}
         }
       ]
     },
@@ -1256,7 +1381,8 @@
             "ETALUS": 14,
             "KRAGG": 14,
             "LOXODONT": 14
-          }
+          },
+          "perCharacterTumbleAerial": {}
         }
       ]
     },
@@ -1276,7 +1402,8 @@
             "max": 0
           },
           "tumbleRaw": "0 - 0%",
-          "perCharacterTumble": {}
+          "perCharacterTumble": {},
+          "perCharacterTumbleAerial": {}
         }
       ]
     },
@@ -1313,7 +1440,8 @@
             "ETALUS": 0,
             "KRAGG": 0,
             "LOXODONT": 0
-          }
+          },
+          "perCharacterTumbleAerial": {}
         }
       ]
     },
@@ -1330,7 +1458,8 @@
           "shieldRaw": "-39 to -38",
           "tumblePercent": null,
           "tumbleRaw": "Never",
-          "perCharacterTumble": {}
+          "perCharacterTumble": {},
+          "perCharacterTumbleAerial": {}
         },
         {
           "hitbox": "Multihit High",
@@ -1341,7 +1470,8 @@
           "shieldRaw": "-39 to -38",
           "tumblePercent": null,
           "tumbleRaw": "Never",
-          "perCharacterTumble": {}
+          "perCharacterTumble": {},
+          "perCharacterTumbleAerial": {}
         },
         {
           "hitbox": "Final",
@@ -1372,7 +1502,8 @@
             "ETALUS": 0,
             "KRAGG": 0,
             "LOXODONT": 0
-          }
+          },
+          "perCharacterTumbleAerial": {}
         }
       ]
     }

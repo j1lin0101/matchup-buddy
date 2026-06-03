@@ -257,8 +257,9 @@ function analyzeMatchup(attackerData, defenderData) {
         punishCount:        punishes.length,
         defenderFrameAdv,
         punishes,
-        tumblePercent:      h.tumblePercent      ?? null,
-        perCharacterTumble: h.perCharacterTumble ?? {},
+        tumblePercent:           h.tumblePercent             ?? null,
+        perCharacterTumble:      h.perCharacterTumble        ?? {},
+        perCharacterTumbleAerial: h.perCharacterTumbleAerial ?? {},
       });
     });
   });

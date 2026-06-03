@@ -115,33 +115,50 @@ function OOSList({ charData }) {
 }
 
 function TumbleBadge({ row, defenderName }) {
-  let label = null
-  if (defenderName && row.perCharacterTumble) {
-    const key = defenderName.toUpperCase()
-    if (row.perCharacterTumble[key] !== undefined) {
-      label = `${row.perCharacterTumble[key]}%`
-    }
-  }
-  if (!label && row.tumblePercent) {
+  const key = defenderName ? defenderName.toUpperCase() : null
+
+  // Grounded value
+  let grounded = null
+  if (key && row.perCharacterTumble?.[key] !== undefined) {
+    grounded = `${row.perCharacterTumble[key]}%`
+  } else if (row.tumblePercent) {
     const { min, max } = row.tumblePercent
-    label = min === max ? `${min}%` : `${min}–${max}%`
+    grounded = min === max ? `${min}%` : `${min}–${max}%`
   }
-  if (!label) return <span style={{ color: 'var(--muted)', fontSize: '0.75rem' }}>—</span>
-  return (
-    <span style={{
-      display: 'inline-block',
-      padding: '2px 8px',
-      borderRadius: '4px',
-      background: 'var(--accent2)18',
-      color: 'var(--accent2)',
-      border: '1px solid var(--accent2)33',
-      fontSize: '0.75rem',
-      fontWeight: 700,
-      whiteSpace: 'nowrap',
-    }}>
-      {label}
-    </span>
-  )
+
+  // Aerial value (only when distinct from grounded)
+  let aerial = null
+  if (key && row.perCharacterTumbleAerial?.[key] !== undefined) {
+    aerial = `${row.perCharacterTumbleAerial[key]}%`
+  } else if (row.tumblePercent?.aerial) {
+    const { min, max } = row.tumblePercent.aerial
+    aerial = min === max ? `${min}%` : `${min}–${max}%`
+  }
+
+  if (!grounded) return <span style={{ color: 'var(--muted)', fontSize: '0.75rem' }}>—</span>
+
+  const badgeStyle = {
+    display: 'inline-block',
+    padding: '2px 8px',
+    borderRadius: '4px',
+    background: 'var(--accent2)18',
+    color: 'var(--accent2)',
+    border: '1px solid var(--accent2)33',
+    fontSize: '0.75rem',
+    fontWeight: 700,
+    whiteSpace: 'nowrap',
+  }
+
+  if (aerial && aerial !== grounded) {
+    return (
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '3px', alignItems: 'center' }}>
+        <span style={badgeStyle} title="Grounded">⛰ {grounded}</span>
+        <span style={{ ...badgeStyle, background: 'var(--accent)18', color: 'var(--accent)', border: '1px solid var(--accent)33' }} title="Airborne">☁ {aerial}</span>
+      </div>
+    )
+  }
+
+  return <span style={badgeStyle}>{grounded}</span>
 }
 
 function MoveRow({ row, attackerName, defenderName }) {
