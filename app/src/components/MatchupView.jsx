@@ -341,8 +341,8 @@ function BreakdownSection({ matchupVsOpp, matchupVsMe, myChar, oppChar }) {
   const active = view === 'opp' ? matchupVsOpp : matchupVsMe
   const activeColor = view === 'opp' ? 'var(--accent2)' : 'var(--accent)'
   const label = view === 'opp'
-    ? `${oppChar} attacking — ${myChar} on shield`
-    : `${myChar} attacking — ${oppChar} on shield`
+    ? `${oppChar} attacking`
+    : `${myChar} attacking`
 
   return (
     <div>
