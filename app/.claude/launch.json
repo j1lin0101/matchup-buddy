@@ -3,8 +3,12 @@
   "configurations": [
     {
       "name": "roa2-app",
-      "runtimeExecutable": "/usr/local/opt/node/bin/npm",
-      "runtimeArgs": ["run", "dev", "--", "--port", "5173"],
+      "runtimeExecutable": "/usr/local/opt/node/bin/node",
+      "runtimeArgs": [
+        "/Users/jeremy/Documents/RivalsGameplanHelper/app/node_modules/.bin/vite",
+        "--root", "/Users/jeremy/Documents/RivalsGameplanHelper/app",
+        "--port", "5173"
+      ],
       "port": 5173
     }
   ]
