@@ -268,16 +268,9 @@ function CategoryAccordion({ category, rows, attackerName, defenderName }) {
   const punishable = rows.filter(r => r.isPunishable).length
 
   const defKey = defenderName ? defenderName.toUpperCase() : null
-  // Count best tumble per move (use lowest of grounded/aerial when both exist)
+  // Count each hitbox row individually — matches exactly what's shown in the table
   const tumbleCounts = useMemo(() => {
-    // Dedupe by move name — take the lowest tumble threshold per move
-    const byMove = {}
-    rows.forEach(r => {
-      const t = getTumbleNum(r, defKey)
-      if (t === null) return
-      if (byMove[r.move] === undefined || t < byMove[r.move]) byMove[r.move] = t
-    })
-    const vals = Object.values(byMove)
+    const vals = rows.map(r => getTumbleNum(r, defKey)).filter(t => t !== null)
     return {
       early:  vals.filter(t => t <= 40).length,
       medium: vals.filter(t => t > 40 && t <= 80).length,
