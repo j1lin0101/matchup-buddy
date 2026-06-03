@@ -22,10 +22,7 @@ export default function App() {
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
-      <header style={{
-        padding: '24px 32px 20px',
-        borderBottom: '1px solid var(--border)',
-      }}>
+      <header className="select-header">
         <h1 style={{ fontSize: '1.5rem', fontWeight: 700, letterSpacing: '0.02em', color: 'var(--accent)' }}>
           RoA2 Gameplan Helper
         </h1>
@@ -34,7 +31,7 @@ export default function App() {
         </p>
       </header>
 
-      <main style={{ flex: 1, padding: '32px', maxWidth: '1200px', width: '100%', margin: '0 auto' }}>
+      <main className="select-main">
         <div className="char-select-grid">
           <CharacterSelect
             label="Your Character"

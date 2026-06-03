@@ -195,15 +195,7 @@ function MoveRow({ row, attackerName, defenderName }) {
   const statusColor = row.isSafe ? SAFE_COLOR : row.isRisky ? RISKY_COLOR : PUNISH_COLOR
 
   return (
-    <div style={{
-      padding: '10px 16px',
-      borderBottom: '1px solid var(--border)',
-      display: 'grid',
-      gridTemplateColumns: '1fr 120px 90px 1fr',
-      gap: '12px',
-      alignItems: 'start',
-      fontSize: '0.82rem',
-    }}>
+    <div className="move-row">
       {/* Move + hitbox */}
       <div>
         <span style={{ fontWeight: 600 }}>{getDisplayName(attackerName, row.move)}</span>
@@ -214,13 +206,11 @@ function MoveRow({ row, attackerName, defenderName }) {
         )}
       </div>
 
-      {/* Shield safety */}
-      <div style={{ textAlign: 'center' }}>
+      {/* Shield safety + Tumble % — grouped in a flex row on mobile */}
+      <div className="move-row-badges" style={{ textAlign: 'center' }}>
         <ShieldBadge value={row.shieldSafety} color={statusColor} />
       </div>
-
-      {/* Tumble % */}
-      <div style={{ textAlign: 'center' }}>
+      <div className="move-row-badges" style={{ textAlign: 'center' }}>
         <TumbleBadge row={row} defenderName={defenderName} />
       </div>
 
@@ -364,14 +354,16 @@ function CategoryAccordion({ category, rows, attackerName, defenderName }) {
         }}>
           {category}
         </span>
-        <span style={{ color: SAFE_COLOR, fontSize: '0.72rem' }}>{safe} safe</span>
-        <span style={{ color: RISKY_COLOR, fontSize: '0.72rem' }}>{risky} risky</span>
-        <span style={{ color: PUNISH_COLOR, fontSize: '0.72rem' }}>{punishable} punishable</span>
-        <span style={{ width: '1px', height: '12px', background: 'var(--border)', margin: '0 4px' }} />
-        {tumbleCounts.early  > 0 && <span style={{ color: TUMBLE_EARLY_COLOR,  fontSize: '0.72rem' }}>{tumbleCounts.early} early KD</span>}
-        {tumbleCounts.medium > 0 && <span style={{ color: TUMBLE_MEDIUM_COLOR, fontSize: '0.72rem' }}>{tumbleCounts.medium} mid KD</span>}
-        {tumbleCounts.high   > 0 && <span style={{ color: TUMBLE_HIGH_COLOR,   fontSize: '0.72rem' }}>{tumbleCounts.high} high KD</span>}
-        <span style={{ color: 'var(--muted)', fontSize: '0.7rem', marginLeft: '4px' }}>
+        <div className="accordion-counts">
+          <span style={{ color: SAFE_COLOR, fontSize: '0.72rem' }}>{safe} safe</span>
+          <span style={{ color: RISKY_COLOR, fontSize: '0.72rem' }}>{risky} risky</span>
+          <span style={{ color: PUNISH_COLOR, fontSize: '0.72rem' }}>{punishable} punishable</span>
+          <span style={{ width: '1px', height: '12px', background: 'var(--border)', margin: '0 2px' }} />
+          {tumbleCounts.early  > 0 && <span style={{ color: TUMBLE_EARLY_COLOR,  fontSize: '0.72rem' }}>{tumbleCounts.early} early KD</span>}
+          {tumbleCounts.medium > 0 && <span style={{ color: TUMBLE_MEDIUM_COLOR, fontSize: '0.72rem' }}>{tumbleCounts.medium} mid KD</span>}
+          {tumbleCounts.high   > 0 && <span style={{ color: TUMBLE_HIGH_COLOR,   fontSize: '0.72rem' }}>{tumbleCounts.high} high KD</span>}
+        </div>
+        <span style={{ color: 'var(--muted)', fontSize: '0.7rem', marginLeft: '4px', flexShrink: 0 }}>
           {open ? '▲' : '▼'}
         </span>
       </button>
@@ -379,13 +371,7 @@ function CategoryAccordion({ category, rows, attackerName, defenderName }) {
       {open && (
         <div style={{ background: 'var(--surface)' }}>
           {/* Column headers */}
-          <div style={{
-            padding: '8px 16px',
-            borderBottom: '1px solid var(--border)',
-            display: 'grid',
-            gridTemplateColumns: '1fr 120px 90px 1fr',
-            gap: '12px',
-          }}>
+          <div className="col-headers">
             <SortHeader col="move" label="Move" />
             <SortHeader col="shield" label="On Shield" align="center" />
             <SortHeader col="tumble" label="Tumble %" align="center" />
@@ -503,27 +489,28 @@ export default function MatchupView({ myChar, oppChar, onBack }) {
   return (
     <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
       {/* Header */}
-      <header style={{ padding: '20px 32px', borderBottom: '1px solid var(--border)', display: 'flex', alignItems: 'center', gap: '16px' }}>
+      <header className="page-header">
         <button onClick={onBack} style={{
           background: 'none', border: '1px solid var(--border)',
           color: 'var(--muted)', borderRadius: 'var(--radius)',
           padding: '6px 14px', cursor: 'pointer', fontSize: '0.82rem',
+          flexShrink: 0,
         }}>
           ← Back
         </button>
-        <div>
-          <h1 style={{ fontSize: '1.2rem', fontWeight: 700 }}>
+        <div style={{ minWidth: 0 }}>
+          <h1 style={{ fontSize: '1.1rem', fontWeight: 700, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
             <span style={{ color: 'var(--accent)' }}>{myChar}</span>
-            <span style={{ color: 'var(--muted)', margin: '0 10px' }}>vs</span>
+            <span style={{ color: 'var(--muted)', margin: '0 8px' }}>vs</span>
             <span style={{ color: 'var(--accent2)' }}>{oppChar}</span>
           </h1>
-          <p style={{ color: 'var(--muted)', fontSize: '0.75rem', marginTop: '2px' }}>
+          <p style={{ color: 'var(--muted)', fontSize: '0.72rem', marginTop: '2px' }}>
             Shield safety &amp; punish analysis · Shield release {matchupVsOpp?.shieldRelease}f · Jump squat 4f
           </p>
         </div>
       </header>
 
-      <main style={{ flex: 1, padding: '24px 32px', display: 'flex', flexDirection: 'column', gap: '24px', maxWidth: '1300px', width: '100%', margin: '0 auto' }}>
+      <main className="page-main">
 
         {/* Top row: player first, then opponent */}
         <div className="top-panels-grid">
