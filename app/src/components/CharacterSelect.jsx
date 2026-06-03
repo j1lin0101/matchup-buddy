@@ -1,22 +1,22 @@
 import { useState, useEffect } from 'react'
 
 const CHARACTER_COLORS = {
-  Zetterburn: '#e53935',
-  Forsburn:   '#7b1fa2',
-  Maypul:     '#388e3c',
-  Absa:       '#1565c0',
-  Etalus:     '#0288d1',
-  Orcane:     '#00838f',
-  Wrastor:    '#6d4c41',
-  Kragg:      '#827717',
-  Ranno:      '#2e7d32',
-  Clairen:    '#ad1457',
-  Fleet:      '#00695c',
-  Loxodont:   '#bf360c',
-  Olympia:    '#4527a0',
-  'La Reina': '#c62828',
-  Galvan:     '#1565c0',
-  Slade:      '#004d40',
+  Zetterburn: '#D55E00',  // vermilion
+  Forsburn:   '#7b1fa2',  // purple
+  Maypul:     '#009E73',  // bluish green
+  Absa:       '#0072B2',  // blue
+  Etalus:     '#56B4E9',  // sky blue
+  Orcane:     '#0288d1',  // teal-blue
+  Wrastor:    '#8B6355',  // brown (neutral)
+  Kragg:      '#E69F00',  // orange
+  Ranno:      '#009E73',  // bluish green
+  Clairen:    '#CC79A7',  // reddish purple
+  Fleet:      '#009E73',  // bluish green
+  Loxodont:   '#D55E00',  // vermilion
+  Olympia:    '#4527a0',  // deep purple
+  'La Reina': '#CC79A7',  // reddish purple
+  Galvan:     '#0072B2',  // blue
+  Slade:      '#004d40',  // dark teal
 }
 
 function iconPath(name) {

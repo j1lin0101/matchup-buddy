@@ -4,11 +4,12 @@
   --bg:      #0e0e12;
   --surface: #1a1a22;
   --border:  #2e2e3e;
-  --accent:  #4fc3f7;
-  --accent2: #f9a825;
-  --safe:    #4caf50;
-  --risky:   #ff9800;
-  --punish:  #f44336;
+  /* Okabe-Ito colorblind-safe palette */
+  --accent:  #56B4E9;  /* sky blue — player character */
+  --accent2: #CC79A7;  /* reddish purple — opponent */
+  --safe:    #009E73;  /* bluish green */
+  --risky:   #E69F00;  /* orange */
+  --punish:  #D55E00;  /* vermilion */
   --text:    #e8e8f0;
   --muted:   #888899;
   --radius:  8px;
