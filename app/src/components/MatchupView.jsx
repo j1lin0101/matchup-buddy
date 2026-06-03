@@ -440,13 +440,8 @@ export default function MatchupView({ myChar, oppChar, onBack }) {
 
       <main style={{ flex: 1, padding: '24px 32px', display: 'flex', flexDirection: 'column', gap: '24px', maxWidth: '1300px', width: '100%', margin: '0 auto' }}>
 
-        {/* Top row: safest options + OOS options */}
+        {/* Top row: player first, then opponent */}
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr 1fr', gap: '16px' }}>
-          {oppData && (
-            <Section title={`${oppChar}'s Safe Options`} accent="var(--accent2)">
-              <SafestOptionsList charData={oppData} defenderOOSOptions={myOOS} />
-            </Section>
-          )}
           {myData && (
             <Section title={`${myChar}'s Safe Options`} accent="var(--accent)">
               <SafestOptionsList charData={myData} defenderOOSOptions={oppOOS} />
@@ -455,6 +450,11 @@ export default function MatchupView({ myChar, oppChar, onBack }) {
           {myData && (
             <Section title={`${myChar} OOS Options`} accent="var(--accent)">
               <OOSList charData={myData} />
+            </Section>
+          )}
+          {oppData && (
+            <Section title={`${oppChar}'s Safe Options`} accent="var(--accent2)">
+              <SafestOptionsList charData={oppData} defenderOOSOptions={myOOS} />
             </Section>
           )}
           {oppData && (
