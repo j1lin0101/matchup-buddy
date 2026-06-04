@@ -183,7 +183,7 @@ function TumbleBadge({ row, defenderName }) {
   if (aerialStr && aerialStr !== groundedStr) {
     const aBadge = makeBadge(aerialNum, aerialStr)
     return (
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '3px', alignItems: 'center' }}>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '3px', alignItems: 'flex-start' }}>
         <span style={gBadge.style}>Grounded {gBadge.str}</span>
         <span style={aBadge.style}>Aerial {aBadge.str}</span>
       </div>
