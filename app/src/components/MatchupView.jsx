@@ -81,12 +81,12 @@ function SafestOptionsList({ charData, defenderOOSOptions }) {
               : `${o.shieldSafety.min} to ${v}`)
           : '—'
         return (
-          <div key={i} style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '0.83rem' }}>
+          <div key={i} style={{ display: 'flex', alignItems: 'center', gap: '10px', fontSize: '0.83rem' }}>
             <span style={{
-              display: 'inline-block', padding: '1px 4px', borderRadius: '4px',
+              display: 'inline-block', padding: '2px 6px', borderRadius: '4px',
               background: tagColor + '22', color: tagColor,
-              border: `1px solid ${tagColor}44`, fontSize: '0.68rem', fontWeight: 700,
-              width: '68px', flexShrink: 0, textAlign: 'center',
+              border: `1px solid ${tagColor}44`, fontSize: '0.72rem', fontWeight: 700,
+              width: '52px', flexShrink: 0, textAlign: 'center',
               whiteSpace: 'nowrap', overflow: 'hidden',
             }}>{tagLabel}</span>
             <span style={{ fontWeight: 600 }}>{getDisplayName(charData.character, o.move)}</span>
@@ -104,18 +104,19 @@ function OOSList({ charData }) {
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
       {options.map((o, i) => (
-        <div key={i} style={{ display: 'flex', alignItems: 'center', gap: '10px', fontSize: '0.85rem' }}>
+        <div key={i} style={{ display: 'flex', alignItems: 'center', gap: '10px', fontSize: '0.83rem' }}>
           <span style={{
             display: 'inline-block',
-            padding: '2px 8px',
+            padding: '2px 6px',
             borderRadius: '4px',
             background: 'var(--accent)22',
             color: 'var(--accent)',
             border: '1px solid var(--accent)44',
-            fontSize: '0.75rem',
+            fontSize: '0.72rem',
             fontWeight: 700,
             whiteSpace: 'nowrap',
-            minWidth: '48px',
+            width: '48px',
+            flexShrink: 0,
             textAlign: 'center',
           }}>
             {o.oosStartup}f
