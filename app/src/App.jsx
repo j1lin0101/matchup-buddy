@@ -73,6 +73,23 @@ export default function App() {
           )}
         </div>
       </main>
+      <footer style={{
+        borderTop: '1px solid var(--border)',
+        padding: '14px 32px',
+        textAlign: 'center',
+        fontSize: '0.78rem',
+        color: 'var(--muted)',
+      }}>
+        Created by{' '}
+        <a
+          href="https://x.com/boi_jir0"
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{ color: 'var(--accent)', textDecoration: 'none', fontWeight: 600 }}
+        >
+          @boi_jiro
+        </a>
+      </footer>
     </div>
   )
 }
