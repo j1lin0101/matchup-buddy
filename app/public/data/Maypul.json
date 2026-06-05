@@ -847,8 +847,8 @@
         {
           "hitbox": "Hit 1",
           "shieldSafety": {
-            "min": -30,
-            "max": -30
+            "min": -29,
+            "max": -29
           },
           "shieldRaw": "Stun: 3",
           "tumblePercent": {
@@ -879,8 +879,8 @@
         {
           "hitbox": "Hit 2 Early",
           "shieldSafety": {
-            "min": -26,
-            "max": -19
+            "min": -25,
+            "max": -18
           },
           "shieldRaw": "Stun: 6",
           "tumblePercent": {
@@ -911,8 +911,8 @@
         {
           "hitbox": "Hit 2 Late",
           "shieldSafety": {
-            "min": -28,
-            "max": -21
+            "min": -27,
+            "max": -20
           },
           "shieldRaw": "Stun: 4",
           "tumblePercent": {
