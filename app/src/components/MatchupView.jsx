@@ -61,7 +61,7 @@ function ProjectileBadge({ stun }) {
       }}
     >
       <span style={{ fontSize: '0.65rem', opacity: 0.8 }}>PROJ</span>
-      {stun > 0 ? `+${stun}` : stun}
+      {stun}
     </span>
   )
 }
