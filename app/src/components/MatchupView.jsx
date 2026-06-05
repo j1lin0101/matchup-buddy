@@ -472,7 +472,113 @@ function ToggleButton({ active, color, onClick, children }) {
   )
 }
 
+function HelpModal({ onClose }) {
+  return (
+    <div
+      onClick={onClose}
+      style={{
+        position: 'fixed', inset: 0, zIndex: 1000,
+        background: 'rgba(0,0,0,0.6)',
+        display: 'flex', alignItems: 'center', justifyContent: 'center',
+        padding: '24px',
+      }}
+    >
+      <div
+        onClick={e => e.stopPropagation()}
+        style={{
+          background: 'var(--surface)',
+          border: '1px solid var(--border)',
+          borderRadius: 'var(--radius)',
+          maxWidth: '560px',
+          width: '100%',
+          maxHeight: '80vh',
+          overflowY: 'auto',
+          padding: '24px',
+          display: 'flex',
+          flexDirection: 'column',
+          gap: '20px',
+        }}
+      >
+        {/* Header */}
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+          <h2 style={{ fontSize: '1rem', fontWeight: 700, color: 'var(--text)' }}>How to Read This</h2>
+          <button
+            onClick={onClose}
+            style={{ background: 'none', border: 'none', color: 'var(--muted)', cursor: 'pointer', fontSize: '1.2rem', lineHeight: 1, padding: '2px 6px' }}
+          >✕</button>
+        </div>
+
+        {/* Shield Safety */}
+        <div>
+          <h3 style={{ fontSize: '0.72rem', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--accent)', marginBottom: '8px' }}>
+            On Shield (Shield Safety)
+          </h3>
+          <p style={{ fontSize: '0.85rem', color: 'var(--text)', lineHeight: 1.6 }}>
+            Shield safety tells you how many frames the attacker is ahead or behind after a move hits shield.
+            A <span style={{ color: 'var(--safe)', fontWeight: 600 }}>positive value</span> means the attacker acts first — the move is safe.
+            A <span style={{ color: 'var(--punish)', fontWeight: 600 }}>negative value</span> means the defender acts first — they may be able to punish.
+          </p>
+          <p style={{ fontSize: '0.85rem', color: 'var(--muted)', lineHeight: 1.6, marginTop: '8px' }}>
+            Placeholder: additional context about shield stun, shield release, and how ranges are calculated will go here.
+          </p>
+        </div>
+
+        <div style={{ height: '1px', background: 'var(--border)' }} />
+
+        {/* OOS Options */}
+        <div>
+          <h3 style={{ fontSize: '0.72rem', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--accent)', marginBottom: '8px' }}>
+            OOS Options (Out of Shield)
+          </h3>
+          <p style={{ fontSize: '0.85rem', color: 'var(--text)', lineHeight: 1.6 }}>
+            OOS options are the moves a shielding player can use to punish. The number shown is the total frames from when their shield is hit to when the move can hit back.
+            Grounded moves require <strong>7 frames</strong> of shield release first. Aerials and Up Strong use <strong>jump squat (4 frames)</strong> instead.
+            Grab has no overhead.
+          </p>
+          <p style={{ fontSize: '0.85rem', color: 'var(--muted)', lineHeight: 1.6, marginTop: '8px' }}>
+            Placeholder: additional notes about which OOS options are fastest for each character and how to use this information in neutral will go here.
+          </p>
+        </div>
+
+        <div style={{ height: '1px', background: 'var(--border)' }} />
+
+        {/* Tumble % */}
+        <div>
+          <h3 style={{ fontSize: '0.72rem', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--accent)', marginBottom: '8px' }}>
+            Tumble %
+          </h3>
+          <p style={{ fontSize: '0.85rem', color: 'var(--text)', lineHeight: 1.6 }}>
+            The percentage at which a move sends the opponent into tumble (knockdown). Below this threshold, opponents can tech or DI freely. Above it, they enter tumble and are vulnerable to follow-ups.
+            Lower % = better combo tool. Higher % = the move only connects at higher stocks.
+          </p>
+          <p style={{ fontSize: '0.85rem', color: 'var(--muted)', lineHeight: 1.6, marginTop: '8px' }}>
+            Placeholder: breakdown of the color tiers (early / mid / high knockdown) and how grounded vs aerial values differ will go here.
+          </p>
+        </div>
+
+        <div style={{ height: '1px', background: 'var(--border)' }} />
+
+        {/* Safe / Risky / Punishable */}
+        <div>
+          <h3 style={{ fontSize: '0.72rem', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--accent)', marginBottom: '8px' }}>
+            Safe / Risky / Punishable
+          </h3>
+          <p style={{ fontSize: '0.85rem', color: 'var(--text)', lineHeight: 1.6 }}>
+            Each move is classified based on how many of the opponent's OOS options can punish it:
+          </p>
+          <ul style={{ fontSize: '0.85rem', lineHeight: 1.8, paddingLeft: '16px', marginTop: '6px' }}>
+            <li><span style={{ color: 'var(--safe)', fontWeight: 600 }}>Safe</span> — 0 OOS options can punish it.</li>
+            <li><span style={{ color: 'var(--risky)', fontWeight: 600 }}>Risky</span> — 1–3 OOS options can punish it.</li>
+            <li><span style={{ color: 'var(--punish)', fontWeight: 600 }}>Punishable</span> — 4 or more OOS options can punish it.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  )
+}
+
 export default function MatchupView({ myChar, oppChar, onBack }) {
+  const [helpOpen, setHelpOpen] = useState(false)
   const { data: myData,  loading: myLoading  } = useCharacterData(myChar)
   const { data: oppData, loading: oppLoading } = useCharacterData(oppChar)
 
@@ -499,6 +605,8 @@ export default function MatchupView({ myChar, oppChar, onBack }) {
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
+      {helpOpen && <HelpModal onClose={() => setHelpOpen(false)} />}
+
       {/* Header */}
       <header className="page-header">
         <button onClick={onBack} style={{
@@ -519,6 +627,23 @@ export default function MatchupView({ myChar, oppChar, onBack }) {
             Shield safety &amp; punish analysis · Shield release {matchupVsOpp?.shieldRelease}f · Jump squat 4f
           </p>
         </div>
+        <button
+          onClick={() => setHelpOpen(true)}
+          title="How to read this"
+          style={{
+            flexShrink: 0,
+            background: 'none',
+            border: '1px solid var(--border)',
+            color: 'var(--muted)',
+            borderRadius: '50%',
+            width: '28px', height: '28px',
+            cursor: 'pointer',
+            fontSize: '0.82rem',
+            fontWeight: 700,
+            lineHeight: 1,
+            display: 'flex', alignItems: 'center', justifyContent: 'center',
+          }}
+        >?</button>
       </header>
 
       <main className="page-main">
