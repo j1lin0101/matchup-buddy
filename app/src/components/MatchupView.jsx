@@ -513,7 +513,7 @@ function HelpModal({ onClose }) {
           <h3 style={{ fontSize: '0.72rem', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--accent)', marginBottom: '8px' }}>
             On Shield Safety &amp; OOS Options
           </h3>
-          <p style={{ fontSize: '0.85rem', color: 'var(--text)', lineHeight: 1.6 }}>
+          <p style={{ fontSize: '0.85rem', color: 'var(--text)', lineHeight: 1.6, fontStyle: 'italic' }}>
             "Dictates how much faster the attacker can act after the defender, calculated based on context."
           </p>
           <p style={{ fontSize: '0.85rem', color: 'var(--text)', lineHeight: 1.6, marginTop: '8px' }}>
@@ -562,7 +562,7 @@ function HelpModal({ onClose }) {
           <h3 style={{ fontSize: '0.72rem', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--accent)', marginBottom: '8px' }}>
             Tumble %
           </h3>
-          <p style={{ fontSize: '0.85rem', color: 'var(--text)', lineHeight: 1.6 }}>
+          <p style={{ fontSize: '0.85rem', color: 'var(--text)', lineHeight: 1.6, fontStyle: 'italic' }}>
             "The percent that sends an opponent into tumble. On floorhug, this can knock down."
           </p>
           <p style={{ fontSize: '0.85rem', color: 'var(--muted)', lineHeight: 1.6, marginTop: '8px' }}>
