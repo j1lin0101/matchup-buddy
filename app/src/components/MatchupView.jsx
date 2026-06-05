@@ -508,37 +508,27 @@ function HelpModal({ onClose }) {
           >✕</button>
         </div>
 
-        {/* Shield Safety */}
+        {/* Shield Safety + OOS */}
         <div>
           <h3 style={{ fontSize: '0.72rem', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--accent)', marginBottom: '8px' }}>
-            On Shield (Shield Safety)
+            On Shield Safety &amp; OOS Options
           </h3>
           <p style={{ fontSize: '0.85rem', color: 'var(--text)', lineHeight: 1.6 }}>
             "Dictates how much faster the attacker can act after the defender, calculated based on context."
           </p>
           <p style={{ fontSize: '0.85rem', color: 'var(--muted)', lineHeight: 1.6, marginTop: '8px' }}>
-            A <span style={{ color: 'var(--safe)', fontWeight: 600 }}>positive value</span> means the attacker can act first — the move is safe on shield.
-            A <span style={{ color: 'var(--punish)', fontWeight: 600 }}>negative value</span> means the defender acts first and may be able to punish.
-            Ranges reflect different hitbox positions or contexts (e.g. grounded vs. airborne).
+            A <span style={{ color: 'var(--safe)', fontWeight: 600 }}>positive value</span> means the attacker acts first — the move is safe.
+            A <span style={{ color: 'var(--punish)', fontWeight: 600 }}>negative value</span> means the defender acts first, opening a window to punish out of shield (OOS).
+          </p>
+          <p style={{ fontSize: '0.85rem', color: 'var(--muted)', lineHeight: 1.6, marginTop: '8px' }}>
+            OOS options have a built-in delay before they can come out: grounded moves require <strong>7 frames</strong> of shield release, aerials and Up Strong buffer during <strong>jump squat (4 frames)</strong>, and grab has no overhead. The OOS startup shown is the total frames from shield hit to the move landing.
+          </p>
+          <p style={{ fontSize: '0.85rem', color: 'var(--text)', lineHeight: 1.6, marginTop: '8px' }}>
+            If a move has a shield safety of <strong>−10</strong>, any OOS option with a total startup of <strong>10 frames or fewer</strong> can punish it. The more OOS options that fit inside that window, the more dangerous the move is to throw out.
           </p>
           <p style={{ fontSize: '0.72rem', color: 'var(--muted)', marginTop: '8px', fontStyle: 'italic' }}>
             Definition sourced from{' '}
             <a href="https://dragdown.wiki/wiki/RoA2" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--accent)' }}>dragdown.wiki</a>
-          </p>
-        </div>
-
-        <div style={{ height: '1px', background: 'var(--border)' }} />
-
-        {/* OOS Options */}
-        <div>
-          <h3 style={{ fontSize: '0.72rem', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--accent)', marginBottom: '8px' }}>
-            OOS Options (Out of Shield)
-          </h3>
-          <p style={{ fontSize: '0.85rem', color: 'var(--text)', lineHeight: 1.6 }}>
-            The total frames from when the shield is hit to when a move can hit back. Grounded moves require <strong>7 frames</strong> of shield release before they come out. Aerials and Up Strong bypass this by buffering during <strong>jump squat (4 frames)</strong>. Grab has no extra overhead.
-          </p>
-          <p style={{ fontSize: '0.85rem', color: 'var(--muted)', lineHeight: 1.6, marginTop: '8px' }}>
-            If an attacker's move has a shield safety of <strong>−10</strong>, any OOS option with a total startup of <strong>10 frames or fewer</strong> can punish it.
           </p>
         </div>
 
