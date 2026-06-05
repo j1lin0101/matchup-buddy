@@ -66,7 +66,7 @@ function Section({ title, accent, children }) {
 function SafestOptionsList({ charData, defenderOOSOptions }) {
   const options = useMemo(
     () => getSafestOptions(charData, defenderOOSOptions)
-      .filter(o => (o.punishCount ?? 0) === 0 && getCategory(o.move) !== 'Misc'),
+      .filter(o => (o.punishCount ?? 0) === 0 && getCategory(o.move) !== 'Misc' && !o.shieldSafety?.isStun),
     [charData, defenderOOSOptions]
   )
   if (!options.length) return <p style={{ color: 'var(--muted)', fontSize: '0.85rem' }}>No safe moves found.</p>
