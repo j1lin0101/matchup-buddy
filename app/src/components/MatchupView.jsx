@@ -548,7 +548,7 @@ function HelpModal({ onClose }) {
             <li><span style={{ color: 'var(--punish)', fontWeight: 600 }}>Punishable</span> — 4 or more OOS options can punish it.</li>
           </ul>
           <p style={{ fontSize: '0.85rem', color: 'var(--muted)', lineHeight: 1.6, marginTop: '8px' }}>
-            These ratings are matchup-specific — a move may be safe against one character but risky against another with faster OOS options.
+            These safety categories are matchup-specific. Some characters have faster OOS options than others, so this rating reflects this reality.
           </p>
         </div>
 
