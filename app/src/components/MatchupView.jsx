@@ -693,16 +693,32 @@ export default function MatchupView({ myChar, oppChar, onBack }) {
         textAlign: 'center',
         fontSize: '0.78rem',
         color: 'var(--muted)',
+        display: 'flex',
+        flexDirection: 'column',
+        gap: '6px',
       }}>
-        Created by{' '}
-        <a
-          href="https://x.com/boi_jir0"
-          target="_blank"
-          rel="noopener noreferrer"
-          style={{ color: 'var(--accent)', textDecoration: 'none', fontWeight: 600 }}
-        >
-          @boi_jiro
-        </a>
+        <span>
+          Created by{' '}
+          <a
+            href="https://x.com/boi_jir0"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{ color: 'var(--accent)', textDecoration: 'none', fontWeight: 600 }}
+          >
+            @boi_jiro
+          </a>
+        </span>
+        <span>
+          Have a bug fix, feature suggestion, or general feedback? Please feel free to fill out{' '}
+          <a
+            href="https://forms.gle/7uZnA3EzMN2k19WA9"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{ color: 'var(--accent)', textDecoration: 'none' }}
+          >
+            this form
+          </a>.
+        </span>
       </footer>
     </div>
   )
