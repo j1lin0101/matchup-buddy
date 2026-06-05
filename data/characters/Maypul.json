@@ -776,11 +776,10 @@
         {
           "hitbox": "Seed (Special)",
           "shieldSafety": {
-            "min": 1,
-            "max": 1,
-            "isStun": true
+            "min": -13,
+            "max": -13
           },
-          "shieldRaw": "Stun: 1",
+          "shieldRaw": "-13",
           "tumblePercent": null,
           "tumbleRaw": "Never",
           "perCharacterTumble": {},
@@ -789,11 +788,10 @@
         {
           "hitbox": "Seed (Item)",
           "shieldSafety": {
-            "min": 1,
-            "max": 1,
-            "isStun": true
+            "min": -13,
+            "max": -13
           },
-          "shieldRaw": "Stun: 1",
+          "shieldRaw": "-13",
           "tumblePercent": {
             "min": 194,
             "max": 194

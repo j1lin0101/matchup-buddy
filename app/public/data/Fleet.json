@@ -379,11 +379,10 @@
         {
           "hitbox": "Late",
           "shieldSafety": {
-            "min": 4,
-            "max": 4,
-            "isStun": true
+            "min": -29,
+            "max": -29
           },
-          "shieldRaw": "Stun: 4",
+          "shieldRaw": "-29",
           "tumblePercent": {
             "min": 61,
             "max": 76
@@ -1324,11 +1323,10 @@
         {
           "hitbox": "On Whiff: Arrow",
           "shieldSafety": {
-            "min": 5,
-            "max": 5,
-            "isStun": true
+            "min": -38,
+            "max": -38
           },
-          "shieldRaw": "Stun: 5",
+          "shieldRaw": "-38",
           "tumblePercent": {
             "min": 5,
             "max": 8
@@ -1340,11 +1338,10 @@
         {
           "hitbox": "On Hit: Arrow",
           "shieldSafety": {
-            "min": 5,
-            "max": 5,
-            "isStun": true
+            "min": -38,
+            "max": -38
           },
-          "shieldRaw": "Stun: 5",
+          "shieldRaw": "-38",
           "tumblePercent": {
             "min": 5,
             "max": 8

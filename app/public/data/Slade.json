@@ -1205,11 +1205,10 @@
         {
           "hitbox": "Shuriken: Toss",
           "shieldSafety": {
-            "min": 1,
-            "max": 1,
-            "isStun": true
+            "min": -27,
+            "max": -26
           },
-          "shieldRaw": "Stun: 1",
+          "shieldRaw": "-27 to -26",
           "tumblePercent": {
             "min": 146,
             "max": 179
@@ -1221,11 +1220,10 @@
         {
           "hitbox": "Shuriken: Throw",
           "shieldSafety": {
-            "min": 2,
-            "max": 2,
-            "isStun": true
+            "min": -26,
+            "max": -25
           },
-          "shieldRaw": "Stun: 2",
+          "shieldRaw": "-26 to -25",
           "tumblePercent": {
             "min": 86,
             "max": 106
@@ -1237,11 +1235,10 @@
         {
           "hitbox": "Drop of Nourishment: Toss",
           "shieldSafety": {
-            "min": 2,
-            "max": 2,
-            "isStun": true
+            "min": -26,
+            "max": -25
           },
-          "shieldRaw": "Stun: 2",
+          "shieldRaw": "-26 to -25",
           "tumblePercent": {
             "min": 145,
             "max": 178
@@ -1253,11 +1250,10 @@
         {
           "hitbox": "Drop of Nourishment: Throw",
           "shieldSafety": {
-            "min": 4,
-            "max": 4,
-            "isStun": true
+            "min": -24,
+            "max": -23
           },
-          "shieldRaw": "Stun: 4",
+          "shieldRaw": "-24 to -23",
           "tumblePercent": {
             "min": 49,
             "max": 62
@@ -1269,11 +1265,10 @@
         {
           "hitbox": "Drop of Nourishment: Down Throw",
           "shieldSafety": {
-            "min": 4,
-            "max": 4,
-            "isStun": true
+            "min": -24,
+            "max": -23
           },
-          "shieldRaw": "Stun: 4",
+          "shieldRaw": "-24 to -23",
           "tumblePercent": {
             "min": 49,
             "max": 62
@@ -1285,11 +1280,10 @@
         {
           "hitbox": "Boomerang: Toss",
           "shieldSafety": {
-            "min": 1,
-            "max": 1,
-            "isStun": true
+            "min": -27,
+            "max": -26
           },
-          "shieldRaw": "Stun: 1",
+          "shieldRaw": "-27 to -26",
           "tumblePercent": {
             "min": 146,
             "max": 179
@@ -1301,11 +1295,10 @@
         {
           "hitbox": "Boomerang: Throw",
           "shieldSafety": {
-            "min": 3,
-            "max": 3,
-            "isStun": true
+            "min": -25,
+            "max": -24
           },
-          "shieldRaw": "Stun: 3",
+          "shieldRaw": "-25 to -24",
           "tumblePercent": {
             "min": 53,
             "max": 66
@@ -1317,11 +1310,10 @@
         {
           "hitbox": "Bomb",
           "shieldSafety": {
-            "min": 8,
-            "max": 8,
-            "isStun": true
+            "min": -20,
+            "max": -19
           },
-          "shieldRaw": "Stun: 8",
+          "shieldRaw": "-20 to -19",
           "tumblePercent": {
             "min": 0,
             "max": 0

@@ -3148,11 +3148,10 @@
         {
           "hitbox": "Meatball (Grounded): Meatball",
           "shieldSafety": {
-            "min": 4,
-            "max": 4,
-            "isStun": true
+            "min": -25,
+            "max": -20
           },
-          "shieldRaw": "Stun: 4",
+          "shieldRaw": "-25 to -20",
           "tumblePercent": {
             "min": 8,
             "max": 11

@@ -1240,11 +1240,10 @@
         {
           "hitbox": "Icicles",
           "shieldSafety": {
-            "min": 1,
-            "max": 1,
-            "isStun": true
+            "min": -24,
+            "max": -14
           },
-          "shieldRaw": "Stun: 1",
+          "shieldRaw": "-24 to -14",
           "tumblePercent": {
             "min": 103,
             "max": 127

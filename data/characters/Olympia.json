@@ -995,11 +995,10 @@
         {
           "hitbox": "Throw Gem: Projectile",
           "shieldSafety": {
-            "min": 3,
-            "max": 3,
-            "isStun": true
+            "min": -15,
+            "max": -15
           },
-          "shieldRaw": "Stun: 3",
+          "shieldRaw": "-15",
           "tumblePercent": {
             "min": 365,
             "max": 449

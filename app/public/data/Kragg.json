@@ -763,11 +763,10 @@
         {
           "hitbox": "Rock Throw: Neutral",
           "shieldSafety": {
-            "min": 6,
-            "max": 6,
-            "isStun": true
+            "min": -6,
+            "max": -6
           },
-          "shieldRaw": "Stun: 6",
+          "shieldRaw": "-6",
           "tumblePercent": {
             "min": 22,
             "max": 29
@@ -796,11 +795,10 @@
         {
           "hitbox": "Rock Throw: Forward",
           "shieldSafety": {
-            "min": 6,
-            "max": 6,
-            "isStun": true
+            "min": -6,
+            "max": -6
           },
-          "shieldRaw": "Stun: 6",
+          "shieldRaw": "-6",
           "tumblePercent": {
             "min": 4,
             "max": 7
@@ -829,11 +827,10 @@
         {
           "hitbox": "Rock Throw: Up",
           "shieldSafety": {
-            "min": 6,
-            "max": 6,
-            "isStun": true
+            "min": -6,
+            "max": -6
           },
-          "shieldRaw": "Stun: 6",
+          "shieldRaw": "-6",
           "tumblePercent": {
             "min": 22,
             "max": 29
@@ -862,11 +859,10 @@
         {
           "hitbox": "Rock Throw: Down",
           "shieldSafety": {
-            "min": 6,
-            "max": 6,
-            "isStun": true
+            "min": -6,
+            "max": -6
           },
-          "shieldRaw": "Stun: 6",
+          "shieldRaw": "-6",
           "tumblePercent": null,
           "tumbleRaw": "☑️",
           "perCharacterTumble": {},
@@ -875,11 +871,10 @@
         {
           "hitbox": "Rock Throw: Shard",
           "shieldSafety": {
-            "min": 1,
-            "max": 1,
-            "isStun": true
+            "min": -11,
+            "max": -11
           },
-          "shieldRaw": "Stun: 1",
+          "shieldRaw": "-11",
           "tumblePercent": {
             "min": 86,
             "max": 105

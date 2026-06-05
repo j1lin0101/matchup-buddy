@@ -1091,11 +1091,10 @@
         {
           "hitbox": "Magnet: Magnet",
           "shieldSafety": {
-            "min": 2,
-            "max": 2,
-            "isStun": true
+            "min": -20,
+            "max": -20
           },
-          "shieldRaw": "Stun: 2",
+          "shieldRaw": "-20",
           "tumblePercent": {
             "min": 75,
             "max": 92

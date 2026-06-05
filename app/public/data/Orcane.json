@@ -1097,11 +1097,10 @@
         {
           "hitbox": "Droplet",
           "shieldSafety": {
-            "min": 4,
-            "max": 4,
-            "isStun": true
+            "min": -17,
+            "max": -17
           },
-          "shieldRaw": "Stun: 4",
+          "shieldRaw": "-17",
           "tumblePercent": {
             "min": 128,
             "max": 159
@@ -1368,11 +1367,10 @@
         {
           "hitbox": "Droplet Spawn: Droplet",
           "shieldSafety": {
-            "min": 4,
-            "max": 4,
-            "isStun": true
+            "min": -15,
+            "max": -15
           },
-          "shieldRaw": "Stun: 4",
+          "shieldRaw": "-15",
           "tumblePercent": {
             "min": 162,
             "max": 200
@@ -1401,11 +1399,10 @@
         {
           "hitbox": "Bubble Pop: Bubble",
           "shieldSafety": {
-            "min": 2,
-            "max": 2,
-            "isStun": true
+            "min": -29,
+            "max": -29
           },
-          "shieldRaw": "Stun: 2",
+          "shieldRaw": "-29",
           "tumblePercent": null,
           "tumbleRaw": "Never",
           "perCharacterTumble": {},

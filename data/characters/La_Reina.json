@@ -738,11 +738,10 @@
         {
           "hitbox": "Throw Chair: Chair",
           "shieldSafety": {
-            "min": 4,
-            "max": 4,
-            "isStun": true
+            "min": -15,
+            "max": -13
           },
-          "shieldRaw": "Stun: 4",
+          "shieldRaw": "-15 to -13",
           "tumblePercent": {
             "min": 23,
             "max": 29
