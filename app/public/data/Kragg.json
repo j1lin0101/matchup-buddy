@@ -1,7 +1,7 @@
 {
   "character": "Kragg",
   "slug": "Kragg",
-  "scrapedAt": "2026-06-05T21:35:40.083Z",
+  "scrapedAt": "2026-06-05T21:38:52.682Z",
   "moves": [
     {
       "move": "Jab",
@@ -987,11 +987,11 @@
           "hitbox": "Pillar: Grounded",
           "shieldSafety": {
             "isProjectile": true,
-            "isNA": true,
-            "min": null,
-            "max": null
+            "isStun": true,
+            "min": 5,
+            "max": 5
           },
-          "shieldRaw": "+null",
+          "shieldRaw": "Stun: 5",
           "tumblePercent": {
             "min": 0,
             "max": 0
@@ -1004,11 +1004,11 @@
           "hitbox": "Pillar: Aerial",
           "shieldSafety": {
             "isProjectile": true,
-            "isNA": true,
-            "min": null,
-            "max": null
+            "isStun": true,
+            "min": 5,
+            "max": 5
           },
-          "shieldRaw": "+null",
+          "shieldRaw": "Stun: 5",
           "tumblePercent": {
             "min": 0,
             "max": 0

@@ -95,7 +95,7 @@ function getAllShieldSafeties(characterData) {
     if (isExcludedMove(move.move)) return;
     move.hitboxes.forEach(function(h) {
       if (!h.shieldSafety) return;
-      if (h.shieldSafety.isNA) return;  // projectile with no computable SS
+      if (h.shieldSafety.isNA) return;  // (legacy guard, no longer generated)
       results.push({
         move:        move.move,
         hitbox:      h.hitbox,
@@ -229,21 +229,6 @@ function analyzeMatchup(attackerData, defenderData) {
     if (isExcludedMove(move.move)) return;
     move.hitboxes.forEach(function(h) {
       if (!h.shieldSafety) return;
-
-      // Projectile with no computable SS — include for display (PROJ N/A badge) but no punish calc
-      if (h.shieldSafety.isNA) {
-        results.push({
-          move: move.move, hitbox: h.hitbox, startup: move.startup,
-          category: getCategory(move.move),
-          shieldSafety: h.shieldSafety, shieldRaw: null,
-          isSafe: false, isRisky: false, isPunishable: false,
-          punishCount: 0, defenderFrameAdv: null, punishes: [],
-          tumblePercent: h.tumblePercent ?? null,
-          perCharacterTumble: h.perCharacterTumble ?? {},
-          perCharacterTumbleAerial: h.perCharacterTumbleAerial ?? {},
-        });
-        return;
-      }
 
       const shieldAdv = h.shieldSafety; // { min, max }
 

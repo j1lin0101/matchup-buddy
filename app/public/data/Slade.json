@@ -1,7 +1,7 @@
 {
   "character": "Slade",
   "slug": "Slade",
-  "scrapedAt": "2026-06-05T21:35:43.544Z",
+  "scrapedAt": "2026-06-05T21:38:56.471Z",
   "moves": [
     {
       "move": "Jab",
@@ -1193,11 +1193,11 @@
           "hitbox": "Shuriken: Toss",
           "shieldSafety": {
             "isProjectile": true,
-            "isNA": true,
-            "min": null,
-            "max": null
+            "isStun": true,
+            "min": 1,
+            "max": 1
           },
-          "shieldRaw": "+null",
+          "shieldRaw": "Stun: 1",
           "tumblePercent": {
             "min": 146,
             "max": 179
@@ -1227,11 +1227,11 @@
           "hitbox": "Shuriken: Throw",
           "shieldSafety": {
             "isProjectile": true,
-            "isNA": true,
-            "min": null,
-            "max": null
+            "isStun": true,
+            "min": 2,
+            "max": 2
           },
-          "shieldRaw": "+null",
+          "shieldRaw": "Stun: 2",
           "tumblePercent": {
             "min": 86,
             "max": 106
@@ -1261,11 +1261,11 @@
           "hitbox": "Drop of Nourishment: Toss",
           "shieldSafety": {
             "isProjectile": true,
-            "isNA": true,
-            "min": null,
-            "max": null
+            "isStun": true,
+            "min": 2,
+            "max": 2
           },
-          "shieldRaw": "+null",
+          "shieldRaw": "Stun: 2",
           "tumblePercent": {
             "min": 145,
             "max": 178
@@ -1295,11 +1295,11 @@
           "hitbox": "Drop of Nourishment: Throw",
           "shieldSafety": {
             "isProjectile": true,
-            "isNA": true,
-            "min": null,
-            "max": null
+            "isStun": true,
+            "min": 4,
+            "max": 4
           },
-          "shieldRaw": "+null",
+          "shieldRaw": "Stun: 4",
           "tumblePercent": {
             "min": 49,
             "max": 62
@@ -1329,11 +1329,11 @@
           "hitbox": "Drop of Nourishment: Down Throw",
           "shieldSafety": {
             "isProjectile": true,
-            "isNA": true,
-            "min": null,
-            "max": null
+            "isStun": true,
+            "min": 4,
+            "max": 4
           },
-          "shieldRaw": "+null",
+          "shieldRaw": "Stun: 4",
           "tumblePercent": {
             "min": 49,
             "max": 62
@@ -1363,11 +1363,11 @@
           "hitbox": "Boomerang: Toss",
           "shieldSafety": {
             "isProjectile": true,
-            "isNA": true,
-            "min": null,
-            "max": null
+            "isStun": true,
+            "min": 1,
+            "max": 1
           },
-          "shieldRaw": "+null",
+          "shieldRaw": "Stun: 1",
           "tumblePercent": {
             "min": 146,
             "max": 179
@@ -1397,11 +1397,11 @@
           "hitbox": "Boomerang: Throw",
           "shieldSafety": {
             "isProjectile": true,
-            "isNA": true,
-            "min": null,
-            "max": null
+            "isStun": true,
+            "min": 3,
+            "max": 3
           },
-          "shieldRaw": "+null",
+          "shieldRaw": "Stun: 3",
           "tumblePercent": {
             "min": 53,
             "max": 66
@@ -1431,11 +1431,11 @@
           "hitbox": "Bomb",
           "shieldSafety": {
             "isProjectile": true,
-            "isNA": true,
-            "min": null,
-            "max": null
+            "isStun": true,
+            "min": 8,
+            "max": 8
           },
-          "shieldRaw": "+null",
+          "shieldRaw": "Stun: 8",
           "tumblePercent": {
             "min": 0,
             "max": 0
@@ -2601,11 +2601,11 @@
           "hitbox": "Fish (Throw)",
           "shieldSafety": {
             "isProjectile": true,
-            "isNA": true,
-            "min": null,
-            "max": null
+            "isStun": true,
+            "min": 3,
+            "max": 3
           },
-          "shieldRaw": "+null",
+          "shieldRaw": "Stun: 3",
           "tumblePercent": {
             "min": 49,
             "max": 61
@@ -2635,11 +2635,11 @@
           "hitbox": "Fish (Drop)",
           "shieldSafety": {
             "isProjectile": true,
-            "isNA": true,
-            "min": null,
-            "max": null
+            "isStun": true,
+            "min": 1,
+            "max": 1
           },
-          "shieldRaw": "+null",
+          "shieldRaw": "Stun: 1",
           "tumblePercent": {
             "min": 146,
             "max": 179
@@ -2669,11 +2669,11 @@
           "hitbox": "Golden Fish (Throw)",
           "shieldSafety": {
             "isProjectile": true,
-            "isNA": true,
-            "min": null,
-            "max": null
+            "isStun": true,
+            "min": 6,
+            "max": 6
           },
-          "shieldRaw": "+null",
+          "shieldRaw": "Stun: 6",
           "tumblePercent": {
             "min": 27,
             "max": 35
@@ -2703,11 +2703,11 @@
           "hitbox": "Golden Fish (Drop)",
           "shieldSafety": {
             "isProjectile": true,
-            "isNA": true,
-            "min": null,
-            "max": null
+            "isStun": true,
+            "min": 1,
+            "max": 1
           },
-          "shieldRaw": "+null",
+          "shieldRaw": "Stun: 1",
           "tumblePercent": {
             "min": 146,
             "max": 179

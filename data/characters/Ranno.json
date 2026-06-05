@@ -1,7 +1,7 @@
 {
   "character": "Ranno",
   "slug": "Ranno",
-  "scrapedAt": "2026-06-05T21:35:40.498Z",
+  "scrapedAt": "2026-06-05T21:38:53.087Z",
   "moves": [
     {
       "move": "Jab",
@@ -421,11 +421,11 @@
           "hitbox": "Fully Charged: Palm Projectile",
           "shieldSafety": {
             "isProjectile": true,
-            "isNA": true,
-            "min": null,
-            "max": null
+            "isStun": true,
+            "min": 4,
+            "max": 4
           },
-          "shieldRaw": "+null",
+          "shieldRaw": "Stun: 4",
           "tumblePercent": {
             "min": 7,
             "max": 10
@@ -1278,11 +1278,11 @@
           "hitbox": "Dart Throw: Dart",
           "shieldSafety": {
             "isProjectile": true,
-            "isNA": true,
-            "min": null,
-            "max": null
+            "isStun": true,
+            "min": 1,
+            "max": 1
           },
-          "shieldRaw": "+null",
+          "shieldRaw": "Stun: 1",
           "tumblePercent": {
             "min": 777,
             "max": 777

@@ -122,13 +122,17 @@ function calcShieldStun(damage, extraShieldStun) {
  */
 function calcShieldSafety(attack, hitActive, iasa, landingLag, customSS, isProjectileHitbox, shieldStun) {
   if (NO_SHIELD.has(attack)) return null;
-  if (customSS === 'N/A') {
-    // Projectile articles with no computable SS → mark for "PROJ N/A" badge in UI
-    if (isProjectileHitbox) return { isProjectile: true, isNA: true, min: null, max: null };
-    return null;
-  }
 
   const SHARED = 1;
+
+  if (customSS === 'N/A') {
+    // Projectile articles with no computable SS → show raw stun value as badge
+    if (isProjectileHitbox) {
+      const stunVal = shieldStun - SHARED;
+      return { isProjectile: true, isStun: true, min: stunVal, max: stunVal };
+    }
+    return null;
+  }
 
   // Explicit override (not a formula placeholder)
   if (customSS && customSS !== '-' && customSS !== 'JAB' && customSS !== 'GALVAN') {
