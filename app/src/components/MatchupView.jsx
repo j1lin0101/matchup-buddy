@@ -526,6 +526,9 @@ function HelpModal({ onClose }) {
           <p style={{ fontSize: '0.85rem', color: 'var(--muted)', lineHeight: 1.6, marginTop: '8px' }}>
             If a move has a shield safety of <strong>−10</strong>, any OOS option with a total startup of <strong>10 frames or fewer</strong> can punish it. The more OOS options that fit inside that window, the more dangerous the move is to throw out.
           </p>
+          <p style={{ fontSize: '0.85rem', color: 'var(--muted)', lineHeight: 1.6, marginTop: '8px' }}>
+            Shield safety and OOS speed does not account for spaced moves. A move can be negative on hit and still go unpunished if spaced well enough or with enough disjoint.
+          </p>
           <p style={{ fontSize: '0.72rem', color: 'var(--muted)', marginTop: '8px', fontStyle: 'italic' }}>
             Definition sourced from{' '}
             <a href="https://dragdown.wiki/wiki/RoA2" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--accent)' }}>dragdown.wiki</a>
