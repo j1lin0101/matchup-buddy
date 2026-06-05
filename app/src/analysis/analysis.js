@@ -7,7 +7,7 @@
  *
  * OOS (Out of Shield) options use one of two delay values:
  *
- *   Standard OOS  → shield_release (7f) + move startup
+ *   Standard OOS  → shield_release (8f) + move startup
  *     Applies to: grounded normals (Jab, tilts, Grab, Dash Attack, etc.)
  *
  *   Jump-cancel OOS → jump_squat (3f) + move startup
@@ -18,7 +18,7 @@
 // Grounded moves not listed below use shield release before they can come out
 import { getDisplayName } from './nicknames.js';
 
-const SHIELD_RELEASE_FRAMES = 7;
+const SHIELD_RELEASE_FRAMES = 8;
 
 // Aerials, Up Strong, and Up Specials buffer during jump squat (4 frames)
 // Total OOS = JUMP_SQUAT_FRAMES + move startup

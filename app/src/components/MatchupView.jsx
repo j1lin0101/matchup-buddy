@@ -39,6 +39,33 @@ function ShieldBadge({ value, color }) {
   )
 }
 
+const PROJECTILE_COLOR = '#7B68EE'
+
+function ProjectileBadge({ stun }) {
+  return (
+    <span
+      title="Distance greatly impacts the safety of projectiles and the ability of the attacker to follow up. Instead we've included a raw stun value."
+      style={{
+        display: 'inline-flex',
+        alignItems: 'center',
+        gap: '4px',
+        padding: '2px 8px',
+        borderRadius: '4px',
+        background: PROJECTILE_COLOR + '22',
+        color: PROJECTILE_COLOR,
+        border: `1px solid ${PROJECTILE_COLOR}44`,
+        fontSize: '0.75rem',
+        fontWeight: 700,
+        whiteSpace: 'nowrap',
+        cursor: 'help',
+      }}
+    >
+      <span style={{ fontSize: '0.65rem', opacity: 0.8 }}>PROJ</span>
+      {stun > 0 ? `+${stun}` : stun}
+    </span>
+  )
+}
+
 function Section({ title, accent, children }) {
   return (
     <div style={{
@@ -211,7 +238,9 @@ function MoveRow({ row, attackerName, defenderName }) {
 
       {/* Shield safety + Tumble % — grouped in a flex row on mobile */}
       <div className="move-row-badges" style={{ textAlign: 'center' }}>
-        <ShieldBadge value={row.shieldSafety} color={statusColor} />
+        {row.shieldSafety?.isProjectile
+          ? <ProjectileBadge stun={row.shieldSafety.min} />
+          : <ShieldBadge value={row.shieldSafety} color={statusColor} />}
       </div>
       <div className="move-row-badges" style={{ textAlign: 'center' }}>
         <TumbleBadge row={row} defenderName={defenderName} />
@@ -521,7 +550,7 @@ function HelpModal({ onClose }) {
             A <span style={{ color: 'var(--punish)', fontWeight: 600 }}>negative value</span> means the defender acts first, opening a window to punish.
           </p>
           <p style={{ fontSize: '0.85rem', color: 'var(--text)', lineHeight: 1.6, marginTop: '8px' }}>
-            Out of Shield (OOS) options have <strong>7 frames</strong> of built-in shield release before a move can come out. The exceptions to this rule are aerials and Up Strong which can be buffered during Jump Squat (adding <strong>4 frames</strong> instead of 7) and grab which has no additional startup frames.
+            Out of Shield (OOS) options have <strong>8 frames</strong> of built-in shield release before a move can come out. The exceptions to this rule are aerials and Up Strong which can be buffered during Jump Squat (adding <strong>4 frames</strong> instead of 7) and grab which has no additional startup frames.
           </p>
           <p style={{ fontSize: '0.85rem', color: 'var(--muted)', lineHeight: 1.6, marginTop: '8px' }}>
             If a move has a shield safety of <strong>−10</strong>, any OOS option with a total startup of <strong>10 frames or fewer</strong> can punish it. The more OOS options that fit inside that window, the more dangerous the move is to throw out.
