@@ -1,7 +1,7 @@
 {
   "character": "Absa",
   "slug": "Absa",
-  "scrapedAt": "2026-06-05T21:29:27.293Z",
+  "scrapedAt": "2026-06-05T21:35:38.155Z",
   "moves": [
     {
       "move": "Jab",
@@ -1255,8 +1255,13 @@
         },
         {
           "hitbox": "Cloud",
-          "shieldSafety": null,
-          "shieldRaw": null,
+          "shieldSafety": {
+            "isProjectile": true,
+            "isNA": true,
+            "min": null,
+            "max": null
+          },
+          "shieldRaw": "+null",
           "tumblePercent": {
             "min": 0,
             "max": 0

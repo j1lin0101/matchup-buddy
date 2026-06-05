@@ -10,7 +10,7 @@
  *   Standard OOS  → shield_release (8f) + move startup
  *     Applies to: grounded normals (Jab, tilts, Grab, Dash Attack, etc.)
  *
- *   Jump-cancel OOS → jump_squat (3f) + move startup
+ *   Jump-cancel OOS → jump_squat (4f) + move startup
  *     Applies to: aerials, Up Strong, and specific jump-cancellable specials.
  *     These moves bypass shield release by being buffered during jump squat.
  */
@@ -20,8 +20,8 @@ import { getDisplayName } from './nicknames.js';
 
 const SHIELD_RELEASE_FRAMES = 8;
 
-// Aerials, Up Strong, and Up Specials buffer during jump squat (4 frames)
-// Total OOS = JUMP_SQUAT_FRAMES + move startup
+// Aerials, Up Strong, and Up Specials buffer during jump squat
+// Total OOS = JUMP_SQUAT_FRAMES (4) + move startup
 const JUMP_SQUAT_FRAMES = 4;
 
 // Grab has no shield release overhead — its startup IS its OOS timing
@@ -63,7 +63,7 @@ function isJumpCancelOOS(moveName, characterName) {
  * Returns the OOS delay in frames for a given move.
  *   Grab-type moves    → GRAB_OOS_DELAY (0)
  *   Jump-cancel moves  → JUMP_SQUAT_FRAMES (4)
- *   Everything else    → SHIELD_RELEASE_FRAMES (7)
+ *   Everything else    → SHIELD_RELEASE_FRAMES (8)
  */
 function getOOSDelay(moveName, characterName) {
   if (isGrabMove(moveName))                        return GRAB_OOS_DELAY;
@@ -95,6 +95,7 @@ function getAllShieldSafeties(characterData) {
     if (isExcludedMove(move.move)) return;
     move.hitboxes.forEach(function(h) {
       if (!h.shieldSafety) return;
+      if (h.shieldSafety.isNA) return;  // projectile with no computable SS
       results.push({
         move:        move.move,
         hitbox:      h.hitbox,
@@ -228,6 +229,21 @@ function analyzeMatchup(attackerData, defenderData) {
     if (isExcludedMove(move.move)) return;
     move.hitboxes.forEach(function(h) {
       if (!h.shieldSafety) return;
+
+      // Projectile with no computable SS — include for display (PROJ N/A badge) but no punish calc
+      if (h.shieldSafety.isNA) {
+        results.push({
+          move: move.move, hitbox: h.hitbox, startup: move.startup,
+          category: getCategory(move.move),
+          shieldSafety: h.shieldSafety, shieldRaw: null,
+          isSafe: false, isRisky: false, isPunishable: false,
+          punishCount: 0, defenderFrameAdv: null, punishes: [],
+          tumblePercent: h.tumblePercent ?? null,
+          perCharacterTumble: h.perCharacterTumble ?? {},
+          perCharacterTumbleAerial: h.perCharacterTumbleAerial ?? {},
+        });
+        return;
+      }
 
       const shieldAdv = h.shieldSafety; // { min, max }
 

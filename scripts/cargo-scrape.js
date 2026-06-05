@@ -122,7 +122,11 @@ function calcShieldStun(damage, extraShieldStun) {
  */
 function calcShieldSafety(attack, hitActive, iasa, landingLag, customSS, isProjectileHitbox, shieldStun) {
   if (NO_SHIELD.has(attack)) return null;
-  if (customSS === 'N/A') return null;
+  if (customSS === 'N/A') {
+    // Projectile articles with no computable SS → mark for "PROJ N/A" badge in UI
+    if (isProjectileHitbox) return { isProjectile: true, isNA: true, min: null, max: null };
+    return null;
+  }
 
   const SHARED = 1;
 
@@ -391,7 +395,7 @@ async function scrapeCharacter(charName, charSlug, characterWeights) {
         // Shield safety
         let shieldSafety = null;
         let shieldRaw    = null;
-        if (hit && !NO_SHIELD.has(attack) && customSS !== 'N/A') {
+        if (hit && !NO_SHIELD.has(attack)) {
           const ss = calcShieldStun(hit.Damage, hit.ExtraShieldStun);
           shieldSafety = calcShieldSafety(attack, active, iasa, landingLag, customSS, isProjectile, ss);
           shieldRaw    = fmtShieldRaw(shieldSafety);
