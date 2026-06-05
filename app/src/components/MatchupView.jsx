@@ -364,13 +364,14 @@ function CategoryAccordion({ category, rows, attackerName, defenderName }) {
             <span style={{ color: PUNISH_COLOR, fontSize: '0.72rem' }}>{punishable} punishable</span>
           </div>
           {/* Row 2: KD tiers (only if any exist) */}
-          {(tumbleCounts.early > 0 || tumbleCounts.medium > 0 || tumbleCounts.high > 0) && (
+          {(tumbleCounts.early > 0 || tumbleCounts.medium > 0 || tumbleCounts.high > 0) && (<>
+            <span className="accordion-counts-divider">|</span>
             <div className="accordion-counts-row">
               {tumbleCounts.early  > 0 && <span style={{ color: TUMBLE_EARLY_COLOR,  fontSize: '0.72rem' }}>{tumbleCounts.early} early KD</span>}
               {tumbleCounts.medium > 0 && <span style={{ color: TUMBLE_MEDIUM_COLOR, fontSize: '0.72rem' }}>{tumbleCounts.medium} mid KD</span>}
               {tumbleCounts.high   > 0 && <span style={{ color: TUMBLE_HIGH_COLOR,   fontSize: '0.72rem' }}>{tumbleCounts.high} high KD</span>}
             </div>
-          )}
+          </>)}
         </div>
         <span style={{ color: 'var(--muted)', fontSize: '0.7rem', marginLeft: '4px', flexShrink: 0 }}>
           {open ? '▲' : '▼'}

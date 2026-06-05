@@ -115,19 +115,30 @@ body {
 }
 .accordion-counts {
   display: flex;
-  flex-direction: column;
-  gap: 3px;
-  align-items: flex-end;
+  flex-direction: row;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: flex-end;
 }
 .accordion-counts-row {
   display: flex;
   align-items: center;
   gap: 10px;
 }
+.accordion-counts-divider {
+  color: var(--border);
+  font-size: 0.8rem;
+  user-select: none;
+}
 @media (max-width: 600px) {
-  .accordion-counts-row {
-    gap: 6px;
+  .accordion-counts {
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 3px;
   }
+  .accordion-counts-row { gap: 6px; }
+  .accordion-counts-divider { display: none; }
 }
 
 /* ── Responsive: Breakdown table column headers ── */
