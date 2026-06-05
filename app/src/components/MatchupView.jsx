@@ -514,12 +514,16 @@ function HelpModal({ onClose }) {
             On Shield (Shield Safety)
           </h3>
           <p style={{ fontSize: '0.85rem', color: 'var(--text)', lineHeight: 1.6 }}>
-            Shield safety tells you how many frames the attacker is ahead or behind after a move hits shield.
-            A <span style={{ color: 'var(--safe)', fontWeight: 600 }}>positive value</span> means the attacker acts first — the move is safe.
-            A <span style={{ color: 'var(--punish)', fontWeight: 600 }}>negative value</span> means the defender acts first — they may be able to punish.
+            "Dictates how much faster the attacker can act after the defender, calculated based on context."
           </p>
           <p style={{ fontSize: '0.85rem', color: 'var(--muted)', lineHeight: 1.6, marginTop: '8px' }}>
-            Placeholder: additional context about shield stun, shield release, and how ranges are calculated will go here.
+            A <span style={{ color: 'var(--safe)', fontWeight: 600 }}>positive value</span> means the attacker can act first — the move is safe on shield.
+            A <span style={{ color: 'var(--punish)', fontWeight: 600 }}>negative value</span> means the defender acts first and may be able to punish.
+            Ranges reflect different hitbox positions or contexts (e.g. grounded vs. airborne).
+          </p>
+          <p style={{ fontSize: '0.72rem', color: 'var(--muted)', marginTop: '8px', fontStyle: 'italic' }}>
+            Definition sourced from{' '}
+            <a href="https://dragdown.wiki/wiki/RoA2" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--accent)' }}>dragdown.wiki</a>
           </p>
         </div>
 
@@ -531,12 +535,10 @@ function HelpModal({ onClose }) {
             OOS Options (Out of Shield)
           </h3>
           <p style={{ fontSize: '0.85rem', color: 'var(--text)', lineHeight: 1.6 }}>
-            OOS options are the moves a shielding player can use to punish. The number shown is the total frames from when their shield is hit to when the move can hit back.
-            Grounded moves require <strong>7 frames</strong> of shield release first. Aerials and Up Strong use <strong>jump squat (4 frames)</strong> instead.
-            Grab has no overhead.
+            The total frames from when the shield is hit to when a move can hit back. Grounded moves require <strong>7 frames</strong> of shield release before they come out. Aerials and Up Strong bypass this by buffering during <strong>jump squat (4 frames)</strong>. Grab has no extra overhead.
           </p>
           <p style={{ fontSize: '0.85rem', color: 'var(--muted)', lineHeight: 1.6, marginTop: '8px' }}>
-            Placeholder: additional notes about which OOS options are fastest for each character and how to use this information in neutral will go here.
+            If an attacker's move has a shield safety of <strong>−10</strong>, any OOS option with a total startup of <strong>10 frames or fewer</strong> can punish it.
           </p>
         </div>
 
@@ -548,11 +550,19 @@ function HelpModal({ onClose }) {
             Tumble %
           </h3>
           <p style={{ fontSize: '0.85rem', color: 'var(--text)', lineHeight: 1.6 }}>
-            The percentage at which a move sends the opponent into tumble (knockdown). Below this threshold, opponents can tech or DI freely. Above it, they enter tumble and are vulnerable to follow-ups.
-            Lower % = better combo tool. Higher % = the move only connects at higher stocks.
+            "The percent that sends an opponent into tumble. On floorhug, this can knock down. Ranges listed show when the lightest character and the heaviest character are knocked down."
           </p>
           <p style={{ fontSize: '0.85rem', color: 'var(--muted)', lineHeight: 1.6, marginTop: '8px' }}>
-            Placeholder: breakdown of the color tiers (early / mid / high knockdown) and how grounded vs aerial values differ will go here.
+            Lower % = the move sends into tumble earlier, making it a better combo starter. The color tiers used here:
+          </p>
+          <ul style={{ fontSize: '0.82rem', lineHeight: 1.8, paddingLeft: '16px', marginTop: '4px' }}>
+            <li><span style={{ color: '#00CED1', fontWeight: 600 }}>Early KD</span> — tumble at ≤40%</li>
+            <li><span style={{ color: '#F0E442', fontWeight: 600 }}>Mid KD</span> — tumble at 41–80%</li>
+            <li><span style={{ color: '#DA70D6', fontWeight: 600 }}>High KD</span> — tumble at 81–130%</li>
+          </ul>
+          <p style={{ fontSize: '0.72rem', color: 'var(--muted)', marginTop: '8px', fontStyle: 'italic' }}>
+            Definition sourced from{' '}
+            <a href="https://dragdown.wiki/wiki/RoA2" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--accent)' }}>dragdown.wiki</a>
           </p>
         </div>
 
@@ -564,13 +574,16 @@ function HelpModal({ onClose }) {
             Safe / Risky / Punishable
           </h3>
           <p style={{ fontSize: '0.85rem', color: 'var(--text)', lineHeight: 1.6 }}>
-            Each move is classified based on how many of the opponent's OOS options can punish it:
+            Each move is classified by how many of the opponent's OOS options can punish it in this specific matchup:
           </p>
           <ul style={{ fontSize: '0.85rem', lineHeight: 1.8, paddingLeft: '16px', marginTop: '6px' }}>
             <li><span style={{ color: 'var(--safe)', fontWeight: 600 }}>Safe</span> — 0 OOS options can punish it.</li>
             <li><span style={{ color: 'var(--risky)', fontWeight: 600 }}>Risky</span> — 1–3 OOS options can punish it.</li>
             <li><span style={{ color: 'var(--punish)', fontWeight: 600 }}>Punishable</span> — 4 or more OOS options can punish it.</li>
           </ul>
+          <p style={{ fontSize: '0.85rem', color: 'var(--muted)', lineHeight: 1.6, marginTop: '8px' }}>
+            These ratings are matchup-specific — a move may be safe against one character but risky against another with faster OOS options.
+          </p>
         </div>
       </div>
     </div>
