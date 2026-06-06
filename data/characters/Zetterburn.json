@@ -1,38 +1,38 @@
 {
   "character": "Zetterburn",
   "slug": "Zetterburn",
-  "scrapedAt": "2026-06-05T21:38:49.415Z",
+  "scrapedAt": "2026-06-06T20:25:53.619Z",
   "moves": [
     {
       "move": "Jab",
-      "startup": 4,
+      "startup": 5,
       "hitboxes": [
         {
-          "hitbox": "Jab 1",
+          "hitbox": "Jab 1: Jab 1",
           "shieldSafety": {
             "min": -13,
             "max": -12
           },
-          "shieldRaw": "-13 to -12",
+          "shieldRaw": "-13 to -12[-3 to -2]",
           "tumblePercent": null,
           "tumbleRaw": "Never",
           "perCharacterTumble": {},
           "perCharacterTumbleAerial": {}
         },
         {
-          "hitbox": "Jab 2",
+          "hitbox": "Jab 2: Jab 2",
           "shieldSafety": {
             "min": -15,
             "max": -14
           },
-          "shieldRaw": "-15 to -14",
+          "shieldRaw": "-15 to -14[-1 to +0]",
           "tumblePercent": null,
           "tumbleRaw": "Never",
           "perCharacterTumble": {},
           "perCharacterTumbleAerial": {}
         },
         {
-          "hitbox": "Jab 3",
+          "hitbox": "Jab 3: Jab 3",
           "shieldSafety": {
             "min": -14,
             "max": -13
@@ -44,22 +44,22 @@
           },
           "tumbleRaw": "32 - 41%",
           "perCharacterTumble": {
-            "ABSA": 34,
-            "CLAIREN": 36,
-            "ETALUS": 40,
-            "FLEET": 36,
-            "FORSBURN": 38,
-            "GALVAN": 40,
-            "KRAGG": 41,
-            "LA REINA": 39,
-            "LOXODONT": 41,
-            "MAYPUL": 35,
-            "OLYMPIA": 34,
-            "ORCANE": 38,
-            "RANNO": 37,
-            "SLADE": 38,
             "WRASTOR": 32,
-            "ZETTERBURN": 38
+            "OLYMPIA": 34,
+            "ABSA": 34,
+            "MAYPUL": 35,
+            "FLEET": 36,
+            "CLAIREN": 36,
+            "RANNO": 37,
+            "FORSBURN": 38,
+            "ORCANE": 38,
+            "ZETTERBURN": 38,
+            "SLADE": 38,
+            "LA REINA": 39,
+            "GALVAN": 40,
+            "ETALUS": 40,
+            "KRAGG": 41,
+            "LOXODONT": 41
           },
           "perCharacterTumbleAerial": {}
         }
@@ -82,22 +82,22 @@
           },
           "tumbleRaw": "81 - 101%",
           "perCharacterTumble": {
-            "ABSA": 86,
-            "CLAIREN": 89,
-            "ETALUS": 99,
-            "FLEET": 88,
-            "FORSBURN": 93,
-            "GALVAN": 98,
-            "KRAGG": 100,
-            "LA REINA": 96,
-            "LOXODONT": 101,
-            "MAYPUL": 87,
-            "OLYMPIA": 85,
-            "ORCANE": 93,
-            "RANNO": 91,
-            "SLADE": 94,
             "WRASTOR": 81,
-            "ZETTERBURN": 93
+            "OLYMPIA": 85,
+            "ABSA": 86,
+            "MAYPUL": 87,
+            "FLEET": 88,
+            "CLAIREN": 89,
+            "RANNO": 91,
+            "FORSBURN": 93,
+            "ORCANE": 93,
+            "ZETTERBURN": 93,
+            "SLADE": 94,
+            "LA REINA": 96,
+            "GALVAN": 98,
+            "ETALUS": 99,
+            "KRAGG": 100,
+            "LOXODONT": 101
           },
           "perCharacterTumbleAerial": {}
         },
@@ -114,22 +114,22 @@
           },
           "tumbleRaw": "32 - 41%",
           "perCharacterTumble": {
-            "ABSA": 34,
-            "CLAIREN": 36,
-            "ETALUS": 40,
-            "FLEET": 35,
-            "FORSBURN": 38,
-            "GALVAN": 39,
-            "KRAGG": 40,
-            "LA REINA": 39,
-            "LOXODONT": 41,
-            "MAYPUL": 35,
-            "OLYMPIA": 34,
-            "ORCANE": 38,
-            "RANNO": 36,
-            "SLADE": 38,
             "WRASTOR": 32,
-            "ZETTERBURN": 38
+            "OLYMPIA": 34,
+            "ABSA": 34,
+            "MAYPUL": 35,
+            "FLEET": 35,
+            "CLAIREN": 36,
+            "RANNO": 36,
+            "FORSBURN": 38,
+            "ORCANE": 38,
+            "ZETTERBURN": 38,
+            "SLADE": 38,
+            "LA REINA": 39,
+            "GALVAN": 39,
+            "ETALUS": 40,
+            "KRAGG": 40,
+            "LOXODONT": 41
           },
           "perCharacterTumbleAerial": {}
         }
@@ -152,22 +152,22 @@
           },
           "tumbleRaw": "25 - 31%",
           "perCharacterTumble": {
-            "ABSA": 26,
-            "CLAIREN": 27,
-            "ETALUS": 31,
-            "FLEET": 27,
-            "FORSBURN": 29,
-            "GALVAN": 30,
-            "KRAGG": 31,
-            "LA REINA": 30,
-            "LOXODONT": 31,
-            "MAYPUL": 27,
-            "OLYMPIA": 26,
-            "ORCANE": 29,
-            "RANNO": 28,
-            "SLADE": 29,
             "WRASTOR": 25,
-            "ZETTERBURN": 29
+            "OLYMPIA": 26,
+            "ABSA": 26,
+            "MAYPUL": 27,
+            "FLEET": 27,
+            "CLAIREN": 27,
+            "RANNO": 28,
+            "FORSBURN": 29,
+            "ORCANE": 29,
+            "ZETTERBURN": 29,
+            "SLADE": 29,
+            "LA REINA": 30,
+            "GALVAN": 30,
+            "ETALUS": 31,
+            "KRAGG": 31,
+            "LOXODONT": 31
           },
           "perCharacterTumbleAerial": {}
         },
@@ -184,22 +184,22 @@
           },
           "tumbleRaw": "12 - 16%",
           "perCharacterTumble": {
-            "ABSA": 13,
-            "CLAIREN": 13,
-            "ETALUS": 16,
-            "FLEET": 13,
-            "FORSBURN": 14,
-            "GALVAN": 15,
-            "KRAGG": 16,
-            "LA REINA": 15,
-            "LOXODONT": 16,
-            "MAYPUL": 13,
-            "OLYMPIA": 13,
-            "ORCANE": 14,
-            "RANNO": 14,
-            "SLADE": 15,
             "WRASTOR": 12,
-            "ZETTERBURN": 14
+            "OLYMPIA": 13,
+            "ABSA": 13,
+            "MAYPUL": 13,
+            "FLEET": 13,
+            "CLAIREN": 13,
+            "RANNO": 14,
+            "FORSBURN": 14,
+            "ORCANE": 14,
+            "ZETTERBURN": 14,
+            "SLADE": 15,
+            "LA REINA": 15,
+            "GALVAN": 15,
+            "ETALUS": 16,
+            "KRAGG": 16,
+            "LOXODONT": 16
           },
           "perCharacterTumbleAerial": {}
         }
@@ -222,22 +222,22 @@
           },
           "tumbleRaw": "48 - 60%",
           "perCharacterTumble": {
-            "ABSA": 50,
-            "CLAIREN": 53,
-            "ETALUS": 58,
-            "FLEET": 52,
-            "FORSBURN": 55,
-            "GALVAN": 58,
-            "KRAGG": 59,
-            "LA REINA": 57,
-            "LOXODONT": 60,
-            "MAYPUL": 51,
-            "OLYMPIA": 50,
-            "ORCANE": 55,
-            "RANNO": 54,
-            "SLADE": 56,
             "WRASTOR": 48,
-            "ZETTERBURN": 55
+            "OLYMPIA": 50,
+            "ABSA": 50,
+            "MAYPUL": 51,
+            "FLEET": 52,
+            "CLAIREN": 53,
+            "RANNO": 54,
+            "FORSBURN": 55,
+            "ORCANE": 55,
+            "ZETTERBURN": 55,
+            "SLADE": 56,
+            "LA REINA": 57,
+            "GALVAN": 58,
+            "ETALUS": 58,
+            "KRAGG": 59,
+            "LOXODONT": 60
           },
           "perCharacterTumbleAerial": {}
         },
@@ -254,22 +254,22 @@
           },
           "tumbleRaw": "25 - 32%",
           "perCharacterTumble": {
-            "ABSA": 27,
-            "CLAIREN": 28,
-            "ETALUS": 32,
-            "FLEET": 28,
-            "FORSBURN": 30,
-            "GALVAN": 31,
-            "KRAGG": 32,
-            "LA REINA": 31,
-            "LOXODONT": 32,
-            "MAYPUL": 27,
-            "OLYMPIA": 26,
-            "ORCANE": 30,
-            "RANNO": 29,
-            "SLADE": 30,
             "WRASTOR": 25,
-            "ZETTERBURN": 30
+            "OLYMPIA": 26,
+            "ABSA": 27,
+            "MAYPUL": 27,
+            "FLEET": 28,
+            "CLAIREN": 28,
+            "RANNO": 29,
+            "FORSBURN": 30,
+            "ORCANE": 30,
+            "ZETTERBURN": 30,
+            "SLADE": 30,
+            "LA REINA": 31,
+            "GALVAN": 31,
+            "ETALUS": 32,
+            "KRAGG": 32,
+            "LOXODONT": 32
           },
           "perCharacterTumbleAerial": {}
         }
@@ -277,7 +277,7 @@
     },
     {
       "move": "Dash Attack",
-      "startup": 6,
+      "startup": 10,
       "hitboxes": [
         {
           "hitbox": "Early",
@@ -292,22 +292,22 @@
           },
           "tumbleRaw": "34 - 43%",
           "perCharacterTumble": {
-            "ABSA": 36,
-            "CLAIREN": 38,
-            "ETALUS": 42,
-            "FLEET": 37,
-            "FORSBURN": 40,
-            "GALVAN": 42,
-            "KRAGG": 43,
-            "LA REINA": 41,
-            "LOXODONT": 43,
-            "MAYPUL": 37,
-            "OLYMPIA": 36,
-            "ORCANE": 40,
-            "RANNO": 38,
-            "SLADE": 40,
             "WRASTOR": 34,
-            "ZETTERBURN": 40
+            "OLYMPIA": 36,
+            "ABSA": 36,
+            "MAYPUL": 37,
+            "FLEET": 37,
+            "CLAIREN": 38,
+            "RANNO": 38,
+            "FORSBURN": 40,
+            "ORCANE": 40,
+            "ZETTERBURN": 40,
+            "SLADE": 40,
+            "LA REINA": 41,
+            "GALVAN": 42,
+            "ETALUS": 42,
+            "KRAGG": 43,
+            "LOXODONT": 43
           },
           "perCharacterTumbleAerial": {}
         },
@@ -324,22 +324,22 @@
           },
           "tumbleRaw": "60 - 74%",
           "perCharacterTumble": {
-            "ABSA": 63,
-            "CLAIREN": 66,
-            "ETALUS": 73,
-            "FLEET": 65,
-            "FORSBURN": 69,
-            "GALVAN": 72,
-            "KRAGG": 74,
-            "LA REINA": 71,
-            "LOXODONT": 74,
-            "MAYPUL": 64,
-            "OLYMPIA": 62,
-            "ORCANE": 69,
-            "RANNO": 67,
-            "SLADE": 69,
             "WRASTOR": 60,
-            "ZETTERBURN": 69
+            "OLYMPIA": 62,
+            "ABSA": 63,
+            "MAYPUL": 64,
+            "FLEET": 65,
+            "CLAIREN": 66,
+            "RANNO": 67,
+            "FORSBURN": 69,
+            "ORCANE": 69,
+            "ZETTERBURN": 69,
+            "SLADE": 69,
+            "LA REINA": 71,
+            "GALVAN": 72,
+            "ETALUS": 73,
+            "KRAGG": 74,
+            "LOXODONT": 74
           },
           "perCharacterTumbleAerial": {}
         }
@@ -347,8 +347,32 @@
     },
     {
       "move": "Forward Strong",
-      "startup": 10,
+      "startup": 17,
       "hitboxes": [
+        {
+          "hitbox": "No Consume: Hit 1",
+          "shieldSafety": {
+            "min": -32,
+            "max": -30
+          },
+          "shieldRaw": "-32 to -30",
+          "tumblePercent": null,
+          "tumbleRaw": "Never",
+          "perCharacterTumble": {},
+          "perCharacterTumbleAerial": {}
+        },
+        {
+          "hitbox": "No Consume: Hit 2",
+          "shieldSafety": {
+            "min": -25,
+            "max": -24
+          },
+          "shieldRaw": "-25 to -24",
+          "tumblePercent": null,
+          "tumbleRaw": "☑️",
+          "perCharacterTumble": {},
+          "perCharacterTumbleAerial": {}
+        },
         {
           "hitbox": "Consume: Hit 1",
           "shieldSafety": {
@@ -374,7 +398,7 @@
           "perCharacterTumbleAerial": {}
         },
         {
-          "hitbox": "Consume",
+          "hitbox": "Consume: Consume",
           "shieldSafety": {
             "min": -26,
             "max": -24
@@ -384,101 +408,13 @@
           "tumbleRaw": "☑️",
           "perCharacterTumble": {},
           "perCharacterTumbleAerial": {}
-        },
-        {
-          "hitbox": "No Consume: Hit 1",
-          "shieldSafety": {
-            "min": -32,
-            "max": -30
-          },
-          "shieldRaw": "-32 to -30",
-          "tumblePercent": null,
-          "tumbleRaw": "Never",
-          "perCharacterTumble": {},
-          "perCharacterTumbleAerial": {}
-        },
-        {
-          "hitbox": "No Consume: Hit 2",
-          "shieldSafety": {
-            "min": -25,
-            "max": -24
-          },
-          "shieldRaw": "-25 to -24",
-          "tumblePercent": null,
-          "tumbleRaw": "☑️",
-          "perCharacterTumble": {},
-          "perCharacterTumbleAerial": {}
         }
       ]
     },
     {
       "move": "Up Strong",
-      "startup": 6,
+      "startup": 10,
       "hitboxes": [
-        {
-          "hitbox": "Consume: Uppercut",
-          "shieldSafety": {
-            "min": -28,
-            "max": -26
-          },
-          "shieldRaw": "-28 to -26",
-          "tumblePercent": {
-            "min": 0,
-            "max": 0
-          },
-          "tumbleRaw": "0%",
-          "perCharacterTumble": {
-            "ABSA": 0,
-            "CLAIREN": 0,
-            "ETALUS": 0,
-            "FLEET": 0,
-            "FORSBURN": 0,
-            "GALVAN": 0,
-            "KRAGG": 0,
-            "LA REINA": 0,
-            "LOXODONT": 0,
-            "MAYPUL": 0,
-            "OLYMPIA": 0,
-            "ORCANE": 0,
-            "RANNO": 0,
-            "SLADE": 0,
-            "WRASTOR": 0,
-            "ZETTERBURN": 0
-          },
-          "perCharacterTumbleAerial": {}
-        },
-        {
-          "hitbox": "Consume",
-          "shieldSafety": {
-            "min": -30,
-            "max": -28
-          },
-          "shieldRaw": "-30 to -28",
-          "tumblePercent": {
-            "min": 0,
-            "max": 0
-          },
-          "tumbleRaw": "0%",
-          "perCharacterTumble": {
-            "ABSA": 0,
-            "CLAIREN": 0,
-            "ETALUS": 0,
-            "FLEET": 0,
-            "FORSBURN": 0,
-            "GALVAN": 0,
-            "KRAGG": 0,
-            "LA REINA": 0,
-            "LOXODONT": 0,
-            "MAYPUL": 0,
-            "OLYMPIA": 0,
-            "ORCANE": 0,
-            "RANNO": 0,
-            "SLADE": 0,
-            "WRASTOR": 0,
-            "ZETTERBURN": 0
-          },
-          "perCharacterTumbleAerial": {}
-        },
         {
           "hitbox": "No Consume: Uppercut",
           "shieldSafety": {
@@ -490,24 +426,88 @@
             "min": 0,
             "max": 0
           },
-          "tumbleRaw": "0%",
+          "tumbleRaw": "0 - 0%",
           "perCharacterTumble": {
-            "ABSA": 0,
-            "CLAIREN": 0,
-            "ETALUS": 0,
-            "FLEET": 0,
-            "FORSBURN": 0,
-            "GALVAN": 0,
-            "KRAGG": 0,
-            "LA REINA": 0,
-            "LOXODONT": 0,
-            "MAYPUL": 0,
-            "OLYMPIA": 0,
-            "ORCANE": 0,
-            "RANNO": 0,
-            "SLADE": 0,
             "WRASTOR": 0,
-            "ZETTERBURN": 0
+            "OLYMPIA": 0,
+            "ABSA": 0,
+            "MAYPUL": 0,
+            "FLEET": 0,
+            "CLAIREN": 0,
+            "RANNO": 0,
+            "FORSBURN": 0,
+            "ORCANE": 0,
+            "ZETTERBURN": 0,
+            "SLADE": 0,
+            "LA REINA": 0,
+            "GALVAN": 0,
+            "ETALUS": 0,
+            "KRAGG": 0,
+            "LOXODONT": 0
+          },
+          "perCharacterTumbleAerial": {}
+        },
+        {
+          "hitbox": "Consume: Uppercut",
+          "shieldSafety": {
+            "min": -28,
+            "max": -26
+          },
+          "shieldRaw": "-28 to -26",
+          "tumblePercent": {
+            "min": 0,
+            "max": 0
+          },
+          "tumbleRaw": "0 - 0%",
+          "perCharacterTumble": {
+            "WRASTOR": 0,
+            "OLYMPIA": 0,
+            "ABSA": 0,
+            "MAYPUL": 0,
+            "FLEET": 0,
+            "CLAIREN": 0,
+            "RANNO": 0,
+            "FORSBURN": 0,
+            "ORCANE": 0,
+            "ZETTERBURN": 0,
+            "SLADE": 0,
+            "LA REINA": 0,
+            "GALVAN": 0,
+            "ETALUS": 0,
+            "KRAGG": 0,
+            "LOXODONT": 0
+          },
+          "perCharacterTumbleAerial": {}
+        },
+        {
+          "hitbox": "Consume: Consume",
+          "shieldSafety": {
+            "min": -30,
+            "max": -28
+          },
+          "shieldRaw": "-30 to -28",
+          "tumblePercent": {
+            "min": 0,
+            "max": 0
+          },
+          "tumbleRaw": "0 - 0%",
+          "perCharacterTumble": {
+            "WRASTOR": 0,
+            "OLYMPIA": 0,
+            "ABSA": 0,
+            "MAYPUL": 0,
+            "FLEET": 0,
+            "CLAIREN": 0,
+            "RANNO": 0,
+            "FORSBURN": 0,
+            "ORCANE": 0,
+            "ZETTERBURN": 0,
+            "SLADE": 0,
+            "LA REINA": 0,
+            "GALVAN": 0,
+            "ETALUS": 0,
+            "KRAGG": 0,
+            "LOXODONT": 0
           },
           "perCharacterTumbleAerial": {}
         }
@@ -515,8 +515,32 @@
     },
     {
       "move": "Down Strong",
-      "startup": 4,
+      "startup": 7,
       "hitboxes": [
+        {
+          "hitbox": "No Consume: Hit 1",
+          "shieldSafety": {
+            "min": -39,
+            "max": -38
+          },
+          "shieldRaw": "-39 to -38",
+          "tumblePercent": null,
+          "tumbleRaw": "☑️",
+          "perCharacterTumble": {},
+          "perCharacterTumbleAerial": {}
+        },
+        {
+          "hitbox": "No Consume: Hit 2",
+          "shieldSafety": {
+            "min": -27,
+            "max": -26
+          },
+          "shieldRaw": "-27 to -26",
+          "tumblePercent": null,
+          "tumbleRaw": "☑️",
+          "perCharacterTumble": {},
+          "perCharacterTumbleAerial": {}
+        },
         {
           "hitbox": "Consume: Hit 1",
           "shieldSafety": {
@@ -542,36 +566,12 @@
           "perCharacterTumbleAerial": {}
         },
         {
-          "hitbox": "Consume",
+          "hitbox": "Consume: Consume",
           "shieldSafety": {
             "min": -26,
             "max": -24
           },
           "shieldRaw": "-26 to -24",
-          "tumblePercent": null,
-          "tumbleRaw": "☑️",
-          "perCharacterTumble": {},
-          "perCharacterTumbleAerial": {}
-        },
-        {
-          "hitbox": "No Consume: Hit 1",
-          "shieldSafety": {
-            "min": -39,
-            "max": -38
-          },
-          "shieldRaw": "-39 to -38",
-          "tumblePercent": null,
-          "tumbleRaw": "☑️",
-          "perCharacterTumble": {},
-          "perCharacterTumbleAerial": {}
-        },
-        {
-          "hitbox": "No Consume: Hit 2",
-          "shieldSafety": {
-            "min": -27,
-            "max": -26
-          },
-          "shieldRaw": "-27 to -26",
           "tumblePercent": null,
           "tumbleRaw": "☑️",
           "perCharacterTumble": {},
@@ -620,22 +620,22 @@
           },
           "tumbleRaw": "29 - 36%",
           "perCharacterTumble": {
-            "ABSA": 31,
-            "CLAIREN": 32,
-            "ETALUS": 36,
-            "FLEET": 32,
-            "FORSBURN": 34,
-            "GALVAN": 35,
-            "KRAGG": 36,
-            "LA REINA": 35,
-            "LOXODONT": 36,
-            "MAYPUL": 31,
-            "OLYMPIA": 30,
-            "ORCANE": 34,
-            "RANNO": 33,
-            "SLADE": 34,
             "WRASTOR": 29,
-            "ZETTERBURN": 34
+            "OLYMPIA": 30,
+            "ABSA": 31,
+            "MAYPUL": 31,
+            "FLEET": 32,
+            "CLAIREN": 32,
+            "RANNO": 33,
+            "FORSBURN": 34,
+            "ORCANE": 34,
+            "ZETTERBURN": 34,
+            "SLADE": 34,
+            "LA REINA": 35,
+            "GALVAN": 35,
+            "ETALUS": 36,
+            "KRAGG": 36,
+            "LOXODONT": 36
           },
           "perCharacterTumbleAerial": {}
         }
@@ -658,22 +658,22 @@
           },
           "tumbleRaw": "19 - 26%",
           "perCharacterTumble": {
-            "ABSA": 21,
-            "CLAIREN": 22,
-            "ETALUS": 25,
-            "FLEET": 22,
-            "FORSBURN": 23,
-            "GALVAN": 25,
-            "KRAGG": 26,
-            "LA REINA": 24,
-            "LOXODONT": 26,
-            "MAYPUL": 21,
-            "OLYMPIA": 20,
-            "ORCANE": 23,
-            "RANNO": 22,
-            "SLADE": 24,
             "WRASTOR": 19,
-            "ZETTERBURN": 23
+            "OLYMPIA": 20,
+            "ABSA": 21,
+            "MAYPUL": 21,
+            "FLEET": 22,
+            "CLAIREN": 22,
+            "RANNO": 22,
+            "FORSBURN": 23,
+            "ORCANE": 23,
+            "ZETTERBURN": 23,
+            "SLADE": 24,
+            "LA REINA": 24,
+            "GALVAN": 25,
+            "ETALUS": 25,
+            "KRAGG": 26,
+            "LOXODONT": 26
           },
           "perCharacterTumbleAerial": {}
         },
@@ -690,22 +690,22 @@
           },
           "tumbleRaw": "54 - 67%",
           "perCharacterTumble": {
-            "ABSA": 57,
-            "CLAIREN": 59,
-            "ETALUS": 66,
-            "FLEET": 59,
-            "FORSBURN": 62,
-            "GALVAN": 65,
-            "KRAGG": 67,
-            "LA REINA": 64,
-            "LOXODONT": 67,
-            "MAYPUL": 58,
-            "OLYMPIA": 56,
-            "ORCANE": 62,
-            "RANNO": 60,
-            "SLADE": 63,
             "WRASTOR": 54,
-            "ZETTERBURN": 62
+            "OLYMPIA": 56,
+            "ABSA": 57,
+            "MAYPUL": 58,
+            "FLEET": 59,
+            "CLAIREN": 59,
+            "RANNO": 60,
+            "FORSBURN": 62,
+            "ORCANE": 62,
+            "ZETTERBURN": 62,
+            "SLADE": 63,
+            "LA REINA": 64,
+            "GALVAN": 65,
+            "ETALUS": 66,
+            "KRAGG": 67,
+            "LOXODONT": 67
           },
           "perCharacterTumbleAerial": {}
         }
@@ -728,22 +728,22 @@
           },
           "tumbleRaw": "46 - 57%",
           "perCharacterTumble": {
-            "ABSA": 48,
-            "CLAIREN": 50,
-            "ETALUS": 56,
-            "FLEET": 50,
-            "FORSBURN": 53,
-            "GALVAN": 55,
-            "KRAGG": 56,
-            "LA REINA": 54,
-            "LOXODONT": 57,
-            "MAYPUL": 49,
-            "OLYMPIA": 48,
-            "ORCANE": 53,
-            "RANNO": 51,
-            "SLADE": 53,
             "WRASTOR": 46,
-            "ZETTERBURN": 53
+            "OLYMPIA": 48,
+            "ABSA": 48,
+            "MAYPUL": 49,
+            "FLEET": 50,
+            "CLAIREN": 50,
+            "RANNO": 51,
+            "FORSBURN": 53,
+            "ORCANE": 53,
+            "ZETTERBURN": 53,
+            "SLADE": 53,
+            "LA REINA": 54,
+            "GALVAN": 55,
+            "ETALUS": 56,
+            "KRAGG": 56,
+            "LOXODONT": 57
           },
           "perCharacterTumbleAerial": {}
         },
@@ -760,22 +760,22 @@
           },
           "tumbleRaw": "45 - 56%",
           "perCharacterTumble": {
-            "ABSA": 47,
-            "CLAIREN": 49,
-            "ETALUS": 55,
-            "FLEET": 49,
-            "FORSBURN": 52,
-            "GALVAN": 54,
-            "KRAGG": 55,
-            "LA REINA": 53,
-            "LOXODONT": 56,
-            "MAYPUL": 48,
-            "OLYMPIA": 47,
-            "ORCANE": 52,
-            "RANNO": 50,
-            "SLADE": 52,
             "WRASTOR": 45,
-            "ZETTERBURN": 52
+            "OLYMPIA": 47,
+            "ABSA": 47,
+            "MAYPUL": 48,
+            "FLEET": 49,
+            "CLAIREN": 49,
+            "RANNO": 50,
+            "FORSBURN": 52,
+            "ORCANE": 52,
+            "ZETTERBURN": 52,
+            "SLADE": 52,
+            "LA REINA": 53,
+            "GALVAN": 54,
+            "ETALUS": 55,
+            "KRAGG": 55,
+            "LOXODONT": 56
           },
           "perCharacterTumbleAerial": {}
         }
@@ -798,22 +798,22 @@
           },
           "tumbleRaw": "11 - 16%",
           "perCharacterTumble": {
-            "ABSA": 13,
-            "CLAIREN": 13,
-            "ETALUS": 16,
-            "FLEET": 13,
-            "FORSBURN": 14,
-            "GALVAN": 15,
-            "KRAGG": 16,
-            "LA REINA": 15,
-            "LOXODONT": 16,
-            "MAYPUL": 13,
-            "OLYMPIA": 12,
-            "ORCANE": 14,
-            "RANNO": 14,
-            "SLADE": 15,
             "WRASTOR": 11,
-            "ZETTERBURN": 14
+            "OLYMPIA": 12,
+            "ABSA": 13,
+            "MAYPUL": 13,
+            "FLEET": 13,
+            "CLAIREN": 13,
+            "RANNO": 14,
+            "FORSBURN": 14,
+            "ORCANE": 14,
+            "ZETTERBURN": 14,
+            "SLADE": 15,
+            "LA REINA": 15,
+            "GALVAN": 15,
+            "ETALUS": 16,
+            "KRAGG": 16,
+            "LOXODONT": 16
           },
           "perCharacterTumbleAerial": {}
         },
@@ -830,22 +830,22 @@
           },
           "tumbleRaw": "27 - 34%",
           "perCharacterTumble": {
-            "ABSA": 29,
-            "CLAIREN": 30,
-            "ETALUS": 34,
-            "FLEET": 30,
-            "FORSBURN": 32,
-            "GALVAN": 33,
-            "KRAGG": 34,
-            "LA REINA": 33,
-            "LOXODONT": 34,
-            "MAYPUL": 29,
-            "OLYMPIA": 28,
-            "ORCANE": 32,
-            "RANNO": 31,
-            "SLADE": 32,
             "WRASTOR": 27,
-            "ZETTERBURN": 32
+            "OLYMPIA": 28,
+            "ABSA": 29,
+            "MAYPUL": 29,
+            "FLEET": 30,
+            "CLAIREN": 30,
+            "RANNO": 31,
+            "FORSBURN": 32,
+            "ORCANE": 32,
+            "ZETTERBURN": 32,
+            "SLADE": 32,
+            "LA REINA": 33,
+            "GALVAN": 33,
+            "ETALUS": 34,
+            "KRAGG": 34,
+            "LOXODONT": 34
           },
           "perCharacterTumbleAerial": {}
         },
@@ -862,22 +862,22 @@
           },
           "tumbleRaw": "48 - 59%",
           "perCharacterTumble": {
-            "ABSA": 50,
-            "CLAIREN": 52,
-            "ETALUS": 58,
-            "FLEET": 52,
-            "FORSBURN": 55,
-            "GALVAN": 58,
-            "KRAGG": 59,
-            "LA REINA": 57,
-            "LOXODONT": 59,
-            "MAYPUL": 51,
-            "OLYMPIA": 50,
-            "ORCANE": 55,
-            "RANNO": 53,
-            "SLADE": 55,
             "WRASTOR": 48,
-            "ZETTERBURN": 55
+            "OLYMPIA": 50,
+            "ABSA": 50,
+            "MAYPUL": 51,
+            "FLEET": 52,
+            "CLAIREN": 52,
+            "RANNO": 53,
+            "FORSBURN": 55,
+            "ORCANE": 55,
+            "ZETTERBURN": 55,
+            "SLADE": 55,
+            "LA REINA": 57,
+            "GALVAN": 58,
+            "ETALUS": 58,
+            "KRAGG": 59,
+            "LOXODONT": 59
           },
           "perCharacterTumbleAerial": {}
         }
@@ -896,44 +896,48 @@
           "shieldRaw": "-3",
           "tumblePercent": {
             "min": 4,
-            "max": 7
+            "max": 7,
+            "aerial": {
+              "min": 0,
+              "max": 0
+            }
           },
-          "tumbleRaw": "4 - 7%",
+          "tumbleRaw": "⛰️4 - 7%☁️0 - 0%",
           "perCharacterTumble": {
-            "ABSA": 4,
-            "CLAIREN": 5,
-            "ETALUS": 7,
-            "FLEET": 5,
-            "FORSBURN": 6,
-            "GALVAN": 6,
-            "KRAGG": 7,
-            "LA REINA": 6,
-            "LOXODONT": 7,
-            "MAYPUL": 5,
-            "OLYMPIA": 4,
-            "ORCANE": 6,
-            "RANNO": 5,
-            "SLADE": 6,
             "WRASTOR": 4,
-            "ZETTERBURN": 6
+            "OLYMPIA": 4,
+            "ABSA": 4,
+            "MAYPUL": 5,
+            "FLEET": 5,
+            "CLAIREN": 5,
+            "RANNO": 5,
+            "FORSBURN": 6,
+            "ORCANE": 6,
+            "ZETTERBURN": 6,
+            "SLADE": 6,
+            "LA REINA": 6,
+            "GALVAN": 6,
+            "ETALUS": 7,
+            "KRAGG": 7,
+            "LOXODONT": 7
           },
           "perCharacterTumbleAerial": {
-            "ABSA": 0,
-            "CLAIREN": 0,
-            "ETALUS": 0,
-            "FLEET": 0,
-            "FORSBURN": 0,
-            "GALVAN": 0,
-            "KRAGG": 0,
-            "LA REINA": 0,
-            "LOXODONT": 0,
-            "MAYPUL": 0,
-            "OLYMPIA": 0,
-            "ORCANE": 0,
-            "RANNO": 0,
-            "SLADE": 0,
             "WRASTOR": 0,
-            "ZETTERBURN": 0
+            "OLYMPIA": 0,
+            "ABSA": 0,
+            "MAYPUL": 0,
+            "FLEET": 0,
+            "CLAIREN": 0,
+            "RANNO": 0,
+            "FORSBURN": 0,
+            "ORCANE": 0,
+            "ZETTERBURN": 0,
+            "SLADE": 0,
+            "LA REINA": 0,
+            "GALVAN": 0,
+            "ETALUS": 0,
+            "KRAGG": 0,
+            "LOXODONT": 0
           }
         },
         {
@@ -945,114 +949,92 @@
           "shieldRaw": "-4",
           "tumblePercent": {
             "min": 17,
-            "max": 23
+            "max": 23,
+            "aerial": {
+              "min": 10,
+              "max": 14
+            }
           },
-          "tumbleRaw": "17 - 23%",
+          "tumbleRaw": "⛰️17 - 23%☁️10 - 14%",
           "perCharacterTumble": {
-            "ABSA": 19,
-            "CLAIREN": 20,
-            "ETALUS": 23,
-            "FLEET": 19,
-            "FORSBURN": 21,
-            "GALVAN": 22,
-            "KRAGG": 23,
-            "LA REINA": 22,
-            "LOXODONT": 23,
-            "MAYPUL": 19,
-            "OLYMPIA": 18,
-            "ORCANE": 21,
-            "RANNO": 20,
-            "SLADE": 21,
             "WRASTOR": 17,
-            "ZETTERBURN": 21
+            "OLYMPIA": 18,
+            "ABSA": 19,
+            "MAYPUL": 19,
+            "FLEET": 19,
+            "CLAIREN": 20,
+            "RANNO": 20,
+            "FORSBURN": 21,
+            "ORCANE": 21,
+            "ZETTERBURN": 21,
+            "SLADE": 21,
+            "LA REINA": 22,
+            "GALVAN": 22,
+            "ETALUS": 23,
+            "KRAGG": 23,
+            "LOXODONT": 23
           },
           "perCharacterTumbleAerial": {
-            "ABSA": 11,
-            "CLAIREN": 12,
-            "ETALUS": 14,
-            "FLEET": 12,
-            "FORSBURN": 13,
-            "GALVAN": 14,
-            "KRAGG": 14,
-            "LA REINA": 13,
-            "LOXODONT": 14,
-            "MAYPUL": 11,
-            "OLYMPIA": 11,
-            "ORCANE": 13,
-            "RANNO": 12,
-            "SLADE": 13,
             "WRASTOR": 10,
-            "ZETTERBURN": 13
+            "OLYMPIA": 11,
+            "ABSA": 11,
+            "MAYPUL": 11,
+            "FLEET": 12,
+            "CLAIREN": 12,
+            "RANNO": 12,
+            "FORSBURN": 13,
+            "ORCANE": 13,
+            "ZETTERBURN": 13,
+            "SLADE": 13,
+            "LA REINA": 13,
+            "GALVAN": 14,
+            "ETALUS": 14,
+            "KRAGG": 14,
+            "LOXODONT": 14
           }
         }
       ]
     },
     {
-      "move": "Neutral Special",
-      "startup": 1,
+      "move": "Neutral Special - Fire Pulse",
+      "startup": 2,
       "hitboxes": [
         {
-          "hitbox": "Full Charge: Charged",
-          "shieldSafety": null,
-          "shieldRaw": null,
-          "tumblePercent": {
-            "min": 0,
-            "max": 0
+          "hitbox": "Shine",
+          "shieldSafety": {
+            "min": 4,
+            "max": 4,
+            "isStun": true
           },
-          "tumbleRaw": "0%",
-          "perCharacterTumble": {
-            "ABSA": 0,
-            "CLAIREN": 0,
-            "ETALUS": 0,
-            "FLEET": 0,
-            "FORSBURN": 0,
-            "GALVAN": 0,
-            "KRAGG": 0,
-            "LA REINA": 0,
-            "LOXODONT": 0,
-            "MAYPUL": 0,
-            "OLYMPIA": 0,
-            "ORCANE": 0,
-            "RANNO": 0,
-            "SLADE": 0,
-            "WRASTOR": 0,
-            "ZETTERBURN": 0
-          },
-          "perCharacterTumbleAerial": {}
-        },
-        {
-          "hitbox": "Uncharged: Shine",
-          "shieldSafety": null,
-          "shieldRaw": null,
+          "shieldRaw": "Stun: 4",
           "tumblePercent": {
             "min": 157,
             "max": 193
           },
           "tumbleRaw": "157 - 193%",
-          "perCharacterTumble": {
-            "ABSA": 165,
-            "CLAIREN": 172,
-            "ETALUS": 189,
-            "FLEET": 170,
-            "FORSBURN": 179,
-            "GALVAN": 187,
-            "KRAGG": 191,
-            "LA REINA": 185,
-            "LOXODONT": 193,
-            "MAYPUL": 167,
-            "OLYMPIA": 163,
-            "ORCANE": 179,
-            "RANNO": 174,
-            "SLADE": 181,
-            "WRASTOR": 157,
-            "ZETTERBURN": 179
+          "perCharacterTumble": {},
+          "perCharacterTumbleAerial": {}
+        },
+        {
+          "hitbox": "Full Charge: Charged",
+          "shieldSafety": {
+            "min": 8,
+            "max": 8,
+            "isStun": true
           },
+          "shieldRaw": "Stun: 8",
+          "tumblePercent": {
+            "min": 0,
+            "max": 0
+          },
+          "tumbleRaw": "0 - 0%",
+          "perCharacterTumble": {},
           "perCharacterTumbleAerial": {}
         }
       ]
     },
     {
-      "move": "Forward Special",
+      "move": "Forward Special - Fire Ball",
       "startup": 16,
       "hitboxes": [
         {
@@ -1073,10 +1055,9 @@
         {
           "hitbox": "Fireball",
           "shieldSafety": {
-            "isProjectile": true,
-            "isStun": true,
             "min": 1,
-            "max": 1
+            "max": 1,
+            "isStun": true
           },
           "shieldRaw": "Stun: 1",
           "tumblePercent": {
@@ -1085,38 +1066,39 @@
           },
           "tumbleRaw": "188 - 232%",
           "perCharacterTumble": {
-            "ABSA": 198,
-            "CLAIREN": 206,
-            "ETALUS": 227,
-            "FLEET": 204,
-            "FORSBURN": 215,
-            "GALVAN": 225,
-            "KRAGG": 230,
-            "LA REINA": 222,
-            "LOXODONT": 232,
-            "MAYPUL": 201,
-            "OLYMPIA": 196,
-            "ORCANE": 215,
-            "RANNO": 210,
-            "SLADE": 217,
             "WRASTOR": 188,
-            "ZETTERBURN": 215
+            "OLYMPIA": 196,
+            "ABSA": 198,
+            "MAYPUL": 201,
+            "FLEET": 204,
+            "CLAIREN": 206,
+            "RANNO": 210,
+            "FORSBURN": 215,
+            "ORCANE": 215,
+            "ZETTERBURN": 215,
+            "SLADE": 217,
+            "LA REINA": 222,
+            "GALVAN": 225,
+            "ETALUS": 227,
+            "KRAGG": 230,
+            "LOXODONT": 232
           },
           "perCharacterTumbleAerial": {}
         }
       ]
     },
     {
-      "move": "Up Special",
+      "move": "Up Special - Fire Lion",
       "startup": 17,
       "hitboxes": [
         {
           "hitbox": "Multihit",
           "shieldSafety": {
-            "min": -14,
-            "max": -14
+            "min": 1,
+            "max": 1,
+            "isStun": true
           },
-          "shieldRaw": "-14",
+          "shieldRaw": "Stun: 1",
           "tumblePercent": null,
           "tumbleRaw": "Never",
           "perCharacterTumble": {},
@@ -1125,57 +1107,81 @@
         {
           "hitbox": "Final",
           "shieldSafety": {
-            "min": -11,
-            "max": -11
+            "min": 4,
+            "max": 4,
+            "isStun": true
           },
-          "shieldRaw": "-11",
+          "shieldRaw": "Stun: 4",
           "tumblePercent": {
             "min": 15,
             "max": 20
           },
           "tumbleRaw": "15 - 20%",
           "perCharacterTumble": {
-            "ABSA": 16,
-            "CLAIREN": 17,
-            "ETALUS": 19,
-            "FLEET": 17,
-            "FORSBURN": 18,
-            "GALVAN": 19,
-            "KRAGG": 20,
-            "LA REINA": 19,
-            "LOXODONT": 20,
-            "MAYPUL": 17,
-            "OLYMPIA": 16,
-            "ORCANE": 18,
-            "RANNO": 17,
-            "SLADE": 18,
             "WRASTOR": 15,
-            "ZETTERBURN": 18
+            "OLYMPIA": 16,
+            "ABSA": 16,
+            "MAYPUL": 17,
+            "FLEET": 17,
+            "CLAIREN": 17,
+            "RANNO": 17,
+            "FORSBURN": 18,
+            "ORCANE": 18,
+            "ZETTERBURN": 18,
+            "SLADE": 18,
+            "LA REINA": 19,
+            "GALVAN": 19,
+            "ETALUS": 19,
+            "KRAGG": 20,
+            "LOXODONT": 20
           },
           "perCharacterTumbleAerial": {}
         }
       ]
     },
     {
-      "move": "Down Special",
+      "move": "Down Special - Fire Slam",
       "startup": 23,
       "hitboxes": [
         {
-          "hitbox": "Airborne: Dive (On Airborne)",
-          "shieldSafety": null,
-          "shieldRaw": null,
+          "hitbox": "Grounded: Slam",
+          "shieldSafety": {
+            "min": -29,
+            "max": -27
+          },
+          "shieldRaw": "-29 to -27",
           "tumblePercent": {
             "min": 0,
             "max": 0
           },
-          "tumbleRaw": "0%",
+          "tumbleRaw": "0 - 0%",
+          "perCharacterTumble": {},
+          "perCharacterTumbleAerial": {}
+        },
+        {
+          "hitbox": "Airborne: Dive (On Airborne)",
+          "shieldSafety": {
+            "min": 1,
+            "max": 1,
+            "isStun": true
+          },
+          "shieldRaw": "Stun: 1",
+          "tumblePercent": {
+            "min": 0,
+            "max": 0
+          },
+          "tumbleRaw": "⛰️0%☁️0%",
           "perCharacterTumble": {},
           "perCharacterTumbleAerial": {}
         },
         {
           "hitbox": "Airborne: Dive (On Grounded)",
-          "shieldSafety": null,
-          "shieldRaw": null,
+          "shieldSafety": {
+            "min": 1,
+            "max": 1,
+            "isStun": true
+          },
+          "shieldRaw": "Stun: 1",
           "tumblePercent": null,
           "tumbleRaw": "Never",
           "perCharacterTumble": {},
@@ -1192,69 +1198,46 @@
             "min": 0,
             "max": 0
           },
-          "tumbleRaw": "0%",
+          "tumbleRaw": "0 - 0%",
           "perCharacterTumble": {
-            "ABSA": 0,
-            "CLAIREN": 0,
-            "ETALUS": 0,
-            "FLEET": 0,
-            "FORSBURN": 0,
-            "GALVAN": 0,
-            "KRAGG": 0,
-            "LA REINA": 0,
-            "LOXODONT": 0,
-            "MAYPUL": 0,
-            "OLYMPIA": 0,
-            "ORCANE": 0,
-            "RANNO": 0,
-            "SLADE": 0,
             "WRASTOR": 0,
-            "ZETTERBURN": 0
-          },
-          "perCharacterTumbleAerial": {}
-        },
-        {
-          "hitbox": "Grounded: Slam",
-          "shieldSafety": {
-            "min": -29,
-            "max": -27
-          },
-          "shieldRaw": "-29 to -27",
-          "tumblePercent": {
-            "min": 0,
-            "max": 0
-          },
-          "tumbleRaw": "0%",
-          "perCharacterTumble": {
-            "ABSA": 0,
-            "CLAIREN": 0,
-            "ETALUS": 0,
-            "FLEET": 0,
-            "FORSBURN": 0,
-            "GALVAN": 0,
-            "KRAGG": 0,
-            "LA REINA": 0,
-            "LOXODONT": 0,
-            "MAYPUL": 0,
             "OLYMPIA": 0,
-            "ORCANE": 0,
+            "ABSA": 0,
+            "MAYPUL": 0,
+            "FLEET": 0,
+            "CLAIREN": 0,
             "RANNO": 0,
+            "FORSBURN": 0,
+            "ORCANE": 0,
+            "ZETTERBURN": 0,
             "SLADE": 0,
-            "WRASTOR": 0,
-            "ZETTERBURN": 0
+            "LA REINA": 0,
+            "GALVAN": 0,
+            "ETALUS": 0,
+            "KRAGG": 0,
+            "LOXODONT": 0
           },
           "perCharacterTumbleAerial": {}
         }
       ]
     },
     {
-      "move": "Pummel",
+      "move": "Grab",
+      "startup": 8,
+      "hitboxes": []
+    },
+    {
+      "move": "Pummel Attack",
       "startup": 11,
       "hitboxes": [
         {
           "hitbox": "Pummel",
-          "shieldSafety": null,
-          "shieldRaw": null,
+          "shieldSafety": {
+            "min": 6,
+            "max": 6,
+            "isStun": true
+          },
+          "shieldRaw": "Stun: 6",
           "tumblePercent": null,
           "tumbleRaw": "Never",
           "perCharacterTumble": {},
@@ -1263,13 +1246,17 @@
       ]
     },
     {
-      "move": "Pummel (Special)",
+      "move": "Pummel Special",
       "startup": 11,
       "hitboxes": [
         {
           "hitbox": "Pummel",
-          "shieldSafety": null,
-          "shieldRaw": null,
+          "shieldSafety": {
+            "min": 4,
+            "max": 4,
+            "isStun": true
+          },
+          "shieldRaw": "Stun: 4",
           "tumblePercent": null,
           "tumbleRaw": "Never",
           "perCharacterTumble": {},
@@ -1282,27 +1269,39 @@
       "startup": 32,
       "hitboxes": [
         {
-          "hitbox": "Consume: Throw",
-          "shieldSafety": null,
-          "shieldRaw": null,
-          "tumblePercent": null,
-          "tumbleRaw": "☑️",
-          "perCharacterTumble": {},
-          "perCharacterTumbleAerial": {}
-        },
-        {
-          "hitbox": "Consume",
-          "shieldSafety": null,
-          "shieldRaw": null,
-          "tumblePercent": null,
-          "tumbleRaw": "☑️",
-          "perCharacterTumble": {},
-          "perCharacterTumbleAerial": {}
-        },
-        {
           "hitbox": "No Consume: Throw",
-          "shieldSafety": null,
-          "shieldRaw": null,
+          "shieldSafety": {
+            "min": 4,
+            "max": 4,
+            "isStun": true
+          },
+          "shieldRaw": "Stun: 4",
+          "tumblePercent": null,
+          "tumbleRaw": "☑️",
+          "perCharacterTumble": {},
+          "perCharacterTumbleAerial": {}
+        },
+        {
+          "hitbox": "Consume: Throw",
+          "shieldSafety": {
+            "min": 4,
+            "max": 4,
+            "isStun": true
+          },
+          "shieldRaw": "Stun: 4",
+          "tumblePercent": null,
+          "tumbleRaw": "☑️",
+          "perCharacterTumble": {},
+          "perCharacterTumbleAerial": {}
+        },
+        {
+          "hitbox": "Consume: Consume",
+          "shieldSafety": {
+            "min": 5,
+            "max": 5,
+            "isStun": true
+          },
+          "shieldRaw": "Stun: 5",
           "tumblePercent": null,
           "tumbleRaw": "☑️",
           "perCharacterTumble": {},
@@ -1317,9 +1316,9 @@
         {
           "hitbox": "Throw",
           "shieldSafety": null,
-          "shieldRaw": null,
+          "shieldRaw": "N/A",
           "tumblePercent": null,
-          "tumbleRaw": "Never",
+          "tumbleRaw": "☑️",
           "perCharacterTumble": {},
           "perCharacterTumbleAerial": {}
         }
@@ -1331,8 +1330,12 @@
       "hitboxes": [
         {
           "hitbox": "Throw",
-          "shieldSafety": null,
-          "shieldRaw": null,
+          "shieldSafety": {
+            "min": 3,
+            "max": 3,
+            "isStun": true
+          },
+          "shieldRaw": "Stun: 3",
           "tumblePercent": null,
           "tumbleRaw": "☑️",
           "perCharacterTumble": {},
@@ -1346,87 +1349,15 @@
       "hitboxes": [
         {
           "hitbox": "Throw",
-          "shieldSafety": null,
-          "shieldRaw": null,
+          "shieldSafety": {
+            "min": 3,
+            "max": 3,
+            "isStun": true
+          },
+          "shieldRaw": "Stun: 3",
           "tumblePercent": null,
           "tumbleRaw": "☑️",
           "perCharacterTumble": {},
-          "perCharacterTumbleAerial": {}
-        }
-      ]
-    },
-    {
-      "move": "Getup Attack",
-      "startup": 16,
-      "hitboxes": [
-        {
-          "hitbox": "Swipe",
-          "shieldSafety": {
-            "min": -30,
-            "max": -24
-          },
-          "shieldRaw": "-30 to -24",
-          "tumblePercent": {
-            "min": 0,
-            "max": 0
-          },
-          "tumbleRaw": "0%",
-          "perCharacterTumble": {
-            "ABSA": 0,
-            "CLAIREN": 0,
-            "ETALUS": 0,
-            "FLEET": 0,
-            "FORSBURN": 0,
-            "GALVAN": 0,
-            "KRAGG": 0,
-            "LA REINA": 0,
-            "LOXODONT": 0,
-            "MAYPUL": 0,
-            "OLYMPIA": 0,
-            "ORCANE": 0,
-            "RANNO": 0,
-            "SLADE": 0,
-            "WRASTOR": 0,
-            "ZETTERBURN": 0
-          },
-          "perCharacterTumbleAerial": {}
-        }
-      ]
-    },
-    {
-      "move": "Getup Special",
-      "startup": 37,
-      "hitboxes": [
-        {
-          "hitbox": "Puddle",
-          "shieldSafety": {
-            "min": -28,
-            "max": -25
-          },
-          "shieldRaw": "-28 to -25",
-          "tumblePercent": {
-            "min": 0,
-            "max": 0
-          },
-          "tumbleRaw": "0%",
-          "perCharacterTumble": {
-            "ABSA": 0,
-            "CLAIREN": 0,
-            "ETALUS": 0,
-            "FLEET": 0,
-            "FORSBURN": 0,
-            "GALVAN": 0,
-            "KRAGG": 0,
-            "LA REINA": 0,
-            "LOXODONT": 0,
-            "MAYPUL": 0,
-            "OLYMPIA": 0,
-            "ORCANE": 0,
-            "RANNO": 0,
-            "SLADE": 0,
-            "WRASTOR": 0,
-            "ZETTERBURN": 0
-          },
           "perCharacterTumbleAerial": {}
         }
       ]
@@ -1448,29 +1379,29 @@
           },
           "tumbleRaw": "10 - 14%",
           "perCharacterTumble": {
-            "ABSA": 11,
-            "CLAIREN": 12,
-            "ETALUS": 14,
-            "FLEET": 12,
-            "FORSBURN": 13,
-            "GALVAN": 13,
-            "KRAGG": 14,
-            "LA REINA": 13,
-            "LOXODONT": 14,
-            "MAYPUL": 11,
-            "OLYMPIA": 11,
-            "ORCANE": 13,
-            "RANNO": 12,
-            "SLADE": 13,
             "WRASTOR": 10,
-            "ZETTERBURN": 13
+            "OLYMPIA": 11,
+            "ABSA": 11,
+            "MAYPUL": 11,
+            "FLEET": 12,
+            "CLAIREN": 12,
+            "RANNO": 12,
+            "FORSBURN": 13,
+            "ORCANE": 13,
+            "ZETTERBURN": 13,
+            "SLADE": 13,
+            "LA REINA": 13,
+            "GALVAN": 13,
+            "ETALUS": 14,
+            "KRAGG": 14,
+            "LOXODONT": 14
           },
           "perCharacterTumbleAerial": {}
         }
       ]
     },
     {
-      "move": "Ledge Special",
+      "move": "Ledge  Special",
       "startup": 31,
       "hitboxes": [
         {
@@ -1484,24 +1415,100 @@
             "min": 0,
             "max": 0
           },
-          "tumbleRaw": "0%",
+          "tumbleRaw": "0 - 0%",
           "perCharacterTumble": {
-            "ABSA": 0,
-            "CLAIREN": 0,
-            "ETALUS": 0,
-            "FLEET": 0,
-            "FORSBURN": 0,
-            "GALVAN": 0,
-            "KRAGG": 0,
-            "LA REINA": 0,
-            "LOXODONT": 0,
-            "MAYPUL": 0,
-            "OLYMPIA": 0,
-            "ORCANE": 0,
-            "RANNO": 0,
-            "SLADE": 0,
             "WRASTOR": 0,
-            "ZETTERBURN": 0
+            "OLYMPIA": 0,
+            "ABSA": 0,
+            "MAYPUL": 0,
+            "FLEET": 0,
+            "CLAIREN": 0,
+            "RANNO": 0,
+            "FORSBURN": 0,
+            "ORCANE": 0,
+            "ZETTERBURN": 0,
+            "SLADE": 0,
+            "LA REINA": 0,
+            "GALVAN": 0,
+            "ETALUS": 0,
+            "KRAGG": 0,
+            "LOXODONT": 0
+          },
+          "perCharacterTumbleAerial": {}
+        }
+      ]
+    },
+    {
+      "move": "Getup Attack",
+      "startup": 16,
+      "hitboxes": [
+        {
+          "hitbox": "Swipe",
+          "shieldSafety": {
+            "min": -30,
+            "max": -24
+          },
+          "shieldRaw": "-30 to -24",
+          "tumblePercent": {
+            "min": 0,
+            "max": 0
+          },
+          "tumbleRaw": "0 - 0%",
+          "perCharacterTumble": {
+            "WRASTOR": 0,
+            "OLYMPIA": 0,
+            "ABSA": 0,
+            "MAYPUL": 0,
+            "FLEET": 0,
+            "CLAIREN": 0,
+            "RANNO": 0,
+            "FORSBURN": 0,
+            "ORCANE": 0,
+            "ZETTERBURN": 0,
+            "SLADE": 0,
+            "LA REINA": 0,
+            "GALVAN": 0,
+            "ETALUS": 0,
+            "KRAGG": 0,
+            "LOXODONT": 0
+          },
+          "perCharacterTumbleAerial": {}
+        }
+      ]
+    },
+    {
+      "move": "Getup Special",
+      "startup": 37,
+      "hitboxes": [
+        {
+          "hitbox": "Puddle",
+          "shieldSafety": {
+            "min": -28,
+            "max": -25
+          },
+          "shieldRaw": "-28 to -25",
+          "tumblePercent": {
+            "min": 0,
+            "max": 0
+          },
+          "tumbleRaw": "0 - 0%",
+          "perCharacterTumble": {
+            "WRASTOR": 0,
+            "OLYMPIA": 0,
+            "ABSA": 0,
+            "MAYPUL": 0,
+            "FLEET": 0,
+            "CLAIREN": 0,
+            "RANNO": 0,
+            "FORSBURN": 0,
+            "ORCANE": 0,
+            "ZETTERBURN": 0,
+            "SLADE": 0,
+            "LA REINA": 0,
+            "GALVAN": 0,
+            "ETALUS": 0,
+            "KRAGG": 0,
+            "LOXODONT": 0
           },
           "perCharacterTumbleAerial": {}
         }
