@@ -44,7 +44,7 @@ const PROJECTILE_COLOR = '#7B68EE'
 function ProjectileBadge({ stun }) {
   return (
     <span
-      title="Distance greatly impacts the safety of projectiles and the ability of the attacker to follow up. Instead we've included a raw stun value."
+      title="This hitbox is flagged as a projectile by the game and wiki, though it may not behave like a traditional projectile. Distance greatly impacts safety and follow-up potential, so we show raw shield stun instead of a frame advantage."
       style={{
         display: 'inline-flex',
         alignItems: 'center',
