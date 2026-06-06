@@ -55,16 +55,12 @@ body {
 }
 
 /* ── Responsive: Matchup top panels ── */
+/* Default: 2-col grid, items placed row by row so each row auto-matches heights */
 .top-panels-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 16px;
-}
-/* Medium: group by character — player's 2 panels | opponent's 2 panels */
-@media (max-width: 1000px) {
-  .top-panels-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
+  align-items: stretch;
 }
 /* Small: one panel per row */
 @media (max-width: 560px) {
@@ -146,8 +142,8 @@ body {
   padding: 8px 16px;
   border-bottom: 1px solid var(--border);
   display: grid;
-  grid-template-columns: 1fr 120px 90px 1fr;
-  gap: 12px;
+  grid-template-columns: 0.6fr 140px 120px 1fr;
+  gap: 16px;
 }
 @media (max-width: 600px) {
   .col-headers { display: none; }
@@ -158,8 +154,8 @@ body {
   padding: 10px 16px;
   border-bottom: 1px solid var(--border);
   display: grid;
-  grid-template-columns: 1fr 120px 90px 1fr;
-  gap: 12px;
+  grid-template-columns: 0.6fr 140px 120px 1fr;
+  gap: 16px;
   align-items: start;
   font-size: 0.82rem;
 }

@@ -2,6 +2,12 @@
   "version": "0.0.1",
   "configurations": [
     {
+      "name": "mockups",
+      "runtimeExecutable": "/opt/miniconda3/bin/python3",
+      "runtimeArgs": ["-m", "http.server", "5174", "--directory", "/Users/jeremy/Documents/RivalsGameplanHelper/mockups"],
+      "port": 5174
+    },
+    {
       "name": "roa2-app",
       "runtimeExecutable": "/usr/local/opt/node/bin/node",
       "runtimeArgs": [

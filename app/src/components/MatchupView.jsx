@@ -40,29 +40,94 @@ function ShieldBadge({ value, color }) {
 }
 
 const PROJECTILE_COLOR = '#7B68EE'
+const PROJ_TOOLTIP = "This hitbox is flagged as a projectile by the game and wiki, though it may not behave like a traditional projectile. Distance greatly impacts safety and follow-up potential, so we show raw shield stun instead of a frame advantage."
 
 function ProjectileBadge({ stun }) {
+  const [visible, setVisible] = useState(false)
   return (
-    <span
-      title="This hitbox is flagged as a projectile by the game and wiki, though it may not behave like a traditional projectile. Distance greatly impacts safety and follow-up potential, so we show raw shield stun instead of a frame advantage."
-      style={{
-        display: 'inline-flex',
-        alignItems: 'center',
-        gap: '4px',
-        padding: '2px 8px',
-        borderRadius: '4px',
-        background: PROJECTILE_COLOR + '22',
-        color: PROJECTILE_COLOR,
-        border: `1px solid ${PROJECTILE_COLOR}44`,
-        fontSize: '0.75rem',
-        fontWeight: 700,
-        whiteSpace: 'nowrap',
-        cursor: 'help',
-      }}
-    >
-      <span style={{ fontSize: '0.65rem', opacity: 0.8 }}>PROJ</span>
-      {stun}
+    <span style={{ position: 'relative', display: 'inline-flex' }}>
+      <span
+        onMouseEnter={() => setVisible(true)}
+        onMouseLeave={() => setVisible(false)}
+        style={{
+          display: 'inline-flex',
+          alignItems: 'center',
+          gap: '4px',
+          padding: '2px 8px',
+          borderRadius: '4px',
+          background: PROJECTILE_COLOR + '22',
+          color: PROJECTILE_COLOR,
+          border: `1px solid ${PROJECTILE_COLOR}44`,
+          fontSize: '0.75rem',
+          fontWeight: 700,
+          whiteSpace: 'nowrap',
+          cursor: 'help',
+        }}
+      >
+        <span style={{ fontSize: '0.65rem', opacity: 0.8 }}>PROJ</span>
+        {stun}
+      </span>
+      {visible && (
+        <span style={{
+          position: 'absolute',
+          bottom: 'calc(100% + 6px)',
+          left: '50%',
+          transform: 'translateX(-50%)',
+          background: '#1a1a2e',
+          color: '#e0e0f0',
+          border: `1px solid ${PROJECTILE_COLOR}66`,
+          borderRadius: '6px',
+          padding: '8px 10px',
+          fontSize: '0.7rem',
+          lineHeight: 1.45,
+          width: '260px',
+          whiteSpace: 'normal',
+          zIndex: 1000,
+          pointerEvents: 'none',
+          boxShadow: '0 4px 12px rgba(0,0,0,0.5)',
+        }}>
+          {PROJ_TOOLTIP}
+        </span>
+      )}
     </span>
+  )
+}
+
+function CharColumnHeader({ name, accent }) {
+  const slug = name.replace(/ /g, '_')
+  const wikiUrl = `https://dragdown.wiki/wiki/RoA2/${slug}`
+  return (
+    <a
+      href={wikiUrl}
+      target="_blank"
+      rel="noopener noreferrer"
+      style={{
+        display: 'flex',
+        alignItems: 'center',
+        gap: '10px',
+        textDecoration: 'none',
+        padding: '8px 4px',
+        borderRadius: '6px',
+        transition: 'opacity 0.15s',
+      }}
+      onMouseEnter={e => e.currentTarget.style.opacity = '0.75'}
+      onMouseLeave={e => e.currentTarget.style.opacity = '1'}
+    >
+      <img
+        src={`/icons/${slug}.png`}
+        alt={name}
+        style={{ width: '32px', height: '32px', objectFit: 'contain', flexShrink: 0 }}
+      />
+      <span style={{
+        fontSize: '1rem',
+        fontWeight: 700,
+        color: accent,
+        letterSpacing: '0.02em',
+      }}>
+        {name}
+      </span>
+      <span style={{ color: 'var(--muted)', fontSize: '0.7rem', marginLeft: '2px' }}>↗</span>
+    </a>
   )
 }
 
@@ -73,19 +138,24 @@ function Section({ title, accent, children }) {
       border: '1px solid var(--border)',
       borderRadius: 'var(--radius)',
       overflow: 'hidden',
+      display: 'flex',
+      flexDirection: 'column',
     }}>
       <div style={{
         padding: '12px 16px',
+        minHeight: '44px',
         borderBottom: '1px solid var(--border)',
         fontSize: '0.7rem',
         fontWeight: 700,
         letterSpacing: '0.1em',
         textTransform: 'uppercase',
         color: accent,
+        display: 'flex',
+        alignItems: 'center',
       }}>
         {title}
       </div>
-      <div style={{ padding: '10px 10px' }}>{children}</div>
+      <div>{children}</div>
     </div>
   )
 }
@@ -98,7 +168,7 @@ function SafestOptionsList({ charData, defenderOOSOptions }) {
   )
   if (!options.length) return <p style={{ color: 'var(--muted)', fontSize: '0.85rem' }}>No safe moves found.</p>
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
+    <div style={{ display: 'flex', flexDirection: 'column' }}>
       {options.map((o, i) => {
         const tagColor = 'var(--safe)'
         const fmt = n => `${n > 0 ? '+' : ''}${n}`
@@ -109,16 +179,16 @@ function SafestOptionsList({ charData, defenderOOSOptions }) {
               : `${fmt(o.shieldSafety.min)} to ${fmt(v)}`)
           : '—'
         return (
-          <div key={i} style={{ display: 'flex', alignItems: 'center', gap: '10px', fontSize: '0.83rem' }}>
+          <div key={i} style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '0.82rem', padding: '10px 16px', borderBottom: '1px solid var(--border)' }}>
+            <span style={{ fontWeight: 600, flexShrink: 0 }}>{getDisplayName(charData.character, o.move)}</span>
+            <span style={{ color: 'var(--muted)', fontSize: '0.75rem', flexShrink: 0 }}>[{o.hitbox}]</span>
+            <span style={{ flex: 1 }} />
             <span style={{
-              display: 'inline-block', padding: '2px 4px', borderRadius: '4px',
+              display: 'inline-block', padding: '2px 8px', borderRadius: '4px',
               background: tagColor + '22', color: tagColor,
-              border: `1px solid ${tagColor}44`, fontSize: '0.65rem', fontWeight: 700,
-              width: '72px', flexShrink: 0, textAlign: 'center',
-              whiteSpace: 'nowrap', overflow: 'visible',
+              border: `1px solid ${tagColor}44`, fontSize: '0.72rem', fontWeight: 700,
+              whiteSpace: 'nowrap', flexShrink: 0,
             }}>{tagLabel}</span>
-            <span style={{ fontWeight: 600 }}>{getDisplayName(charData.character, o.move)}</span>
-            <span style={{ color: 'var(--muted)', fontSize: '0.75rem' }}>[{o.hitbox}]</span>
           </div>
         )
       })}
@@ -130,12 +200,17 @@ function OOSList({ charData }) {
   const options = useMemo(() => getOOSOptions(charData).slice(0, 5), [charData])
   if (!options.length) return <p style={{ color: 'var(--muted)', fontSize: '0.85rem' }}>No OOS data.</p>
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
+    <div style={{ display: 'flex', flexDirection: 'column' }}>
       {options.map((o, i) => (
-        <div key={i} style={{ display: 'flex', alignItems: 'center', gap: '10px', fontSize: '0.83rem' }}>
+        <div key={i} style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '0.82rem', padding: '10px 16px', borderBottom: '1px solid var(--border)' }}>
+          <span style={{ fontWeight: 600, flexShrink: 0 }}>{o.label}</span>
+          {o.jumpCancel && (
+            <span style={{ color: 'var(--accent2)', fontSize: '0.7rem', fontWeight: 600, flexShrink: 0 }}>JC</span>
+          )}
+          <span style={{ flex: 1 }} />
           <span style={{
             display: 'inline-block',
-            padding: '2px 6px',
+            padding: '2px 8px',
             borderRadius: '4px',
             background: 'var(--accent)22',
             color: 'var(--accent)',
@@ -143,16 +218,10 @@ function OOSList({ charData }) {
             fontSize: '0.72rem',
             fontWeight: 700,
             whiteSpace: 'nowrap',
-            width: '48px',
             flexShrink: 0,
-            textAlign: 'center',
           }}>
             {o.oosStartup}f
           </span>
-          <span style={{ fontWeight: 600 }}>{o.label}</span>
-          {o.jumpCancel && (
-            <span style={{ color: 'var(--accent2)', fontSize: '0.7rem', fontWeight: 600 }}>JC</span>
-          )}
         </div>
       ))}
     </div>
@@ -211,7 +280,7 @@ function TumbleBadge({ row, defenderName }) {
   if (aerialStr && aerialStr !== groundedStr) {
     const aBadge = makeBadge(aerialNum, aerialStr)
     return (
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '3px', alignItems: 'flex-start' }}>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '3px', alignItems: 'center' }}>
         <span style={gBadge.style}>Grounded {gBadge.str}</span>
         <span style={aBadge.style}>Aerial {aBadge.str}</span>
       </div>
@@ -683,28 +752,35 @@ export default function MatchupView({ myChar, oppChar, onBack }) {
 
       <main className="page-main">
 
-        {/* Top row: player first, then opponent */}
+        {/* Top panels: 2-col grid, each row spans both characters so heights match */}
         <div className="top-panels-grid">
-          {myData && (
-            <Section title={`${myChar}'s Safe Options on Shield`} accent="var(--accent)">
-              <SafestOptionsList charData={myData} defenderOOSOptions={oppOOS} />
-            </Section>
-          )}
-          {myData && (
-            <Section title={`${myChar} OOS Options`} accent="var(--accent)">
-              <OOSList charData={myData} />
-            </Section>
-          )}
-          {oppData && (
-            <Section title={`${oppChar}'s Safe Options on Shield`} accent="var(--accent2)">
-              <SafestOptionsList charData={oppData} defenderOOSOptions={myOOS} />
-            </Section>
-          )}
-          {oppData && (
-            <Section title={`${oppChar} OOS Options`} accent="var(--accent2)">
-              <OOSList charData={oppData} />
-            </Section>
-          )}
+          {/* Row 1: character headers */}
+          <CharColumnHeader name={myChar} accent="var(--accent)" />
+          <CharColumnHeader name={oppChar} accent="var(--accent2)" />
+
+          {/* Row 2: Safest Options — same row height for both */}
+          {myData
+            ? <Section title="Safest Options" accent="var(--accent)">
+                <SafestOptionsList charData={myData} defenderOOSOptions={oppOOS} />
+              </Section>
+            : <div />}
+          {oppData
+            ? <Section title="Safest Options" accent="var(--accent2)">
+                <SafestOptionsList charData={oppData} defenderOOSOptions={myOOS} />
+              </Section>
+            : <div />}
+
+          {/* Row 3: OOS Options — same row height for both */}
+          {myData
+            ? <Section title="OOS Options" accent="var(--accent)">
+                <OOSList charData={myData} />
+              </Section>
+            : <div />}
+          {oppData
+            ? <Section title="OOS Options" accent="var(--accent2)">
+                <OOSList charData={oppData} />
+              </Section>
+            : <div />}
         </div>
 
         {/* Breakdown tables — toggled */}
