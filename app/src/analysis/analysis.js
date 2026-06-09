@@ -127,39 +127,32 @@ function getSafestOptions(characterData, defenderOOSOptions) {
   const entries = getAllShieldSafeties(characterData);
 
   if (defenderOOSOptions) {
-    // Matchup-aware: classify by punish count, keep best hitbox per move
-    const seen = {};
+    // Matchup-aware: include all non-STUN hitboxes with 0–3 punish options
+    const results = [];
     entries.forEach(function(entry) {
+      if (entry.shieldSafety.isStun) return;
       const defenderFrameAdv = -entry.shieldSafety.max;
       const punishCount = defenderOOSOptions.filter(function(opt) {
         return opt.oosStartup <= defenderFrameAdv;
       }).length;
-      // Only show moves that are safe or risky (0–3 punish options)
       if (punishCount > 3) return;
-      if (!seen[entry.move] || punishCount < seen[entry.move].punishCount ||
-          (punishCount === seen[entry.move].punishCount &&
-           entry.shieldSafety.max > seen[entry.move].shieldSafety.max)) {
-        seen[entry.move] = Object.assign({}, entry, { punishCount });
-      }
+      results.push(Object.assign({}, entry, { punishCount }));
     });
-    const result = Object.values(seen);
-    result.sort(function(a, b) {
+    results.sort(function(a, b) {
       return a.punishCount - b.punishCount || b.shieldSafety.max - a.shieldSafety.max;
     });
-    return result;
+    return results;
   }
 
-  // Fallback: frame-threshold based
-  const seen = {};
+  // Fallback: frame-threshold based (skip STUN hitboxes, include all qualifying hitboxes)
+  const results = [];
   entries.forEach(function(entry) {
+    if (entry.shieldSafety.isStun) return;
     if (entry.shieldSafety.max < SAFE_THRESHOLD) return;
-    if (!seen[entry.move] || entry.shieldSafety.max > seen[entry.move].shieldSafety.max) {
-      seen[entry.move] = entry;
-    }
+    results.push(entry);
   });
-  const result = Object.values(seen);
-  result.sort(function(a, b) { return b.shieldSafety.max - a.shieldSafety.max; });
-  return result;
+  results.sort(function(a, b) { return b.shieldSafety.max - a.shieldSafety.max; });
+  return results;
 }
 
 /**
