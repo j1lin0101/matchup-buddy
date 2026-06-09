@@ -258,7 +258,7 @@ function SafestOptionsList({ charData, defenderOOSOptions }) {
 }
 
 function OOSList({ charData }) {
-  const options = useMemo(() => getOOSOptions(charData).slice(0, 5), [charData])
+  const options = useMemo(() => getOOSOptions(charData), [charData])
   if (!options.length) return <p style={{ color: 'var(--muted)', fontSize: '0.85rem' }}>No OOS data.</p>
   return (
     <div style={{ display: 'flex', flexDirection: 'column' }}>
