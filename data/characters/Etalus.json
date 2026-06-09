@@ -1,7 +1,7 @@
 {
   "character": "Etalus",
   "slug": "Etalus",
-  "scrapedAt": "2026-06-09T17:01:02.092Z",
+  "scrapedAt": "2026-06-09T17:29:35.344Z",
   "moves": [
     {
       "move": "Jab",
@@ -1484,6 +1484,11 @@
           "perCharacterTumbleAerial": {}
         }
       ]
+    },
+    {
+      "move": "Grab",
+      "startup": 8,
+      "hitboxes": []
     },
     {
       "move": "Pummel",

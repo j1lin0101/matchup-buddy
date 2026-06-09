@@ -1,7 +1,7 @@
 {
   "character": "Orcane",
   "slug": "Orcane",
-  "scrapedAt": "2026-06-09T17:01:02.535Z",
+  "scrapedAt": "2026-06-09T17:29:35.791Z",
   "moves": [
     {
       "move": "Jab",
@@ -1455,6 +1455,11 @@
           "perCharacterTumbleAerial": {}
         }
       ]
+    },
+    {
+      "move": "Grab",
+      "startup": 8,
+      "hitboxes": []
     },
     {
       "move": "Pummel",

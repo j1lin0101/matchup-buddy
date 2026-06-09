@@ -1,7 +1,7 @@
 {
   "character": "Kragg",
   "slug": "Kragg",
-  "scrapedAt": "2026-06-09T17:01:03.629Z",
+  "scrapedAt": "2026-06-09T17:29:36.719Z",
   "moves": [
     {
       "move": "Jab",
@@ -1133,6 +1133,11 @@
           "perCharacterTumbleAerial": {}
         }
       ]
+    },
+    {
+      "move": "Grab",
+      "startup": 8,
+      "hitboxes": []
     },
     {
       "move": "Pummel",

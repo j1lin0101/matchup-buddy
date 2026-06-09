@@ -467,8 +467,9 @@ async function scrapeCharacter(charName, charSlug, characterWeights) {
       }
     }
 
-    // Only include moves that have hitboxes OR are framework moves (throws/grabs with no hitboxes)
-    if (hitboxes.length > 0) {
+    // Include moves with hitboxes, or grab moves (no hitboxes but needed for OOS options)
+    const isGrab = attack === 'Grab' || attack === 'DashGrab' || attack === 'PivotGrab';
+    if (hitboxes.length > 0 || (isGrab && startup != null)) {
       movesOutput.push({ move: displayName, startup, hitboxes });
     }
   }

@@ -93,6 +93,7 @@ function getAllShieldSafeties(characterData) {
 
   characterData.moves.forEach(function(move) {
     if (isExcludedMove(move.move)) return;
+    if (isGrabMove(move.move)) return;
     move.hitboxes.forEach(function(h) {
       if (!h.shieldSafety) return;
       if (h.shieldSafety.isNA) return;  // (legacy guard, no longer generated)
@@ -227,6 +228,7 @@ function analyzeMatchup(attackerData, defenderData) {
 
   attackerData.moves.forEach(function(move) {
     if (isExcludedMove(move.move)) return;
+    if (isGrabMove(move.move)) return;
     move.hitboxes.forEach(function(h) {
       if (!h.shieldSafety) return;
 

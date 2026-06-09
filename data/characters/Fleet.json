@@ -1,7 +1,7 @@
 {
   "character": "Fleet",
   "slug": "Fleet",
-  "scrapedAt": "2026-06-09T17:01:04.917Z",
+  "scrapedAt": "2026-06-09T17:29:38.028Z",
   "moves": [
     {
       "move": "Jab",
@@ -1386,6 +1386,11 @@
           "perCharacterTumbleAerial": {}
         }
       ]
+    },
+    {
+      "move": "Grab",
+      "startup": 8,
+      "hitboxes": []
     },
     {
       "move": "Pummel",

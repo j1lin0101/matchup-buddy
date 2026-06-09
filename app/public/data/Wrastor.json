@@ -1,7 +1,7 @@
 {
   "character": "Wrastor",
   "slug": "Wrastor",
-  "scrapedAt": "2026-06-09T17:01:03.165Z",
+  "scrapedAt": "2026-06-09T17:29:36.301Z",
   "moves": [
     {
       "move": "Jab",
@@ -1300,6 +1300,11 @@
           "perCharacterTumbleAerial": {}
         }
       ]
+    },
+    {
+      "move": "Grab",
+      "startup": 8,
+      "hitboxes": []
     },
     {
       "move": "Pummel",

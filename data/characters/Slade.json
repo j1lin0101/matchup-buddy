@@ -1,7 +1,7 @@
 {
   "character": "Slade",
   "slug": "Slade",
-  "scrapedAt": "2026-06-09T17:01:07.144Z",
+  "scrapedAt": "2026-06-09T17:29:40.495Z",
   "moves": [
     {
       "move": "Jab",
@@ -2281,6 +2281,11 @@
           "perCharacterTumbleAerial": {}
         }
       ]
+    },
+    {
+      "move": "Grab",
+      "startup": 8,
+      "hitboxes": []
     },
     {
       "move": "Pummel",

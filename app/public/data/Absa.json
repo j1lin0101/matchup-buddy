@@ -1,7 +1,7 @@
 {
   "character": "Absa",
   "slug": "Absa",
-  "scrapedAt": "2026-06-09T17:01:01.584Z",
+  "scrapedAt": "2026-06-09T17:29:34.796Z",
   "moves": [
     {
       "move": "Jab",
@@ -1035,6 +1035,11 @@
           "perCharacterTumbleAerial": {}
         }
       ]
+    },
+    {
+      "move": "Grab",
+      "startup": 8,
+      "hitboxes": []
     },
     {
       "move": "Pummel",

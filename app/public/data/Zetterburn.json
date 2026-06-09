@@ -1,7 +1,7 @@
 {
   "character": "Zetterburn",
   "slug": "Zetterburn",
-  "scrapedAt": "2026-06-09T17:01:00.132Z",
+  "scrapedAt": "2026-06-09T17:29:33.429Z",
   "moves": [
     {
       "move": "Jab",
@@ -1264,6 +1264,11 @@
           "perCharacterTumbleAerial": {}
         }
       ]
+    },
+    {
+      "move": "Grab",
+      "startup": 8,
+      "hitboxes": []
     },
     {
       "move": "Pummel",

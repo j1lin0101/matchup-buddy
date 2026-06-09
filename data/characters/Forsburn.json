@@ -1,7 +1,7 @@
 {
   "character": "Forsburn",
   "slug": "Forsburn",
-  "scrapedAt": "2026-06-09T17:01:00.541Z",
+  "scrapedAt": "2026-06-09T17:29:33.862Z",
   "moves": [
     {
       "move": "Jab",
@@ -1245,6 +1245,11 @@
           "perCharacterTumbleAerial": {}
         }
       ]
+    },
+    {
+      "move": "Grab",
+      "startup": 8,
+      "hitboxes": []
     },
     {
       "move": "Pummel",

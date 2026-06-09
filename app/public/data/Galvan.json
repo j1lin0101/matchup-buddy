@@ -1,7 +1,7 @@
 {
   "character": "Galvan",
   "slug": "Galvan",
-  "scrapedAt": "2026-06-09T17:01:06.723Z",
+  "scrapedAt": "2026-06-09T17:29:40.004Z",
   "moves": [
     {
       "move": "Jab",
@@ -1395,6 +1395,11 @@
           "perCharacterTumbleAerial": {}
         }
       ]
+    },
+    {
+      "move": "Grab",
+      "startup": 8,
+      "hitboxes": []
     },
     {
       "move": "Pummel",

@@ -1,7 +1,7 @@
 {
   "character": "Ranno",
   "slug": "Ranno",
-  "scrapedAt": "2026-06-09T17:01:04.049Z",
+  "scrapedAt": "2026-06-09T17:29:37.141Z",
   "moves": [
     {
       "move": "Jab",
@@ -1497,6 +1497,11 @@
           "perCharacterTumbleAerial": {}
         }
       ]
+    },
+    {
+      "move": "Grab",
+      "startup": 8,
+      "hitboxes": []
     },
     {
       "move": "Pummel",

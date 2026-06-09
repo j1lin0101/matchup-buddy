@@ -1,7 +1,7 @@
 {
   "character": "Maypul",
   "slug": "Maypul",
-  "scrapedAt": "2026-06-09T17:01:01.044Z",
+  "scrapedAt": "2026-06-09T17:29:34.366Z",
   "moves": [
     {
       "move": "Jab",
@@ -1117,6 +1117,11 @@
           "perCharacterTumbleAerial": {}
         }
       ]
+    },
+    {
+      "move": "Grab",
+      "startup": 8,
+      "hitboxes": []
     },
     {
       "move": "Pummel",

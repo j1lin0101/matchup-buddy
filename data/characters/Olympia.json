@@ -1,7 +1,7 @@
 {
   "character": "Olympia",
   "slug": "Olympia",
-  "scrapedAt": "2026-06-09T17:01:05.891Z",
+  "scrapedAt": "2026-06-09T17:29:39.072Z",
   "moves": [
     {
       "move": "Jab",
@@ -1424,6 +1424,11 @@
           "perCharacterTumbleAerial": {}
         }
       ]
+    },
+    {
+      "move": "Grab",
+      "startup": 8,
+      "hitboxes": []
     },
     {
       "move": "Pummel",

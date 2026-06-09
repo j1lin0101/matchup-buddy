@@ -1,7 +1,7 @@
 {
   "character": "Clairen",
   "slug": "Clairen",
-  "scrapedAt": "2026-06-09T17:01:04.469Z",
+  "scrapedAt": "2026-06-09T17:29:37.557Z",
   "moves": [
     {
       "move": "Jab",
@@ -1755,6 +1755,11 @@
           "perCharacterTumbleAerial": {}
         }
       ]
+    },
+    {
+      "move": "Grab",
+      "startup": 8,
+      "hitboxes": []
     },
     {
       "move": "Pummel",

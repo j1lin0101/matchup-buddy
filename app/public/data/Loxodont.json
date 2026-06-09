@@ -1,7 +1,7 @@
 {
   "character": "Loxodont",
   "slug": "Loxodont",
-  "scrapedAt": "2026-06-09T17:01:05.401Z",
+  "scrapedAt": "2026-06-09T17:29:38.633Z",
   "moves": [
     {
       "move": "Jab",
@@ -3444,6 +3444,11 @@
           "perCharacterTumbleAerial": {}
         }
       ]
+    },
+    {
+      "move": "Grab",
+      "startup": 8,
+      "hitboxes": []
     },
     {
       "move": "Pummel",
