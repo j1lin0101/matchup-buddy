@@ -1,7 +1,7 @@
 {
   "character": "Olympia",
   "slug": "Olympia",
-  "scrapedAt": "2026-06-09T21:06:14.111Z",
+  "scrapedAt": "2026-06-09T21:13:33.843Z",
   "moves": [
     {
       "move": "Jab",
@@ -1197,85 +1197,6 @@
             "SLADE": 39,
             "WRASTOR": 33,
             "ZETTERBURN": 38
-          },
-          "perCharacterTumbleAerial": {}
-        },
-        {
-          "hitbox": "Gem Landing: Crystalize",
-          "shieldSafety": {
-            "isStun": true,
-            "min": 8,
-            "max": 8
-          },
-          "shieldRaw": "Stun: 8",
-          "tumblePercent": null,
-          "tumbleRaw": "☑️",
-          "perCharacterTumble": {},
-          "perCharacterTumbleAerial": {}
-        },
-        {
-          "hitbox": "Gem Landing: Exit Crystal",
-          "shieldSafety": {
-            "isStun": true,
-            "min": 1,
-            "max": 1
-          },
-          "shieldRaw": "Stun: 1",
-          "tumblePercent": {
-            "min": 33,
-            "max": 41
-          },
-          "tumbleRaw": "33 - 41%",
-          "perCharacterTumble": {
-            "ABSA": 35,
-            "CLAIREN": 37,
-            "ETALUS": 40,
-            "FLEET": 36,
-            "FORSBURN": 38,
-            "GALVAN": 40,
-            "KRAGG": 41,
-            "LA REINA": 39,
-            "LOXODONT": 41,
-            "MAYPUL": 36,
-            "OLYMPIA": 35,
-            "ORCANE": 38,
-            "RANNO": 37,
-            "SLADE": 39,
-            "WRASTOR": 33,
-            "ZETTERBURN": 38
-          },
-          "perCharacterTumbleAerial": {}
-        },
-        {
-          "hitbox": "Landing Slam: Slam",
-          "shieldSafety": {
-            "isStun": true,
-            "min": 8,
-            "max": 8
-          },
-          "shieldRaw": "Stun: 8",
-          "tumblePercent": {
-            "min": 24,
-            "max": 32
-          },
-          "tumbleRaw": "24 - 32%",
-          "perCharacterTumble": {
-            "ABSA": 26,
-            "CLAIREN": 27,
-            "ETALUS": 31,
-            "FLEET": 27,
-            "FORSBURN": 29,
-            "GALVAN": 31,
-            "KRAGG": 32,
-            "LA REINA": 30,
-            "LOXODONT": 32,
-            "MAYPUL": 26,
-            "OLYMPIA": 26,
-            "ORCANE": 29,
-            "RANNO": 28,
-            "SLADE": 29,
-            "WRASTOR": 24,
-            "ZETTERBURN": 29
           },
           "perCharacterTumbleAerial": {}
         }

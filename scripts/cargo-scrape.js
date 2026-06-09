@@ -397,6 +397,10 @@ async function scrapeCharacter(charName, charSlug, characterWeights) {
         ? Math.min(...lagRaw.split('/').map(s => Number(s.trim())).filter(n => !isNaN(n))) || null
         : null;
 
+      // Skip landing sub-phase modes entirely — these fire when the character
+      // lands during a move animation and are not meaningful for frame data
+      if (/landing/i.test(mode.mode)) continue;
+
       for (let i = 0; i < hitIDs.length; i++) {
         const hitID    = hitIDs[i];
         const hitName  = String(hitNames[i]    != null ? hitNames[i]    : (hitID    || '')).trim();
