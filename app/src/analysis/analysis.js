@@ -18,7 +18,7 @@
 // Grounded moves not listed below use shield release before they can come out
 import { getDisplayName } from './nicknames.js';
 
-const SHIELD_RELEASE_FRAMES = 8;
+const SHIELD_RELEASE_FRAMES = 12;
 
 // Aerials, Up Strong, and Up Specials buffer during jump squat
 // Total OOS = JUMP_SQUAT_FRAMES (4) + move startup
@@ -44,7 +44,7 @@ function isGrabMove(moveName) {
 }
 
 function isExcludedMove(moveName) {
-  return /Pummel|Throw/i.test(moveName);
+  return /Pummel|Throw|Ledge|Getup|Get[- ]up|Walljump/i.test(moveName);
 }
 
 /**

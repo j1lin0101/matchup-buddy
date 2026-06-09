@@ -708,7 +708,7 @@ function HelpModal({ onClose }) {
             A <span style={{ color: 'var(--punish)', fontWeight: 600 }}>negative value</span> means the defender acts first, opening a window to punish.
           </p>
           <p style={{ fontSize: '0.85rem', color: 'var(--text)', lineHeight: 1.6, marginTop: '8px' }}>
-            Out of Shield (OOS) options have <strong>8 frames</strong> of built-in shield release before a move can come out. The exceptions to this rule are aerials and Up Strong which can be buffered during Jump Squat (adding <strong>4 frames</strong> instead of 7) and grab which has no additional startup frames.
+            Out of Shield (OOS) options have <strong>12 frames</strong> of built-in shield release before a move can come out. The exceptions to this rule are aerials and Up Strong which can be buffered during Jump Squat (adding <strong>4 frames</strong> instead of 12) and grab which has no additional startup frames.
           </p>
           <p style={{ fontSize: '0.85rem', color: 'var(--muted)', lineHeight: 1.6, marginTop: '8px' }}>
             If a move has a shield safety of <strong>−10</strong>, any OOS option with a total startup of <strong>10 frames or fewer</strong> can punish it. The more OOS options that fit inside that window, the more dangerous the move is to throw out.
