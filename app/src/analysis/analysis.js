@@ -198,6 +198,17 @@ function getOOSOptions(characterData) {
     });
   });
 
+  // Wavedash is a universal OOS option at 12f for every character
+  options.push({
+    move:         'Wavedash',
+    label:        'Wavedash',
+    startup:      12,
+    oosDelay:     0,
+    oosStartup:   12,
+    jumpCancel:   false,
+    shieldSafety: null,
+  });
+
   options.sort(function(a, b) { return a.oosStartup - b.oosStartup; });
   return options;
 }
