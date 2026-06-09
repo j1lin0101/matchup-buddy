@@ -210,7 +210,7 @@ function getOOSOptions(characterData) {
   });
 
   options.sort(function(a, b) { return a.oosStartup - b.oosStartup; });
-  return options;
+  return options.filter(function(o) { return o.oosStartup <= 12; });
 }
 
 /**
