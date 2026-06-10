@@ -24,7 +24,7 @@ export default function App() {
     <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
       <header className="select-header">
         <h1 style={{ fontSize: '1.5rem', fontWeight: 700, letterSpacing: '0.02em', color: 'var(--accent)' }}>
-          RoA2 Gameplan Helper
+          MatchupBuddy
         </h1>
         <p style={{ color: 'var(--muted)', fontSize: '0.85rem', marginTop: '4px' }}>
           Shield safety &amp; punish analysis
