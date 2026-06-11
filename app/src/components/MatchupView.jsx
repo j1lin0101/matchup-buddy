@@ -562,7 +562,7 @@ function CategoryAccordion({ category, rows, attackerName, defenderName, oosFilt
 /* ── OOS Filter Bar ── */
 const OOS_FILTER_GROUPS = ['Aerials', 'Normals', 'Strongs', 'Specials', 'Misc']
 
-function OOSFilterBar({ defenderOOS, oosFilter, setOosFilter, defenderName, relevantOOSMoves }) {
+function OOSFilterBar({ defenderOOS, oosFilter, setOosFilter, defenderName, defenderColor, relevantOOSMoves }) {
   const [modalOpen, setModalOpen] = useState(false)
   const modalRef = useRef(null)
 
@@ -645,12 +645,12 @@ function OOSFilterBar({ defenderOOS, oosFilter, setOosFilter, defenderName, rele
                 key={opt.move}
                 onClick={() => toggle(opt.move)}
                 style={{
-                  padding: '2px 9px',
-                  borderRadius: '12px',
+                  padding: '4px 12px',
+                  borderRadius: '20px',
                   border: `1px solid ${active ? 'var(--accent2)' : 'var(--border)'}`,
                   background: active ? 'rgba(204,121,167,0.18)' : 'var(--surface)',
                   color: active ? 'var(--accent2)' : 'var(--muted)',
-                  fontSize: '0.72rem', fontWeight: 600, cursor: 'pointer',
+                  fontSize: '0.72rem', fontWeight: active ? 700 : 400, cursor: 'pointer',
                   transition: 'all 0.15s', whiteSpace: 'nowrap',
                 }}
               >
@@ -668,7 +668,7 @@ function OOSFilterBar({ defenderOOS, oosFilter, setOosFilter, defenderName, rele
       {/* Desktop: grouped chips */}
       <div className="oos-filter-desktop">
         <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '6px' }}>
-          <span style={{ fontSize: '0.72rem', fontWeight: 700, color: 'var(--muted)', textTransform: 'uppercase', letterSpacing: '0.07em' }}>
+          <span style={{ fontSize: '0.78rem', fontWeight: 700, color: defenderColor || 'var(--muted)', textTransform: 'uppercase', letterSpacing: '0.07em' }}>
             {defenderName}'s Punish Options
           </span>
           {activeCount > 0 && (
@@ -767,20 +767,28 @@ function BreakdownTable({ matchup, categoryFilter, oosFilter }) {
   )
 }
 
-function BreakdownSection({ matchupVsOpp, matchupVsMe, myChar, oppChar, myOOS, oppOOS }) {
-  const [view, setView] = useState('me') // 'me' = I attack opp, 'opp' = opp attacks me
+function BreakdownSection({ matchupVsOpp, matchupVsMe, myChar, oppChar, myOOS, oppOOS, view, setView }) {
   const [categoryFilter, setCategoryFilter] = useState('All')
   const [oosFilter, setOosFilter] = useState(new Set())
 
   const active = view === 'opp' ? matchupVsOpp : matchupVsMe
   const activeColor = view === 'opp' ? 'var(--accent2)' : 'var(--accent)'
-  const label = view === 'opp' ? `${oppChar} attacking` : `${myChar} attacking`
+  const label = view === 'opp' ? `${oppChar}'s Attacks` : `${myChar}'s Attacks`
 
-  // When view switches, the defender changes — reset OOS filter
+  // When view switches, reset filters
   function switchView(v) {
     setView(v)
     setOosFilter(new Set())
   }
+
+  // Keep filters in sync when view changes externally (from header toggle)
+  const prevView = useRef(view)
+  useEffect(() => {
+    if (prevView.current !== view) {
+      setOosFilter(new Set())
+      prevView.current = view
+    }
+  }, [view])
 
   // Defender's OOS options (what can punish the attacker)
   const defenderOOS = view === 'me' ? oppOOS : myOOS
@@ -796,48 +804,48 @@ function BreakdownSection({ matchupVsOpp, matchupVsMe, myChar, oppChar, myOOS, o
     return moves
   }, [active, categoryFilter])
 
+  const categoryTabs = ['All', ...CATEGORY_ORDER.filter(c => c !== 'Misc')]
+
   return (
     <div>
-      {/* Toggle — my char first */}
-      <div style={{ display: 'flex', gap: '8px', marginBottom: '16px' }}>
-        <ToggleButton active={view === 'me'} color="var(--accent)" onClick={() => switchView('me')}>
-          {myChar} attacking
-        </ToggleButton>
-        <ToggleButton active={view === 'opp'} color="var(--accent2)" onClick={() => switchView('opp')}>
-          {oppChar} attacking
-        </ToggleButton>
-      </div>
-
       {active && (
         <div>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '12px', flexWrap: 'wrap' }}>
-            <h2 style={{ fontSize: '0.78rem', fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase', color: activeColor, margin: 0 }}>
+          {/* Category tab bar — primary filter */}
+          <div style={{ marginBottom: '4px' }}>
+            <span style={{ fontSize: '0.78rem', fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase', color: activeColor }}>
               {label}
-            </h2>
-            <select
-              value={categoryFilter}
-              onChange={e => { setCategoryFilter(e.target.value); setOosFilter(new Set()) }}
-              style={{
-                background: 'var(--surface)',
-                border: '1px solid var(--border)',
-                borderRadius: '6px',
-                color: 'var(--text)',
-                fontSize: '0.75rem',
-                fontWeight: 600,
-                padding: '4px 10px',
-                cursor: 'pointer',
-                outline: 'none',
-              }}
-            >
-              <option value="All">All</option>
-              {CATEGORY_ORDER.filter(c => c !== 'Misc').map(c => (
-                <option key={c} value={c}>{c}</option>
-              ))}
-            </select>
+            </span>
           </div>
+          <div style={{ display: 'flex', gap: '6px', flexWrap: 'wrap', marginBottom: '20px' }}>
+            {categoryTabs.map(c => {
+              const isActive = categoryFilter === c
+              return (
+                <button
+                  key={c}
+                  onClick={() => { setCategoryFilter(c); setOosFilter(new Set()) }}
+                  style={{
+                    padding: '5px 14px',
+                    borderRadius: '20px',
+                    border: `1px solid ${isActive ? activeColor : 'var(--border)'}`,
+                    background: isActive ? activeColor + '22' : 'var(--surface)',
+                    color: isActive ? activeColor : 'var(--muted)',
+                    fontSize: '0.75rem',
+                    fontWeight: isActive ? 700 : 400,
+                    cursor: 'pointer',
+                    letterSpacing: '0.02em',
+                    transition: 'all 0.15s',
+                  }}
+                >
+                  {c}
+                </button>
+              )
+            })}
+          </div>
+
+          {/* Punish options chips — secondary filter */}
           {defenderOOS.length > 0 && (
-            <div style={{ marginBottom: '12px' }}>
-              <OOSFilterBar defenderOOS={defenderOOS} oosFilter={oosFilter} setOosFilter={setOosFilter} defenderName={view === 'me' ? oppChar : myChar} relevantOOSMoves={relevantOOSMoves} />
+            <div style={{ marginBottom: '12px', paddingTop: '16px', borderTop: '1px solid var(--border)' }}>
+              <OOSFilterBar defenderOOS={defenderOOS} oosFilter={oosFilter} setOosFilter={setOosFilter} defenderName={view === 'me' ? oppChar : myChar} defenderColor={view === 'me' ? 'var(--accent2)' : 'var(--accent)'} relevantOOSMoves={relevantOOSMoves} />
             </div>
           )}
           <BreakdownTable matchup={active} categoryFilter={categoryFilter} oosFilter={oosFilter} />
@@ -982,6 +990,7 @@ function HelpModal({ onClose }) {
 
 export default function MatchupView({ myChar, oppChar, onBack }) {
   const [helpOpen, setHelpOpen] = useState(false)
+  const [attackerView, setAttackerView] = useState('me')
   const { data: myData,  loading: myLoading  } = useCharacterData(myChar)
   const { data: oppData, loading: oppLoading } = useCharacterData(oppChar)
 
@@ -1032,6 +1041,7 @@ export default function MatchupView({ myChar, oppChar, onBack }) {
             Shield release {matchupVsOpp?.shieldRelease}f · Jump squat 4f
           </p>
         </div>
+
         <button
           onClick={() => setHelpOpen(true)}
           title="How to read this"
@@ -1052,6 +1062,16 @@ export default function MatchupView({ myChar, oppChar, onBack }) {
       </header>
 
       <main className="page-main">
+
+        {/* Attacker toggle — centered above character panels */}
+        <div style={{ display: 'flex', justifyContent: 'center', gap: '8px' }}>
+          <ToggleButton active={attackerView === 'me'} color="var(--accent)" onClick={() => setAttackerView('me')}>
+            {myChar} Is Attacking
+          </ToggleButton>
+          <ToggleButton active={attackerView === 'opp'} color="var(--accent2)" onClick={() => setAttackerView('opp')}>
+            {oppChar} Is Attacking
+          </ToggleButton>
+        </div>
 
         {/* Top panels: 2-col grid, each row spans both characters so heights match */}
         {/* On mobile, CSS order groups each character's panels together */}
@@ -1102,6 +1122,8 @@ export default function MatchupView({ myChar, oppChar, onBack }) {
             oppChar={oppChar}
             myOOS={myOOS}
             oppOOS={oppOOS}
+            view={attackerView}
+            setView={setAttackerView}
           />
         )}
 
