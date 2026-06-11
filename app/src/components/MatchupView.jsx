@@ -1069,7 +1069,7 @@ export default function MatchupView({ myChar, oppChar, onBack }) {
             flexShrink: 0,
             background: 'none',
             border: '1px solid var(--border)',
-            color: 'var(--muted)',
+            color: 'var(--text)',
             borderRadius: '50%',
             width: '28px', height: '28px',
             cursor: 'pointer',
