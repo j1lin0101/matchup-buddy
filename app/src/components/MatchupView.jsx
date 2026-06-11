@@ -185,7 +185,7 @@ function CharColumnHeader({ name, accent }) {
   )
 }
 
-function Section({ title, accent, children }) {
+function Section({ title, accent, subtitle, children }) {
   return (
     <div style={{
       background: 'var(--surface)',
@@ -199,15 +199,17 @@ function Section({ title, accent, children }) {
         padding: '12px 16px',
         minHeight: '44px',
         borderBottom: '1px solid var(--border)',
-        fontSize: '0.7rem',
-        fontWeight: 700,
-        letterSpacing: '0.1em',
-        textTransform: 'uppercase',
-        color: accent,
         display: 'flex',
-        alignItems: 'center',
+        alignItems: subtitle ? 'flex-start' : 'center',
+        flexDirection: subtitle ? 'column' : 'row',
+        gap: '2px',
       }}>
-        {title}
+        <span style={{ fontSize: '0.7rem', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: accent }}>
+          {title}
+        </span>
+        {subtitle && (
+          <span style={{ fontSize: '0.6rem', color: 'var(--muted)', opacity: 0.7 }}>{subtitle}</span>
+        )}
       </div>
       <div>{children}</div>
     </div>
@@ -550,7 +552,10 @@ function CategoryAccordion({ category, rows, attackerName, defenderName, oosFilt
             <SortHeader col="move" label="Move" />
             <SortHeader col="shield" label="On Shield" align="center" />
             <SortHeader col="tumble" label="Tumble %" align="center" />
-            <span style={{ fontSize: '0.65rem', fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'var(--muted)' }}>Punish Options</span>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '2px' }}>
+              <span style={{ fontSize: '0.65rem', fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'var(--muted)' }}>Punish Options</span>
+              <span style={{ fontSize: '0.6rem', color: 'var(--muted)', opacity: 0.6 }}>Shield release 12f · Jump squat 4f</span>
+            </div>
           </div>
           {sorted.map((row, i) => <MoveRow key={i} row={row} attackerName={attackerName} defenderName={defenderName} oosFilter={oosFilter} />)}
         </div>
@@ -810,7 +815,23 @@ function BreakdownSection({ matchupVsOpp, matchupVsMe, myChar, oppChar, myOOS, o
     <div>
       {active && (
         <div>
+          {/* Section header */}
+          <h2 style={{ fontSize: '0.78rem', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--muted)', margin: '0 0 16px 0' }}>
+            Attack-Punish Breakdown
+          </h2>
+
+          {/* Attacker toggle */}
+          <div style={{ marginBottom: '20px', display: 'flex', gap: '8px' }}>
+            <ToggleButton active={view === 'me'} color="var(--accent)" onClick={() => switchView('me')}>
+              {myChar} Is Attacking
+            </ToggleButton>
+            <ToggleButton active={view === 'opp'} color="var(--accent2)" onClick={() => switchView('opp')}>
+              {oppChar} Is Attacking
+            </ToggleButton>
+          </div>
+
           {/* Category tab bar — primary filter */}
+          <div style={{ borderTop: '1px solid var(--border)', marginBottom: '16px' }} />
           <div style={{ marginBottom: '4px' }}>
             <span style={{ fontSize: '0.78rem', fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase', color: activeColor }}>
               {label}
@@ -848,6 +869,7 @@ function BreakdownSection({ matchupVsOpp, matchupVsMe, myChar, oppChar, myOOS, o
               <OOSFilterBar defenderOOS={defenderOOS} oosFilter={oosFilter} setOosFilter={setOosFilter} defenderName={view === 'me' ? oppChar : myChar} defenderColor={view === 'me' ? 'var(--accent2)' : 'var(--accent)'} relevantOOSMoves={relevantOOSMoves} />
             </div>
           )}
+          <div style={{ borderTop: '1px solid var(--border)', marginBottom: '16px' }} />
           <BreakdownTable matchup={active} categoryFilter={categoryFilter} oosFilter={oosFilter} />
         </div>
       )}
@@ -1037,8 +1059,6 @@ export default function MatchupView({ myChar, oppChar, onBack }) {
           </h1>
           <p style={{ color: 'var(--muted)', fontSize: '0.72rem', marginTop: '2px', lineHeight: 1.6 }}>
             Shield safety &amp; punish analysis
-            <span className="subtitle-break"> · </span>
-            Shield release {matchupVsOpp?.shieldRelease}f · Jump squat 4f
           </p>
         </div>
 
@@ -1062,16 +1082,6 @@ export default function MatchupView({ myChar, oppChar, onBack }) {
       </header>
 
       <main className="page-main">
-
-        {/* Attacker toggle — centered above character panels */}
-        <div style={{ display: 'flex', justifyContent: 'center', gap: '8px' }}>
-          <ToggleButton active={attackerView === 'me'} color="var(--accent)" onClick={() => setAttackerView('me')}>
-            {myChar} Is Attacking
-          </ToggleButton>
-          <ToggleButton active={attackerView === 'opp'} color="var(--accent2)" onClick={() => setAttackerView('opp')}>
-            {oppChar} Is Attacking
-          </ToggleButton>
-        </div>
 
         {/* Top panels: 2-col grid, each row spans both characters so heights match */}
         {/* On mobile, CSS order groups each character's panels together */}
@@ -1099,14 +1109,14 @@ export default function MatchupView({ myChar, oppChar, onBack }) {
           {/* Row 3: OOS Options — same row height for both */}
           <div className="char-panel-oos-my">
             {myData
-              ? <Section title="OOS Options" accent="var(--accent)">
+              ? <Section title="OOS Options" accent="var(--accent)" subtitle="Shield release 12f · Jump squat 4f">
                   <OOSList charData={myData} />
                 </Section>
               : <div />}
           </div>
           <div className="char-panel-oos-opp">
             {oppData
-              ? <Section title="OOS Options" accent="var(--accent2)">
+              ? <Section title="OOS Options" accent="var(--accent2)" subtitle="Shield release 12f · Jump squat 4f">
                   <OOSList charData={oppData} />
                 </Section>
               : <div />}
