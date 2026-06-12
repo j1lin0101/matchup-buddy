@@ -943,6 +943,17 @@ function HelpModal({ onClose }) {
           >✕</button>
         </div>
 
+        {/* Video embed */}
+        <div style={{ position: 'relative', paddingBottom: '56.25%', height: 0, borderRadius: 'var(--radius)', overflow: 'hidden' }}>
+          <iframe
+            src="https://www.youtube.com/embed/IofMDcrx6Nk"
+            title="How to read this"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+            style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', border: 'none' }}
+          />
+        </div>
+
         {/* Shield Safety + OOS */}
         <div>
           <h3 style={{ fontSize: '0.72rem', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--accent)', marginBottom: '8px' }}>
