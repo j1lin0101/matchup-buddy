@@ -1,23 +1,33 @@
 import { useState } from 'react'
+import { BrowserRouter, Routes, Route, useNavigate, useParams } from 'react-router-dom'
 import CharacterSelect from './components/CharacterSelect'
 import MatchupView from './components/MatchupView'
 import './index.css'
 
-export default function App() {
-  const [myChar, setMyChar]       = useState(null)
-  const [oppChar, setOppChar]     = useState(null)
-  const [analyzing, setAnalyzing] = useState(false)
+// Convert display name to URL slug and back
+function toSlug(name) {
+  return name.toLowerCase().replace(/ /g, '-')
+}
+function fromSlug(slug) {
+  return slug.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ')
+}
+
+const VALID_CHARACTERS = [
+  'Zetterburn', 'Forsburn', 'Maypul', 'Absa', 'Etalus', 'Orcane',
+  'Wrastor', 'Kragg', 'Ranno', 'Clairen', 'Fleet', 'Loxodont',
+  'Olympia', 'La Reina', 'Galvan', 'Slade',
+]
+const VALID_SLUGS = new Set(VALID_CHARACTERS.map(toSlug))
+
+function SelectPage() {
+  const [myChar, setMyChar] = useState(null)
+  const [oppChar, setOppChar] = useState(null)
+  const navigate = useNavigate()
 
   function handleAnalyze() {
-    if (myChar && oppChar) setAnalyzing(true)
-  }
-
-  function handleBack() {
-    setAnalyzing(false)
-  }
-
-  if (analyzing) {
-    return <MatchupView myChar={myChar} oppChar={oppChar} onBack={handleBack} />
+    if (myChar && oppChar) {
+      navigate(`/${toSlug(myChar)}/${toSlug(oppChar)}`)
+    }
   }
 
   return (
@@ -85,38 +95,62 @@ export default function App() {
       }}>
         <span>
           Created by{' '}
-          <a
-            href="https://x.com/boi_jir0"
-            target="_blank"
-            rel="noopener noreferrer"
-            style={{ color: 'var(--accent)', textDecoration: 'none', fontWeight: 600 }}
-          >
+          <a href="https://x.com/boi_jir0" target="_blank" rel="noopener noreferrer"
+            style={{ color: 'var(--accent)', textDecoration: 'none', fontWeight: 600 }}>
             @boi_jiro
           </a>
         </span>
         <span>
           All frame data and definitions sourced from{' '}
-          <a
-            href="https://dragdown.wiki/wiki/RoA2"
-            target="_blank"
-            rel="noopener noreferrer"
-            style={{ color: 'var(--accent)', textDecoration: 'none' }}
-          >
+          <a href="https://dragdown.wiki/wiki/RoA2" target="_blank" rel="noopener noreferrer"
+            style={{ color: 'var(--accent)', textDecoration: 'none' }}>
             dragdown.wiki
           </a>.
         </span>
         <span>
           Have a bug fix, feature suggestion, or general feedback? Please feel free to fill out{' '}
-          <a
-            href="https://forms.gle/7uZnA3EzMN2k19WA9"
-            target="_blank"
-            rel="noopener noreferrer"
-            style={{ color: 'var(--accent)', textDecoration: 'none' }}
-          >
+          <a href="https://forms.gle/7uZnA3EzMN2k19WA9" target="_blank" rel="noopener noreferrer"
+            style={{ color: 'var(--accent)', textDecoration: 'none' }}>
             this form
           </a>.
         </span>
       </footer>
     </div>
+  )
+}
+
+function MatchupPage() {
+  const { char1, char2 } = useParams()
+  const navigate = useNavigate()
+
+  if (!VALID_SLUGS.has(char1) || !VALID_SLUGS.has(char2)) {
+    return (
+      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: '100vh', flexDirection: 'column', gap: '16px', color: 'var(--muted)' }}>
+        <p>Unknown characters.</p>
+        <button onClick={() => navigate('/')} style={{ color: 'var(--accent)', background: 'none', border: 'none', cursor: 'pointer', fontSize: '0.9rem' }}>
+          ← Back to character select
+        </button>
+      </div>
+    )
+  }
+
+  return (
+    <MatchupView
+      myChar={fromSlug(char1)}
+      oppChar={fromSlug(char2)}
+      onBack={() => navigate('/')}
+    />
+  )
+}
+
+export default function App() {
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<SelectPage />} />
+        <Route path="/:char1/:char2" element={<MatchupPage />} />
+        <Route path="*" element={<SelectPage />} />
+      </Routes>
+    </BrowserRouter>
   )
 }
