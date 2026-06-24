@@ -336,7 +336,7 @@ async function scrapeCharacter(charName, charSlug, characterWeights) {
 
   const [modes, hitDataArr, articlesArr] = await Promise.all([
     cargo('ROA2_MoveMode',
-      'chara,attack,mode,startup,landingLag,iasa,hitID,hitName,hitActive,hitMoveID,customShieldSafety',
+      'chara,attack,mode,startup,endlag,landingLag,iasa,hitID,hitName,hitActive,hitMoveID,customShieldSafety',
       `chara="${charName}"`),
     cargo('ROA2_HitData',
       'chara,moveID,nameID,Damage,BaseKnockback,KnockbackScaling,ExtraShieldStun,' +
@@ -408,6 +408,8 @@ async function scrapeCharacter(charName, charSlug, characterWeights) {
       const landingLag = lagRaw != null
         ? Math.min(...lagRaw.split('/').map(s => Number(s.trim())).filter(n => !isNaN(n))) || null
         : null;
+      const endlagRaw = mode.endlag != null && mode.endlag !== '' ? Number(mode.endlag) : null;
+      const endlag = !isNaN(endlagRaw) ? endlagRaw : null;
 
       // Skip landing sub-phase modes entirely — these fire when the character
       // lands during a move animation and are not meaningful for frame data
@@ -493,6 +495,7 @@ async function scrapeCharacter(charName, charSlug, characterWeights) {
           kbs:                 hit ? Number(hit.KnockbackScaling)         : null,
           hitstunMultiplier:   hit ? Number(hit.HitstunMultiplier)        : null,
           damage:              hit ? Number(hit.Damage)                   : null,
+          endlag,
         });
       }
     }

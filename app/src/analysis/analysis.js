@@ -400,16 +400,22 @@ function calcFlugStun(kbs, bkb, hitstunMul, isCrouch) {
 /**
  * On-hit frame advantage assuming defender is floorhugging or crouching.
  * FlugAdvantage = FlugStun − endlag
- * Derives endlag from shieldSafety: endlag = ShieldStun − 1 − shieldSafety.max
- * Returns null if not computable (missing data, stun badge, projectile badge).
+ * Endlag: use stored endlag field directly if available, else derive from
+ * shieldSafety + shieldStun (requires damage). Returns null if not computable.
  */
 function calcOnHitAdvantage(hitbox, isCrouch) {
-  if (hitbox.hitstunMultiplier == null || hitbox.damage == null) return null;
-  if (!hitbox.shieldSafety || hitbox.shieldSafety.isStun || hitbox.shieldSafety.isProjectile) return null;
+  if (hitbox.hitstunMultiplier == null) return null;
   const flugStun = calcFlugStun(hitbox.kbs, hitbox.bkb, hitbox.hitstunMultiplier, isCrouch);
   if (flugStun === null) return null;
-  const shieldStun = Math.max(2, Math.floor(hitbox.damage * 0.8 + 1));
-  const endlag = shieldStun - 1 - hitbox.shieldSafety.max;
+  let endlag;
+  if (hitbox.endlag != null) {
+    endlag = hitbox.endlag;
+  } else if (hitbox.damage != null && hitbox.shieldSafety && !hitbox.shieldSafety.isStun && !hitbox.shieldSafety.isProjectile) {
+    const shieldStun = Math.max(2, Math.floor(hitbox.damage * 0.8 + 1));
+    endlag = shieldStun - 1 - hitbox.shieldSafety.max;
+  } else {
+    return null;
+  }
   return flugStun - endlag;
 }
 
@@ -423,15 +429,17 @@ function getOnHitOptions(characterData) {
   characterData.moves.forEach(function(move) {
     if (isExcludedMove(move.move)) return;
     if (move.startup == null) return;
-    const onHitStartup = move.startup;
+    // Aerials require jump squat on hit; JC specials do not (pressed directly from ground)
+    const isAerial = /\bAir\b/i.test(move.move);
+    const delay = isAerial ? JUMP_SQUAT_FRAMES : 0;
+    const onHitStartup = move.startup + delay;
     const displayName = getDisplayName(characterData.character, move.move);
-    const label = displayName;
     options.push({
       move:         move.move,
-      label,
+      label:        displayName,
       startup:      move.startup,
       onHitStartup,
-      jumpCancel:   false,
+      jumpCancel:   isAerial,
     });
   });
   if (!options.some(function(o) { return isGrabMove(o.move); })) {
@@ -616,12 +624,17 @@ function analyzePerfectShieldMatchup(attackerData, defenderData) {
     move.hitboxes.forEach(function(h) {
       if (!h.shieldSafety) return;
       if (h.shieldSafety.isStun || h.shieldSafety.isProjectile) return;
-      if (h.damage == null) return;
 
-      const shieldStun = Math.max(2, Math.floor(h.damage * 0.8 + 1));
-      // shieldSafety = shieldStun - endlag, so endlag = shieldStun - shieldSafety
-      // PS negates shield stun, so PS advantage = 0 - endlag = shieldSafety - shieldStun
-      const psAdv = h.shieldSafety.max - shieldStun;
+      // PS advantage = -(endlag). Use stored endlag if available, else derive from damage.
+      let psAdv;
+      if (h.endlag != null) {
+        psAdv = -h.endlag;
+      } else if (h.damage != null) {
+        const shieldStun = Math.max(2, Math.floor(h.damage * 0.8 + 1));
+        psAdv = h.shieldSafety.max - shieldStun;
+      } else {
+        return;
+      }
       const defenderFrameAdv = -psAdv;
 
       const punishes = defenderPSOOS.filter(function(opt) {
