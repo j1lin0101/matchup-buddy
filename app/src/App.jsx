@@ -97,6 +97,21 @@ function SelectPage() {
             </p>
           )}
         </div>
+
+        <div style={{ marginTop: '48px', width: '100%', maxWidth: '640px', margin: '48px auto 0' }}>
+          <h2 style={{ fontSize: '1rem', fontWeight: 700, color: 'var(--text)', marginBottom: '16px' }}>
+            How do I use this site?
+          </h2>
+          <div style={{ position: 'relative', paddingBottom: '56.25%', height: 0, borderRadius: 'var(--radius)', overflow: 'hidden', border: '1px solid var(--border)' }}>
+            <iframe
+              src="https://www.youtube.com/embed/W2QBwcA57y0"
+              title="MatchupBuddy demo"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+              style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', border: 'none' }}
+            />
+          </div>
+        </div>
       </main>
       <footer style={{
         borderTop: '1px solid var(--border)',
