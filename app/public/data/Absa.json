@@ -1,7 +1,7 @@
 {
   "character": "Absa",
   "slug": "Absa",
-  "scrapedAt": "2026-06-24T21:00:29.700Z",
+  "scrapedAt": "2026-07-02T20:29:10.900Z",
   "moves": [
     {
       "move": "Jab",
@@ -438,31 +438,7 @@
       "startup": 12,
       "hitboxes": [
         {
-          "hitbox": "Multihit Back",
-          "shieldSafety": {
-            "min": -31,
-            "max": -30
-          },
-          "shieldRaw": "-31 to -30",
-          "tumblePercent": null,
-          "tumbleRaw": "Never",
-          "perCharacterTumble": {},
-          "perCharacterTumbleAerial": {},
-          "knockbackAngle": 40,
-          "knockbackAngleMode": "SpecifiedAngle",
-          "forceTumble": false,
-          "forceFlinch": false,
-          "asdiMultiplier": 0.5,
-          "sdiMultiplier": 0,
-          "autoFloorhuggable": true,
-          "bkb": 4.4,
-          "kbs": 0,
-          "hitstunMultiplier": 1,
-          "damage": 2,
-          "endlag": 28
-        },
-        {
-          "hitbox": "Multihit Front",
+          "hitbox": "Multihit",
           "shieldSafety": {
             "min": -31,
             "max": -30
