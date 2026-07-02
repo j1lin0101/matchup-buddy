@@ -100,11 +100,17 @@ const LOX_WEIGHT        = 110;
 
 // ─── Cargo API ────────────────────────────────────────────────────────────────
 
-async function cargo(table, fields, where) {
+async function cargo(table, fields, where, attempt = 1) {
   const p = new URLSearchParams({ tables: table, fields, where, format: 'json', limit: '1000' });
-  const res = await fetch(`${BASE}?${p}`);
-  if (!res.ok) throw new Error(`HTTP ${res.status} fetching ${table} (${where})`);
-  return res.json();
+  try {
+    const res = await fetch(`${BASE}?${p}`);
+    if (!res.ok) throw new Error(`HTTP ${res.status} fetching ${table} (${where})`);
+    return await res.json();
+  } catch (err) {
+    if (attempt >= 3) throw err;
+    await new Promise(r => setTimeout(r, attempt * 1000));
+    return cargo(table, fields, where, attempt + 1);
+  }
 }
 
 // ─── Shield safety helpers ────────────────────────────────────────────────────
