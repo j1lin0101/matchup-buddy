@@ -1257,7 +1257,7 @@ function ExpandedIcon() {
 // between each segment inside it.
 function SegmentedToggle({ options, value, onChange, activeColor }) {
   return (
-    <div style={{
+    <div className="segmented-toggle" style={{
       display: 'flex', alignItems: 'stretch', height: TOOLBAR_H,
       border: '1px solid var(--border)', borderRadius: 'var(--radius)', overflow: 'hidden',
     }}>
@@ -1289,9 +1289,10 @@ function SegmentedToggle({ options, value, onChange, activeColor }) {
   )
 }
 
-// A thin vertical rule placed between separate toolbar units.
+// A thin vertical rule placed between separate toolbar units. Hidden on mobile,
+// where the toolbar stacks vertically instead (see .toolbar-row in index.css).
 function ToolbarDivider() {
-  return <div style={{ width: '1px', alignSelf: 'stretch', background: 'var(--border)' }} />
+  return <div className="toolbar-divider" style={{ width: '1px', alignSelf: 'stretch', background: 'var(--border)' }} />
 }
 
 function BreakdownSection({ matchupVsOpp, matchupVsMe, myChar, oppChar, myOOS, oppOOS, view, myData, oppData }) {
@@ -1372,8 +1373,8 @@ function BreakdownSection({ matchupVsOpp, matchupVsMe, myChar, oppChar, myOOS, o
     <div>
       {/* Sub-tabs + toolbar live in one shared card so they read as a single unit */}
       <div style={{ border: '1px solid var(--border)', borderRadius: 'var(--radius)', overflow: 'hidden', marginBottom: '16px', background: 'var(--surface)' }}>
-        {/* Sub-tab bar: On Shield / On Hit */}
-        <div style={{ display: 'flex', borderBottom: '1px solid var(--border)' }}>
+        {/* Sub-tab bar: On Shield / On Hit — the About icon lives here, far right */}
+        <div style={{ display: 'flex', alignItems: 'center', borderBottom: '1px solid var(--border)' }}>
           {[
             { id: 'onShield', label: 'On Shield' },
             { id: 'onHit',   label: 'On Hit' },
@@ -1392,11 +1393,16 @@ function BreakdownSection({ matchupVsOpp, matchupVsMe, myChar, oppChar, myOOS, o
               {t.label}
             </button>
           ))}
+          {effectiveMatchup && (
+            <div style={{ marginLeft: 'auto', paddingRight: '16px' }}>
+              {subTab === 'onShield' ? <AboutShieldButton /> : <AboutHitButton />}
+            </div>
+          )}
         </div>
 
-        {/* Toolbar row: view mode, mode-specific controls, filters, about */}
+        {/* Toolbar row: view mode, mode-specific controls, filters */}
         {effectiveMatchup && (
-              <div style={{ display: 'flex', alignItems: 'center', gap: '10px', flexWrap: 'wrap', padding: '10px 16px' }}>
+              <div className="toolbar-row" style={{ display: 'flex', gap: '10px', flexWrap: 'wrap', padding: '10px 16px' }}>
                 {/* View mode icon toggle */}
                 <SegmentedToggle
                   activeColor={activeColor}
@@ -1422,7 +1428,7 @@ function BreakdownSection({ matchupVsOpp, matchupVsMe, myChar, oppChar, myOOS, o
                   />
                 ) : (
                   <>
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                    <div className="defender-input-row" style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
                       <span style={{ fontSize: '0.72rem', fontWeight: 700, color: 'var(--muted)', textTransform: 'uppercase', letterSpacing: '0.07em', flexShrink: 0 }}>
                         Defender
                       </span>
@@ -1434,6 +1440,7 @@ function BreakdownSection({ matchupVsOpp, matchupVsMe, myChar, oppChar, myOOS, o
                           const v = Math.max(0, Math.min(999, Number(e.target.value) || 0))
                           setPct(v)
                         }}
+                        className="defender-input"
                         style={{
                           width: '56px', height: '22px', padding: '0 8px', borderRadius: '6px',
                           border: '1px solid var(--border)', background: 'var(--bg)',
@@ -1462,6 +1469,7 @@ function BreakdownSection({ matchupVsOpp, matchupVsMe, myChar, oppChar, myOOS, o
 
                 <button
                   onClick={() => setFilterModalOpen(true)}
+                  className="toolbar-filters-btn"
                   style={{
                     display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: '8px',
                     height: TOOLBAR_H, padding: '0 16px', borderRadius: 'var(--radius)',
@@ -1494,10 +1502,6 @@ function BreakdownSection({ matchupVsOpp, matchupVsMe, myChar, oppChar, myOOS, o
                     </span>
                   )}
                 </button>
-
-                <div style={{ marginLeft: 'auto' }}>
-                  {subTab === 'onShield' ? <AboutShieldButton /> : <AboutHitButton />}
-                </div>
               </div>
         )}
       </div>
