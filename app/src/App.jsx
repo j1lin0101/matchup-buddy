@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { BrowserRouter, Routes, Route, useNavigate, useParams } from 'react-router-dom'
 import CharacterSelect from './components/CharacterSelect'
 import MatchupView from './components/MatchupView'
+import UpdateToast from './components/UpdateToast'
 import './index.css'
 
 // Convert display name to URL slug and back
@@ -181,6 +182,7 @@ export default function App() {
         <Route path="/:char1/:char2" element={<MatchupPage />} />
         <Route path="*" element={<SelectPage />} />
       </Routes>
+      <UpdateToast />
     </BrowserRouter>
   )
 }

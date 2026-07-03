@@ -17,6 +17,19 @@
       ],
       "port": 5173,
       "autoPort": false
+    },
+    {
+      "name": "roa2-preview",
+      "runtimeExecutable": "/usr/local/bin/node",
+      "runtimeArgs": [
+        "/Users/jeremy/Documents/matchup-buddy/app/node_modules/.bin/vite",
+        "preview",
+        "/Users/jeremy/Documents/matchup-buddy/app",
+        "--port", "4173",
+        "--strictPort"
+      ],
+      "port": 4173,
+      "autoPort": false
     }
   ]
 }
