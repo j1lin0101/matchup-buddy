@@ -1231,7 +1231,9 @@ function FilterModal({
   )
 }
 
-const TOOLBAR_H = '32px'
+// A CSS custom property (not a fixed value) so the mobile media query in
+// index.css can make toolbar units a bit taller without touching desktop.
+const TOOLBAR_H = 'var(--toolbar-h)'
 
 function SimplifiedIcon() {
   return (
@@ -1442,7 +1444,7 @@ function BreakdownSection({ matchupVsOpp, matchupVsMe, myChar, oppChar, myOOS, o
                         }}
                         className="defender-input"
                         style={{
-                          width: '56px', height: '22px', padding: '0 8px', borderRadius: '6px',
+                          width: '56px', height: 'var(--defender-input-h)', padding: '0 8px', borderRadius: '6px',
                           border: '1px solid var(--border)', background: 'var(--bg)',
                           color: 'var(--text)', fontSize: '0.82rem', fontWeight: 700,
                           textAlign: 'right',

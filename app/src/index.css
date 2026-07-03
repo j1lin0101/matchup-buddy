@@ -13,6 +13,8 @@
   --text:    #e8e8f0;
   --muted:   #888899;
   --radius:  8px;
+  --toolbar-h: 32px;
+  --defender-input-h: 22px;
 }
 
 body {
@@ -303,10 +305,13 @@ body {
   align-items: center;
 }
 @media (max-width: 600px) {
-  /* Stack every unit as its own full-width row instead of wrapping horizontally */
+  /* Stack every unit as its own full-width row instead of wrapping horizontally,
+     and make them a bit taller than the desktop 32px for easier tapping. */
   .toolbar-row {
     flex-direction: column;
     align-items: stretch;
+    --toolbar-h: 40px;
+    --defender-input-h: 28px;
   }
   .toolbar-row > .toolbar-divider {
     display: none;
