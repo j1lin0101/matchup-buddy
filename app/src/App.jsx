@@ -4,6 +4,7 @@ import CharacterSelect from './components/CharacterSelect'
 import MatchupView from './components/MatchupView'
 import GameSelect from './components/GameSelect'
 import SsbuMatchupStub from './components/SsbuMatchupStub'
+import GameComingSoon from './components/GameComingSoon'
 import UpdateToast from './components/UpdateToast'
 import './index.css'
 
@@ -260,6 +261,7 @@ export default function App() {
         <Route path="/roa2/:char1/:char2" element={<MatchupPage />} />
         <Route path="/ssbu" element={<SelectPage game="ssbu" />} />
         <Route path="/ssbu/:char1/:char2" element={<SsbuMatchupPage />} />
+        <Route path="/ssbm/*" element={<GameComingSoon label="Super Smash Bros. Melee" />} />
         <Route path="/:char1/:char2" element={<LegacyMatchupRedirect />} />
         <Route path="*" element={<GameSelect />} />
       </Routes>
