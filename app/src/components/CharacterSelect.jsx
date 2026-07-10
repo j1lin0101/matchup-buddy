@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useMemo } from 'react'
 
 const CHARACTER_COLORS = {
   Zetterburn: '#D55E00',  // vermilion
@@ -43,15 +43,26 @@ function useNarrow(breakpoint = 600) {
 
 export default function CharacterSelect({ game = 'roa2', label, accentColor, selected, onSelect }) {
   const [characters, setCharacters] = useState([])
+  const [search, setSearch] = useState('')
   const narrow = useNarrow(600)
+  // SSBU's ~90-fighter roster is large enough that filtering matters; Rivals'
+  // 16 characters don't need it.
+  const searchable = game === 'ssbu'
 
   useEffect(() => {
     setCharacters([])
+    setSearch('')
     fetch(`${import.meta.env.BASE_URL}data/${game}/characters.json`)
       .then(r => r.json())
       .then(d => setCharacters(d.characters.map(c => c.name)))
       .catch(console.error)
   }, [game])
+
+  const filtered = useMemo(() => {
+    if (!searchable || !search.trim()) return characters
+    const q = search.trim().toLowerCase()
+    return characters.filter(name => name.toLowerCase().includes(q))
+  }, [characters, search, searchable])
 
   return (
     <div>
@@ -141,8 +152,33 @@ export default function CharacterSelect({ game = 'roa2', label, accentColor, sel
             </div>
           )}
 
+          {searchable && (
+            <input
+              type="text"
+              value={search}
+              onChange={e => setSearch(e.target.value)}
+              placeholder="Search fighters..."
+              style={{
+                width: '100%',
+                padding: '8px 12px',
+                marginBottom: '12px',
+                background: 'var(--bg)',
+                border: '1px solid var(--border)',
+                borderRadius: 'var(--radius)',
+                color: 'var(--text)',
+                fontSize: '0.85rem',
+              }}
+            />
+          )}
+
+          {searchable && filtered.length === 0 && (
+            <p style={{ color: 'var(--muted)', fontSize: '0.82rem', padding: '8px 0' }}>
+              No fighters match "{search}".
+            </p>
+          )}
+
           <div className="char-tile-grid">
-            {characters.map(name => {
+            {filtered.map(name => {
               const isSelected = selected === name
               const color = game === 'roa2' ? (CHARACTER_COLORS[name] || '#444') : accentColor
               return (
