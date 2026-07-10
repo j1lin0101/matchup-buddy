@@ -39,7 +39,7 @@ export default defineConfig({
         // a lazy runtimeCaching-only strategy would only ever cache visited characters.
         // Recursive globs cover both games' nested data/roa2, data/ssbu, icons/roa2,
         // icons/ssbu directories under one pattern.
-        globPatterns: ['**/*.{js,css,html,ico,svg,woff2}', 'data/**/*.json', 'icons/**/*.png'],
+        globPatterns: ['**/*.{js,css,html,ico,svg,woff2}', 'data/**/*.json', 'icons/**/*.png', 'logos/*.png'],
         maximumFileSizeToCacheInBytes: 3 * 1024 * 1024,
         navigateFallback: '/index.html',
         cleanupOutdatedCaches: true,

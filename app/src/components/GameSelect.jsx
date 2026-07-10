@@ -1,8 +1,10 @@
 import { useNavigate } from 'react-router-dom'
 
 const GAMES = [
-  { id: 'roa2', label: 'Rivals of Aether 2', color: 'var(--accent)' },
-  { id: 'ssbu', label: 'Super Smash Bros. Ultimate', color: 'var(--accent2)' },
+  { id: 'roa2', label: 'Rivals of Aether 2', color: 'var(--accent)', logo: 'roa2.png' },
+  // SSBU's official logo is black line art on a transparent background — invert
+  // it so it reads as white against this app's dark theme instead of vanishing.
+  { id: 'ssbu', label: 'Super Smash Bros. Ultimate', color: 'var(--accent2)', logo: 'ssbu.png', invert: true },
 ]
 
 export default function GameSelect() {
@@ -33,8 +35,11 @@ export default function GameSelect() {
             <button
               key={g.id}
               onClick={() => navigate(`/${g.id}`)}
+              aria-label={g.label}
+              title={g.label}
               style={{
-                width: '260px', padding: '28px 24px', textAlign: 'left',
+                width: '260px', height: '150px', padding: '20px',
+                display: 'flex', alignItems: 'center', justifyContent: 'center',
                 background: 'var(--surface)', border: '1px solid var(--border)',
                 borderRadius: 'var(--radius)', cursor: 'pointer',
                 transition: 'border-color 0.15s, background 0.15s',
@@ -48,9 +53,14 @@ export default function GameSelect() {
                 e.currentTarget.style.background = 'var(--surface)'
               }}
             >
-              <div style={{ fontSize: '1.1rem', fontWeight: 700, color: g.color }}>
-                {g.label}
-              </div>
+              <img
+                src={`${import.meta.env.BASE_URL}logos/${g.logo}`}
+                alt={g.label}
+                style={{
+                  maxWidth: '100%', maxHeight: '100%', objectFit: 'contain',
+                  filter: g.invert ? 'invert(1)' : 'none',
+                }}
+              />
             </button>
           ))}
         </div>
