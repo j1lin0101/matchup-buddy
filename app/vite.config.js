@@ -21,7 +21,7 @@ export default defineConfig({
       manifest: {
         name: 'MatchupBuddy',
         short_name: 'MatchupBuddy',
-        description: 'Shield safety & punish analysis for Rivals of Aether 2',
+        description: 'Shield safety & punish analysis for Rivals of Aether 2 and Super Smash Bros. Ultimate',
         start_url: '/',
         scope: '/',
         display: 'standalone',
@@ -37,7 +37,9 @@ export default defineConfig({
         // Precache every character's data + icon up front (build-time glob) so any
         // matchup works offline after one visit, not just ones the user browsed —
         // a lazy runtimeCaching-only strategy would only ever cache visited characters.
-        globPatterns: ['**/*.{js,css,html,ico,svg,woff2}', 'data/*.json', 'icons/*.png', 'characters.json'],
+        // Recursive globs cover both games' nested data/roa2, data/ssbu, icons/roa2,
+        // icons/ssbu directories under one pattern.
+        globPatterns: ['**/*.{js,css,html,ico,svg,woff2}', 'data/**/*.json', 'icons/**/*.png'],
         maximumFileSizeToCacheInBytes: 3 * 1024 * 1024,
         navigateFallback: '/index.html',
         cleanupOutdatedCaches: true,

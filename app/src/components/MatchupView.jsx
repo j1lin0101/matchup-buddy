@@ -168,7 +168,7 @@ function CharColumnHeader({ name, accent }) {
       onMouseLeave={e => e.currentTarget.style.opacity = '1'}
     >
       <img
-        src={`${import.meta.env.BASE_URL}icons/${slug}.png`}
+        src={`${import.meta.env.BASE_URL}icons/roa2/${slug}.png`}
         alt={name}
         style={{ width: '32px', height: '32px', objectFit: 'contain', flexShrink: 0 }}
       />
@@ -1783,8 +1783,8 @@ export default function MatchupView({ myChar, oppChar, onBack }) {
 
   const tabs = [
     { id: 'overview', label: 'Matchup Overview' },
-    { id: 'me',  label: `${myChar} Attacking`,  icon: `${import.meta.env.BASE_URL}icons/${mySlug}.png`,  color: 'var(--accent)' },
-    { id: 'opp', label: `${oppChar} Attacking`, icon: `${import.meta.env.BASE_URL}icons/${oppSlug}.png`, color: 'var(--accent2)' },
+    { id: 'me',  label: `${myChar} Attacking`,  icon: `${import.meta.env.BASE_URL}icons/roa2/${mySlug}.png`,  color: 'var(--accent)' },
+    { id: 'opp', label: `${oppChar} Attacking`, icon: `${import.meta.env.BASE_URL}icons/roa2/${oppSlug}.png`, color: 'var(--accent2)' },
   ]
 
   return (

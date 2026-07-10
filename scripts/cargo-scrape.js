@@ -26,10 +26,10 @@ const fs     = require('fs');
 const path   = require('path');
 
 const BASE     = 'https://dragdown.wiki/wiki/Special:CargoExport';
-const DATA_DIR     = path.join(__dirname, '../data/characters');
-const PUBLIC_DIR   = path.join(__dirname, '../app/public/data');
+const DATA_DIR     = path.join(__dirname, '../data/roa2/characters');
+const PUBLIC_DIR   = path.join(__dirname, '../app/public/data/roa2');
 
-const { characters } = require('../characters.json');
+const { characters } = require('../app/public/data/roa2/characters.json');
 
 // ─── Display name mapping ─────────────────────────────────────────────────────
 

@@ -19,8 +19,14 @@ const CHARACTER_COLORS = {
   Slade:      '#004d40',  // dark teal
 }
 
-function iconPath(name) {
-  return `${import.meta.env.BASE_URL}icons/${name.replace(/ /g, '_')}.png`
+// Matches the underscore-joined slug convention used for data/icon filenames
+// across both games (see scripts/cargo-scrape.js and scripts/fetch-ssbu-roster.js).
+function nameToSlug(name) {
+  return name.replace(/&/g, 'and').replace(/[.]/g, '').replace(/\s+/g, '_')
+}
+
+function iconPath(game, name) {
+  return `${import.meta.env.BASE_URL}icons/${game}/${nameToSlug(name)}.png`
 }
 
 function useNarrow(breakpoint = 600) {
@@ -35,16 +41,17 @@ function useNarrow(breakpoint = 600) {
   return narrow
 }
 
-export default function CharacterSelect({ label, accentColor, selected, onSelect }) {
+export default function CharacterSelect({ game = 'roa2', label, accentColor, selected, onSelect }) {
   const [characters, setCharacters] = useState([])
   const narrow = useNarrow(600)
 
   useEffect(() => {
-    fetch(`${import.meta.env.BASE_URL}characters.json`)
+    setCharacters([])
+    fetch(`${import.meta.env.BASE_URL}data/${game}/characters.json`)
       .then(r => r.json())
       .then(d => setCharacters(d.characters.map(c => c.name)))
       .catch(console.error)
-  }, [])
+  }, [game])
 
   return (
     <div>
@@ -64,7 +71,7 @@ export default function CharacterSelect({ label, accentColor, selected, onSelect
         <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
           {selected && (
             <img
-              src={iconPath(selected)}
+              src={iconPath(game, selected)}
               alt={selected}
               style={{ width: '36px', height: '36px', objectFit: 'contain', flexShrink: 0 }}
             />
@@ -110,7 +117,7 @@ export default function CharacterSelect({ label, accentColor, selected, onSelect
               borderRadius: 'var(--radius)',
             }}>
               <img
-                src={iconPath(selected)}
+                src={iconPath(game, selected)}
                 alt={selected}
                 style={{ width: '40px', height: '40px', objectFit: 'contain', flexShrink: 0 }}
               />
@@ -137,7 +144,7 @@ export default function CharacterSelect({ label, accentColor, selected, onSelect
           <div className="char-tile-grid">
             {characters.map(name => {
               const isSelected = selected === name
-              const color = CHARACTER_COLORS[name] || '#444'
+              const color = game === 'roa2' ? (CHARACTER_COLORS[name] || '#444') : accentColor
               return (
                 <button
                   key={name}
@@ -173,7 +180,7 @@ export default function CharacterSelect({ label, accentColor, selected, onSelect
                   }}
                 >
                   <img
-                    src={iconPath(name)}
+                    src={iconPath(game, name)}
                     alt={name}
                     style={{ width: '48px', height: '48px', objectFit: 'contain' }}
                   />

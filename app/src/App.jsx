@@ -1,33 +1,64 @@
-import { useState } from 'react'
-import { BrowserRouter, Routes, Route, useNavigate, useParams } from 'react-router-dom'
+import { useState, useEffect, useMemo } from 'react'
+import { BrowserRouter, Routes, Route, Navigate, useNavigate, useParams } from 'react-router-dom'
 import CharacterSelect from './components/CharacterSelect'
 import MatchupView from './components/MatchupView'
+import GameSelect from './components/GameSelect'
+import SsbuMatchupStub from './components/SsbuMatchupStub'
 import UpdateToast from './components/UpdateToast'
 import './index.css'
 
-// Convert display name to URL slug and back
+// Robust slugifier shared by both games' routes — strips punctuation rather
+// than assuming simple space-separated names, since SSBU has names like
+// "Mr. Game & Watch" that the old naive space->hyphen slugger can't round-trip.
 function toSlug(name) {
-  return name.toLowerCase().replace(/ /g, '-')
-}
-function fromSlug(slug) {
-  return slug.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ')
+  return name
+    .replace(/&/g, 'and')
+    .replace(/[.']/g, '')
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '')
 }
 
-const VALID_CHARACTERS = [
-  'Zetterburn', 'Forsburn', 'Maypul', 'Absa', 'Etalus', 'Orcane',
-  'Wrastor', 'Kragg', 'Ranno', 'Clairen', 'Fleet', 'Loxodont',
-  'Olympia', 'La Reina', 'Galvan', 'Slade',
-]
-const VALID_SLUGS = new Set(VALID_CHARACTERS.map(toSlug))
+// Fetches a game's character roster once. Returns null while loading, an
+// array (possibly empty on error) once resolved.
+function useRoster(game) {
+  const [characters, setCharacters] = useState(null)
+  useEffect(() => {
+    let cancelled = false
+    setCharacters(null)
+    fetch(`${import.meta.env.BASE_URL}data/${game}/characters.json`)
+      .then(r => r.json())
+      .then(d => { if (!cancelled) setCharacters(d.characters.map(c => c.name)) })
+      .catch(() => { if (!cancelled) setCharacters([]) })
+    return () => { cancelled = true }
+  }, [game])
+  return characters
+}
 
-function SelectPage() {
+const GAME_META = {
+  roa2: {
+    label: 'Rivals of Aether 2',
+    tagline: 'Shield safety & punish analysis',
+    wikiUrl: 'https://dragdown.wiki/wiki/RoA2',
+    demoVideoId: 'W2QBwcA57y0',
+  },
+  ssbu: {
+    label: 'Super Smash Bros. Ultimate',
+    tagline: 'Shield safety & punish analysis',
+    wikiUrl: 'https://dragdown.wiki/wiki/SSBU',
+    demoVideoId: null,
+  },
+}
+
+function SelectPage({ game }) {
   const [myChar, setMyChar] = useState(null)
   const [oppChar, setOppChar] = useState(null)
   const navigate = useNavigate()
+  const meta = GAME_META[game]
 
   function handleAnalyze() {
     if (myChar && oppChar) {
-      navigate(`/${toSlug(myChar)}/${toSlug(oppChar)}`)
+      navigate(`/${game}/${toSlug(myChar)}/${toSlug(oppChar)}`)
     }
   }
 
@@ -39,7 +70,7 @@ function SelectPage() {
             MatchupBuddy
           </h1>
           <p style={{ color: 'var(--muted)', fontSize: '0.85rem', marginTop: '4px' }}>
-            Shield safety &amp; punish analysis
+            {meta.label} &middot; {meta.tagline}
           </p>
         </div>
         <a
@@ -60,12 +91,14 @@ function SelectPage() {
       <main className="select-main">
         <div className="char-select-grid">
           <CharacterSelect
+            game={game}
             label="Your Character"
             accentColor="var(--accent)"
             selected={myChar}
             onSelect={setMyChar}
           />
           <CharacterSelect
+            game={game}
             label="Opponent"
             accentColor="var(--accent2)"
             selected={oppChar}
@@ -99,20 +132,22 @@ function SelectPage() {
           )}
         </div>
 
-        <div style={{ marginTop: '48px', width: '100%', maxWidth: '640px', margin: '48px auto 0' }}>
-          <h2 style={{ fontSize: '1rem', fontWeight: 700, color: 'var(--text)', marginBottom: '16px' }}>
-            How do I use this site?
-          </h2>
-          <div style={{ position: 'relative', paddingBottom: '56.25%', height: 0, borderRadius: 'var(--radius)', overflow: 'hidden', border: '1px solid var(--border)' }}>
-            <iframe
-              src="https://www.youtube.com/embed/W2QBwcA57y0"
-              title="MatchupBuddy demo"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-              style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', border: 'none' }}
-            />
+        {meta.demoVideoId && (
+          <div style={{ marginTop: '48px', width: '100%', maxWidth: '640px', margin: '48px auto 0' }}>
+            <h2 style={{ fontSize: '1rem', fontWeight: 700, color: 'var(--text)', marginBottom: '16px' }}>
+              How do I use this site?
+            </h2>
+            <div style={{ position: 'relative', paddingBottom: '56.25%', height: 0, borderRadius: 'var(--radius)', overflow: 'hidden', border: '1px solid var(--border)' }}>
+              <iframe
+                src={`https://www.youtube.com/embed/${meta.demoVideoId}`}
+                title="MatchupBuddy demo"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', border: 'none' }}
+              />
+            </div>
           </div>
-        </div>
+        )}
       </main>
       <footer style={{
         borderTop: '1px solid var(--border)',
@@ -133,7 +168,7 @@ function SelectPage() {
         </span>
         <span>
           All frame data and definitions sourced from{' '}
-          <a href="https://dragdown.wiki/wiki/RoA2" target="_blank" rel="noopener noreferrer"
+          <a href={meta.wikiUrl} target="_blank" rel="noopener noreferrer"
             style={{ color: 'var(--accent)', textDecoration: 'none' }}>
             dragdown.wiki
           </a>.
@@ -150,37 +185,83 @@ function SelectPage() {
   )
 }
 
+function useMatchupSlugs(game, char1Slug, char2Slug) {
+  const roster = useRoster(game)
+  return useMemo(() => {
+    if (roster === null) return { loading: true }
+    const bySlug = new Map(roster.map(name => [toSlug(name), name]))
+    const myChar = bySlug.get(char1Slug)
+    const oppChar = bySlug.get(char2Slug)
+    if (!myChar || !oppChar) return { loading: false, valid: false }
+    return { loading: false, valid: true, myChar, oppChar }
+  }, [roster, char1Slug, char2Slug])
+}
+
+function UnknownCharacters({ game }) {
+  const navigate = useNavigate()
+  return (
+    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: '100vh', flexDirection: 'column', gap: '16px', color: 'var(--muted)' }}>
+      <p>Unknown characters.</p>
+      <button onClick={() => navigate(`/${game}`)} style={{ color: 'var(--accent)', background: 'none', border: 'none', cursor: 'pointer', fontSize: '0.9rem' }}>
+        ← Back to character select
+      </button>
+    </div>
+  )
+}
+
 function MatchupPage() {
   const { char1, char2 } = useParams()
   const navigate = useNavigate()
+  const { loading, valid, myChar, oppChar } = useMatchupSlugs('roa2', char1, char2)
 
-  if (!VALID_SLUGS.has(char1) || !VALID_SLUGS.has(char2)) {
-    return (
-      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: '100vh', flexDirection: 'column', gap: '16px', color: 'var(--muted)' }}>
-        <p>Unknown characters.</p>
-        <button onClick={() => navigate('/')} style={{ color: 'var(--accent)', background: 'none', border: 'none', cursor: 'pointer', fontSize: '0.9rem' }}>
-          ← Back to character select
-        </button>
-      </div>
-    )
-  }
+  if (loading) return null
+  if (!valid) return <UnknownCharacters game="roa2" />
 
   return (
     <MatchupView
-      myChar={fromSlug(char1)}
-      oppChar={fromSlug(char2)}
-      onBack={() => navigate('/')}
+      myChar={myChar}
+      oppChar={oppChar}
+      onBack={() => navigate('/roa2')}
     />
   )
+}
+
+function SsbuMatchupPage() {
+  const { char1, char2 } = useParams()
+  const navigate = useNavigate()
+  const { loading, valid, myChar, oppChar } = useMatchupSlugs('ssbu', char1, char2)
+
+  if (loading) return null
+  if (!valid) return <UnknownCharacters game="ssbu" />
+
+  return (
+    <SsbuMatchupStub
+      myChar={myChar}
+      oppChar={oppChar}
+      onBack={() => navigate('/ssbu')}
+    />
+  )
+}
+
+// Old bare /:char1/:char2 links (shared before SSBU support existed) still
+// point at Rivals matchups — keep them working via a redirect rather than
+// breaking already-shared/bookmarked URLs.
+function LegacyMatchupRedirect() {
+  const { char1, char2 } = useParams()
+  return <Navigate to={`/roa2/${char1}/${char2}`} replace />
 }
 
 export default function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<SelectPage />} />
-        <Route path="/:char1/:char2" element={<MatchupPage />} />
-        <Route path="*" element={<SelectPage />} />
+        <Route path="/" element={<GameSelect />} />
+        <Route path="/roa2" element={<SelectPage game="roa2" />} />
+        <Route path="/roa2/:char1/:char2" element={<MatchupPage />} />
+        <Route path="/ssbu" element={<SelectPage game="ssbu" />} />
+        <Route path="/ssbu/:char1/:char2" element={<SsbuMatchupPage />} />
+        <Route path="/:char1/:char2" element={<LegacyMatchupRedirect />} />
+        <Route path="*" element={<GameSelect />} />
       </Routes>
       <UpdateToast />
     </BrowserRouter>
