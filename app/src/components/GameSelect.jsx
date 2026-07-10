@@ -5,9 +5,7 @@ const GAMES = [
   // SSBU's official logo is black line art on a transparent background — invert
   // it so it reads as white against this app's dark theme instead of vanishing.
   { id: 'ssbu', label: 'Super Smash Bros. Ultimate', color: 'var(--accent2)', logo: 'ssbu.png', invert: true },
-  // Source file is a flat JPEG on a white background (no alpha) — mount it on
-  // a white plate instead of floating it directly on the dark card.
-  { id: 'ssbm', label: 'Super Smash Bros. Melee', color: '#4CAF50', logo: 'ssbm.jpg', plate: true },
+  { id: 'ssbm', label: 'Super Smash Bros. Melee', color: '#4CAF50', logo: 'ssbm.png' },
 ]
 
 export default function GameSelect() {
@@ -56,34 +54,14 @@ export default function GameSelect() {
                 e.currentTarget.style.background = 'var(--surface)'
               }}
             >
-              {g.logo ? (
-                g.plate ? (
-                  <div style={{
-                    background: '#fff', borderRadius: '8px', padding: '12px',
-                    display: 'flex', alignItems: 'center', justifyContent: 'center',
-                    maxWidth: '100%', maxHeight: '100%',
-                  }}>
-                    <img
-                      src={`${import.meta.env.BASE_URL}logos/${g.logo}`}
-                      alt={g.label}
-                      style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'contain' }}
-                    />
-                  </div>
-                ) : (
-                  <img
-                    src={`${import.meta.env.BASE_URL}logos/${g.logo}`}
-                    alt={g.label}
-                    style={{
-                      maxWidth: '100%', maxHeight: '100%', objectFit: 'contain',
-                      filter: g.invert ? 'invert(1)' : 'none',
-                    }}
-                  />
-                )
-              ) : (
-                <span style={{ fontSize: '1.05rem', fontWeight: 700, color: g.color, textAlign: 'center', lineHeight: 1.4 }}>
-                  {g.label}
-                </span>
-              )}
+              <img
+                src={`${import.meta.env.BASE_URL}logos/${g.logo}`}
+                alt={g.label}
+                style={{
+                  maxWidth: '100%', maxHeight: '100%', objectFit: 'contain',
+                  filter: g.invert ? 'invert(1)' : 'none',
+                }}
+              />
             </button>
           ))}
         </div>
