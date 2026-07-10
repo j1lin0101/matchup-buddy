@@ -22,6 +22,19 @@ export default function GameSelect() {
             Shield safety &amp; punish analysis
           </p>
         </div>
+        <a
+          href="https://ko-fi.com/boi_jiro"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="kofi-link"
+          style={{
+            display: 'inline-flex', alignItems: 'center', gap: '6px',
+            padding: '6px 14px', borderRadius: '6px',
+            border: '1px solid var(--border)',
+            color: 'var(--muted)', fontSize: '0.78rem', fontWeight: 600,
+            textDecoration: 'none', flexShrink: 0,
+          }}
+        >☕ Support me on Ko-Fi!</a>
       </header>
 
       <main style={{
@@ -66,6 +79,39 @@ export default function GameSelect() {
           ))}
         </div>
       </main>
+
+      <footer style={{
+        borderTop: '1px solid var(--border)',
+        padding: '14px 32px',
+        textAlign: 'center',
+        fontSize: '0.78rem',
+        color: 'var(--muted)',
+        display: 'flex',
+        flexDirection: 'column',
+        gap: '6px',
+      }}>
+        <span>
+          Created by{' '}
+          <a href="https://x.com/boi_jir0" target="_blank" rel="noopener noreferrer"
+            style={{ color: 'var(--accent)', textDecoration: 'none', fontWeight: 600 }}>
+            @boi_jiro
+          </a>
+        </span>
+        <span>
+          All frame data and definitions sourced from{' '}
+          <a href="https://dragdown.wiki" target="_blank" rel="noopener noreferrer"
+            style={{ color: 'var(--accent)', textDecoration: 'none' }}>
+            dragdown.wiki
+          </a>.
+        </span>
+        <span>
+          Have a bug fix, feature suggestion, or general feedback? Please feel free to fill out{' '}
+          <a href="https://forms.gle/7uZnA3EzMN2k19WA9" target="_blank" rel="noopener noreferrer"
+            style={{ color: 'var(--accent)', textDecoration: 'none' }}>
+            this form
+          </a>.
+        </span>
+      </footer>
     </div>
   )
 }
