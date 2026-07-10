@@ -171,14 +171,20 @@ export default function CharacterSelect({ game = 'roa2', label, accentColor, sel
             />
           )}
 
-          {searchable && filtered.length === 0 && (
+          {searchable && !search.trim() && (
+            <p style={{ color: 'var(--muted)', fontSize: '0.82rem', padding: '8px 0', fontStyle: 'italic' }}>
+              Type a name above to see matching fighters.
+            </p>
+          )}
+
+          {searchable && search.trim() && filtered.length === 0 && (
             <p style={{ color: 'var(--muted)', fontSize: '0.82rem', padding: '8px 0' }}>
               No fighters match "{search}".
             </p>
           )}
 
           <div className="char-tile-grid">
-            {filtered.map(name => {
+            {(searchable ? (search.trim() ? filtered : []) : filtered).map(name => {
               const isSelected = selected === name
               const color = game === 'roa2' ? (CHARACTER_COLORS[name] || '#444') : accentColor
               return (
