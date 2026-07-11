@@ -1,0 +1,667 @@
+{
+  "character": "Nana",
+  "slug": "Nana",
+  "scrapedAt": "2026-07-11T00:24:05.823Z",
+  "jumpSquat": 3,
+  "airdodge": {
+    "startup": 3,
+    "totalFrames": 58
+  },
+  "moves": [
+    {
+      "move": "Back Air",
+      "startup": 8,
+      "hitboxes": [
+        {
+          "hitbox": "Nana",
+          "shieldSafety": {
+            "min": 0,
+            "max": 0
+          },
+          "shieldRaw": "0"
+        },
+        {
+          "hitbox": "Popo",
+          "shieldSafety": {
+            "min": -3,
+            "max": -3
+          },
+          "shieldRaw": "-3"
+        }
+      ]
+    },
+    {
+      "move": "Back Throw",
+      "startup": 18,
+      "hitboxes": [
+        {
+          "hitbox": null,
+          "shieldSafety": null,
+          "shieldRaw": null
+        }
+      ]
+    },
+    {
+      "move": "Belay",
+      "startup": 13,
+      "hitboxes": [
+        {
+          "hitbox": null,
+          "shieldSafety": {
+            "min": -34,
+            "max": -17
+          },
+          "shieldRaw": "-34 to -17"
+        }
+      ]
+    },
+    {
+      "move": "Blizzard",
+      "startup": 16,
+      "hitboxes": [
+        {
+          "hitbox": "Nana",
+          "shieldSafety": {
+            "min": -15,
+            "max": -15
+          },
+          "shieldRaw": "-15"
+        },
+        {
+          "hitbox": "Popo",
+          "shieldSafety": {
+            "min": -22,
+            "max": -22
+          },
+          "shieldRaw": "-22"
+        }
+      ]
+    },
+    {
+      "move": "Dash Attack",
+      "startup": 9,
+      "hitboxes": [
+        {
+          "hitbox": "Nana",
+          "shieldSafety": {
+            "min": -25,
+            "max": -22
+          },
+          "shieldRaw": "-25 to -22"
+        },
+        {
+          "hitbox": "Popo",
+          "shieldSafety": {
+            "min": -24,
+            "max": -21
+          },
+          "shieldRaw": "-24 to -21"
+        }
+      ]
+    },
+    {
+      "move": "Down Air",
+      "startup": 12,
+      "hitboxes": [
+        {
+          "hitbox": "Nana",
+          "shieldSafety": {
+            "min": -12,
+            "max": -12
+          },
+          "shieldRaw": "-12"
+        },
+        {
+          "hitbox": "Popo",
+          "shieldSafety": {
+            "min": -16,
+            "max": -16
+          },
+          "shieldRaw": "-16"
+        }
+      ]
+    },
+    {
+      "move": "Down Smash",
+      "startup": 9,
+      "hitboxes": [
+        {
+          "hitbox": "Nana",
+          "shieldSafety": {
+            "min": -22,
+            "max": -20
+          },
+          "shieldRaw": "-22 to -20"
+        },
+        {
+          "hitbox": "Popo",
+          "shieldSafety": {
+            "min": -19,
+            "max": -17
+          },
+          "shieldRaw": "-19 to -17"
+        }
+      ]
+    },
+    {
+      "move": "Down Throw",
+      "startup": 37,
+      "hitboxes": [
+        {
+          "hitbox": null,
+          "shieldSafety": null,
+          "shieldRaw": null
+        }
+      ]
+    },
+    {
+      "move": "Down Tilt",
+      "startup": 8,
+      "hitboxes": [
+        {
+          "hitbox": "Nana",
+          "shieldSafety": {
+            "min": -17,
+            "max": -14
+          },
+          "shieldRaw": "-17 to -14"
+        },
+        {
+          "hitbox": "Popo",
+          "shieldSafety": {
+            "min": -16,
+            "max": -13
+          },
+          "shieldRaw": "-16 to -13"
+        }
+      ]
+    },
+    {
+      "move": "Forward Air",
+      "startup": 19,
+      "hitboxes": [
+        {
+          "hitbox": "Nana",
+          "shieldSafety": {
+            "min": 3,
+            "max": 3
+          },
+          "shieldRaw": "3"
+        },
+        {
+          "hitbox": "Popo",
+          "shieldSafety": {
+            "min": -5,
+            "max": -5
+          },
+          "shieldRaw": "-5"
+        }
+      ]
+    },
+    {
+      "move": "Forward Smash",
+      "startup": 11,
+      "hitboxes": [
+        {
+          "hitbox": "Nana",
+          "shieldSafety": {
+            "min": -26,
+            "max": -24
+          },
+          "shieldRaw": "-26 to -24"
+        },
+        {
+          "hitbox": "Popo",
+          "shieldSafety": {
+            "min": -24,
+            "max": -22
+          },
+          "shieldRaw": "-24 to -22"
+        }
+      ]
+    },
+    {
+      "move": "Forward Throw",
+      "startup": 24,
+      "hitboxes": [
+        {
+          "hitbox": "Initial Hit",
+          "shieldSafety": {
+            "min": -21,
+            "max": -21
+          },
+          "shieldRaw": "-21"
+        },
+        {
+          "hitbox": "Throw",
+          "shieldSafety": null,
+          "shieldRaw": null
+        }
+      ]
+    },
+    {
+      "move": "Forward Tilt",
+      "startup": 9,
+      "hitboxes": [
+        {
+          "hitbox": "Nana",
+          "shieldSafety": {
+            "min": -13,
+            "max": -12
+          },
+          "shieldRaw": "-13 to -12"
+        },
+        {
+          "hitbox": "Popo",
+          "shieldSafety": {
+            "min": -11,
+            "max": -10
+          },
+          "shieldRaw": "-11 to -10"
+        }
+      ]
+    },
+    {
+      "move": "Getup Attack",
+      "startup": 19,
+      "hitboxes": [
+        {
+          "hitbox": "Facing Down, Nana",
+          "shieldSafety": {
+            "min": -20,
+            "max": -14
+          },
+          "shieldRaw": "-20 to -14"
+        },
+        {
+          "hitbox": "Facing Up, Nana",
+          "shieldSafety": {
+            "min": -20,
+            "max": -14
+          },
+          "shieldRaw": "-20 to -14"
+        },
+        {
+          "hitbox": "Facing Up, Popo",
+          "shieldSafety": {
+            "min": -19,
+            "max": -13
+          },
+          "shieldRaw": "-19 to -13"
+        }
+      ]
+    },
+    {
+      "move": "GetupAttack",
+      "startup": 19,
+      "hitboxes": [
+        {
+          "hitbox": "Facing Down, Popo",
+          "shieldSafety": {
+            "min": -19,
+            "max": -13
+          },
+          "shieldRaw": "-19 to -13"
+        }
+      ]
+    },
+    {
+      "move": "Grab",
+      "startup": 1,
+      "hitboxes": [
+        {
+          "hitbox": "Dash",
+          "shieldSafety": null,
+          "shieldRaw": null
+        },
+        {
+          "hitbox": "Pivot",
+          "shieldSafety": null,
+          "shieldRaw": null
+        },
+        {
+          "hitbox": "Pummel",
+          "shieldSafety": {
+            "min": -3,
+            "max": -3
+          },
+          "shieldRaw": "-3"
+        },
+        {
+          "hitbox": "Standing",
+          "shieldSafety": null,
+          "shieldRaw": null
+        }
+      ]
+    },
+    {
+      "move": "Ice Shot",
+      "startup": 18,
+      "hitboxes": [
+        {
+          "hitbox": null,
+          "shieldSafety": {
+            "min": -29,
+            "max": -24
+          },
+          "shieldRaw": "-29/-24"
+        }
+      ]
+    },
+    {
+      "move": "Jab 1",
+      "startup": 4,
+      "hitboxes": [
+        {
+          "hitbox": "Nana",
+          "shieldSafety": {
+            "min": -20,
+            "max": -19
+          },
+          "shieldRaw": "-20 to -19"
+        },
+        {
+          "hitbox": "Popo",
+          "shieldSafety": {
+            "min": -20,
+            "max": -19
+          },
+          "shieldRaw": "-20 to -19"
+        }
+      ]
+    },
+    {
+      "move": "Jab 2",
+      "startup": 4,
+      "hitboxes": [
+        {
+          "hitbox": "Nana",
+          "shieldSafety": {
+            "min": -21,
+            "max": -20
+          },
+          "shieldRaw": "-21 to -20"
+        },
+        {
+          "hitbox": "Popo",
+          "shieldSafety": {
+            "min": -21,
+            "max": -20
+          },
+          "shieldRaw": "-21 to -20"
+        }
+      ]
+    },
+    {
+      "move": "Ledge Attack",
+      "startup": 24,
+      "hitboxes": [
+        {
+          "hitbox": "Nana",
+          "shieldSafety": {
+            "min": -25,
+            "max": -23
+          },
+          "shieldRaw": "-25 to -23"
+        },
+        {
+          "hitbox": "Popo",
+          "shieldSafety": {
+            "min": -23,
+            "max": -21
+          },
+          "shieldRaw": "-23 to -21"
+        }
+      ]
+    },
+    {
+      "move": "Neutral Air",
+      "startup": 6,
+      "hitboxes": [
+        {
+          "hitbox": "Nana",
+          "shieldSafety": {
+            "min": 2,
+            "max": 2
+          },
+          "shieldRaw": "2"
+        },
+        {
+          "hitbox": "Popo",
+          "shieldSafety": {
+            "min": -4,
+            "max": -4
+          },
+          "shieldRaw": "-4"
+        }
+      ]
+    },
+    {
+      "move": "Squall Hammer",
+      "startup": 10,
+      "hitboxes": [
+        {
+          "hitbox": "Duo Nana Final Hit",
+          "shieldSafety": {
+            "min": -21,
+            "max": -20
+          },
+          "shieldRaw": "-21 to -20"
+        },
+        {
+          "hitbox": "Duo Nana Multihits",
+          "shieldSafety": {
+            "min": -64,
+            "max": -34
+          },
+          "shieldRaw": "-64 to -34"
+        },
+        {
+          "hitbox": "Nana Solo Final Hit",
+          "shieldSafety": {
+            "min": -25,
+            "max": -24
+          },
+          "shieldRaw": "-25 to -24"
+        },
+        {
+          "hitbox": "Nana Solo Multihits",
+          "shieldSafety": {
+            "min": -65,
+            "max": -65
+          },
+          "shieldRaw": "-65"
+        },
+        {
+          "hitbox": "Popo Duo Final Hit",
+          "shieldSafety": {
+            "min": -21,
+            "max": -20
+          },
+          "shieldRaw": "-21 to -20"
+        },
+        {
+          "hitbox": "Popo Duo Multihits",
+          "shieldSafety": {
+            "min": -64,
+            "max": -34
+          },
+          "shieldRaw": "-64 to -34"
+        },
+        {
+          "hitbox": "Solo Popo Final Hit",
+          "shieldSafety": {
+            "min": -25,
+            "max": -24
+          },
+          "shieldRaw": "-25 to -24"
+        },
+        {
+          "hitbox": "Solo Popo Multihits",
+          "shieldSafety": {
+            "min": -64,
+            "max": -32
+          },
+          "shieldRaw": "-64 to -32"
+        }
+      ]
+    },
+    {
+      "move": "Trip Attack",
+      "startup": 19,
+      "hitboxes": [
+        {
+          "hitbox": "Nana",
+          "shieldSafety": {
+            "min": -25,
+            "max": -12
+          },
+          "shieldRaw": "-25 to -12"
+        },
+        {
+          "hitbox": "Popo",
+          "shieldSafety": {
+            "min": -24,
+            "max": -11
+          },
+          "shieldRaw": "-24 to -11"
+        }
+      ]
+    },
+    {
+      "move": "Up Air",
+      "startup": 7,
+      "hitboxes": [
+        {
+          "hitbox": "Nana",
+          "shieldSafety": {
+            "min": -3,
+            "max": -3
+          },
+          "shieldRaw": "-3"
+        },
+        {
+          "hitbox": "Popo",
+          "shieldSafety": {
+            "min": -10,
+            "max": -10
+          },
+          "shieldRaw": "-10"
+        }
+      ]
+    },
+    {
+      "move": "Up Smash",
+      "startup": 12,
+      "hitboxes": [
+        {
+          "hitbox": "Nana",
+          "shieldSafety": {
+            "min": -30,
+            "max": -29
+          },
+          "shieldRaw": "-29/-30"
+        },
+        {
+          "hitbox": "Popo",
+          "shieldSafety": {
+            "min": -28,
+            "max": -22
+          },
+          "shieldRaw": "-27 to -22/-28 to -23"
+        }
+      ]
+    },
+    {
+      "move": "Up Throw",
+      "startup": 25,
+      "hitboxes": [
+        {
+          "hitbox": "Initial Hit",
+          "shieldSafety": {
+            "min": -23,
+            "max": -22
+          },
+          "shieldRaw": "-23 to -22"
+        },
+        {
+          "hitbox": "Throw",
+          "shieldSafety": null,
+          "shieldRaw": null
+        }
+      ]
+    },
+    {
+      "move": "Up Tilt (Nana) 0",
+      "startup": 8,
+      "hitboxes": [
+        {
+          "hitbox": null,
+          "shieldSafety": null,
+          "shieldRaw": null
+        }
+      ]
+    },
+    {
+      "move": "Up Tilt (Nana) 1",
+      "startup": 8,
+      "hitboxes": [
+        {
+          "hitbox": null,
+          "shieldSafety": null,
+          "shieldRaw": null
+        }
+      ]
+    },
+    {
+      "move": "Up Tilt (Nana) 2",
+      "startup": 27,
+      "hitboxes": [
+        {
+          "hitbox": null,
+          "shieldSafety": {
+            "min": -17,
+            "max": -17
+          },
+          "shieldRaw": "-17"
+        }
+      ]
+    },
+    {
+      "move": "Up Tilt (Popo) 0",
+      "startup": 8,
+      "hitboxes": [
+        {
+          "hitbox": null,
+          "shieldSafety": null,
+          "shieldRaw": null
+        }
+      ]
+    },
+    {
+      "move": "Up Tilt (Popo) 1",
+      "startup": 8,
+      "hitboxes": [
+        {
+          "hitbox": null,
+          "shieldSafety": null,
+          "shieldRaw": null
+        }
+      ]
+    },
+    {
+      "move": "Up Tilt (Popo) 2",
+      "startup": 27,
+      "hitboxes": [
+        {
+          "hitbox": null,
+          "shieldSafety": {
+            "min": -16,
+            "max": -16
+          },
+          "shieldRaw": "-16"
+        }
+      ]
+    }
+  ]
+}

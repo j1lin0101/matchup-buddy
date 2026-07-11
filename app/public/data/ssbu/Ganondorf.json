@@ -1,0 +1,560 @@
+{
+  "character": "Ganondorf",
+  "slug": "Ganondorf",
+  "scrapedAt": "2026-07-11T00:24:05.801Z",
+  "jumpSquat": 3,
+  "airdodge": {
+    "startup": 4,
+    "totalFrames": 46
+  },
+  "moves": [
+    {
+      "move": "Back Air",
+      "startup": 10,
+      "hitboxes": [
+        {
+          "hitbox": null,
+          "shieldSafety": {
+            "min": -5,
+            "max": -5
+          },
+          "shieldRaw": "-5"
+        }
+      ]
+    },
+    {
+      "move": "Back Throw",
+      "startup": 12,
+      "hitboxes": [
+        {
+          "hitbox": "Initial Hit",
+          "shieldSafety": {
+            "min": -31,
+            "max": -30
+          },
+          "shieldRaw": "-31 to -30"
+        },
+        {
+          "hitbox": "Throw Release",
+          "shieldSafety": null,
+          "shieldRaw": null
+        }
+      ]
+    },
+    {
+      "move": "Dark Dive",
+      "startup": 4,
+      "hitboxes": [
+        {
+          "hitbox": "Grab",
+          "shieldSafety": null,
+          "shieldRaw": null
+        },
+        {
+          "hitbox": "Throw, Final Hit",
+          "shieldSafety": null,
+          "shieldRaw": null
+        },
+        {
+          "hitbox": "Throw, Multihit",
+          "shieldSafety": null,
+          "shieldRaw": null
+        },
+        {
+          "hitbox": "Uppercut",
+          "shieldSafety": {
+            "min": -24,
+            "max": -22
+          },
+          "shieldRaw": "-24 to -22"
+        }
+      ]
+    },
+    {
+      "move": "Dash Attack",
+      "startup": 10,
+      "hitboxes": [
+        {
+          "hitbox": "Clean",
+          "shieldSafety": {
+            "min": -13,
+            "max": -11
+          },
+          "shieldRaw": "-13 to -11"
+        },
+        {
+          "hitbox": "Late",
+          "shieldSafety": {
+            "min": -11,
+            "max": -5
+          },
+          "shieldRaw": "-11 to -5"
+        }
+      ]
+    },
+    {
+      "move": "Dash Grab",
+      "startup": 11,
+      "hitboxes": [
+        {
+          "hitbox": "Dash",
+          "shieldSafety": null,
+          "shieldRaw": null
+        }
+      ]
+    },
+    {
+      "move": "Down Air",
+      "startup": 16,
+      "hitboxes": [
+        {
+          "hitbox": null,
+          "shieldSafety": {
+            "min": -10,
+            "max": -9
+          },
+          "shieldRaw": "-9/-10"
+        }
+      ]
+    },
+    {
+      "move": "Down Smash",
+      "startup": 15,
+      "hitboxes": [
+        {
+          "hitbox": "Back Hit",
+          "shieldSafety": {
+            "min": -14,
+            "max": -11
+          },
+          "shieldRaw": "-14 to -11-9 to -6 charged"
+        },
+        {
+          "hitbox": "Front Hit",
+          "shieldSafety": {
+            "min": -40,
+            "max": -37
+          },
+          "shieldRaw": "-40 to -37-38 to -35 charged"
+        }
+      ]
+    },
+    {
+      "move": "Down Throw",
+      "startup": 23,
+      "hitboxes": [
+        {
+          "hitbox": "Throw",
+          "shieldSafety": null,
+          "shieldRaw": null
+        }
+      ]
+    },
+    {
+      "move": "Down Tilt",
+      "startup": 10,
+      "hitboxes": [
+        {
+          "hitbox": null,
+          "shieldSafety": {
+            "min": -12,
+            "max": -10
+          },
+          "shieldRaw": "-12 to -10"
+        }
+      ]
+    },
+    {
+      "move": "Flame Choke",
+      "startup": 16,
+      "hitboxes": [
+        {
+          "hitbox": "Aerial, Grab",
+          "shieldSafety": null,
+          "shieldRaw": null
+        },
+        {
+          "hitbox": "Ground, Grab",
+          "shieldSafety": null,
+          "shieldRaw": null
+        },
+        {
+          "hitbox": "Throw",
+          "shieldSafety": null,
+          "shieldRaw": null
+        }
+      ]
+    },
+    {
+      "move": "Forward Air",
+      "startup": 14,
+      "hitboxes": [
+        {
+          "hitbox": null,
+          "shieldSafety": {
+            "min": -7,
+            "max": -7
+          },
+          "shieldRaw": "-7"
+        }
+      ]
+    },
+    {
+      "move": "Forward Smash",
+      "startup": 29,
+      "hitboxes": [
+        {
+          "hitbox": null,
+          "shieldSafety": {
+            "min": -25,
+            "max": -23
+          },
+          "shieldRaw": "-25 to -23-18 to -16 charged"
+        }
+      ]
+    },
+    {
+      "move": "Forward Throw",
+      "startup": 11,
+      "hitboxes": [
+        {
+          "hitbox": "Initial Hit",
+          "shieldSafety": {
+            "min": -22,
+            "max": -21
+          },
+          "shieldRaw": "-22 to -21"
+        },
+        {
+          "hitbox": "Throw Release",
+          "shieldSafety": null,
+          "shieldRaw": null
+        }
+      ]
+    },
+    {
+      "move": "Forward Tilt",
+      "startup": 10,
+      "hitboxes": [
+        {
+          "hitbox": null,
+          "shieldSafety": {
+            "min": -17,
+            "max": -14
+          },
+          "shieldRaw": "-17 to -15/-16 to -14"
+        }
+      ]
+    },
+    {
+      "move": "Getup Attack",
+      "startup": 16,
+      "hitboxes": [
+        {
+          "hitbox": "Down",
+          "shieldSafety": {
+            "min": -22,
+            "max": -14
+          },
+          "shieldRaw": "-22 to -14"
+        },
+        {
+          "hitbox": "Up",
+          "shieldSafety": {
+            "min": -21,
+            "max": -16
+          },
+          "shieldRaw": "-21 to -16"
+        }
+      ]
+    },
+    {
+      "move": "Grab",
+      "startup": 1,
+      "hitboxes": [
+        {
+          "hitbox": "Grab Release",
+          "shieldSafety": null,
+          "shieldRaw": null
+        }
+      ]
+    },
+    {
+      "move": "Jab",
+      "startup": 7,
+      "hitboxes": [
+        {
+          "hitbox": null,
+          "shieldSafety": {
+            "min": -9,
+            "max": -8
+          },
+          "shieldRaw": "-9 to -8"
+        }
+      ]
+    },
+    {
+      "move": "Ledge Attack",
+      "startup": 24,
+      "hitboxes": [
+        {
+          "hitbox": "Hitbox",
+          "shieldSafety": {
+            "min": -22,
+            "max": -20
+          },
+          "shieldRaw": "-22 to -20"
+        }
+      ]
+    },
+    {
+      "move": "Neutral Air",
+      "startup": 7,
+      "hitboxes": [
+        {
+          "hitbox": "1st Hit, Clean",
+          "shieldSafety": {
+            "min": -7,
+            "max": -7
+          },
+          "shieldRaw": "-7"
+        },
+        {
+          "hitbox": "1st Hit, Late",
+          "shieldSafety": {
+            "min": -7,
+            "max": -7
+          },
+          "shieldRaw": "-7"
+        },
+        {
+          "hitbox": "2nd Hit, Clean",
+          "shieldSafety": {
+            "min": -5,
+            "max": -5
+          },
+          "shieldRaw": "-5"
+        },
+        {
+          "hitbox": "2nd Hit, Late",
+          "shieldSafety": {
+            "min": -6,
+            "max": -6
+          },
+          "shieldRaw": "-6"
+        }
+      ]
+    },
+    {
+      "move": "Pivot Grab",
+      "startup": 12,
+      "hitboxes": [
+        {
+          "hitbox": "Grabbox",
+          "shieldSafety": null,
+          "shieldRaw": null
+        }
+      ]
+    },
+    {
+      "move": "Pummel",
+      "startup": 2,
+      "hitboxes": [
+        {
+          "hitbox": "Hitbox",
+          "shieldSafety": {
+            "min": -2,
+            "max": -2
+          },
+          "shieldRaw": "-2"
+        }
+      ]
+    },
+    {
+      "move": "Standing Grab",
+      "startup": 8,
+      "hitboxes": [
+        {
+          "hitbox": "Grabbox",
+          "shieldSafety": null,
+          "shieldRaw": null
+        }
+      ]
+    },
+    {
+      "move": "Trip Attack",
+      "startup": 19,
+      "hitboxes": [
+        {
+          "hitbox": "Hitbox",
+          "shieldSafety": {
+            "min": -24,
+            "max": -17
+          },
+          "shieldRaw": "-24 to -17"
+        }
+      ]
+    },
+    {
+      "move": "Up Air",
+      "startup": 8,
+      "hitboxes": [
+        {
+          "hitbox": "Clean",
+          "shieldSafety": {
+            "min": -6,
+            "max": -6
+          },
+          "shieldRaw": "-6"
+        },
+        {
+          "hitbox": "Late",
+          "shieldSafety": {
+            "min": -7,
+            "max": -6
+          },
+          "shieldRaw": "-6/-7"
+        },
+        {
+          "hitbox": "Latest",
+          "shieldSafety": {
+            "min": -8,
+            "max": -7
+          },
+          "shieldRaw": "-7/-8"
+        }
+      ]
+    },
+    {
+      "move": "Up Smash",
+      "startup": 20,
+      "hitboxes": [
+        {
+          "hitbox": null,
+          "shieldSafety": {
+            "min": -27,
+            "max": -21
+          },
+          "shieldRaw": "-26 to -21/-27 to -22-19 to -14/-21 to -16 charged"
+        }
+      ]
+    },
+    {
+      "move": "Up Throw",
+      "startup": 11,
+      "hitboxes": [
+        {
+          "hitbox": "Initial Hit",
+          "shieldSafety": {
+            "min": -22,
+            "max": -21
+          },
+          "shieldRaw": "-22 to -21"
+        },
+        {
+          "hitbox": "Throw Release",
+          "shieldSafety": null,
+          "shieldRaw": null
+        }
+      ]
+    },
+    {
+      "move": "Up Tilt",
+      "startup": 6,
+      "hitboxes": [
+        {
+          "hitbox": "Hit",
+          "shieldSafety": {
+            "min": -14,
+            "max": -11
+          },
+          "shieldRaw": "-14 to -11"
+        },
+        {
+          "hitbox": "Vacuum",
+          "shieldSafety": {
+            "min": -87,
+            "max": -41
+          },
+          "shieldRaw": "-87 to -41"
+        }
+      ]
+    },
+    {
+      "move": "Warlock Punch",
+      "startup": 70,
+      "hitboxes": [
+        {
+          "hitbox": "Aerial",
+          "shieldSafety": {
+            "min": -15,
+            "max": -12
+          },
+          "shieldRaw": "-15 to -12"
+        },
+        {
+          "hitbox": "Aerial Reverse",
+          "shieldSafety": {
+            "min": -13,
+            "max": -10
+          },
+          "shieldRaw": "-13 to -10"
+        },
+        {
+          "hitbox": "Ground",
+          "shieldSafety": {
+            "min": -21,
+            "max": -18
+          },
+          "shieldRaw": "-21 to -18"
+        },
+        {
+          "hitbox": "Ground Reverse",
+          "shieldSafety": {
+            "min": -16,
+            "max": -13
+          },
+          "shieldRaw": "-16 to -13"
+        }
+      ]
+    },
+    {
+      "move": "Wizard's Foot",
+      "startup": 16,
+      "hitboxes": [
+        {
+          "hitbox": "Aerial, Early",
+          "shieldSafety": {
+            "min": 0,
+            "max": 2
+          },
+          "shieldRaw": "0 to 2"
+        },
+        {
+          "hitbox": "Aerial, Late",
+          "shieldSafety": {
+            "min": 2,
+            "max": 13
+          },
+          "shieldRaw": "2 to 13"
+        },
+        {
+          "hitbox": "Ground",
+          "shieldSafety": {
+            "min": -11,
+            "max": 9
+          },
+          "shieldRaw": "-11 to 8/-10 to 9"
+        },
+        {
+          "hitbox": "Landing",
+          "shieldSafety": {
+            "min": -34,
+            "max": -33
+          },
+          "shieldRaw": "-34 to -33"
+        }
+      ]
+    }
+  ]
+}
