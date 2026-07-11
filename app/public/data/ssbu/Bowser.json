@@ -1,7 +1,7 @@
 {
   "character": "Bowser",
   "slug": "Bowser",
-  "scrapedAt": "2026-07-11T00:24:05.791Z",
+  "scrapedAt": "2026-07-11T01:05:25.191Z",
   "jumpSquat": 3,
   "airdodge": {
     "startup": 4,
@@ -34,7 +34,7 @@
       ]
     },
     {
-      "move": "Bowser Bomb",
+      "move": "Down Special - Bowser Bomb",
       "startup": 11,
       "hitboxes": [
         {
@@ -184,7 +184,7 @@
       ]
     },
     {
-      "move": "Fire Breath",
+      "move": "Neutral Special - Fire Breath",
       "startup": 23,
       "hitboxes": [
         {
@@ -195,7 +195,7 @@
       ]
     },
     {
-      "move": "Flying Slam",
+      "move": "Side Special - Flying Slam",
       "startup": 1,
       "hitboxes": [
         {
@@ -496,7 +496,7 @@
       ]
     },
     {
-      "move": "Whirling Fortress Aerial",
+      "move": "Up Special - Whirling Fortress Aerial",
       "startup": 6,
       "hitboxes": [
         {
@@ -526,7 +526,7 @@
       ]
     },
     {
-      "move": "Whirling Fortress Ground",
+      "move": "Up Special - Whirling Fortress Ground",
       "startup": 6,
       "hitboxes": [
         {

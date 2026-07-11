@@ -1,7 +1,7 @@
 {
   "character": "Falco",
   "slug": "Falco",
-  "scrapedAt": "2026-07-11T00:24:05.800Z",
+  "scrapedAt": "2026-07-11T01:05:25.201Z",
   "jumpSquat": 3,
   "airdodge": {
     "startup": 2,
@@ -50,7 +50,7 @@
       ]
     },
     {
-      "move": "Blaster",
+      "move": "Neutral Special - Blaster",
       "startup": 8,
       "hitboxes": [
         {
@@ -155,7 +155,7 @@
       ]
     },
     {
-      "move": "Falco Phantasm",
+      "move": "Side Special - Falco Phantasm",
       "startup": 13,
       "hitboxes": [
         {
@@ -177,7 +177,7 @@
       ]
     },
     {
-      "move": "Fire Bird",
+      "move": "Up Special - Fire Bird",
       "startup": 20,
       "hitboxes": [
         {
@@ -430,7 +430,7 @@
       ]
     },
     {
-      "move": "Reflector",
+      "move": "Down Special - Reflector",
       "startup": 1,
       "hitboxes": [
         {

@@ -1,7 +1,7 @@
 {
   "character": "Lucario",
   "slug": "Lucario",
-  "scrapedAt": "2026-07-11T00:24:05.812Z",
+  "scrapedAt": "2026-07-11T01:05:25.216Z",
   "jumpSquat": 3,
   "airdodge": {
     "startup": 3,
@@ -9,7 +9,7 @@
   },
   "moves": [
     {
-      "move": "Aura Sphere",
+      "move": "Neutral Special - Aura Sphere",
       "startup": 9,
       "hitboxes": [
         {
@@ -83,7 +83,7 @@
       ]
     },
     {
-      "move": "Double Team",
+      "move": "Down Special - Double Team",
       "startup": 1,
       "hitboxes": [
         {
@@ -163,7 +163,7 @@
       ]
     },
     {
-      "move": "Extreme Speed",
+      "move": "Up Special - Extreme Speed",
       "startup": 46,
       "hitboxes": [
         {
@@ -185,7 +185,7 @@
       ]
     },
     {
-      "move": "Force Palm",
+      "move": "Side Special - Force Palm",
       "startup": 9,
       "hitboxes": [
         {

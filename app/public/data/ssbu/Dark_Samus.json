@@ -1,7 +1,7 @@
 {
   "character": "Dark Samus",
   "slug": "Dark_Samus",
-  "scrapedAt": "2026-07-11T00:24:05.797Z",
+  "scrapedAt": "2026-07-11T01:05:25.198Z",
   "jumpSquat": 3,
   "airdodge": {
     "startup": 3,
@@ -42,7 +42,7 @@
       ]
     },
     {
-      "move": "Bomb",
+      "move": "Down Special - Bomb",
       "startup": 1,
       "hitboxes": [
         {
@@ -58,7 +58,7 @@
       ]
     },
     {
-      "move": "Charge Shot",
+      "move": "Neutral Special - Charge Shot",
       "startup": 3,
       "hitboxes": [
         {
@@ -359,7 +359,7 @@
       ]
     },
     {
-      "move": "Missile",
+      "move": "Side Special - Missile",
       "startup": 18,
       "hitboxes": [
         {
@@ -400,7 +400,7 @@
       ]
     },
     {
-      "move": "Screw Attack",
+      "move": "Up Special - Screw Attack",
       "startup": 4,
       "hitboxes": [
         {

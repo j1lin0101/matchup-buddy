@@ -1,7 +1,7 @@
 {
   "character": "Mii Gunner",
   "slug": "Mii_Gunner",
-  "scrapedAt": "2026-07-11T00:24:05.818Z",
+  "scrapedAt": "2026-07-11T01:05:25.223Z",
   "jumpSquat": 3,
   "airdodge": {
     "startup": 3,
@@ -9,7 +9,7 @@
   },
   "moves": [
     {
-      "move": "Absorbing Vortex",
+      "move": "Down Special - Absorbing Vortex",
       "startup": 7,
       "hitboxes": [
         {
@@ -28,7 +28,7 @@
       ]
     },
     {
-      "move": "Arm Rocket",
+      "move": "Up Special - Arm Rocket",
       "startup": null,
       "hitboxes": [
         {
@@ -72,7 +72,7 @@
       ]
     },
     {
-      "move": "Bomb Drop",
+      "move": "Down Special - Bomb Drop",
       "startup": null,
       "hitboxes": [
         {
@@ -88,7 +88,7 @@
       ]
     },
     {
-      "move": "Cannon Jump Kick",
+      "move": "Up Special - Cannon Jump Kick",
       "startup": 6,
       "hitboxes": [
         {
@@ -110,7 +110,7 @@
       ]
     },
     {
-      "move": "Charge Blast",
+      "move": "Neutral Special - Charge Blast",
       "startup": 15,
       "hitboxes": [
         {
@@ -220,7 +220,7 @@
       ]
     },
     {
-      "move": "Echo Reflector",
+      "move": "Down Special - Echo Reflector",
       "startup": 3,
       "hitboxes": [
         {
@@ -234,7 +234,7 @@
       ]
     },
     {
-      "move": "Flame Pillar",
+      "move": "Side Special - Flame Pillar",
       "startup": 1,
       "hitboxes": [
         {
@@ -397,7 +397,7 @@
       ]
     },
     {
-      "move": "Grenade Launch",
+      "move": "Neutral Special - Grenade Launch",
       "startup": 1,
       "hitboxes": [
         {
@@ -416,7 +416,7 @@
       ]
     },
     {
-      "move": "Gunner Missile",
+      "move": "Side Special - Gunner Missile",
       "startup": null,
       "hitboxes": [
         {
@@ -470,7 +470,7 @@
       ]
     },
     {
-      "move": "Laser Blaze",
+      "move": "Neutral Special - Laser Blaze",
       "startup": 10,
       "hitboxes": [
         {
@@ -498,7 +498,7 @@
       ]
     },
     {
-      "move": "Lunar Launch",
+      "move": "Up Special - Lunar Launch",
       "startup": 10,
       "hitboxes": [
         {
@@ -523,7 +523,7 @@
       ]
     },
     {
-      "move": "Stealth Burst",
+      "move": "Side Special - Stealth Burst",
       "startup": 36,
       "hitboxes": [
         {

@@ -1,7 +1,7 @@
 {
   "character": "Pikachu",
   "slug": "Pikachu",
-  "scrapedAt": "2026-07-11T00:24:05.829Z",
+  "scrapedAt": "2026-07-11T01:05:25.235Z",
   "jumpSquat": 3,
   "airdodge": {
     "startup": 2,
@@ -348,7 +348,7 @@
       ]
     },
     {
-      "move": "Quick Attack",
+      "move": "Up Special - Quick Attack",
       "startup": 15,
       "hitboxes": [
         {
@@ -362,7 +362,7 @@
       ]
     },
     {
-      "move": "Skull Bash",
+      "move": "Side Special - Skull Bash",
       "startup": 5,
       "hitboxes": [
         {
@@ -376,7 +376,7 @@
       ]
     },
     {
-      "move": "Thunder",
+      "move": "Down Special - Thunder",
       "startup": 13,
       "hitboxes": [
         {
@@ -422,7 +422,7 @@
       ]
     },
     {
-      "move": "Thunder Jolt",
+      "move": "Neutral Special - Thunder Jolt",
       "startup": 19,
       "hitboxes": [
         {

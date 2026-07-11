@@ -1,7 +1,7 @@
 {
   "character": "Sonic",
   "slug": "Sonic",
-  "scrapedAt": "2026-07-11T00:24:05.843Z",
+  "scrapedAt": "2026-07-11T01:05:25.249Z",
   "jumpSquat": 3,
   "airdodge": {
     "startup": 2,
@@ -269,7 +269,7 @@
       ]
     },
     {
-      "move": "Homing Attack",
+      "move": "Neutral Special - Homing Attack",
       "startup": 17,
       "hitboxes": [
         {
@@ -379,7 +379,7 @@
       ]
     },
     {
-      "move": "Spin Charge",
+      "move": "Down Special - Spin Charge",
       "startup": null,
       "hitboxes": [
         {
@@ -395,7 +395,7 @@
       ]
     },
     {
-      "move": "Spin Dash",
+      "move": "Side Special - Spin Dash",
       "startup": null,
       "hitboxes": [
         {
@@ -411,7 +411,7 @@
       ]
     },
     {
-      "move": "Spring Jump",
+      "move": "Up Special - Spring Jump",
       "startup": null,
       "hitboxes": [
         {

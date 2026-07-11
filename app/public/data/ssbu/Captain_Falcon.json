@@ -1,7 +1,7 @@
 {
   "character": "Captain Falcon",
   "slug": "Captain_Falcon",
-  "scrapedAt": "2026-07-11T00:24:05.794Z",
+  "scrapedAt": "2026-07-11T01:05:25.193Z",
   "jumpSquat": 3,
   "airdodge": {
     "startup": 3,
@@ -133,7 +133,7 @@
       ]
     },
     {
-      "move": "Falcon Dive",
+      "move": "Up Special - Falcon Dive",
       "startup": 2,
       "hitboxes": [
         {
@@ -154,7 +154,7 @@
       ]
     },
     {
-      "move": "Falcon Kick",
+      "move": "Down Special - Falcon Kick",
       "startup": 13,
       "hitboxes": [
         {
@@ -184,7 +184,7 @@
       ]
     },
     {
-      "move": "Falcon Punch",
+      "move": "Neutral Special - Falcon Punch",
       "startup": 53,
       "hitboxes": [
         {
@@ -214,7 +214,7 @@
       ]
     },
     {
-      "move": "Falcon Punch (Ground Reverse)",
+      "move": "Neutral Special - Falcon Punch (Ground Reverse)",
       "startup": 62,
       "hitboxes": [
         {
@@ -459,7 +459,7 @@
       ]
     },
     {
-      "move": "Raptor Boost",
+      "move": "Side Special - Raptor Boost",
       "startup": 5,
       "hitboxes": [
         {

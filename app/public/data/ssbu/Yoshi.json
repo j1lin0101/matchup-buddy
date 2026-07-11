@@ -1,7 +1,7 @@
 {
   "character": "Yoshi",
   "slug": "Yoshi",
-  "scrapedAt": "2026-07-11T00:24:05.851Z",
+  "scrapedAt": "2026-07-11T01:05:25.264Z",
   "jumpSquat": 3,
   "airdodge": {
     "startup": 3,
@@ -149,7 +149,7 @@
       ]
     },
     {
-      "move": "Egg Lay",
+      "move": "Neutral Special - Egg Lay",
       "startup": 19,
       "hitboxes": [
         {
@@ -160,7 +160,7 @@
       ]
     },
     {
-      "move": "Egg Roll",
+      "move": "Side Special - Egg Roll",
       "startup": 32,
       "hitboxes": [
         {
@@ -174,7 +174,7 @@
       ]
     },
     {
-      "move": "Egg Throw",
+      "move": "Up Special - Egg Throw",
       "startup": 16,
       "hitboxes": [
         {
@@ -435,7 +435,7 @@
       ]
     },
     {
-      "move": "Yoshi Bomb",
+      "move": "Down Special - Yoshi Bomb",
       "startup": 7,
       "hitboxes": [
         {

@@ -1,7 +1,7 @@
 {
   "character": "Toon Link",
   "slug": "Toon_Link",
-  "scrapedAt": "2026-07-11T00:24:05.847Z",
+  "scrapedAt": "2026-07-11T01:05:25.254Z",
   "jumpSquat": 3,
   "airdodge": {
     "startup": 2,
@@ -56,7 +56,7 @@
       ]
     },
     {
-      "move": "Bomb Pull",
+      "move": "Down Special - Bomb Pull",
       "startup": null,
       "hitboxes": [
         {
@@ -72,7 +72,7 @@
       ]
     },
     {
-      "move": "Boomerang",
+      "move": "Side Special - Boomerang",
       "startup": 27,
       "hitboxes": [
         {
@@ -376,7 +376,7 @@
       ]
     },
     {
-      "move": "Spin Attack",
+      "move": "Up Special - Spin Attack",
       "startup": 6,
       "hitboxes": [
         {

@@ -1,7 +1,7 @@
 {
   "character": "Robin",
   "slug": "Robin",
-  "scrapedAt": "2026-07-11T00:24:05.835Z",
+  "scrapedAt": "2026-07-11T01:05:25.240Z",
   "jumpSquat": 3,
   "airdodge": {
     "startup": 3,
@@ -9,7 +9,7 @@
   },
   "moves": [
     {
-      "move": "Arcfire",
+      "move": "Side Special - Arcfire",
       "startup": 1,
       "hitboxes": [
         {
@@ -268,7 +268,7 @@
       ]
     },
     {
-      "move": "Elwind",
+      "move": "Up Special - Elwind",
       "startup": 8,
       "hitboxes": [
         {
@@ -543,7 +543,7 @@
       ]
     },
     {
-      "move": "Nosferatu",
+      "move": "Down Special - Nosferatu",
       "startup": 15,
       "hitboxes": [
         {
@@ -568,7 +568,7 @@
       ]
     },
     {
-      "move": "Thunder",
+      "move": "Neutral Special - Thunder",
       "startup": 8,
       "hitboxes": [
         {

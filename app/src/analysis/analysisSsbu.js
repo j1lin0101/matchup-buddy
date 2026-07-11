@@ -8,27 +8,31 @@
  * hitstun is percent-dependent and we only have the wiki's fixed reference value.
  *
  * OOS (Out of Shield) timing, per ssbwiki.com's "Out of shield" article:
- *   Aerials       → jumpSquat (per-character; 3f for everyone except Kazuya's 6f) + startup
- *   Up Smash      → raw startup, no extra delay (Ultimate lets Up Smash act directly
- *                   out of shield without dropping shield or jumping first)
- *   Grab          → raw startup, no extra delay (shield-native option)
- *   Everything else (jab/tilt/dash attack/forward+down smash/all specials)
- *                 → SHIELD_RELEASE_FRAMES (11) + startup
+ *   Aerials             → jumpSquat (per-character; 3f for everyone except Kazuya's 6f) + startup
+ *   Up Smash, Up Special → raw startup, no extra delay (Ultimate lets these act
+ *                          directly out of shield without dropping shield or jumping first)
+ *   Grab                → raw startup, no extra delay (shield-native option)
+ *   Everything else (jab/tilt/dash attack/forward+down smash/other specials)
+ *                       → SHIELD_RELEASE_FRAMES (11) + startup
  *
- * Note: Ultimate's "Up Special can also act OOS with zero delay" rule is NOT
- * modeled — SSBU_MoveData names specials with each character's unique move name
- * (e.g. Mario's up special is "Super Jump Punch"), so there's no reliable,
- * data-driven way to identify which of a character's specials occupies the
- * Up Special input slot without a hand-curated per-character table. All specials
- * are conservatively treated with the standard shield-release delay.
+ * Move names: SSBU_MoveData names each character's specials with their own unique
+ * flavor name (e.g. Mario's up special is "Super Jump Punch"), not a technical slot
+ * label — unlike the other categories, which use consistent names across the roster.
+ * The scraper (scripts/fetch-ssbu-moves.js) cross-references ssbwiki.com's per-character
+ * moveset template to relabel specials as "<Slot> - <Flavor name>" (e.g. "Up Special -
+ * Super Jump Punch"), mirroring Rivals' own "Neutral Special - Fire Pulse" convention
+ * (see nicknames.js). getDisplayName below strips the flavor suffix so the UI always
+ * shows the technical slot name. This relabeling isn't 100% complete across the whole
+ * ~90-character cast — a handful of mechanically unusual characters (Hero's spell menu,
+ * Ryu/Ken's fighting-game inputs, Kazuya) keep their raw flavor names where dragdown's
+ * and ssbwiki's move naming didn't line up — cosmetic only, doesn't affect the shield
+ * safety numbers themselves. getOOSDelay's Up Special detection only benefits from the
+ * relabeling where it succeeded; unlabeled specials fall back to the standard delay.
  *
- * Category naming is also inconsistent across the ~90-character cast (e.g. "Neutral
- * Aerial" vs "Neutral Air" vs Kazuya's abbreviated "NAir"), so categorization below
- * uses loose substring matching rather than exact names. A handful of especially
- * unusual movesets (Kazuya's Tekken-style abbreviations, Ice Climbers' split
- * per-partner/per-hit move names) will have some moves fall into the Specials
- * catch-all rather than their "true" category — cosmetic only, doesn't affect the
- * shield safety numbers themselves.
+ * Category naming is also inconsistent across the roster (e.g. "Neutral Aerial" vs
+ * "Neutral Air" vs Kazuya's abbreviated "NAir"), so categorization below uses loose
+ * substring matching rather than exact names. The same unusual-moveset characters will
+ * have some moves fall into the Specials catch-all rather than their "true" category.
  */
 
 const SHIELD_RELEASE_FRAMES = 11;
@@ -49,6 +53,12 @@ function isUpSmash(moveName) {
   return /\bup\s*smash\b/i.test(moveName) || /^u\s*smash$/i.test(moveName);
 }
 
+// Only matches moves the scraper successfully relabeled as "Up Special - ...".
+// See module doc comment: relabeling isn't complete for every character.
+function isUpSpecial(moveName) {
+  return /^up special\b/i.test(moveName);
+}
+
 function isAerial(moveName) {
   return /air|aerial/i.test(moveName);
 }
@@ -65,15 +75,24 @@ function getCategory(moveName) {
 }
 
 /**
+ * Strips the " - Flavor name" suffix the scraper appends to relabeled specials,
+ * so the UI shows the technical slot name ("Up Special") rather than the
+ * character-specific one ("Super Jump Punch"). No-op for other move names.
+ */
+function getDisplayName(moveName) {
+  return moveName.replace(/\s*-\s*.+$/, '');
+}
+
+/**
  * Returns the OOS delay in frames for a given move.
- *   Grab       → 0 (shield-native, raw startup)
- *   Up Smash   → 0 (Ultimate-specific: acts directly out of shield)
- *   Aerials    → characterData.jumpSquat
- *   Everything else → SHIELD_RELEASE_FRAMES (11)
+ *   Grab                 → 0 (shield-native, raw startup)
+ *   Up Smash, Up Special → 0 (Ultimate-specific: act directly out of shield)
+ *   Aerials              → characterData.jumpSquat
+ *   Everything else      → SHIELD_RELEASE_FRAMES (11)
  */
 function getOOSDelay(moveName, characterData) {
   if (isGrabMove(moveName)) return GRAB_OOS_DELAY;
-  if (isUpSmash(moveName)) return 0;
+  if (isUpSmash(moveName) || isUpSpecial(moveName)) return 0;
   if (isAerial(moveName)) return characterData.jumpSquat ?? SHIELD_RELEASE_FRAMES;
   return SHIELD_RELEASE_FRAMES;
 }
@@ -162,7 +181,7 @@ function getOOSOptions(characterData) {
 
     options.push({
       move:         move.move,
-      label:        move.move,
+      label:        getDisplayName(move.move),
       startup:      move.startup,
       oosDelay,
       oosStartup,
@@ -271,7 +290,7 @@ function getComboBreakers(characterData) {
     if (isExcludedMove(move.move)) return;
     if (move.startup == null) return;
     if (move.startup < threshold) {
-      results.push({ label: move.move, startup: move.startup, isDefensive: false });
+      results.push({ label: getDisplayName(move.move), startup: move.startup, isDefensive: false });
     }
   });
 
@@ -285,6 +304,7 @@ export {
   GRAB_OOS_DELAY,
   SAFE_THRESHOLD,
   getCategory,
+  getDisplayName,
   isGrabMove,
   isExcludedMove,
   getOOSDelay,

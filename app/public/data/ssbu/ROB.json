@@ -1,7 +1,7 @@
 {
   "character": "R.O.B.",
   "slug": "ROB",
-  "scrapedAt": "2026-07-11T00:24:05.833Z",
+  "scrapedAt": "2026-07-11T01:05:25.238Z",
   "jumpSquat": 3,
   "airdodge": {
     "startup": 3,
@@ -9,7 +9,7 @@
   },
   "moves": [
     {
-      "move": "Arm Rotor",
+      "move": "Side Special - Arm Rotor",
       "startup": 7,
       "hitboxes": [
         {
@@ -291,7 +291,7 @@
       ]
     },
     {
-      "move": "Gyro",
+      "move": "Down Special - Gyro",
       "startup": 1,
       "hitboxes": [
         {
@@ -370,7 +370,7 @@
       ]
     },
     {
-      "move": "Robo Beam",
+      "move": "Neutral Special - Robo Beam",
       "startup": 25,
       "hitboxes": [
         {
@@ -416,7 +416,7 @@
       ]
     },
     {
-      "move": "Robo Burner",
+      "move": "Up Special - Robo Burner",
       "startup": null,
       "hitboxes": [
         {

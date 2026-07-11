@@ -11,6 +11,11 @@
  *   dragdown.wiki SSBU_CharacterData – jump_squat_frame (3 for everyone except Kazuya's 6)
  *   ssbwiki.com "Air dodge" article  – per-character neutral-airdodge intangibility start
  *                                      frame + total duration (dragdown has no airdodge data)
+ *   ssbwiki.com "<Name> (SSBU)" page – {{MovesetTable}} nsname/ssname/usname/dsname params,
+ *                                      used to relabel each character's uniquely-named
+ *                                      special (e.g. Mario's "Fireball") with its technical
+ *                                      slot ("Neutral Special - Fireball") — SSBU_MoveData
+ *                                      has no slot info, only the flavor name.
  *
  * Ice Climbers quirk: dragdown's roster (app/public/data/ssbu/characters.json) lists
  * "Nana" and "Popo" as separate selectable characters, but both SSBU_MoveData and the
@@ -157,6 +162,57 @@ async function fetchAirdodgeData() {
   return result;
 }
 
+const SPECIAL_SLOT_PREFIXES = [
+  ['ns', 'Neutral Special'],
+  ['ss', 'Side Special'],
+  ['us', 'Up Special'],
+  ['ds', 'Down Special'],
+];
+
+// Fetches ssbwiki.com's "<Name> (SSBU)" page for every character and parses the
+// {{MovesetTable}} template's ns/ss/us/ds name params (verified consistent across
+// the whole roster, unlike dragdown's per-character wiki page structure) into
+// { characterName -> { flavorName -> 'Neutral Special' | 'Side Special' | ... } }.
+// Most characters use a single "<prefix>name" param (e.g. nsname=Fireball); the
+// three Mii Fighters have a selectable default + 2 custom variants per slot instead
+// (nsdefname/nsc1name/nsc2name) — dragdown's move data includes all 3, so all of
+// them need to map to the same slot label.
+async function fetchSpecialSlots(characterNames) {
+  const result = new Map();
+  const batchSize = 20;
+  for (let i = 0; i < characterNames.length; i += batchSize) {
+    const batch = characterNames.slice(i, i + batchSize);
+    const titles = batch.map(n => `${n} (SSBU)`).join('|');
+    const params = new URLSearchParams({
+      action: 'query', titles, prop: 'revisions', rvprop: 'content', format: 'json',
+    });
+    const data = await withRetry(async () => {
+      const res = await fetch(`${SSBWIKI_API}?${params}`, { headers: { 'User-Agent': UA } });
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      return res.json();
+    }, `Fetching special-move slots batch ${i / batchSize + 1}`);
+
+    Object.values(data.query.pages).forEach(page => {
+      if (page.missing !== undefined || !page.revisions) return;
+      const name = page.title.replace(/ \(SSBU\)$/, '');
+      const content = page.revisions[0]['*'];
+      const slots = {};
+      SPECIAL_SLOT_PREFIXES.forEach(([prefix, label]) => {
+        [...content.matchAll(new RegExp(`\\|${prefix}(?:def|c1|c2)?name\\s*=\\s*([^\\n|]+)`, 'gi'))].forEach(m => {
+          // Values are sometimes wikilinks, e.g. "[[Flashing Mach Punch]]" or
+          // "[[Target|Display]]" — strip the markup down to the display text.
+          const cleaned = decodeEntities(m[1].trim())
+            .replace(/\[\[(?:[^\]|]*\|)?([^\]]+)\]\]/g, '$1')
+            .trim();
+          slots[cleaned] = label;
+        });
+      });
+      result.set(name, slots);
+    });
+  }
+  return result;
+}
+
 // "active" -> startup: first integer found ("6-7" -> 6, "23" -> 23,
 // "5/7/9/11 / 5/7/9/11" -> 5, "2 + 19 Charging" -> 2). Returns null if none.
 function parseStartup(active) {
@@ -180,10 +236,30 @@ function parseShieldSafety(safety) {
   return { min: Math.min(...nums), max: Math.max(...nums) };
 }
 
-function buildCharacterMoves(rows) {
+// Matches a dragdown move name against the ssbwiki flavor-name -> slot map. Exact
+// match first; falls back to the longest flavor name the move name starts with,
+// since dragdown sometimes splits one special into variant rows (e.g. Bowser's
+// "Whirling Fortress" -> "Whirling Fortress Aerial" / "Whirling Fortress Ground").
+function findSpecialSlot(rawName, specialSlots) {
+  if (!specialSlots) return null;
+  if (specialSlots[rawName]) return specialSlots[rawName];
+  let best = null;
+  Object.keys(specialSlots).forEach(flavorName => {
+    if (rawName.startsWith(flavorName) && (!best || flavorName.length > best.length)) best = flavorName;
+  });
+  return best ? specialSlots[best] : null;
+}
+
+function buildCharacterMoves(rows, specialSlots) {
   const moves = new Map(); // move name -> hitboxes[]
   rows.forEach(row => {
-    const moveName = decodeEntities(row.attack);
+    const rawName = decodeEntities(row.attack);
+    // Relabel uniquely-named specials with their technical slot, e.g.
+    // "Fireball" -> "Neutral Special - Fireball" (mirrors Rivals' own
+    // "Neutral Special - Fire Pulse" convention — see nicknames.js's
+    // getDisplayName, which strips the " - Subtitle" suffix by default).
+    const slot = findSpecialSlot(rawName, specialSlots);
+    const moveName = slot ? `${slot} - ${rawName}` : rawName;
     const startup  = parseStartup(row.active);
     const shieldSafety = parseShieldSafety(row.safety);
     const hitboxName = row.name ? decodeEntities(row.name) : null;
@@ -205,9 +281,14 @@ function buildCharacterMoves(rows) {
   });
   // Fall back to the landing hitbox's startup only if a move has no non-landing
   // hitbox with a known startup at all (rare, but avoids leaving startup null).
+  function rawNameOf(row) {
+    const raw = decodeEntities(row.attack);
+    const slot = findSpecialSlot(raw, specialSlots);
+    return slot ? `${slot} - ${raw}` : raw;
+  }
   moves.forEach(move => {
     if (move.startup !== null) return;
-    const landingRow = rows.find(r => decodeEntities(r.attack) === move.move && parseStartup(r.active) !== null);
+    const landingRow = rows.find(r => rawNameOf(r) === move.move && parseStartup(r.active) !== null);
     if (landingRow) move.startup = parseStartup(landingRow.active);
   });
   return Array.from(moves.values());
@@ -233,11 +314,18 @@ async function main() {
   console.log('Fetching airdodge data from ssbwiki.com...');
   const airdodgeData = await fetchAirdodgeData();
 
+  console.log('Fetching special-move slot names from ssbwiki.com...');
+  // Resolve through SHARED_OVERRIDES first (e.g. Nana/Popo -> "Ice Climbers") so the
+  // shared page is actually requested instead of two 404s for names with no own page.
+  const specialSlotsNames = [...new Set(characters.map(c => SHARED_OVERRIDES[c.name] || c.name))];
+  const specialSlotsByChara = await fetchSpecialSlots(specialSlotsNames);
+
   fs.mkdirSync(OUT_DIR, { recursive: true });
 
   const missingMoves = [];
   const missingAirdodge = [];
   const missingJumpSquat = [];
+  const missingSpecialSlots = [];
 
   characters.forEach(({ name, slug }) => {
     const moveKey = MOVE_DATA_OVERRIDES[name] || name;
@@ -251,21 +339,26 @@ async function main() {
     const airdodge = airdodgeData.get(airdodgeKey);
     if (!airdodge) missingAirdodge.push(name);
 
+    const specialSlotsKey = SHARED_OVERRIDES[name] || name;
+    const specialSlots = specialSlotsByChara.get(specialSlotsKey);
+    if (!specialSlots || !Object.keys(specialSlots).length) missingSpecialSlots.push(name);
+
     const out = {
       character: name,
       slug,
       scrapedAt: new Date().toISOString(),
       jumpSquat: jumpSquat ?? null,
       airdodge: airdodge || null,
-      moves: buildCharacterMoves(rows),
+      moves: buildCharacterMoves(rows, specialSlots),
     };
     fs.writeFileSync(path.join(OUT_DIR, `${slug}.json`), JSON.stringify(out, null, 2) + '\n');
   });
 
   console.log(`\nWrote ${characters.length} character files to ${OUT_DIR}`);
-  if (missingMoves.length)     console.log(`  WARNING: no move data for: ${missingMoves.join(', ')}`);
-  if (missingJumpSquat.length) console.log(`  WARNING: no jumpsquat for: ${missingJumpSquat.join(', ')}`);
-  if (missingAirdodge.length)  console.log(`  WARNING: no airdodge data for: ${missingAirdodge.join(', ')}`);
+  if (missingMoves.length)        console.log(`  WARNING: no move data for: ${missingMoves.join(', ')}`);
+  if (missingJumpSquat.length)    console.log(`  WARNING: no jumpsquat for: ${missingJumpSquat.join(', ')}`);
+  if (missingAirdodge.length)     console.log(`  WARNING: no airdodge data for: ${missingAirdodge.join(', ')}`);
+  if (missingSpecialSlots.length) console.log(`  WARNING: no special-move slots for: ${missingSpecialSlots.join(', ')}`);
 }
 
 main().catch(err => { console.error(err); process.exit(1); });

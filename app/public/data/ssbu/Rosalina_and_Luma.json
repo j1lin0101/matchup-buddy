@@ -1,7 +1,7 @@
 {
   "character": "Rosalina & Luma",
   "slug": "Rosalina_and_Luma",
-  "scrapedAt": "2026-07-11T00:24:05.835Z",
+  "scrapedAt": "2026-07-11T01:05:25.241Z",
   "jumpSquat": 3,
   "airdodge": {
     "startup": 3,
@@ -71,7 +71,7 @@
       ]
     },
     {
-      "move": "Gravitational Pull",
+      "move": "Down Special - Gravitational Pull",
       "startup": 4,
       "hitboxes": [
         {
@@ -82,7 +82,7 @@
       ]
     },
     {
-      "move": "Launch Star",
+      "move": "Up Special - Launch Star",
       "startup": null,
       "hitboxes": [
         {
@@ -104,7 +104,7 @@
       ]
     },
     {
-      "move": "Luma Shot",
+      "move": "Neutral Special - Luma Shot",
       "startup": 10,
       "hitboxes": [
         {
@@ -118,7 +118,7 @@
       ]
     },
     {
-      "move": "Star Bits",
+      "move": "Side Special - Star Bits",
       "startup": 10,
       "hitboxes": [
         {

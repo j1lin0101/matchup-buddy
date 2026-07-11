@@ -1,7 +1,7 @@
 {
   "character": "Wolf",
   "slug": "Wolf",
-  "scrapedAt": "2026-07-11T00:24:05.851Z",
+  "scrapedAt": "2026-07-11T01:05:25.258Z",
   "jumpSquat": 3,
   "airdodge": {
     "startup": 2,
@@ -42,7 +42,7 @@
       ]
     },
     {
-      "move": "Blaster",
+      "move": "Neutral Special - Blaster",
       "startup": 15,
       "hitboxes": [
         {
@@ -163,7 +163,7 @@
       ]
     },
     {
-      "move": "Fire Wolf",
+      "move": "Up Special - Fire Wolf",
       "startup": 18,
       "hitboxes": [
         {
@@ -399,7 +399,7 @@
       ]
     },
     {
-      "move": "Reflector",
+      "move": "Down Special - Reflector",
       "startup": 2,
       "hitboxes": [
         {
@@ -512,7 +512,7 @@
       ]
     },
     {
-      "move": "Wolf Flash",
+      "move": "Side Special - Wolf Flash",
       "startup": 19,
       "hitboxes": [
         {

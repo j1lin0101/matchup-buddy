@@ -1,7 +1,7 @@
 {
   "character": "Wario",
   "slug": "Wario",
-  "scrapedAt": "2026-07-11T00:24:05.849Z",
+  "scrapedAt": "2026-07-11T01:05:25.256Z",
   "jumpSquat": 3,
   "airdodge": {
     "startup": 3,
@@ -42,7 +42,7 @@
       ]
     },
     {
-      "move": "Chomp",
+      "move": "Neutral Special - Chomp",
       "startup": 8,
       "hitboxes": [
         {
@@ -74,7 +74,7 @@
       ]
     },
     {
-      "move": "Corkscrew",
+      "move": "Up Special - Corkscrew",
       "startup": 6,
       "hitboxes": [
         {
@@ -496,7 +496,7 @@
       ]
     },
     {
-      "move": "Wario Bike",
+      "move": "Side Special - Wario Bike",
       "startup": 3,
       "hitboxes": [
         {
@@ -542,7 +542,7 @@
       ]
     },
     {
-      "move": "Wario Bike (Drive)",
+      "move": "Side Special - Wario Bike (Drive)",
       "startup": 20,
       "hitboxes": [
         {
@@ -556,7 +556,7 @@
       ]
     },
     {
-      "move": "Wario Waft",
+      "move": "Down Special - Wario Waft",
       "startup": 8,
       "hitboxes": [
         {

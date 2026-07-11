@@ -1,7 +1,7 @@
 {
   "character": "Ike",
   "slug": "Ike",
-  "scrapedAt": "2026-07-11T00:24:05.804Z",
+  "scrapedAt": "2026-07-11T01:05:25.205Z",
   "jumpSquat": 3,
   "airdodge": {
     "startup": 4,
@@ -9,7 +9,7 @@
   },
   "moves": [
     {
-      "move": "Aether",
+      "move": "Up Special - Aether",
       "startup": 1,
       "hitboxes": [
         {
@@ -112,7 +112,7 @@
       ]
     },
     {
-      "move": "Counter",
+      "move": "Down Special - Counter",
       "startup": 5,
       "hitboxes": [
         {
@@ -236,7 +236,7 @@
       ]
     },
     {
-      "move": "Eruption",
+      "move": "Neutral Special - Eruption",
       "startup": 11,
       "hitboxes": [
         {
@@ -484,7 +484,7 @@
       ]
     },
     {
-      "move": "Quick Draw",
+      "move": "Side Special - Quick Draw",
       "startup": 2,
       "hitboxes": [
         {

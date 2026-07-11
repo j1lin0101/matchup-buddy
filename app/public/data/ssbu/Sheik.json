@@ -1,7 +1,7 @@
 {
   "character": "Sheik",
   "slug": "Sheik",
-  "scrapedAt": "2026-07-11T00:24:05.840Z",
+  "scrapedAt": "2026-07-11T01:05:25.246Z",
   "jumpSquat": 3,
   "airdodge": {
     "startup": 2,
@@ -50,7 +50,7 @@
       ]
     },
     {
-      "move": "Bouncing Fish",
+      "move": "Down Special - Bouncing Fish",
       "startup": 18,
       "hitboxes": [
         {
@@ -64,7 +64,7 @@
       ]
     },
     {
-      "move": "Burst Grenade",
+      "move": "Side Special - Burst Grenade",
       "startup": 1,
       "hitboxes": [
         {
@@ -374,7 +374,7 @@
       ]
     },
     {
-      "move": "Needle Storm",
+      "move": "Neutral Special - Needle Storm",
       "startup": 86,
       "hitboxes": [
         {
@@ -514,7 +514,7 @@
       ]
     },
     {
-      "move": "Vanish",
+      "move": "Up Special - Vanish",
       "startup": 36,
       "hitboxes": [
         {

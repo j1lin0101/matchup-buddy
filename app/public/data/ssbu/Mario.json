@@ -1,7 +1,7 @@
 {
   "character": "Mario",
   "slug": "Mario",
-  "scrapedAt": "2026-07-11T00:24:05.815Z",
+  "scrapedAt": "2026-07-11T01:05:25.218Z",
   "jumpSquat": 3,
   "airdodge": {
     "startup": 3,
@@ -50,7 +50,7 @@
       ]
     },
     {
-      "move": "Cape",
+      "move": "Side Special - Cape",
       "startup": 9,
       "hitboxes": [
         {
@@ -179,7 +179,7 @@
       ]
     },
     {
-      "move": "F.L.U.D.D.",
+      "move": "Down Special - F.L.U.D.D.",
       "startup": 2,
       "hitboxes": [
         {
@@ -190,7 +190,7 @@
       ]
     },
     {
-      "move": "Fireball",
+      "move": "Neutral Special - Fireball",
       "startup": null,
       "hitboxes": [
         {
@@ -437,7 +437,7 @@
       ]
     },
     {
-      "move": "Super Jump Punch",
+      "move": "Up Special - Super Jump Punch",
       "startup": 3,
       "hitboxes": [
         {

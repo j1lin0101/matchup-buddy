@@ -1,7 +1,7 @@
 {
   "character": "Link",
   "slug": "Link",
-  "scrapedAt": "2026-07-11T00:24:05.811Z",
+  "scrapedAt": "2026-07-11T01:05:25.214Z",
   "jumpSquat": 3,
   "airdodge": {
     "startup": 3,
@@ -50,7 +50,7 @@
       ]
     },
     {
-      "move": "Boomerang",
+      "move": "Side Special - Boomerang",
       "startup": null,
       "hitboxes": [
         {
@@ -365,7 +365,7 @@
       ]
     },
     {
-      "move": "Remote Bomb",
+      "move": "Down Special - Remote Bomb",
       "startup": null,
       "hitboxes": [
         {
@@ -381,7 +381,7 @@
       ]
     },
     {
-      "move": "Spin Attack Air",
+      "move": "Up Special - Spin Attack Air",
       "startup": 8,
       "hitboxes": [
         {
@@ -459,7 +459,7 @@
       ]
     },
     {
-      "move": "Spin Attack Ground",
+      "move": "Up Special - Spin Attack Ground",
       "startup": 7,
       "hitboxes": [
         {

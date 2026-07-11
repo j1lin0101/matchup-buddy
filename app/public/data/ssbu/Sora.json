@@ -1,7 +1,7 @@
 {
   "character": "Sora",
   "slug": "Sora",
-  "scrapedAt": "2026-07-11T00:24:05.844Z",
+  "scrapedAt": "2026-07-11T01:05:25.250Z",
   "jumpSquat": 3,
   "airdodge": {
     "startup": 3,
@@ -9,7 +9,7 @@
   },
   "moves": [
     {
-      "move": "Aerial Sweep",
+      "move": "Up Special - Aerial Sweep",
       "startup": 9,
       "hitboxes": [
         {
@@ -104,7 +104,7 @@
       ]
     },
     {
-      "move": "Counterattack",
+      "move": "Down Special - Counterattack",
       "startup": 8,
       "hitboxes": [
         {
@@ -470,7 +470,7 @@
       ]
     },
     {
-      "move": "Magic (Blizzaga)",
+      "move": "Neutral Special - Magic (Blizzaga)",
       "startup": 15,
       "hitboxes": [
         {
@@ -484,7 +484,7 @@
       ]
     },
     {
-      "move": "Magic (Firaga)",
+      "move": "Neutral Special - Magic (Firaga)",
       "startup": 14,
       "hitboxes": [
         {
@@ -506,7 +506,7 @@
       ]
     },
     {
-      "move": "Magic (Thundaga)",
+      "move": "Neutral Special - Magic (Thundaga)",
       "startup": 30,
       "hitboxes": [
         {
@@ -597,7 +597,7 @@
       ]
     },
     {
-      "move": "Sonic Blade",
+      "move": "Side Special - Sonic Blade",
       "startup": 3,
       "hitboxes": [
         {

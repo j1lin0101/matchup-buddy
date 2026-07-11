@@ -1,7 +1,7 @@
 {
   "character": "Mewtwo",
   "slug": "Mewtwo",
-  "scrapedAt": "2026-07-11T00:24:05.817Z",
+  "scrapedAt": "2026-07-11T01:05:25.221Z",
   "jumpSquat": 3,
   "airdodge": {
     "startup": 3,
@@ -50,7 +50,7 @@
       ]
     },
     {
-      "move": "Confusion",
+      "move": "Side Special - Confusion",
       "startup": 10,
       "hitboxes": [
         {
@@ -104,7 +104,7 @@
       ]
     },
     {
-      "move": "Disable",
+      "move": "Down Special - Disable",
       "startup": 16,
       "hitboxes": [
         {
@@ -388,7 +388,7 @@
       ]
     },
     {
-      "move": "Shadow Ball",
+      "move": "Neutral Special - Shadow Ball",
       "startup": 16,
       "hitboxes": [
         {
@@ -417,7 +417,7 @@
       ]
     },
     {
-      "move": "Teleport",
+      "move": "Up Special - Teleport",
       "startup": null,
       "hitboxes": [
         {

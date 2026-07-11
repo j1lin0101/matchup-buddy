@@ -1,7 +1,7 @@
 {
   "character": "Pichu",
   "slug": "Pichu",
-  "scrapedAt": "2026-07-11T00:24:05.828Z",
+  "scrapedAt": "2026-07-11T01:05:25.234Z",
   "jumpSquat": 3,
   "airdodge": {
     "startup": 2,
@@ -9,7 +9,7 @@
   },
   "moves": [
     {
-      "move": "Agility",
+      "move": "Up Special - Agility",
       "startup": null,
       "hitboxes": [
         {
@@ -326,7 +326,7 @@
       ]
     },
     {
-      "move": "Skull Bash",
+      "move": "Side Special - Skull Bash",
       "startup": 4,
       "hitboxes": [
         {
@@ -386,7 +386,7 @@
       ]
     },
     {
-      "move": "Thunder Jolt",
+      "move": "Neutral Special - Thunder Jolt",
       "startup": 18,
       "hitboxes": [
         {

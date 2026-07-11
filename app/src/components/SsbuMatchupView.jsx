@@ -6,6 +6,7 @@ import {
   getOOSOptions,
   analyzeMatchup,
   getComboBreakers,
+  getDisplayName,
   CATEGORY_ORDER,
 } from '../analysis/analysisSsbu'
 
@@ -147,7 +148,7 @@ function SafestOptionsList({ charData, defenderOOSOptions }) {
         return (
           <div key={i} style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '0.82rem', padding: '10px 16px', borderBottom: '1px solid var(--border)' }}>
             <div style={{ flex: 1, minWidth: 0 }}>
-              <span style={{ fontWeight: 600 }}>{o.move}</span>
+              <span style={{ fontWeight: 600 }}>{getDisplayName(o.move)}</span>
               {o.hitbox && <span style={{ color: 'var(--muted)', marginLeft: '6px', fontSize: '0.75rem' }}>[{o.hitbox}]</span>}
             </div>
             <span style={{
@@ -199,7 +200,7 @@ function MoveRow({ row }) {
   return (
     <div className="move-row">
       <div>
-        <span style={{ fontWeight: 600, color: statusColor }}>{row.move}</span>
+        <span style={{ fontWeight: 600, color: statusColor }}>{getDisplayName(row.move)}</span>
         {row.hitbox && (
           <span className="hitbox-label" style={{ color: 'var(--muted)', marginLeft: '6px', fontSize: '0.75rem' }}>
             [{row.hitbox}]

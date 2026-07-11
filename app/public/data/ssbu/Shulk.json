@@ -1,7 +1,7 @@
 {
   "character": "Shulk",
   "slug": "Shulk",
-  "scrapedAt": "2026-07-11T00:24:05.841Z",
+  "scrapedAt": "2026-07-11T01:05:25.247Z",
   "jumpSquat": 3,
   "airdodge": {
     "startup": 3,
@@ -9,7 +9,7 @@
   },
   "moves": [
     {
-      "move": "Air Slash 1",
+      "move": "Up Special - Air Slash 1",
       "startup": 10,
       "hitboxes": [
         {
@@ -39,7 +39,7 @@
       ]
     },
     {
-      "move": "Air Slash 2",
+      "move": "Up Special - Air Slash 2",
       "startup": 9,
       "hitboxes": [
         {
@@ -75,7 +75,7 @@
       ]
     },
     {
-      "move": "Back Slash",
+      "move": "Side Special - Back Slash",
       "startup": 22,
       "hitboxes": [
         {
@@ -415,7 +415,7 @@
       ]
     },
     {
-      "move": "Monado Arts",
+      "move": "Neutral Special - Monado Arts",
       "startup": null,
       "hitboxes": [
         {
@@ -547,7 +547,7 @@
       ]
     },
     {
-      "move": "Vision",
+      "move": "Down Special - Vision",
       "startup": 7,
       "hitboxes": [
         {

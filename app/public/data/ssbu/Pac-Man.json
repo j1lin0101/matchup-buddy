@@ -1,7 +1,7 @@
 {
   "character": "Pac-Man",
   "slug": "Pac-Man",
-  "scrapedAt": "2026-07-11T00:24:05.825Z",
+  "scrapedAt": "2026-07-11T01:05:25.232Z",
   "jumpSquat": 3,
   "airdodge": {
     "startup": 3,
@@ -42,7 +42,7 @@
       ]
     },
     {
-      "move": "Bonus Fruit",
+      "move": "Neutral Special - Bonus Fruit",
       "startup": null,
       "hitboxes": [
         {
@@ -231,7 +231,7 @@
       ]
     },
     {
-      "move": "Fire Hydrant",
+      "move": "Down Special - Fire Hydrant",
       "startup": null,
       "hitboxes": [
         {
@@ -442,7 +442,7 @@
       ]
     },
     {
-      "move": "Pac-Jump",
+      "move": "Up Special - Pac-Jump",
       "startup": 4,
       "hitboxes": [
         {
@@ -479,7 +479,7 @@
       ]
     },
     {
-      "move": "Power Pellet",
+      "move": "Side Special - Power Pellet",
       "startup": 24,
       "hitboxes": [
         {
