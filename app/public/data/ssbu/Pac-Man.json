@@ -1,7 +1,7 @@
 {
   "character": "Pac-Man",
   "slug": "Pac-Man",
-  "scrapedAt": "2026-07-11T01:05:25.232Z",
+  "scrapedAt": "2026-07-14T01:48:25.084Z",
   "jumpSquat": 3,
   "airdodge": {
     "startup": 3,
@@ -94,7 +94,7 @@
     },
     {
       "move": "Dash Attack",
-      "startup": 3,
+      "startup": 10,
       "hitboxes": [
         {
           "hitbox": "Final Hit",

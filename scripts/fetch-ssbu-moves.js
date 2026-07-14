@@ -250,8 +250,27 @@ function findSpecialSlot(rawName, specialSlots) {
   return best ? specialSlots[best] : null;
 }
 
+// "Landing"/"Descent"/"Falling"/"Fall" hitboxes fire during a later, separate phase
+// of a move (landing lag, or the fall-back-down half of a rise-then-fall recovery
+// like Chrom's "Soaring Slash" or Ike's "Aether") and reset their own active-frame
+// count from 1 — they are not when the move is first thrown out.
+function isLatePhaseHitbox(hitboxName) {
+  return !!hitboxName && /landing|descent|falling|\bfall\b/i.test(hitboxName);
+}
+
+// Picks the move-level startup from its candidate (non-late-phase) hitboxes. Multi-
+// phase moves (e.g. Ike's Aether: "Aerial, Initial Hits" / "Ground, Initial Hit" vs.
+// the much wider "Sword Multihits" window that also happens to start on frame 1)
+// mark their true first hit with "Initial" in the hitbox name — prefer those over an
+// unrelated low-priority hitbox that coincidentally starts just as early.
+function pickStartup(candidates) {
+  const initial = candidates.filter(c => c.hitboxName && /initial/i.test(c.hitboxName));
+  const pool = initial.length ? initial : candidates;
+  return pool.length ? Math.min(...pool.map(c => c.startup)) : null;
+}
+
 function buildCharacterMoves(rows, specialSlots) {
-  const moves = new Map(); // move name -> hitboxes[]
+  const moves = new Map(); // move name -> { hitboxes, startupCandidates }
   rows.forEach(row => {
     const rawName = decodeEntities(row.attack);
     // Relabel uniquely-named specials with their technical slot, e.g.
@@ -263,15 +282,10 @@ function buildCharacterMoves(rows, specialSlots) {
     const startup  = parseStartup(row.active);
     const shieldSafety = parseShieldSafety(row.safety);
     const hitboxName = row.name ? decodeEntities(row.name) : null;
-    // "Landing" hitboxes fire when an aerial's landing-lag window hits, not when
-    // the move is first thrown out — excluding them from the move-level startup
-    // avoids e.g. Mario's Down Aerial (real startup ~5) looking like a 1f move
-    // because its landing hit is active on frame 1 of the landing animation.
-    const isLandingHitbox = hitboxName && /landing/i.test(hitboxName);
-    if (!moves.has(moveName)) moves.set(moveName, { move: moveName, startup: null, hitboxes: [] });
+    if (!moves.has(moveName)) moves.set(moveName, { move: moveName, hitboxes: [], startupCandidates: [], lateCandidates: [] });
     const move = moves.get(moveName);
-    if (!isLandingHitbox && startup !== null && (move.startup === null || startup < move.startup)) {
-      move.startup = startup;
+    if (startup !== null) {
+      (isLatePhaseHitbox(hitboxName) ? move.lateCandidates : move.startupCandidates).push({ hitboxName, startup });
     }
     move.hitboxes.push({
       hitbox: hitboxName,
@@ -279,19 +293,13 @@ function buildCharacterMoves(rows, specialSlots) {
       shieldRaw: shieldSafety ? decodeEntities(String(row.safety)).replace(/<[^>]+>/g, '') : null,
     });
   });
-  // Fall back to the landing hitbox's startup only if a move has no non-landing
-  // hitbox with a known startup at all (rare, but avoids leaving startup null).
-  function rawNameOf(row) {
-    const raw = decodeEntities(row.attack);
-    const slot = findSpecialSlot(raw, specialSlots);
-    return slot ? `${slot} - ${raw}` : raw;
-  }
-  moves.forEach(move => {
-    if (move.startup !== null) return;
-    const landingRow = rows.find(r => rawNameOf(r) === move.move && parseStartup(r.active) !== null);
-    if (landingRow) move.startup = parseStartup(landingRow.active);
-  });
-  return Array.from(moves.values());
+  return Array.from(moves.values()).map(move => ({
+    move: move.move,
+    // Fall back to a late-phase hitbox's startup only if a move has no other
+    // hitbox with a known startup at all (rare, but avoids leaving startup null).
+    startup: pickStartup(move.startupCandidates) ?? pickStartup(move.lateCandidates),
+    hitboxes: move.hitboxes,
+  }));
 }
 
 async function main() {
