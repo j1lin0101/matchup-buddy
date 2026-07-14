@@ -3,7 +3,7 @@ import { BrowserRouter, Routes, Route, Navigate, useNavigate, useParams } from '
 import CharacterSelect from './components/CharacterSelect'
 import MatchupView from './components/MatchupView'
 import GameSelect from './components/GameSelect'
-import SsbuMatchupView from './components/SsbuMatchupView'
+import SsbuMatchupStub from './components/SsbuMatchupStub'
 import GameComingSoon from './components/GameComingSoon'
 import UpdateToast from './components/UpdateToast'
 import './index.css'
@@ -239,7 +239,7 @@ function SsbuMatchupPage() {
   if (!valid) return <UnknownCharacters game="ssbu" />
 
   return (
-    <SsbuMatchupView
+    <SsbuMatchupStub
       myChar={myChar}
       oppChar={oppChar}
       onBack={() => navigate('/ssbu')}
