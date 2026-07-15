@@ -1,7 +1,7 @@
 {
   "character": "Ness",
   "slug": "Ness",
-  "scrapedAt": "2026-07-15T23:43:03.311Z",
+  "scrapedAt": "2026-07-15T23:55:01.436Z",
   "jumpSquat": 4,
   "weight": 94,
   "wavedashOOSFrames": 14,
@@ -820,7 +820,7 @@
       "startup": 10,
       "hitboxes": [
         {
-          "hitbox": "clean",
+          "hitbox": "sweetspot",
           "shieldSafety": {
             "min": 0,
             "max": 0
@@ -828,7 +828,7 @@
           "shieldRaw": "0"
         },
         {
-          "hitbox": "clean",
+          "hitbox": "sweetspot",
           "shieldSafety": {
             "min": 0,
             "max": 0

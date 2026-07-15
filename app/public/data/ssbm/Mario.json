@@ -1,7 +1,7 @@
 {
   "character": "Mario",
   "slug": "Mario",
-  "scrapedAt": "2026-07-15T23:43:03.315Z",
+  "scrapedAt": "2026-07-15T23:55:01.440Z",
   "jumpSquat": 4,
   "weight": 100,
   "wavedashOOSFrames": 14,
@@ -670,7 +670,7 @@
       "startup": 6,
       "hitboxes": [
         {
-          "hitbox": "clean",
+          "hitbox": "sweetspot",
           "shieldSafety": {
             "min": -1,
             "max": -1
@@ -678,7 +678,7 @@
           "shieldRaw": "-1"
         },
         {
-          "hitbox": "clean",
+          "hitbox": "sweetspot",
           "shieldSafety": {
             "min": -1,
             "max": -1

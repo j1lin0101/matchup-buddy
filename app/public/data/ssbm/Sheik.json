@@ -1,7 +1,7 @@
 {
   "character": "Sheik",
   "slug": "Sheik",
-  "scrapedAt": "2026-07-15T23:43:03.318Z",
+  "scrapedAt": "2026-07-15T23:55:01.443Z",
   "jumpSquat": 3,
   "weight": 90,
   "wavedashOOSFrames": 13,
@@ -510,7 +510,7 @@
       "startup": 4,
       "hitboxes": [
         {
-          "hitbox": "clean",
+          "hitbox": "sweetspot",
           "shieldSafety": {
             "min": -3,
             "max": -3
@@ -518,7 +518,7 @@
           "shieldRaw": "-3"
         },
         {
-          "hitbox": "clean",
+          "hitbox": "sweetspot",
           "shieldSafety": {
             "min": -3,
             "max": -3
@@ -526,7 +526,7 @@
           "shieldRaw": "-3"
         },
         {
-          "hitbox": "clean",
+          "hitbox": "sweetspot",
           "shieldSafety": {
             "min": -2,
             "max": -2
@@ -534,7 +534,7 @@
           "shieldRaw": "-2"
         },
         {
-          "hitbox": "clean",
+          "hitbox": "sweetspot",
           "shieldSafety": {
             "min": 0,
             "max": 0

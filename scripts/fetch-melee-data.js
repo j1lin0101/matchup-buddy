@@ -206,7 +206,7 @@ function buildHitboxes(move) {
         ? calcAerialShieldAdvantage(hb.shieldstun, move.lCanceledLandLag)
         : calcGroundedShieldAdvantage(hb.shieldstun, active, recovery);
       hitboxes.push({
-        hitbox: hit.name || hb.name || null,
+        hitbox: cleanHitboxName(hit.name || hb.name || null),
         shieldSafety: advantage != null ? { min: advantage, max: advantage } : null,
         shieldRaw: advantage != null ? String(advantage) : null,
       });
@@ -220,6 +220,14 @@ function buildHitboxes(move) {
 // two words, e.g. "Forward Tilt").
 function cleanMoveName(name) {
   if (name === 'Dashattack') return 'Dash Attack';
+  return name;
+}
+
+// FightCore labels the strong hit-window of a multi-hit-window move "clean"
+// (paired with "late" for the weaker one) — Melee community terminology
+// calls this "sweetspot" instead, so relabel it for display.
+function cleanHitboxName(name) {
+  if (name === 'clean') return 'sweetspot';
   return name;
 }
 

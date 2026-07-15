@@ -1,7 +1,7 @@
 {
   "character": "Falco",
   "slug": "Falco",
-  "scrapedAt": "2026-07-15T23:43:03.320Z",
+  "scrapedAt": "2026-07-15T23:55:01.446Z",
   "jumpSquat": 5,
   "weight": 80,
   "wavedashOOSFrames": 15,
@@ -326,7 +326,7 @@
       "startup": 4,
       "hitboxes": [
         {
-          "hitbox": "clean",
+          "hitbox": "sweetspot",
           "shieldSafety": {
             "min": -2,
             "max": -2
@@ -334,7 +334,7 @@
           "shieldRaw": "-2"
         },
         {
-          "hitbox": "clean",
+          "hitbox": "sweetspot",
           "shieldSafety": {
             "min": -2,
             "max": -2
@@ -342,7 +342,7 @@
           "shieldRaw": "-2"
         },
         {
-          "hitbox": "clean",
+          "hitbox": "sweetspot",
           "shieldSafety": {
             "min": -4,
             "max": -4

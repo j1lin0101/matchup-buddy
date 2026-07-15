@@ -1,7 +1,7 @@
 {
   "character": "Ice Climbers",
   "slug": "Ice_Climbers",
-  "scrapedAt": "2026-07-15T23:43:03.317Z",
+  "scrapedAt": "2026-07-15T23:55:01.441Z",
   "jumpSquat": 3,
   "weight": 88,
   "wavedashOOSFrames": 13,
@@ -545,7 +545,7 @@
       "startup": 12,
       "hitboxes": [
         {
-          "hitbox": "clean",
+          "hitbox": "sweetspot",
           "shieldSafety": {
             "min": -86,
             "max": -86
@@ -553,7 +553,7 @@
           "shieldRaw": "-86"
         },
         {
-          "hitbox": "clean",
+          "hitbox": "sweetspot",
           "shieldSafety": {
             "min": -86,
             "max": -86
@@ -585,7 +585,7 @@
       "startup": 16,
       "hitboxes": [
         {
-          "hitbox": "clean",
+          "hitbox": "sweetspot",
           "shieldSafety": {
             "min": -76,
             "max": -76
@@ -705,7 +705,7 @@
       "startup": 12,
       "hitboxes": [
         {
-          "hitbox": "clean",
+          "hitbox": "sweetspot",
           "shieldSafety": {
             "min": -86,
             "max": -86
@@ -713,7 +713,7 @@
           "shieldRaw": "-86"
         },
         {
-          "hitbox": "clean",
+          "hitbox": "sweetspot",
           "shieldSafety": {
             "min": -86,
             "max": -86
@@ -897,7 +897,7 @@
       "startup": 16,
       "hitboxes": [
         {
-          "hitbox": "clean",
+          "hitbox": "sweetspot",
           "shieldSafety": {
             "min": -76,
             "max": -76

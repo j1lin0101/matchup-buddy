@@ -1,7 +1,7 @@
 {
   "character": "Donkey Kong",
   "slug": "Donkey_Kong",
-  "scrapedAt": "2026-07-15T23:43:03.314Z",
+  "scrapedAt": "2026-07-15T23:55:01.439Z",
   "jumpSquat": 5,
   "weight": 114,
   "wavedashOOSFrames": 15,
@@ -187,7 +187,7 @@
       "startup": 7,
       "hitboxes": [
         {
-          "hitbox": "clean",
+          "hitbox": "sweetspot",
           "shieldSafety": {
             "min": 0,
             "max": 0
@@ -195,7 +195,7 @@
           "shieldRaw": "0"
         },
         {
-          "hitbox": "clean",
+          "hitbox": "sweetspot",
           "shieldSafety": {
             "min": 0,
             "max": 0

@@ -1,7 +1,7 @@
 {
   "character": "Kirby",
   "slug": "Kirby",
-  "scrapedAt": "2026-07-15T23:43:03.314Z",
+  "scrapedAt": "2026-07-15T23:55:01.438Z",
   "jumpSquat": 3,
   "weight": 70,
   "wavedashOOSFrames": 13,
@@ -1024,7 +1024,7 @@
       "startup": 6,
       "hitboxes": [
         {
-          "hitbox": "clean",
+          "hitbox": "sweetspot",
           "shieldSafety": {
             "min": 1,
             "max": 1
@@ -1032,7 +1032,7 @@
           "shieldRaw": "1"
         },
         {
-          "hitbox": "clean",
+          "hitbox": "sweetspot",
           "shieldSafety": {
             "min": 1,
             "max": 1

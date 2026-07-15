@@ -1,7 +1,7 @@
 {
   "character": "Dr. Mario",
   "slug": "Dr_Mario",
-  "scrapedAt": "2026-07-15T23:43:03.316Z",
+  "scrapedAt": "2026-07-15T23:55:01.440Z",
   "jumpSquat": 4,
   "weight": 100,
   "wavedashOOSFrames": 14,
@@ -518,7 +518,7 @@
       "startup": 6,
       "hitboxes": [
         {
-          "hitbox": "clean",
+          "hitbox": "sweetspot",
           "shieldSafety": {
             "min": -4,
             "max": -4
@@ -526,7 +526,7 @@
           "shieldRaw": "-4"
         },
         {
-          "hitbox": "clean",
+          "hitbox": "sweetspot",
           "shieldSafety": {
             "min": -4,
             "max": -4
