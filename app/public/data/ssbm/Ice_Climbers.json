@@ -1,0 +1,889 @@
+{
+  "character": "Ice Climbers",
+  "slug": "Ice_Climbers",
+  "scrapedAt": "2026-07-15T21:50:19.837Z",
+  "jumpSquat": 3,
+  "weight": 88,
+  "wavedashOOSFrames": 13,
+  "wikiUrl": "https://www.ssbwiki.com/Ice_Climbers_(SSBM)",
+  "moves": [
+    {
+      "move": "Up Smash",
+      "type": 2,
+      "isUpSpecial": false,
+      "startup": 14,
+      "hitboxes": [
+        {
+          "hitbox": "id0",
+          "shieldSafety": {
+            "min": -20,
+            "max": -20
+          },
+          "shieldRaw": "-20"
+        },
+        {
+          "hitbox": "id1",
+          "shieldSafety": {
+            "min": -20,
+            "max": -20
+          },
+          "shieldRaw": "-20"
+        }
+      ]
+    },
+    {
+      "move": "Down Smash",
+      "type": 2,
+      "isUpSpecial": false,
+      "startup": 6,
+      "hitboxes": [
+        {
+          "hitbox": "id0",
+          "shieldSafety": {
+            "min": -18,
+            "max": -18
+          },
+          "shieldRaw": "-18"
+        },
+        {
+          "hitbox": "id1",
+          "shieldSafety": {
+            "min": -18,
+            "max": -18
+          },
+          "shieldRaw": "-18"
+        }
+      ]
+    },
+    {
+      "move": "Neutral Air",
+      "type": 3,
+      "isUpSpecial": false,
+      "startup": 6,
+      "hitboxes": [
+        {
+          "hitbox": "id0",
+          "shieldSafety": {
+            "min": -6,
+            "max": -6
+          },
+          "shieldRaw": "-6"
+        },
+        {
+          "hitbox": "id1",
+          "shieldSafety": {
+            "min": -6,
+            "max": -6
+          },
+          "shieldRaw": "-6"
+        }
+      ]
+    },
+    {
+      "move": "Forward Air",
+      "type": 3,
+      "isUpSpecial": false,
+      "startup": 19,
+      "hitboxes": [
+        {
+          "hitbox": "id0",
+          "shieldSafety": {
+            "min": -5,
+            "max": -5
+          },
+          "shieldRaw": "-5"
+        },
+        {
+          "hitbox": "id1",
+          "shieldSafety": {
+            "min": -5,
+            "max": -5
+          },
+          "shieldRaw": "-5"
+        },
+        {
+          "hitbox": "id2",
+          "shieldSafety": {
+            "min": -5,
+            "max": -5
+          },
+          "shieldRaw": "-5"
+        }
+      ]
+    },
+    {
+      "move": "Back Air",
+      "type": 3,
+      "isUpSpecial": false,
+      "startup": 8,
+      "hitboxes": [
+        {
+          "hitbox": "unknown",
+          "shieldSafety": {
+            "min": -4,
+            "max": -4
+          },
+          "shieldRaw": "-4"
+        },
+        {
+          "hitbox": "unknown",
+          "shieldSafety": {
+            "min": -5,
+            "max": -5
+          },
+          "shieldRaw": "-5"
+        }
+      ]
+    },
+    {
+      "move": "Up Air",
+      "type": 3,
+      "isUpSpecial": false,
+      "startup": 6,
+      "hitboxes": [
+        {
+          "hitbox": "id0",
+          "shieldSafety": {
+            "min": -11,
+            "max": -11
+          },
+          "shieldRaw": "-11"
+        },
+        {
+          "hitbox": "id1",
+          "shieldSafety": {
+            "min": -11,
+            "max": -11
+          },
+          "shieldRaw": "-11"
+        },
+        {
+          "hitbox": "id0",
+          "shieldSafety": {
+            "min": -12,
+            "max": -12
+          },
+          "shieldRaw": "-12"
+        },
+        {
+          "hitbox": "id1",
+          "shieldSafety": {
+            "min": -12,
+            "max": -12
+          },
+          "shieldRaw": "-12"
+        }
+      ]
+    },
+    {
+      "move": "Down Air",
+      "type": 3,
+      "isUpSpecial": false,
+      "startup": 3,
+      "hitboxes": [
+        {
+          "hitbox": "id0",
+          "shieldSafety": {
+            "min": -7,
+            "max": -7
+          },
+          "shieldRaw": "-7"
+        },
+        {
+          "hitbox": "id1",
+          "shieldSafety": {
+            "min": -7,
+            "max": -7
+          },
+          "shieldRaw": "-7"
+        }
+      ]
+    },
+    {
+      "move": "Forward Smash",
+      "type": 2,
+      "isUpSpecial": false,
+      "startup": 13,
+      "hitboxes": [
+        {
+          "hitbox": "id0",
+          "shieldSafety": {
+            "min": -25,
+            "max": -25
+          },
+          "shieldRaw": "-25"
+        },
+        {
+          "hitbox": "id1",
+          "shieldSafety": {
+            "min": -27,
+            "max": -27
+          },
+          "shieldRaw": "-27"
+        }
+      ]
+    },
+    {
+      "move": "Pummel",
+      "type": 6,
+      "isUpSpecial": false,
+      "startup": null,
+      "hitboxes": [
+        {
+          "hitbox": "id0",
+          "shieldSafety": null,
+          "shieldRaw": null
+        }
+      ]
+    },
+    {
+      "move": "Forward throw",
+      "type": 6,
+      "isUpSpecial": false,
+      "startup": 24,
+      "hitboxes": [
+        {
+          "hitbox": "id0",
+          "shieldSafety": null,
+          "shieldRaw": null
+        }
+      ]
+    },
+    {
+      "move": "Back throw",
+      "type": 6,
+      "isUpSpecial": false,
+      "startup": 0,
+      "hitboxes": [
+        {
+          "hitbox": "unknown",
+          "shieldSafety": null,
+          "shieldRaw": null
+        }
+      ]
+    },
+    {
+      "move": "Up throw",
+      "type": 6,
+      "isUpSpecial": false,
+      "startup": 25,
+      "hitboxes": [
+        {
+          "hitbox": "id0",
+          "shieldSafety": null,
+          "shieldRaw": null
+        },
+        {
+          "hitbox": "id1",
+          "shieldSafety": null,
+          "shieldRaw": null
+        }
+      ]
+    },
+    {
+      "move": "Down throw",
+      "type": 6,
+      "isUpSpecial": false,
+      "startup": 0,
+      "hitboxes": [
+        {
+          "hitbox": "unknown",
+          "shieldSafety": null,
+          "shieldRaw": null
+        }
+      ]
+    },
+    {
+      "move": "Edge attack",
+      "type": 8,
+      "isUpSpecial": false,
+      "startup": null,
+      "hitboxes": [
+        {
+          "hitbox": "slow",
+          "shieldSafety": null,
+          "shieldRaw": null
+        },
+        {
+          "hitbox": "slow",
+          "shieldSafety": null,
+          "shieldRaw": null
+        },
+        {
+          "hitbox": "slow",
+          "shieldSafety": null,
+          "shieldRaw": null
+        },
+        {
+          "hitbox": "fast",
+          "shieldSafety": null,
+          "shieldRaw": null
+        },
+        {
+          "hitbox": "fast",
+          "shieldSafety": null,
+          "shieldRaw": null
+        },
+        {
+          "hitbox": "fast",
+          "shieldSafety": null,
+          "shieldRaw": null
+        }
+      ]
+    },
+    {
+      "move": "Down Tilt",
+      "type": 1,
+      "isUpSpecial": false,
+      "startup": 8,
+      "hitboxes": [
+        {
+          "hitbox": "id0",
+          "shieldSafety": {
+            "min": -14,
+            "max": -14
+          },
+          "shieldRaw": "-14"
+        },
+        {
+          "hitbox": "id1",
+          "shieldSafety": {
+            "min": -14,
+            "max": -14
+          },
+          "shieldRaw": "-14"
+        }
+      ]
+    },
+    {
+      "move": "Up Tilt",
+      "type": 1,
+      "isUpSpecial": false,
+      "startup": 8,
+      "hitboxes": [
+        {
+          "hitbox": "id0",
+          "shieldSafety": {
+            "min": -31,
+            "max": -31
+          },
+          "shieldRaw": "-31"
+        },
+        {
+          "hitbox": "id1",
+          "shieldSafety": {
+            "min": -31,
+            "max": -31
+          },
+          "shieldRaw": "-31"
+        },
+        {
+          "hitbox": "id0",
+          "shieldSafety": {
+            "min": -28,
+            "max": -28
+          },
+          "shieldRaw": "-28"
+        },
+        {
+          "hitbox": "id1",
+          "shieldSafety": {
+            "min": -28,
+            "max": -28
+          },
+          "shieldRaw": "-28"
+        },
+        {
+          "hitbox": "id0",
+          "shieldSafety": {
+            "min": -25,
+            "max": -25
+          },
+          "shieldRaw": "-25"
+        },
+        {
+          "hitbox": "id1",
+          "shieldSafety": {
+            "min": -25,
+            "max": -25
+          },
+          "shieldRaw": "-25"
+        },
+        {
+          "hitbox": "id0",
+          "shieldSafety": {
+            "min": -22,
+            "max": -22
+          },
+          "shieldRaw": "-22"
+        },
+        {
+          "hitbox": "id1",
+          "shieldSafety": {
+            "min": -22,
+            "max": -22
+          },
+          "shieldRaw": "-22"
+        },
+        {
+          "hitbox": "id0",
+          "shieldSafety": {
+            "min": -19,
+            "max": -19
+          },
+          "shieldRaw": "-19"
+        },
+        {
+          "hitbox": "id1",
+          "shieldSafety": {
+            "min": -19,
+            "max": -19
+          },
+          "shieldRaw": "-19"
+        },
+        {
+          "hitbox": "id0",
+          "shieldSafety": {
+            "min": -16,
+            "max": -16
+          },
+          "shieldRaw": "-16"
+        },
+        {
+          "hitbox": "id1",
+          "shieldSafety": {
+            "min": -16,
+            "max": -16
+          },
+          "shieldRaw": "-16"
+        },
+        {
+          "hitbox": "id0",
+          "shieldSafety": {
+            "min": -11,
+            "max": -11
+          },
+          "shieldRaw": "-11"
+        },
+        {
+          "hitbox": "id1",
+          "shieldSafety": {
+            "min": -11,
+            "max": -11
+          },
+          "shieldRaw": "-11"
+        }
+      ]
+    },
+    {
+      "move": "Forward Tilt",
+      "type": 1,
+      "isUpSpecial": false,
+      "startup": 6,
+      "hitboxes": [
+        {
+          "hitbox": "id0",
+          "shieldSafety": {
+            "min": -14,
+            "max": -14
+          },
+          "shieldRaw": "-14"
+        },
+        {
+          "hitbox": "id1",
+          "shieldSafety": {
+            "min": -14,
+            "max": -14
+          },
+          "shieldRaw": "-14"
+        }
+      ]
+    },
+    {
+      "move": "Ice Shot",
+      "type": 4,
+      "isUpSpecial": false,
+      "startup": 15,
+      "hitboxes": [
+        {
+          "hitbox": "melee",
+          "shieldSafety": null,
+          "shieldRaw": null
+        },
+        {
+          "hitbox": "shot",
+          "shieldSafety": null,
+          "shieldRaw": null
+        }
+      ]
+    },
+    {
+      "move": "Squall Hammer",
+      "type": 4,
+      "isUpSpecial": false,
+      "startup": 12,
+      "hitboxes": [
+        {
+          "hitbox": "clean",
+          "shieldSafety": null,
+          "shieldRaw": null
+        },
+        {
+          "hitbox": "clean",
+          "shieldSafety": null,
+          "shieldRaw": null
+        },
+        {
+          "hitbox": "late",
+          "shieldSafety": null,
+          "shieldRaw": null
+        },
+        {
+          "hitbox": "late",
+          "shieldSafety": null,
+          "shieldRaw": null
+        }
+      ]
+    },
+    {
+      "move": "Blizzard",
+      "type": 4,
+      "isUpSpecial": false,
+      "startup": 16,
+      "hitboxes": [
+        {
+          "hitbox": "clean",
+          "shieldSafety": null,
+          "shieldRaw": null
+        },
+        {
+          "hitbox": "mid",
+          "shieldSafety": null,
+          "shieldRaw": null
+        },
+        {
+          "hitbox": "late",
+          "shieldSafety": null,
+          "shieldRaw": null
+        }
+      ]
+    },
+    {
+      "move": "Dashattack",
+      "type": 2,
+      "isUpSpecial": false,
+      "startup": 11,
+      "hitboxes": [
+        {
+          "hitbox": "id0",
+          "shieldSafety": {
+            "min": -20,
+            "max": -20
+          },
+          "shieldRaw": "-20"
+        },
+        {
+          "hitbox": "id1",
+          "shieldSafety": {
+            "min": -20,
+            "max": -20
+          },
+          "shieldRaw": "-20"
+        }
+      ]
+    },
+    {
+      "move": "Belay",
+      "type": 4,
+      "isUpSpecial": true,
+      "startup": 17,
+      "hitboxes": [
+        {
+          "hitbox": "unknown",
+          "shieldSafety": null,
+          "shieldRaw": null
+        }
+      ]
+    },
+    {
+      "move": "Jab 1",
+      "type": 2,
+      "isUpSpecial": false,
+      "startup": 4,
+      "hitboxes": [
+        {
+          "hitbox": "id0",
+          "shieldSafety": {
+            "min": -7,
+            "max": -7
+          },
+          "shieldRaw": "-7"
+        },
+        {
+          "hitbox": "id1",
+          "shieldSafety": {
+            "min": -7,
+            "max": -7
+          },
+          "shieldRaw": "-7"
+        }
+      ]
+    },
+    {
+      "move": "Jab 2",
+      "type": 2,
+      "isUpSpecial": false,
+      "startup": 5,
+      "hitboxes": [
+        {
+          "hitbox": "id0",
+          "shieldSafety": {
+            "min": -9,
+            "max": -9
+          },
+          "shieldRaw": "-9"
+        },
+        {
+          "hitbox": "id1",
+          "shieldSafety": {
+            "min": -9,
+            "max": -9
+          },
+          "shieldRaw": "-9"
+        }
+      ]
+    },
+    {
+      "move": "Squall Hammer (Air)",
+      "type": 4,
+      "isUpSpecial": false,
+      "startup": 12,
+      "hitboxes": [
+        {
+          "hitbox": "clean",
+          "shieldSafety": null,
+          "shieldRaw": null
+        },
+        {
+          "hitbox": "clean",
+          "shieldSafety": null,
+          "shieldRaw": null
+        },
+        {
+          "hitbox": "late",
+          "shieldSafety": null,
+          "shieldRaw": null
+        },
+        {
+          "hitbox": "late",
+          "shieldSafety": null,
+          "shieldRaw": null
+        }
+      ]
+    },
+    {
+      "move": "Grab",
+      "type": 6,
+      "isUpSpecial": false,
+      "startup": 7,
+      "hitboxes": [
+        {
+          "hitbox": "id0",
+          "shieldSafety": null,
+          "shieldRaw": null
+        },
+        {
+          "hitbox": "id1",
+          "shieldSafety": null,
+          "shieldRaw": null
+        }
+      ]
+    },
+    {
+      "move": "Dashgrab",
+      "type": 6,
+      "isUpSpecial": false,
+      "startup": 7,
+      "hitboxes": [
+        {
+          "hitbox": "id0",
+          "shieldSafety": null,
+          "shieldRaw": null
+        },
+        {
+          "hitbox": "id1",
+          "shieldSafety": null,
+          "shieldRaw": null
+        }
+      ]
+    },
+    {
+      "move": "Getup-Attack (Stomach)",
+      "type": 7,
+      "isUpSpecial": false,
+      "startup": null,
+      "hitboxes": [
+        {
+          "hitbox": "back_hit1",
+          "shieldSafety": null,
+          "shieldRaw": null
+        },
+        {
+          "hitbox": "back_hit1",
+          "shieldSafety": null,
+          "shieldRaw": null
+        },
+        {
+          "hitbox": "back_hit1",
+          "shieldSafety": null,
+          "shieldRaw": null
+        },
+        {
+          "hitbox": "back_hit2",
+          "shieldSafety": null,
+          "shieldRaw": null
+        },
+        {
+          "hitbox": "back_hit2",
+          "shieldSafety": null,
+          "shieldRaw": null
+        },
+        {
+          "hitbox": "back_hit2",
+          "shieldSafety": null,
+          "shieldRaw": null
+        },
+        {
+          "hitbox": "front_hit1",
+          "shieldSafety": null,
+          "shieldRaw": null
+        },
+        {
+          "hitbox": "front_hit1",
+          "shieldSafety": null,
+          "shieldRaw": null
+        },
+        {
+          "hitbox": "front_hit1",
+          "shieldSafety": null,
+          "shieldRaw": null
+        },
+        {
+          "hitbox": "front_hit2",
+          "shieldSafety": null,
+          "shieldRaw": null
+        },
+        {
+          "hitbox": "front_hit2",
+          "shieldSafety": null,
+          "shieldRaw": null
+        },
+        {
+          "hitbox": "front_hit2",
+          "shieldSafety": null,
+          "shieldRaw": null
+        }
+      ]
+    },
+    {
+      "move": "Blizzard (Air)",
+      "type": 4,
+      "isUpSpecial": false,
+      "startup": 16,
+      "hitboxes": [
+        {
+          "hitbox": "clean",
+          "shieldSafety": null,
+          "shieldRaw": null
+        },
+        {
+          "hitbox": "mid",
+          "shieldSafety": null,
+          "shieldRaw": null
+        },
+        {
+          "hitbox": "late",
+          "shieldSafety": null,
+          "shieldRaw": null
+        }
+      ]
+    },
+    {
+      "move": "Belay (Air)",
+      "type": 4,
+      "isUpSpecial": true,
+      "startup": 17,
+      "hitboxes": [
+        {
+          "hitbox": "unknown",
+          "shieldSafety": null,
+          "shieldRaw": null
+        }
+      ]
+    },
+    {
+      "move": "Forward Tilt (Up)",
+      "type": 1,
+      "isUpSpecial": false,
+      "startup": 6,
+      "hitboxes": [
+        {
+          "hitbox": "id0",
+          "shieldSafety": {
+            "min": -14,
+            "max": -14
+          },
+          "shieldRaw": "-14"
+        },
+        {
+          "hitbox": "id1",
+          "shieldSafety": {
+            "min": -14,
+            "max": -14
+          },
+          "shieldRaw": "-14"
+        }
+      ]
+    },
+    {
+      "move": "Forward Tilt (Down)",
+      "type": 1,
+      "isUpSpecial": false,
+      "startup": 6,
+      "hitboxes": [
+        {
+          "hitbox": "id0",
+          "shieldSafety": {
+            "min": -14,
+            "max": -14
+          },
+          "shieldRaw": "-14"
+        },
+        {
+          "hitbox": "id1",
+          "shieldSafety": {
+            "min": -14,
+            "max": -14
+          },
+          "shieldRaw": "-14"
+        },
+        {
+          "hitbox": "id0",
+          "shieldSafety": {
+            "min": 4,
+            "max": 4
+          },
+          "shieldRaw": "4"
+        },
+        {
+          "hitbox": "id1",
+          "shieldSafety": {
+            "min": 4,
+            "max": 4
+          },
+          "shieldRaw": "4"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1105 @@
+{
+  "character": "Donkey Kong",
+  "slug": "Donkey_Kong",
+  "scrapedAt": "2026-07-15T21:50:19.835Z",
+  "jumpSquat": 5,
+  "weight": 114,
+  "wavedashOOSFrames": 15,
+  "wikiUrl": "https://www.ssbwiki.com/Donkey_Kong_(SSBM)",
+  "moves": [
+    {
+      "move": "Edge attack",
+      "type": 8,
+      "isUpSpecial": false,
+      "startup": null,
+      "hitboxes": [
+        {
+          "hitbox": "slow",
+          "shieldSafety": null,
+          "shieldRaw": null
+        },
+        {
+          "hitbox": "slow",
+          "shieldSafety": null,
+          "shieldRaw": null
+        },
+        {
+          "hitbox": "slow",
+          "shieldSafety": null,
+          "shieldRaw": null
+        },
+        {
+          "hitbox": "fast",
+          "shieldSafety": null,
+          "shieldRaw": null
+        }
+      ]
+    },
+    {
+      "move": "Pummel",
+      "type": 6,
+      "isUpSpecial": false,
+      "startup": null,
+      "hitboxes": [
+        {
+          "hitbox": "id0",
+          "shieldSafety": null,
+          "shieldRaw": null
+        }
+      ]
+    },
+    {
+      "move": "Back throw",
+      "type": 6,
+      "isUpSpecial": false,
+      "startup": 0,
+      "hitboxes": [
+        {
+          "hitbox": "unknown",
+          "shieldSafety": null,
+          "shieldRaw": null
+        }
+      ]
+    },
+    {
+      "move": "Up throw",
+      "type": 6,
+      "isUpSpecial": false,
+      "startup": 0,
+      "hitboxes": [
+        {
+          "hitbox": "unknown",
+          "shieldSafety": null,
+          "shieldRaw": null
+        }
+      ]
+    },
+    {
+      "move": "Down throw",
+      "type": 6,
+      "isUpSpecial": false,
+      "startup": 0,
+      "hitboxes": [
+        {
+          "hitbox": "unknown",
+          "shieldSafety": null,
+          "shieldRaw": null
+        }
+      ]
+    },
+    {
+      "move": "cargo_fthrow",
+      "type": 6,
+      "isUpSpecial": false,
+      "startup": null,
+      "hitboxes": [
+        {
+          "hitbox": "unknown",
+          "shieldSafety": null,
+          "shieldRaw": null
+        }
+      ]
+    },
+    {
+      "move": "cargo_bthrow",
+      "type": 6,
+      "isUpSpecial": false,
+      "startup": null,
+      "hitboxes": [
+        {
+          "hitbox": "unknown",
+          "shieldSafety": null,
+          "shieldRaw": null
+        }
+      ]
+    },
+    {
+      "move": "cargo_uthrow",
+      "type": 6,
+      "isUpSpecial": false,
+      "startup": null,
+      "hitboxes": [
+        {
+          "hitbox": "unknown",
+          "shieldSafety": null,
+          "shieldRaw": null
+        }
+      ]
+    },
+    {
+      "move": "cargo_dthrow",
+      "type": 6,
+      "isUpSpecial": false,
+      "startup": null,
+      "hitboxes": [
+        {
+          "hitbox": "unknown",
+          "shieldSafety": null,
+          "shieldRaw": null
+        }
+      ]
+    },
+    {
+      "move": "Down Air",
+      "type": 3,
+      "isUpSpecial": false,
+      "startup": 18,
+      "hitboxes": [
+        {
+          "hitbox": "id0",
+          "shieldSafety": {
+            "min": -7,
+            "max": -7
+          },
+          "shieldRaw": "-7"
+        },
+        {
+          "hitbox": "id1",
+          "shieldSafety": {
+            "min": -9,
+            "max": -9
+          },
+          "shieldRaw": "-9"
+        },
+        {
+          "hitbox": "id2",
+          "shieldSafety": {
+            "min": -9,
+            "max": -9
+          },
+          "shieldRaw": "-9"
+        }
+      ]
+    },
+    {
+      "move": "Back Air",
+      "type": 3,
+      "isUpSpecial": false,
+      "startup": 7,
+      "hitboxes": [
+        {
+          "hitbox": "clean",
+          "shieldSafety": {
+            "min": -1,
+            "max": -1
+          },
+          "shieldRaw": "-1"
+        },
+        {
+          "hitbox": "clean",
+          "shieldSafety": {
+            "min": -1,
+            "max": -1
+          },
+          "shieldRaw": "-1"
+        },
+        {
+          "hitbox": "late",
+          "shieldSafety": {
+            "min": -2,
+            "max": -2
+          },
+          "shieldRaw": "-2"
+        },
+        {
+          "hitbox": "late",
+          "shieldSafety": {
+            "min": -2,
+            "max": -2
+          },
+          "shieldRaw": "-2"
+        }
+      ]
+    },
+    {
+      "move": "Giant Punch",
+      "type": 4,
+      "isUpSpecial": false,
+      "startup": 17,
+      "hitboxes": [
+        {
+          "hitbox": "ground_uncharged_early",
+          "shieldSafety": null,
+          "shieldRaw": null
+        },
+        {
+          "hitbox": "ground_uncharged_early",
+          "shieldSafety": null,
+          "shieldRaw": null
+        },
+        {
+          "hitbox": "ground_uncharged_clean",
+          "shieldSafety": null,
+          "shieldRaw": null
+        },
+        {
+          "hitbox": "ground_uncharged_clean",
+          "shieldSafety": null,
+          "shieldRaw": null
+        },
+        {
+          "hitbox": "ground_fullcharge_early",
+          "shieldSafety": null,
+          "shieldRaw": null
+        },
+        {
+          "hitbox": "ground_fullcharge_early",
+          "shieldSafety": null,
+          "shieldRaw": null
+        },
+        {
+          "hitbox": "ground_fullcharge_early",
+          "shieldSafety": null,
+          "shieldRaw": null
+        },
+        {
+          "hitbox": "ground_fullcharge_late",
+          "shieldSafety": null,
+          "shieldRaw": null
+        },
+        {
+          "hitbox": "ground_fullcharge_late",
+          "shieldSafety": null,
+          "shieldRaw": null
+        },
+        {
+          "hitbox": "ground_fullcharge_late",
+          "shieldSafety": null,
+          "shieldRaw": null
+        }
+      ]
+    },
+    {
+      "move": "Headbutt",
+      "type": 4,
+      "isUpSpecial": false,
+      "startup": 20,
+      "hitboxes": [
+        {
+          "hitbox": "ground",
+          "shieldSafety": null,
+          "shieldRaw": null
+        },
+        {
+          "hitbox": "ground",
+          "shieldSafety": null,
+          "shieldRaw": null
+        },
+        {
+          "hitbox": "ground",
+          "shieldSafety": null,
+          "shieldRaw": null
+        }
+      ]
+    },
+    {
+      "move": "Spinning Kong",
+      "type": 4,
+      "isUpSpecial": true,
+      "startup": 3,
+      "hitboxes": [
+        {
+          "hitbox": "ground_hit1",
+          "shieldSafety": null,
+          "shieldRaw": null
+        },
+        {
+          "hitbox": "ground_hit1",
+          "shieldSafety": null,
+          "shieldRaw": null
+        },
+        {
+          "hitbox": "ground_hits2_3",
+          "shieldSafety": null,
+          "shieldRaw": null
+        },
+        {
+          "hitbox": "ground_hits2_3",
+          "shieldSafety": null,
+          "shieldRaw": null
+        },
+        {
+          "hitbox": "ground_hits2_3",
+          "shieldSafety": null,
+          "shieldRaw": null
+        },
+        {
+          "hitbox": "ground_hits4_5",
+          "shieldSafety": null,
+          "shieldRaw": null
+        },
+        {
+          "hitbox": "ground_hits4_5",
+          "shieldSafety": null,
+          "shieldRaw": null
+        },
+        {
+          "hitbox": "ground_hits4_5",
+          "shieldSafety": null,
+          "shieldRaw": null
+        }
+      ]
+    },
+    {
+      "move": "Hand Slap",
+      "type": 4,
+      "isUpSpecial": false,
+      "startup": 19,
+      "hitboxes": [
+        {
+          "hitbox": "hit1",
+          "shieldSafety": null,
+          "shieldRaw": null
+        },
+        {
+          "hitbox": "hit1",
+          "shieldSafety": null,
+          "shieldRaw": null
+        },
+        {
+          "hitbox": "hit1",
+          "shieldSafety": null,
+          "shieldRaw": null
+        },
+        {
+          "hitbox": "hit1",
+          "shieldSafety": null,
+          "shieldRaw": null
+        },
+        {
+          "hitbox": "hit2",
+          "shieldSafety": null,
+          "shieldRaw": null
+        },
+        {
+          "hitbox": "hit2",
+          "shieldSafety": null,
+          "shieldRaw": null
+        },
+        {
+          "hitbox": "hit2",
+          "shieldSafety": null,
+          "shieldRaw": null
+        },
+        {
+          "hitbox": "hit2",
+          "shieldSafety": null,
+          "shieldRaw": null
+        }
+      ]
+    },
+    {
+      "move": "Dashattack",
+      "type": 2,
+      "isUpSpecial": false,
+      "startup": 9,
+      "hitboxes": [
+        {
+          "hitbox": "id0",
+          "shieldSafety": null,
+          "shieldRaw": null
+        },
+        {
+          "hitbox": "id1",
+          "shieldSafety": null,
+          "shieldRaw": null
+        },
+        {
+          "hitbox": "id0",
+          "shieldSafety": null,
+          "shieldRaw": null
+        },
+        {
+          "hitbox": "id1",
+          "shieldSafety": null,
+          "shieldRaw": null
+        }
+      ]
+    },
+    {
+      "move": "Forward Tilt",
+      "type": 1,
+      "isUpSpecial": false,
+      "startup": 8,
+      "hitboxes": [
+        {
+          "hitbox": "id0",
+          "shieldSafety": null,
+          "shieldRaw": null
+        },
+        {
+          "hitbox": "id1",
+          "shieldSafety": null,
+          "shieldRaw": null
+        },
+        {
+          "hitbox": "id2",
+          "shieldSafety": null,
+          "shieldRaw": null
+        },
+        {
+          "hitbox": "id3",
+          "shieldSafety": null,
+          "shieldRaw": null
+        }
+      ]
+    },
+    {
+      "move": "Up Tilt",
+      "type": 1,
+      "isUpSpecial": false,
+      "startup": 6,
+      "hitboxes": [
+        {
+          "hitbox": "id0",
+          "shieldSafety": null,
+          "shieldRaw": null
+        },
+        {
+          "hitbox": "id1",
+          "shieldSafety": null,
+          "shieldRaw": null
+        },
+        {
+          "hitbox": "id2",
+          "shieldSafety": null,
+          "shieldRaw": null
+        }
+      ]
+    },
+    {
+      "move": "Down Tilt",
+      "type": 1,
+      "isUpSpecial": false,
+      "startup": 6,
+      "hitboxes": [
+        {
+          "hitbox": "id0",
+          "shieldSafety": null,
+          "shieldRaw": null
+        },
+        {
+          "hitbox": "id1",
+          "shieldSafety": null,
+          "shieldRaw": null
+        },
+        {
+          "hitbox": "id2",
+          "shieldSafety": null,
+          "shieldRaw": null
+        }
+      ]
+    },
+    {
+      "move": "Forward Smash",
+      "type": 2,
+      "isUpSpecial": false,
+      "startup": 22,
+      "hitboxes": [
+        {
+          "hitbox": "id0",
+          "shieldSafety": null,
+          "shieldRaw": null
+        },
+        {
+          "hitbox": "id1",
+          "shieldSafety": null,
+          "shieldRaw": null
+        },
+        {
+          "hitbox": "id2",
+          "shieldSafety": null,
+          "shieldRaw": null
+        },
+        {
+          "hitbox": "id3",
+          "shieldSafety": null,
+          "shieldRaw": null
+        }
+      ]
+    },
+    {
+      "move": "Up Smash",
+      "type": 2,
+      "isUpSpecial": false,
+      "startup": 14,
+      "hitboxes": [
+        {
+          "hitbox": "id0",
+          "shieldSafety": null,
+          "shieldRaw": null
+        },
+        {
+          "hitbox": "id1",
+          "shieldSafety": null,
+          "shieldRaw": null
+        }
+      ]
+    },
+    {
+      "move": "Down Smash",
+      "type": 2,
+      "isUpSpecial": false,
+      "startup": 10,
+      "hitboxes": [
+        {
+          "hitbox": "id0",
+          "shieldSafety": null,
+          "shieldRaw": null
+        },
+        {
+          "hitbox": "id1",
+          "shieldSafety": null,
+          "shieldRaw": null
+        },
+        {
+          "hitbox": "id2",
+          "shieldSafety": null,
+          "shieldRaw": null
+        },
+        {
+          "hitbox": "id3",
+          "shieldSafety": null,
+          "shieldRaw": null
+        }
+      ]
+    },
+    {
+      "move": "Neutral Air",
+      "type": 3,
+      "isUpSpecial": false,
+      "startup": 10,
+      "hitboxes": [
+        {
+          "hitbox": "id0",
+          "shieldSafety": {
+            "min": -4,
+            "max": -4
+          },
+          "shieldRaw": "-4"
+        },
+        {
+          "hitbox": "id1",
+          "shieldSafety": {
+            "min": -4,
+            "max": -4
+          },
+          "shieldRaw": "-4"
+        },
+        {
+          "hitbox": "id2",
+          "shieldSafety": {
+            "min": -4,
+            "max": -4
+          },
+          "shieldRaw": "-4"
+        },
+        {
+          "hitbox": "id0",
+          "shieldSafety": {
+            "min": -5,
+            "max": -5
+          },
+          "shieldRaw": "-5"
+        },
+        {
+          "hitbox": "id1",
+          "shieldSafety": {
+            "min": -5,
+            "max": -5
+          },
+          "shieldRaw": "-5"
+        },
+        {
+          "hitbox": "id2",
+          "shieldSafety": {
+            "min": -5,
+            "max": -5
+          },
+          "shieldRaw": "-5"
+        }
+      ]
+    },
+    {
+      "move": "Forward Air",
+      "type": 3,
+      "isUpSpecial": false,
+      "startup": 25,
+      "hitboxes": [
+        {
+          "hitbox": "id0",
+          "shieldSafety": {
+            "min": -7,
+            "max": -7
+          },
+          "shieldRaw": "-7"
+        },
+        {
+          "hitbox": "id1",
+          "shieldSafety": {
+            "min": -7,
+            "max": -7
+          },
+          "shieldRaw": "-7"
+        },
+        {
+          "hitbox": "id2",
+          "shieldSafety": {
+            "min": -7,
+            "max": -7
+          },
+          "shieldRaw": "-7"
+        },
+        {
+          "hitbox": "id3",
+          "shieldSafety": {
+            "min": -7,
+            "max": -7
+          },
+          "shieldRaw": "-7"
+        },
+        {
+          "hitbox": "id0",
+          "shieldSafety": {
+            "min": -7,
+            "max": -7
+          },
+          "shieldRaw": "-7"
+        },
+        {
+          "hitbox": "id1",
+          "shieldSafety": {
+            "min": -7,
+            "max": -7
+          },
+          "shieldRaw": "-7"
+        },
+        {
+          "hitbox": "id2",
+          "shieldSafety": {
+            "min": -7,
+            "max": -7
+          },
+          "shieldRaw": "-7"
+        },
+        {
+          "hitbox": "id3",
+          "shieldSafety": {
+            "min": -7,
+            "max": -7
+          },
+          "shieldRaw": "-7"
+        }
+      ]
+    },
+    {
+      "move": "Up Air",
+      "type": 3,
+      "isUpSpecial": false,
+      "startup": 6,
+      "hitboxes": [
+        {
+          "hitbox": "id0",
+          "shieldSafety": {
+            "min": -5,
+            "max": -5
+          },
+          "shieldRaw": "-5"
+        }
+      ]
+    },
+    {
+      "move": "Jab 1",
+      "type": 2,
+      "isUpSpecial": false,
+      "startup": 5,
+      "hitboxes": [
+        {
+          "hitbox": "id0",
+          "shieldSafety": null,
+          "shieldRaw": null
+        },
+        {
+          "hitbox": "id1",
+          "shieldSafety": null,
+          "shieldRaw": null
+        },
+        {
+          "hitbox": "id2",
+          "shieldSafety": null,
+          "shieldRaw": null
+        }
+      ]
+    },
+    {
+      "move": "Jab 2",
+      "type": 2,
+      "isUpSpecial": false,
+      "startup": 4,
+      "hitboxes": [
+        {
+          "hitbox": "id0",
+          "shieldSafety": null,
+          "shieldRaw": null
+        },
+        {
+          "hitbox": "id1",
+          "shieldSafety": null,
+          "shieldRaw": null
+        },
+        {
+          "hitbox": "id2",
+          "shieldSafety": null,
+          "shieldRaw": null
+        }
+      ]
+    },
+    {
+      "move": "Headbutt (Air)",
+      "type": 4,
+      "isUpSpecial": false,
+      "startup": 20,
+      "hitboxes": [
+        {
+          "hitbox": "air",
+          "shieldSafety": null,
+          "shieldRaw": null
+        },
+        {
+          "hitbox": "air",
+          "shieldSafety": null,
+          "shieldRaw": null
+        }
+      ]
+    },
+    {
+      "move": "Spinning Kong (Air)",
+      "type": 4,
+      "isUpSpecial": true,
+      "startup": 2,
+      "hitboxes": [
+        {
+          "hitbox": "air_hit1",
+          "shieldSafety": null,
+          "shieldRaw": null
+        },
+        {
+          "hitbox": "air_hit1",
+          "shieldSafety": null,
+          "shieldRaw": null
+        },
+        {
+          "hitbox": "air_hits2_5",
+          "shieldSafety": null,
+          "shieldRaw": null
+        },
+        {
+          "hitbox": "air_hits2_5",
+          "shieldSafety": null,
+          "shieldRaw": null
+        },
+        {
+          "hitbox": "air_hits2_5",
+          "shieldSafety": null,
+          "shieldRaw": null
+        },
+        {
+          "hitbox": "air_hits6_8",
+          "shieldSafety": null,
+          "shieldRaw": null
+        },
+        {
+          "hitbox": "air_hits6_8",
+          "shieldSafety": null,
+          "shieldRaw": null
+        },
+        {
+          "hitbox": "air_hits6_8",
+          "shieldSafety": null,
+          "shieldRaw": null
+        }
+      ]
+    },
+    {
+      "move": "Giant Punch (Air)",
+      "type": 4,
+      "isUpSpecial": false,
+      "startup": 17,
+      "hitboxes": [
+        {
+          "hitbox": "air_uncharged_early",
+          "shieldSafety": null,
+          "shieldRaw": null
+        },
+        {
+          "hitbox": "air_uncharged_early",
+          "shieldSafety": null,
+          "shieldRaw": null
+        },
+        {
+          "hitbox": "air_uncharged_late",
+          "shieldSafety": null,
+          "shieldRaw": null
+        },
+        {
+          "hitbox": "air_uncharged_late",
+          "shieldSafety": null,
+          "shieldRaw": null
+        },
+        {
+          "hitbox": "air_fullcharge_early",
+          "shieldSafety": null,
+          "shieldRaw": null
+        },
+        {
+          "hitbox": "air_fullcharge_early",
+          "shieldSafety": null,
+          "shieldRaw": null
+        },
+        {
+          "hitbox": "air_fullcharge_early",
+          "shieldSafety": null,
+          "shieldRaw": null
+        },
+        {
+          "hitbox": "air_fullcharge_late",
+          "shieldSafety": null,
+          "shieldRaw": null
+        },
+        {
+          "hitbox": "air_fullcharge_late",
+          "shieldSafety": null,
+          "shieldRaw": null
+        },
+        {
+          "hitbox": "air_fullcharge_late",
+          "shieldSafety": null,
+          "shieldRaw": null
+        }
+      ]
+    },
+    {
+      "move": "Grab",
+      "type": 6,
+      "isUpSpecial": false,
+      "startup": 8,
+      "hitboxes": [
+        {
+          "hitbox": "id0",
+          "shieldSafety": null,
+          "shieldRaw": null
+        },
+        {
+          "hitbox": "id1",
+          "shieldSafety": null,
+          "shieldRaw": null
+        }
+      ]
+    },
+    {
+      "move": "Dashgrab",
+      "type": 6,
+      "isUpSpecial": false,
+      "startup": 10,
+      "hitboxes": [
+        {
+          "hitbox": "id0",
+          "shieldSafety": null,
+          "shieldRaw": null
+        },
+        {
+          "hitbox": "id1",
+          "shieldSafety": null,
+          "shieldRaw": null
+        },
+        {
+          "hitbox": "id2",
+          "shieldSafety": null,
+          "shieldRaw": null
+        }
+      ]
+    },
+    {
+      "move": "Forward Tilt (Up)",
+      "type": 1,
+      "isUpSpecial": false,
+      "startup": 8,
+      "hitboxes": [
+        {
+          "hitbox": "id0",
+          "shieldSafety": null,
+          "shieldRaw": null
+        },
+        {
+          "hitbox": "id1",
+          "shieldSafety": null,
+          "shieldRaw": null
+        },
+        {
+          "hitbox": "id2",
+          "shieldSafety": null,
+          "shieldRaw": null
+        },
+        {
+          "hitbox": "id3",
+          "shieldSafety": null,
+          "shieldRaw": null
+        }
+      ]
+    },
+    {
+      "move": "Forward Tilt (Down)",
+      "type": 1,
+      "isUpSpecial": false,
+      "startup": 8,
+      "hitboxes": [
+        {
+          "hitbox": "id0",
+          "shieldSafety": null,
+          "shieldRaw": null
+        },
+        {
+          "hitbox": "id1",
+          "shieldSafety": null,
+          "shieldRaw": null
+        },
+        {
+          "hitbox": "id2",
+          "shieldSafety": null,
+          "shieldRaw": null
+        },
+        {
+          "hitbox": "id3",
+          "shieldSafety": null,
+          "shieldRaw": null
+        }
+      ]
+    },
+    {
+      "move": "Getup-Attack (Stomach)",
+      "type": 7,
+      "isUpSpecial": false,
+      "startup": null,
+      "hitboxes": [
+        {
+          "hitbox": "back_hit1",
+          "shieldSafety": null,
+          "shieldRaw": null
+        },
+        {
+          "hitbox": "back_hit1",
+          "shieldSafety": null,
+          "shieldRaw": null
+        },
+        {
+          "hitbox": "back_hit1",
+          "shieldSafety": null,
+          "shieldRaw": null
+        },
+        {
+          "hitbox": "back_hit1",
+          "shieldSafety": null,
+          "shieldRaw": null
+        },
+        {
+          "hitbox": "back_hit2",
+          "shieldSafety": null,
+          "shieldRaw": null
+        },
+        {
+          "hitbox": "back_hit2",
+          "shieldSafety": null,
+          "shieldRaw": null
+        },
+        {
+          "hitbox": "back_hit2",
+          "shieldSafety": null,
+          "shieldRaw": null
+        },
+        {
+          "hitbox": "back_hit2",
+          "shieldSafety": null,
+          "shieldRaw": null
+        },
+        {
+          "hitbox": "front_hit1",
+          "shieldSafety": null,
+          "shieldRaw": null
+        },
+        {
+          "hitbox": "front_hit1",
+          "shieldSafety": null,
+          "shieldRaw": null
+        },
+        {
+          "hitbox": "front_hit1",
+          "shieldSafety": null,
+          "shieldRaw": null
+        },
+        {
+          "hitbox": "front_hit2",
+          "shieldSafety": null,
+          "shieldRaw": null
+        },
+        {
+          "hitbox": "front_hit2",
+          "shieldSafety": null,
+          "shieldRaw": null
+        },
+        {
+          "hitbox": "front_hit2",
+          "shieldSafety": null,
+          "shieldRaw": null
+        }
+      ]
+    },
+    {
+      "move": "Hand Slap (Air)",
+      "type": 4,
+      "isUpSpecial": false,
+      "startup": 19,
+      "hitboxes": [
+        {
+          "hitbox": "hit1",
+          "shieldSafety": null,
+          "shieldRaw": null
+        },
+        {
+          "hitbox": "hit1",
+          "shieldSafety": null,
+          "shieldRaw": null
+        },
+        {
+          "hitbox": "hit1",
+          "shieldSafety": null,
+          "shieldRaw": null
+        },
+        {
+          "hitbox": "hit1",
+          "shieldSafety": null,
+          "shieldRaw": null
+        },
+        {
+          "hitbox": "hit2",
+          "shieldSafety": null,
+          "shieldRaw": null
+        },
+        {
+          "hitbox": "hit2",
+          "shieldSafety": null,
+          "shieldRaw": null
+        },
+        {
+          "hitbox": "hit2",
+          "shieldSafety": null,
+          "shieldRaw": null
+        },
+        {
+          "hitbox": "hit2",
+          "shieldSafety": null,
+          "shieldRaw": null
+        }
+      ]
+    }
+  ]
+}

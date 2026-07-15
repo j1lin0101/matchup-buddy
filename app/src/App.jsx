@@ -4,7 +4,7 @@ import CharacterSelect from './components/CharacterSelect'
 import MatchupView from './components/MatchupView'
 import GameSelect from './components/GameSelect'
 import SsbuMatchupStub from './components/SsbuMatchupStub'
-import GameComingSoon from './components/GameComingSoon'
+import MeleeMatchupView from './components/MeleeMatchupView'
 import UpdateToast from './components/UpdateToast'
 import './index.css'
 
@@ -41,12 +41,21 @@ const GAME_META = {
     label: 'Rivals of Aether 2',
     tagline: 'Shield safety & punish analysis',
     wikiUrl: 'https://dragdown.wiki/wiki/RoA2',
+    sourceName: 'dragdown.wiki',
     demoVideoId: 'W2QBwcA57y0',
   },
   ssbu: {
     label: 'Super Smash Bros. Ultimate',
     tagline: 'Shield safety & punish analysis',
     wikiUrl: 'https://dragdown.wiki/wiki/SSBU',
+    sourceName: 'dragdown.wiki',
+    demoVideoId: null,
+  },
+  ssbm: {
+    label: 'Super Smash Bros. Melee',
+    tagline: 'Shield safety & punish analysis',
+    wikiUrl: 'https://www.fightcore.gg',
+    sourceName: 'FightCore',
     demoVideoId: null,
   },
 }
@@ -174,7 +183,7 @@ function SelectPage({ game }) {
           All frame data and definitions sourced from{' '}
           <a href={meta.wikiUrl} target="_blank" rel="noopener noreferrer"
             style={{ color: 'var(--accent)', textDecoration: 'none' }}>
-            dragdown.wiki
+            {meta.sourceName}
           </a>.
         </span>
         <span>
@@ -247,6 +256,23 @@ function SsbuMatchupPage() {
   )
 }
 
+function MeleeMatchupPage() {
+  const { char1, char2 } = useParams()
+  const navigate = useNavigate()
+  const { loading, valid, myChar, oppChar } = useMatchupSlugs('ssbm', char1, char2)
+
+  if (loading) return null
+  if (!valid) return <UnknownCharacters game="ssbm" />
+
+  return (
+    <MeleeMatchupView
+      myChar={myChar}
+      oppChar={oppChar}
+      onBack={() => navigate('/ssbm')}
+    />
+  )
+}
+
 // Old bare /:char1/:char2 links (shared before SSBU support existed) still
 // point at Rivals matchups — keep them working via a redirect rather than
 // breaking already-shared/bookmarked URLs.
@@ -264,7 +290,8 @@ export default function App() {
         <Route path="/roa2/:char1/:char2" element={<MatchupPage />} />
         <Route path="/ssbu" element={<SelectPage game="ssbu" />} />
         <Route path="/ssbu/:char1/:char2" element={<SsbuMatchupPage />} />
-        <Route path="/ssbm/*" element={<GameComingSoon label="Super Smash Bros. Melee" />} />
+        <Route path="/ssbm" element={<SelectPage game="ssbm" />} />
+        <Route path="/ssbm/:char1/:char2" element={<MeleeMatchupPage />} />
         <Route path="/:char1/:char2" element={<LegacyMatchupRedirect />} />
         <Route path="*" element={<GameSelect />} />
       </Routes>
