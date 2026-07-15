@@ -15,12 +15,18 @@
  * reliable categorization — no messy Wikitext parsing needed this time.
  *
  * Shield safety formula: FightCore gives raw shieldstun per hitbox but not a final
- * frame-advantage number, so we compute it ourselves — using the exact same formula
- * already proven correct for Rivals of Aether 2 in scripts/cargo-scrape.js, since
- * Rivals' own shield mechanics were explicitly modeled after Melee's:
- *   Grounded: advantage = shieldstun - 1 - (iasa - hit.end - 1)
- *   Aerial:   advantage = shieldstun - 1 - lCanceledLandLag  (assumes proper L-cancel)
- * The "-1" is the same "shared frame" constant cargo-scrape.js uses for Rivals.
+ * frame-advantage number, so we compute it ourselves. Verified exactly against a
+ * community-maintained reference spreadsheet (docs.google.com/spreadsheets/d/
+ * 1KwdYkNVcJbJxV_Ijqi-jyrWjGcJH4lR2e2lfrDuDC0g), whose "What is this?" tab documents
+ * Melee's real on-shield formula:
+ *   Grounded: On Block = Shieldstun - Active - Recovery + 1
+ *   Aerial:   On Block = Shieldstun - Landlag  (assumes proper L-cancel, no extra "-1")
+ * Mapped onto FightCore's fields: Active = hit.end - hit.start + 1, Recovery =
+ * (iasa ?? totalFrames) - hit.end. An earlier version of this script used a formula
+ * borrowed from Rivals' scripts/cargo-scrape.js (iasa - hit.end - 1 as endlag, plus
+ * an extra "-1" for aerials) — that formula does not match Melee's actual mechanics
+ * and produced systematically wrong (too-safe) numbers; confirmed by comparing
+ * generated Fox/Falco data against the spreadsheet above.
  *
  * Icon naming on ssbwiki.com is `{Name}Head{Game}.png` with spaces and periods
  * stripped but "&" kept literal (e.g. "CaptainFalconHeadSSBM.png",
@@ -166,31 +172,39 @@ function isUpSpecialMove(moveName, flavorName) {
   return moveName === flavorName || moveName.startsWith(flavorName);
 }
 
-function calcShieldAdvantage(shieldstun, endlag) {
-  if (shieldstun == null || endlag == null) return null;
-  return shieldstun - 1 - endlag;
+function calcGroundedShieldAdvantage(shieldstun, active, recovery) {
+  if (shieldstun == null || active == null || recovery == null) return null;
+  return shieldstun - active - recovery + 1;
+}
+
+function calcAerialShieldAdvantage(shieldstun, landlag) {
+  if (shieldstun == null || landlag == null) return null;
+  return shieldstun - landlag;
 }
 
 // Builds this move's shield-relevant hitbox list. Aerials (type 3) use the
-// move's L-cancelled landing lag as endlag for every hit; everything else uses
-// each hit's own end frame against the move's overall iasa. Some grounded
-// moves (e.g. Fox's Forward Tilt, Forward Smash, Up Smash) have no iasa field
-// at all in FightCore's data — meaning there's no early interrupt point, so
-// the character is locked in for the move's full length. Falling back to
-// totalFrames instead of leaving endlag null keeps these moves from silently
-// vanishing from every shield-safety list.
+// move's L-cancelled landing lag directly. Grounded moves derive Active (this
+// hit's own active-frame duration) and Recovery (frames from the end of that
+// active window to the move's true end) from FightCore's fields. `totalFrames`
+// is used as a fallback "true end" when `iasa` is absent (e.g. Fox's Forward
+// Tilt/Forward Smash/Up Smash have no iasa field), except when it's the `0`
+// sentinel FightCore uses for looping/held moves with no fixed length (e.g.
+// Falco's Rapid Jabs) — treating that `0` as a real end frame produces
+// nonsensical negative recovery, so those moves correctly get no shield safety
+// (excluded from lists) rather than a fabricated number.
 function buildHitboxes(move) {
   const isAerial = move.type === 3;
   const hitboxes = [];
-  const iasa = move.iasa ?? move.totalFrames ?? null;
+  const totalEnd = move.iasa ?? (move.totalFrames > 0 ? move.totalFrames : null);
 
   (move.hits || []).forEach(hit => {
-    const endlag = isAerial
-      ? (move.lCanceledLandLag != null ? move.lCanceledLandLag : null)
-      : (iasa != null && hit.end != null ? iasa - hit.end - 1 : null);
+    const active = (hit.start != null && hit.end != null) ? hit.end - hit.start + 1 : null;
+    const recovery = (totalEnd != null && hit.end != null) ? totalEnd - hit.end : null;
 
     (hit.hitboxes || []).forEach(hb => {
-      const advantage = calcShieldAdvantage(hb.shieldstun, endlag);
+      const advantage = isAerial
+        ? calcAerialShieldAdvantage(hb.shieldstun, move.lCanceledLandLag)
+        : calcGroundedShieldAdvantage(hb.shieldstun, active, recovery);
       hitboxes.push({
         hitbox: hit.name || hb.name || null,
         shieldSafety: advantage != null ? { min: advantage, max: advantage } : null,

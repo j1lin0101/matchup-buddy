@@ -24,13 +24,16 @@
  *                     → SHIELD_RELEASE_FRAMES (15) + startup
  *
  * Categorization uses FightCore's numeric move `type` field (1=Tilts, 2=Jab/Dash
- * Attack/Smash, 3=Aerials, 4=Specials, 5=Dodges, 6=Grab/Throw/Pummel, 7=Tech/Getup,
- * 8=Ledge attack) rather than name matching — reliable across the whole cast,
- * unlike SSBU's naming inconsistencies. Types 5/7/8 are always excluded from
- * shield-safety analysis (dodges, tech/getup, ledge attacks don't interact with
- * shield pressure); type 6 is excluded except for the two universal OOS options
- * it contains (Grab, Dashgrab) — throws/pummel aren't meaningful here since they
- * only happen after a grab already connected.
+ * Attack/Smash, 3=Aerials, 4=Specials, 5=Dodges, 6=Grab/Throw/Pummel, 7=Getup
+ * Attack, 8=Ledge Attack) rather than name matching — reliable across the whole
+ * cast, unlike SSBU's naming inconsistencies. Type 5 (dodges) is always excluded;
+ * type 6 is excluded except for the two universal OOS options it contains (Grab,
+ * Dashgrab) — throws/pummel aren't meaningful here since they only happen after a
+ * grab already connected. Types 7/8 (Getup/Ledge Attack) appear in shield-safety
+ * and punish-breakdown views (the sheet used to verify the shield formula tracks
+ * these too) but are excluded from OOS options specifically — you can't be
+ * shielding and also throwing a getup/ledge attack, so isExcludedMove and
+ * isExcludedFromOOS diverge here.
  */
 
 const SHIELD_RELEASE_FRAMES = 15;
@@ -38,7 +41,7 @@ const GRAB_OOS_DELAY = 0;
 const JUMP_CANCEL_SHARED_FRAME = 1;
 const SAFE_THRESHOLD = -3;
 
-const CATEGORY_ORDER = ['Normals', 'Smashes', 'Aerials', 'Specials'];
+const CATEGORY_ORDER = ['Normals', 'Smashes', 'Aerials', 'Specials', 'Getup/Ledge'];
 
 // Per-character specials that are jump-cancelable OOS the same way aerials are
 // (jumpSquat + startup, not the Up Smash/Up Special "+1" shortcut) — most
@@ -60,9 +63,17 @@ function isUpSmash(moveName) {
 }
 
 function isExcludedMove(move) {
-  if (move.type === 5 || move.type === 7 || move.type === 8) return true;
+  if (move.type === 5) return true;
   if (move.type === 6) return !isGrabMove(move.move);
   return false;
+}
+
+// OOS options can never include a Getup Attack or Ledge Attack (type 7/8) —
+// those only happen when getting up from the ground or the ledge, never from
+// shield — on top of everything isExcludedMove already excludes.
+function isExcludedFromOOS(move) {
+  if (move.type === 7 || move.type === 8) return true;
+  return isExcludedMove(move);
 }
 
 // FightCore names many hitboxes that are simultaneously active on the same
@@ -161,6 +172,7 @@ function dedupeGroundAirOOS(options) {
 function getCategory(move) {
   if (move.type === 3) return 'Aerials';
   if (move.type === 4) return 'Specials';
+  if (move.type === 7 || move.type === 8) return 'Getup/Ledge';
   if (move.type === 2 && /smash/i.test(move.move)) return 'Smashes';
   return 'Normals'; // type 1 (tilts) and type 2 non-smashes (jab, dash attack)
 }
@@ -262,7 +274,7 @@ function getOOSOptions(characterData) {
   const moveOptions = [];
 
   characterData.moves.forEach(function(move) {
-    if (isExcludedMove(move)) return;
+    if (isExcludedFromOOS(move)) return;
     if (move.startup === null || move.startup === undefined) return;
 
     const oosDelay   = getOOSDelay(move, characterData);
@@ -397,6 +409,7 @@ export {
   getCategory,
   isGrabMove,
   isExcludedMove,
+  isExcludedFromOOS,
   getOOSDelay,
   isJumpCancelOOS,
   getAllShieldSafeties,
