@@ -65,6 +65,67 @@ function isExcludedMove(move) {
   return false;
 }
 
+// FightCore names many hitboxes that are simultaneously active on the same
+// swing (e.g. multiple collision volumes covering different parts of a limb)
+// "id0"/"id1"/"id2" with no real distinction between them — as opposed to
+// genuinely different hits like "clean"/"late" or "sourspot"/"sweetspot",
+// where the label itself carries meaning worth keeping separate.
+function isGenericHitboxName(name) {
+  return !name || /^id\d+$/i.test(String(name).trim());
+}
+
+// Collapses hitbox rows that are indistinguishable duplicates: same move, a
+// generic (uninformative) hitbox label, and identical shield safety. Named
+// variants are always kept separate, and hitboxes with different shield
+// safety are kept separate even if generically named (e.g. Fox's Down Smash
+// sweetspot/sourspot legs use "id0"-"id3" but have genuinely different values).
+function dedupeGenericHitboxes(rows) {
+  const seen = new Set();
+  const results = [];
+  rows.forEach(function(row) {
+    if (isGenericHitboxName(row.hitbox) && row.shieldSafety) {
+      const key = row.move + '|' + row.shieldSafety.min + '|' + row.shieldSafety.max;
+      if (seen.has(key)) return;
+      seen.add(key);
+      results.push(Object.assign({}, row, { hitbox: null }));
+      return;
+    }
+    results.push(row);
+  });
+  return results;
+}
+
+// Collapses OOS options that are the same special cast from the ground vs.
+// in the air (e.g. "Reflector" / "Reflector (Air)", "Dolphin Slash" / "Dolphin
+// Slash (Air)") when they resolve to the same OOS timing — showing both is
+// redundant since it's the same punish tool. Kept separate if the ground and
+// air versions genuinely differ in OOS speed.
+function dedupeGroundAirOOS(options) {
+  const groups = new Map();
+  options.forEach(function(opt) {
+    const base = opt.move.replace(/\s*\(Air\)$/i, '').trim();
+    if (!groups.has(base)) groups.set(base, []);
+    groups.get(base).push(opt);
+  });
+
+  const results = [];
+  groups.forEach(function(group, base) {
+    if (group.length === 1) {
+      results.push(group[0]);
+      return;
+    }
+    const byStartup = new Map();
+    group.forEach(function(opt) {
+      if (!byStartup.has(opt.oosStartup)) byStartup.set(opt.oosStartup, []);
+      byStartup.get(opt.oosStartup).push(opt);
+    });
+    byStartup.forEach(function(variants) {
+      results.push(variants.find(function(v) { return v.move === base; }) || variants[0]);
+    });
+  });
+  return results;
+}
+
 /**
  * Categorizes a move into one of: Normals, Smashes, Aerials, Specials, based on
  * FightCore's numeric type field (type 2 bundles Jab/Dash Attack in with Smashes,
@@ -114,8 +175,9 @@ function getAllShieldSafeties(characterData) {
       });
     });
   });
-  results.sort(function(a, b) { return b.shieldSafety.max - a.shieldSafety.max; });
-  return results;
+  const deduped = dedupeGenericHitboxes(results);
+  deduped.sort(function(a, b) { return b.shieldSafety.max - a.shieldSafety.max; });
+  return deduped;
 }
 
 /**
@@ -159,7 +221,7 @@ function getSafestOptions(characterData, defenderOOSOptions) {
  * present in the move data.
  */
 function getOOSOptions(characterData) {
-  const options = [];
+  const moveOptions = [];
 
   characterData.moves.forEach(function(move) {
     if (isExcludedMove(move)) return;
@@ -176,7 +238,7 @@ function getOOSOptions(characterData) {
       }
     });
 
-    options.push({
+    moveOptions.push({
       move:         move.move,
       label:        move.move,
       startup:      move.startup,
@@ -185,6 +247,8 @@ function getOOSOptions(characterData) {
       shieldSafety: bestShieldSafety,
     });
   });
+
+  const options = dedupeGroundAirOOS(moveOptions);
 
   if (!options.some(function(o) { return isGrabMove(o.move); })) {
     options.push({
@@ -263,7 +327,8 @@ function analyzeMatchup(attackerData, defenderData) {
     });
   });
 
-  results.sort(function(a, b) {
+  const deduped = dedupeGenericHitboxes(results);
+  deduped.sort(function(a, b) {
     if (a.punishCount !== b.punishCount) return a.punishCount - b.punishCount;
     return b.shieldSafety.max - a.shieldSafety.max;
   });
@@ -273,7 +338,7 @@ function analyzeMatchup(attackerData, defenderData) {
     defender:      defenderData.character,
     shieldRelease: SHIELD_RELEASE_FRAMES,
     safeThreshold: SAFE_THRESHOLD,
-    breakdown:     results,
+    breakdown:     deduped,
   };
 }
 
