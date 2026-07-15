@@ -173,15 +173,21 @@ function calcShieldAdvantage(shieldstun, endlag) {
 
 // Builds this move's shield-relevant hitbox list. Aerials (type 3) use the
 // move's L-cancelled landing lag as endlag for every hit; everything else uses
-// each hit's own end frame against the move's overall iasa.
+// each hit's own end frame against the move's overall iasa. Some grounded
+// moves (e.g. Fox's Forward Tilt, Forward Smash, Up Smash) have no iasa field
+// at all in FightCore's data — meaning there's no early interrupt point, so
+// the character is locked in for the move's full length. Falling back to
+// totalFrames instead of leaving endlag null keeps these moves from silently
+// vanishing from every shield-safety list.
 function buildHitboxes(move) {
   const isAerial = move.type === 3;
   const hitboxes = [];
+  const iasa = move.iasa ?? move.totalFrames ?? null;
 
   (move.hits || []).forEach(hit => {
     const endlag = isAerial
       ? (move.lCanceledLandLag != null ? move.lCanceledLandLag : null)
-      : (move.iasa != null && hit.end != null ? move.iasa - hit.end - 1 : null);
+      : (iasa != null && hit.end != null ? iasa - hit.end - 1 : null);
 
     (hit.hitboxes || []).forEach(hb => {
       const advantage = calcShieldAdvantage(hb.shieldstun, endlag);
@@ -195,11 +201,19 @@ function buildHitboxes(move) {
   return hitboxes;
 }
 
+// FightCore's move names are mostly clean, but a few are missing a space
+// that every other move name has ("Dashattack" vs. every other move being
+// two words, e.g. "Forward Tilt").
+function cleanMoveName(name) {
+  if (name === 'Dashattack') return 'Dash Attack';
+  return name;
+}
+
 function buildCharacterMoves(moves, upSpecialFlavorName) {
   return (moves || [])
     .filter(m => m.hits && m.hits.length > 0) // skip placeholder/unused move slots
     .map(m => ({
-      move: m.name,
+      move: cleanMoveName(m.name),
       type: m.type,
       isUpSpecial: isUpSpecialMove(m.name, upSpecialFlavorName),
       startup: m.start ?? null,
