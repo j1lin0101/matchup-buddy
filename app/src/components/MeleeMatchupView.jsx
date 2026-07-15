@@ -168,6 +168,9 @@ function OOSList({ charData }) {
       {options.map((o, i) => (
         <div key={i} style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '0.82rem', padding: '10px 16px', borderBottom: '1px solid var(--border)' }}>
           <span style={{ fontWeight: 600, flexShrink: 0 }}>{o.label}</span>
+          {o.jumpCancel && (
+            <span style={{ color: 'var(--accent2)', fontSize: '0.7rem', fontWeight: 600, flexShrink: 0 }}>JC</span>
+          )}
           <span style={{ flex: 1 }} />
           <FrameBadge frames={o.oosStartup} />
         </div>

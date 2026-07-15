@@ -182,6 +182,17 @@ function getOOSDelay(move, characterData) {
   return SHIELD_RELEASE_FRAMES;
 }
 
+// True for any OOS option that requires jump-cancelling — aerials (must fully
+// leave the ground), Up Smash/Up Special (skip jumpsquat via JC), and per-
+// character JUMP_CANCEL_SPECIALS (e.g. Shine). Mirrors analysis.js's own
+// jump-cancel detection for Rivals (same underlying Melee-derived mechanic).
+function isJumpCancelOOS(move, characterData) {
+  if (isGrabMove(move.move)) return false;
+  if (isUpSmash(move.move) || move.isUpSpecial) return true;
+  const jumpCancelSpecials = JUMP_CANCEL_SPECIALS[characterData.character] || [];
+  return move.type === 3 || jumpCancelSpecials.some(s => move.move.startsWith(s));
+}
+
 /**
  * Returns all moves with their best (least negative / most positive) shield safety,
  * sorted from safest to most punishable.
@@ -256,6 +267,12 @@ function getOOSOptions(characterData) {
 
     const oosDelay   = getOOSDelay(move, characterData);
     const oosStartup = move.startup + oosDelay;
+    const isAerial   = move.type === 3;
+    const jc         = isJumpCancelOOS(move, characterData);
+    // Aerials always require jumping first, so a "JC" prefix on the label is
+    // redundant there — reserved for grounded options genuinely being
+    // jump-cancelled (Up Smash, Up Special, Shine-style specials).
+    const label      = (jc && !isAerial) ? 'JC ' + move.move : move.move;
 
     let bestShieldSafety = null;
     move.hitboxes.forEach(function(h) {
@@ -267,10 +284,11 @@ function getOOSOptions(characterData) {
 
     moveOptions.push({
       move:         move.move,
-      label:        move.move,
+      label,
       startup:      move.startup,
       oosDelay,
       oosStartup,
+      jumpCancel:   jc,
       shieldSafety: bestShieldSafety,
     });
   });
@@ -284,6 +302,7 @@ function getOOSOptions(characterData) {
       startup:      7,
       oosDelay:     GRAB_OOS_DELAY,
       oosStartup:   7,
+      jumpCancel:   false,
       shieldSafety: null,
     });
   }
@@ -295,6 +314,7 @@ function getOOSOptions(characterData) {
       startup:      characterData.wavedashOOSFrames,
       oosDelay:     0,
       oosStartup:   characterData.wavedashOOSFrames,
+      jumpCancel:   false,
       shieldSafety: null,
     });
   }
@@ -378,6 +398,7 @@ export {
   isGrabMove,
   isExcludedMove,
   getOOSDelay,
+  isJumpCancelOOS,
   getAllShieldSafeties,
   getSafestOptions,
   getOOSOptions,
