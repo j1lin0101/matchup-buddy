@@ -74,23 +74,50 @@ function isGenericHitboxName(name) {
   return !name || /^id\d+$/i.test(String(name).trim());
 }
 
-// Collapses hitbox rows that are indistinguishable duplicates: same move, a
-// generic (uninformative) hitbox label, and identical shield safety. Named
-// variants are always kept separate, and hitboxes with different shield
-// safety are kept separate even if generically named (e.g. Fox's Down Smash
-// sweetspot/sourspot legs use "id0"-"id3" but have genuinely different values).
-function dedupeGenericHitboxes(rows) {
-  const seen = new Set();
-  const results = [];
+// Hitbox labels in FightCore's data are inconsistent in a way that needs two
+// passes to clean up:
+//   1. Exact duplicates — same move, same label (generic or named), same
+//      shield safety — are pure noise (e.g. Fox's Back Air "late" hit has 3
+//      identically-valued sub-hitboxes) and collapse to one row.
+//   2. Sometimes what's left still has 2+ rows sharing one move+label with
+//      DIFFERENT values — either because the label was generic to begin with
+//      (Fox's Neutral Air has two hit-windows, both anonymously "id0"-"id2",
+//      with different values: -1 vs -2) or because a named hit-window itself
+//      contains an unlabeled sub-variant (Fox's Back Air "clean" hit has one
+//      sub-hitbox at -3 and another at -5, with no further distinguishing
+//      name in the source data). Rather than show two identical-looking rows
+//      with no explanation, these get numbered by safety order.
+function dedupeAndLabelHitboxes(rows) {
+  const exactSeen = new Set();
+  const deduped = [];
   rows.forEach(function(row) {
-    if (isGenericHitboxName(row.hitbox) && row.shieldSafety) {
-      const key = row.move + '|' + row.shieldSafety.min + '|' + row.shieldSafety.max;
-      if (seen.has(key)) return;
-      seen.add(key);
-      results.push(Object.assign({}, row, { hitbox: null }));
-      return;
-    }
-    results.push(row);
+    const label = isGenericHitboxName(row.hitbox) ? null : row.hitbox;
+    if (!row.shieldSafety) { deduped.push(Object.assign({}, row, { hitbox: label })); return; }
+    const key = row.move + '|' + (label || '') + '|' + row.shieldSafety.min + '|' + row.shieldSafety.max;
+    if (exactSeen.has(key)) return;
+    exactSeen.add(key);
+    deduped.push(Object.assign({}, row, { hitbox: label }));
+  });
+
+  const groups = new Map();
+  deduped.forEach(function(row) {
+    const key = row.move + '|' + (row.hitbox || '');
+    if (!groups.has(key)) groups.set(key, []);
+    groups.get(key).push(row);
+  });
+
+  const results = [];
+  groups.forEach(function(group) {
+    if (group.length === 1) { results.push(group[0]); return; }
+    const sorted = [...group].sort(function(a, b) {
+      const av = a.shieldSafety ? a.shieldSafety.max : -Infinity;
+      const bv = b.shieldSafety ? b.shieldSafety.max : -Infinity;
+      return bv - av;
+    });
+    sorted.forEach(function(row, i) {
+      const label = row.hitbox ? `${row.hitbox} (${i + 1})` : `Hit ${i + 1}`;
+      results.push(Object.assign({}, row, { hitbox: label }));
+    });
   });
   return results;
 }
@@ -175,7 +202,7 @@ function getAllShieldSafeties(characterData) {
       });
     });
   });
-  const deduped = dedupeGenericHitboxes(results);
+  const deduped = dedupeAndLabelHitboxes(results);
   deduped.sort(function(a, b) { return b.shieldSafety.max - a.shieldSafety.max; });
   return deduped;
 }
@@ -327,7 +354,7 @@ function analyzeMatchup(attackerData, defenderData) {
     });
   });
 
-  const deduped = dedupeGenericHitboxes(results);
+  const deduped = dedupeAndLabelHitboxes(results);
   deduped.sort(function(a, b) {
     if (a.punishCount !== b.punishCount) return a.punishCount - b.punishCount;
     return b.shieldSafety.max - a.shieldSafety.max;
