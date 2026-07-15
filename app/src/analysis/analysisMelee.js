@@ -80,9 +80,12 @@ function isExcludedFromOOS(move) {
 // swing (e.g. multiple collision volumes covering different parts of a limb)
 // "id0"/"id1"/"id2" with no real distinction between them — as opposed to
 // genuinely different hits like "clean"/"late" or "sourspot"/"sweetspot",
-// where the label itself carries meaning worth keeping separate.
+// where the label itself carries meaning worth keeping separate. FightCore
+// also literally names some single-hitbox moves (e.g. Fox's Reflector)
+// "unknown" — that's a data gap, not a real label, so it's treated the same
+// as the generic "id0" case rather than shown to the user.
 function isGenericHitboxName(name) {
-  return !name || /^id\d+$/i.test(String(name).trim());
+  return !name || /^id\d+$/i.test(String(name).trim()) || String(name).trim().toLowerCase() === 'unknown';
 }
 
 // Hitbox labels in FightCore's data are inconsistent in a way that needs two
