@@ -374,7 +374,7 @@ const PROJECTILE_SPECIALS = {
   Ness:               ['Side Special'],
   'Ice Climbers':     ['Neutral Special'],
   Kirby:              ['Neutral Special'],
-  Samus:              ['Neutral Special', 'Side Special'],
+  Samus:              ['Neutral Special', 'Side Special', 'Down Special'],
   Zelda:              ['Side Special'],
   Sheik:              ['Neutral Special'],
   Link:               ['Neutral Special', 'Side Special', 'Down Special'],

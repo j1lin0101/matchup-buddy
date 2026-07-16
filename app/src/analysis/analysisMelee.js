@@ -43,7 +43,11 @@
  * "safe" classification); getAllShieldSafeties and analyzeMatchup do not —
  * they still sort/classify using the raw stun value, same as Rivals — the
  * only display difference is MeleeMatchupView.jsx showing a PROJ badge
- * instead of a computed advantage number.
+ * instead of a computed advantage number. dedupeProjectileValues additionally
+ * collapses same-move projectile hitboxes down to one row per distinct stun
+ * value (e.g. Link's Bow has several differently-labeled charge levels that
+ * happen to stun for the same number of frames) — the internal variant
+ * doesn't matter to shield safety if the outcome is identical.
  */
 
 const SHIELD_RELEASE_FRAMES = 15;
@@ -98,6 +102,34 @@ function isExcludedFromOOS(move) {
 // as the generic "id0" case rather than shown to the user.
 function isGenericHitboxName(name) {
   return !name || /^id\d+$/i.test(String(name).trim()) || String(name).trim().toLowerCase() === 'unknown';
+}
+
+// Projectile hitboxes are often labeled by internal variant (charge level,
+// throw direction, point-blank frame, etc.) rather than by outcome, so it's
+// common for two differently-labeled variants of the same move to produce
+// the exact same shield stun — e.g. Link's Bow "No Charge" and "Level 1
+// Charge" both stun for 4 frames, or his Boomerang's "Pointblank Frame1/2/3"
+// all stun for 9. The specific variant doesn't matter if the shield outcome
+// is identical, so this collapses same-move projectile hitboxes down to one
+// row per distinct stun value, keeping the first-seen label as
+// representative. Runs before dedupeAndLabelHitboxes so its label-based
+// grouping only has to consider what's left after this collapse.
+function dedupeProjectileValues(rows) {
+  const seen = new Map();
+  const order = [];
+  const passthrough = [];
+  rows.forEach(function(row) {
+    if (!row.shieldSafety || !row.shieldSafety.isProjectile) {
+      passthrough.push(row);
+      return;
+    }
+    const key = row.move + '|' + row.shieldSafety.min + '|' + row.shieldSafety.max;
+    if (!seen.has(key)) {
+      seen.set(key, row);
+      order.push(key);
+    }
+  });
+  return passthrough.concat(order.map(function(key) { return seen.get(key); }));
 }
 
 // Hitbox labels in FightCore's data are inconsistent in a way that needs two
@@ -272,7 +304,7 @@ function getAllShieldSafeties(characterData) {
       });
     });
   });
-  const deduped = dedupeGroundAirShieldSafety(dedupeAndLabelHitboxes(results));
+  const deduped = dedupeGroundAirShieldSafety(dedupeAndLabelHitboxes(dedupeProjectileValues(results)));
   deduped.sort(function(a, b) { return b.shieldSafety.max - a.shieldSafety.max; });
   return deduped;
 }
@@ -440,7 +472,7 @@ function analyzeMatchup(attackerData, defenderData) {
     });
   });
 
-  const deduped = dedupeGroundAirShieldSafety(dedupeAndLabelHitboxes(results));
+  const deduped = dedupeGroundAirShieldSafety(dedupeAndLabelHitboxes(dedupeProjectileValues(results)));
   deduped.sort(function(a, b) {
     if (a.punishCount !== b.punishCount) return a.punishCount - b.punishCount;
     return b.shieldSafety.max - a.shieldSafety.max;
