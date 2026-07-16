@@ -581,25 +581,16 @@ function AttackingView({ attackerData, defenderData, attackerName, attackerColor
   const [shieldMode, setShieldMode] = useState('normal')
 
   const shieldReleaseFrames = shieldMode === 'powershield' ? POWERSHIELD_RELEASE_FRAMES : SHIELD_RELEASE_FRAMES
+  // The defender's own OOS options don't depend on shield mode — only the
+  // attacker's on-shield number does (see analyzeMatchup).
   const defenderOOS = useMemo(
-    () => getOOSOptions(defenderData, shieldReleaseFrames),
-    [defenderData, shieldReleaseFrames]
+    () => getOOSOptions(defenderData),
+    [defenderData]
   )
   const matchup = useMemo(
     () => analyzeMatchup(attackerData, defenderData, shieldReleaseFrames),
     [attackerData, defenderData, shieldReleaseFrames]
   )
-
-  // Reset the OOS filter when shield mode changes — the option set (and its
-  // timing) is different between normal and powershield, so a previously
-  // selected option may no longer mean the same thing.
-  const prevShieldMode = useRef(shieldMode)
-  useEffect(() => {
-    if (prevShieldMode.current !== shieldMode) {
-      setOosFilter(new Set())
-      prevShieldMode.current = shieldMode
-    }
-  }, [shieldMode])
 
   const categoryTabs = ['All', ...CATEGORY_ORDER]
 

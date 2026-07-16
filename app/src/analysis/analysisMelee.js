@@ -21,11 +21,16 @@
  *                        genuinely different from how Ultimate/Rivals model jump-cancel,
  *                        confirmed empirically rather than assumed)
  *   Everything else (jab/tilt/dash attack/forward+down smash/other specials)
- *                     → shieldReleaseFrames + startup (15 normal shield, or
- *                       POWERSHIELD_RELEASE_FRAMES (1) if the defender
- *                       powershields — see getOOSDelay/getOOSOptions/
- *                       analyzeMatchup, all of which take this as an optional
- *                       parameter so the same analysis works for both modes)
+ *                     → SHIELD_RELEASE_FRAMES (15) + startup
+ *
+ * Powershield mode (analyzeMatchup's shieldReleaseFrames parameter) does NOT
+ * change this OOS timing — a character's own OOS options are a fixed
+ * property of their moveset, not of whether they're powershielding a
+ * specific incoming hit. Instead it adjusts the ATTACKER's on-shield number
+ * directly: powershielding removes the defender's 15-frame shield-drop delay
+ * and replaces it with 1, so every attacker hitbox's shieldSafety shifts by
+ * -(15 - 1) = -14, making moves read as less safe against a powershielding
+ * opponent. See analyzeMatchup for the exact mechanics.
  *
  * Categorization uses FightCore's numeric move `type` field (1=Tilts, 2=Jab/Dash
  * Attack/Smash, 3=Aerials, 4=Specials, 5=Dodges, 6=Grab/Throw/Pummel, 7=Getup
@@ -268,22 +273,22 @@ function getCategory(move) {
  *   Grab                          → 0 (shield-native, raw startup)
  *   Up Smash, Up Special          → 1 (jump-cancelled: skips jumpsquat in Melee)
  *   Aerials, JUMP_CANCEL_SPECIALS → characterData.jumpSquat
- *   Everything else               → shieldReleaseFrames (15 normal, 1 powershield)
+ *   Everything else               → SHIELD_RELEASE_FRAMES (15)
  *
- * shieldReleaseFrames defaults to the normal-shield value; pass
- * POWERSHIELD_RELEASE_FRAMES to compute powershield-mode OOS timing instead —
- * powershielding removes the standard shield-drop delay and replaces it with
- * a single frame. Jump-cancelled options (aerials, Up Smash/Special, Grab)
- * don't go through shield release at all, so they're unaffected either way.
+ * This is always the normal-shield value — a character's own OOS option
+ * timing (used for the "Fastest OOS Options" panel and the punish-options
+ * filter) doesn't depend on whether THEY are powershielding something; it's
+ * the attacker's on-shield number that changes when the defender
+ * powershields (see analyzeMatchup's shieldReleaseFrames parameter).
  */
-function getOOSDelay(move, characterData, shieldReleaseFrames = SHIELD_RELEASE_FRAMES) {
+function getOOSDelay(move, characterData) {
   if (isGrabMove(move.move)) return GRAB_OOS_DELAY;
   if (isUpSmash(move.move) || move.isUpSpecial) return JUMP_CANCEL_SHARED_FRAME;
   const jumpCancelSpecials = JUMP_CANCEL_SPECIALS[characterData.character] || [];
   if (move.type === 3 || jumpCancelSpecials.some(s => move.move.startsWith(s))) {
-    return characterData.jumpSquat ?? shieldReleaseFrames;
+    return characterData.jumpSquat ?? SHIELD_RELEASE_FRAMES;
   }
-  return shieldReleaseFrames;
+  return SHIELD_RELEASE_FRAMES;
 }
 
 // True for any OOS option that requires jump-cancelling — aerials (must fully
@@ -368,18 +373,15 @@ function getSafestOptions(characterData, defenderOOSOptions) {
  * Returns the character's OOS (out of shield) options, sorted by effective OOS
  * startup (delay + move startup). Grab and Wavedash are added if not already
  * present in the move data.
- *
- * shieldReleaseFrames defaults to normal shield; pass
- * POWERSHIELD_RELEASE_FRAMES for powershield-mode timing (see getOOSDelay).
  */
-function getOOSOptions(characterData, shieldReleaseFrames = SHIELD_RELEASE_FRAMES) {
+function getOOSOptions(characterData) {
   const moveOptions = [];
 
   characterData.moves.forEach(function(move) {
     if (isExcludedFromOOS(move)) return;
     if (move.startup === null || move.startup === undefined) return;
 
-    const oosDelay   = getOOSDelay(move, characterData, shieldReleaseFrames);
+    const oosDelay   = getOOSDelay(move, characterData);
     const oosStartup = move.startup + oosDelay;
     const isAerial   = move.type === 3;
     const jc         = isJumpCancelOOS(move, characterData);
@@ -459,11 +461,23 @@ function getDisplayOOSOptions(characterData) {
  *
  * shieldReleaseFrames defaults to normal shield; pass
  * POWERSHIELD_RELEASE_FRAMES to analyze the matchup assuming the defender
- * powershields (only affects the defender's OOS timing, not the attacker's
- * own on-shield numbers — see getOOSDelay).
+ * powershields. Powershielding removes the defender's normal 15-frame
+ * shield-drop delay and replaces it with 1 — modeled here as a flat
+ * (SHIELD_RELEASE_FRAMES - shieldReleaseFrames) subtraction applied directly
+ * to the attacker's on-shield number, so a move visibly reads as less safe
+ * against a powershielding opponent rather than leaving the number
+ * unchanged and only expanding the punish list. The defender's own OOS
+ * option timing (getOOSOptions) is unaffected either way — it's a property
+ * of their own moves, not of this specific interaction.
  */
 function analyzeMatchup(attackerData, defenderData, shieldReleaseFrames = SHIELD_RELEASE_FRAMES) {
-  const defenderOOSOptions = getOOSOptions(defenderData, shieldReleaseFrames);
+  const defenderOOSOptions = getOOSOptions(defenderData);
+  // How many fewer frames the defender needs before they're free to act —
+  // 0 in normal shield, 14 (15 - 1) in powershield. Applied directly to the
+  // attacker's on-shield number (not the defender's OOS timing) so a move
+  // visibly reads as less safe when the opponent powershields, rather than
+  // leaving the number unchanged and only expanding the punish list.
+  const releaseDelta = SHIELD_RELEASE_FRAMES - shieldReleaseFrames;
   const results = [];
 
   attackerData.moves.forEach(function(move) {
@@ -471,7 +485,12 @@ function analyzeMatchup(attackerData, defenderData, shieldReleaseFrames = SHIELD
     move.hitboxes.forEach(function(h) {
       if (!h.shieldSafety) return;
 
-      const shieldAdv = h.shieldSafety;
+      // Projectiles already show raw shield stun instead of a computed
+      // advantage (see the isProjectile handling elsewhere) — powershield
+      // doesn't change that presentation, so leave those untouched.
+      const shieldAdv = (releaseDelta !== 0 && !h.shieldSafety.isStun)
+        ? { ...h.shieldSafety, min: h.shieldSafety.min - releaseDelta, max: h.shieldSafety.max - releaseDelta }
+        : h.shieldSafety;
       const defenderFrameAdv = -shieldAdv.max;
 
       const punishes = defenderOOSOptions.filter(function(opt) {
