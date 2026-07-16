@@ -20,7 +20,10 @@
  * 1KwdYkNVcJbJxV_Ijqi-jyrWjGcJH4lR2e2lfrDuDC0g), whose "What is this?" tab documents
  * Melee's real on-shield formula:
  *   Grounded: On Block = Shieldstun - Active - Recovery + 1
- *   Aerial:   On Block = Shieldstun - Landlag  (assumes proper L-cancel, no extra "-1")
+ *   Aerial:   On Block = Shieldstun - Landlag  (no extra "-1")
+ * Aerials compute this twice, once against L-cancelled landing lag and once
+ * against the full (whiffed L-cancel) landing lag, stored as a { min, max }
+ * range — see buildHitboxes for details.
  * Mapped onto FightCore's fields: Active = hit.end - hit.start + 1, Recovery =
  * (iasa ?? totalFrames) - hit.end. An earlier version of this script used a formula
  * borrowed from Rivals' scripts/cargo-scrape.js (iasa - hit.end - 1 as endlag, plus
@@ -252,16 +255,24 @@ function calcAerialShieldAdvantage(shieldstun, landlag) {
   return shieldstun - landlag;
 }
 
-// Builds this move's shield-relevant hitbox list. Aerials (type 3) use the
-// move's L-cancelled landing lag directly. Grounded moves derive Active (this
-// hit's own active-frame duration) and Recovery (frames from the end of that
-// active window to the move's true end) from FightCore's fields. `totalFrames`
-// is used as a fallback "true end" when `iasa` is absent (e.g. Fox's Forward
-// Tilt/Forward Smash/Up Smash have no iasa field), except when it's the `0`
-// sentinel FightCore uses for looping/held moves with no fixed length (e.g.
-// Falco's Rapid Jabs) — treating that `0` as a real end frame produces
-// nonsensical negative recovery, so those moves correctly get no shield safety
-// (excluded from lists) rather than a fabricated number.
+// Builds this move's shield-relevant hitbox list. Grounded moves derive
+// Active (this hit's own active-frame duration) and Recovery (frames from
+// the end of that active window to the move's true end) from FightCore's
+// fields. `totalFrames` is used as a fallback "true end" when `iasa` is
+// absent (e.g. Fox's Forward Tilt/Forward Smash/Up Smash have no iasa field),
+// except when it's the `0` sentinel FightCore uses for looping/held moves
+// with no fixed length (e.g. Falco's Rapid Jabs) — treating that `0` as a
+// real end frame produces nonsensical negative recovery, so those moves
+// correctly get no shield safety (excluded from lists) rather than a
+// fabricated number.
+//
+// Aerials (type 3) compute shield safety twice — once against
+// `lCanceledLandLag` and once against `landLag` (no L-cancel) — since
+// whether the player L-cancels roughly halves the landing lag and therefore
+// the punishability. Stored as { min: no L-cancel, max: L-cancelled }, the
+// same min/max range shape Rivals' scraper (cargo-scrape.js) already uses
+// for "shield safety varies" cases — the UI already renders a "-8 to -2"
+// style range whenever min !== max, so no display-side change was needed.
 function buildHitboxes(move) {
   const isAerial = move.type === 3;
   const hitboxes = [];
@@ -272,13 +283,30 @@ function buildHitboxes(move) {
     const recovery = (totalEnd != null && hit.end != null) ? totalEnd - hit.end : null;
 
     (hit.hitboxes || []).forEach(hb => {
-      const advantage = isAerial
-        ? calcAerialShieldAdvantage(hb.shieldstun, move.lCanceledLandLag)
-        : calcGroundedShieldAdvantage(hb.shieldstun, active, recovery);
+      let shieldSafety = null;
+      let shieldRaw = null;
+      if (isAerial) {
+        const cancelled = calcAerialShieldAdvantage(hb.shieldstun, move.lCanceledLandLag);
+        const notCancelled = calcAerialShieldAdvantage(hb.shieldstun, move.landLag);
+        if (cancelled != null && notCancelled != null) {
+          shieldSafety = { min: notCancelled, max: cancelled };
+          shieldRaw = notCancelled === cancelled ? String(cancelled) : `${notCancelled} to ${cancelled}`;
+        } else if (cancelled != null || notCancelled != null) {
+          const only = cancelled ?? notCancelled;
+          shieldSafety = { min: only, max: only };
+          shieldRaw = String(only);
+        }
+      } else {
+        const advantage = calcGroundedShieldAdvantage(hb.shieldstun, active, recovery);
+        if (advantage != null) {
+          shieldSafety = { min: advantage, max: advantage };
+          shieldRaw = String(advantage);
+        }
+      }
       hitboxes.push({
         hitbox: cleanHitboxName(hit.name || hb.name || null),
-        shieldSafety: advantage != null ? { min: advantage, max: advantage } : null,
-        shieldRaw: advantage != null ? String(advantage) : null,
+        shieldSafety,
+        shieldRaw,
       });
     });
   });
