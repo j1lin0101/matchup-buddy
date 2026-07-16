@@ -2,10 +2,10 @@ import { useNavigate } from 'react-router-dom'
 
 const GAMES = [
   { id: 'roa2', label: 'Rivals of Aether 2', color: 'var(--accent)', logo: 'roa2.png' },
+  { id: 'ssbm', label: 'Super Smash Bros. Melee', color: '#4CAF50', logo: 'ssbm.png' },
   // SSBU's official logo is black line art on a transparent background — invert
   // it so it reads as white against this app's dark theme instead of vanishing.
   { id: 'ssbu', label: 'Super Smash Bros. Ultimate', color: 'var(--accent2)', logo: 'ssbu.png', invert: true },
-  { id: 'ssbm', label: 'Super Smash Bros. Melee', color: '#4CAF50', logo: 'ssbm.png' },
 ]
 
 export default function GameSelect() {
@@ -44,7 +44,7 @@ export default function GameSelect() {
         <h2 style={{ fontSize: '0.95rem', fontWeight: 700, color: 'var(--muted)', textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: '24px' }}>
           Which game?
         </h2>
-        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '20px', justifyContent: 'center', maxWidth: '640px' }}>
+        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '20px', justifyContent: 'center', maxWidth: '880px' }}>
           {GAMES.map(g => (
             <button
               key={g.id}
