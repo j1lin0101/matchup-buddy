@@ -223,6 +223,19 @@ function cleanMoveName(name) {
   return name;
 }
 
+// FightCore's generic move name for Fox/Falco's Reflector is universally
+// known in Melee as "Shine" — everywhere else "Reflector" (Peach, Zelda) is
+// left alone since it isn't Fox/Falco's move. Mirrors analysisMelee.js's own
+// JUMP_CANCEL_SPECIALS['Fox'/'Falco'] = ['Reflector'] convention, which also
+// needs to reference this same flavor name.
+const SHINE_CHARACTERS = new Set(['Fox', 'Falco']);
+function applyFlavorMoveName(name, characterName) {
+  if (SHINE_CHARACTERS.has(characterName) && name.startsWith('Reflector')) {
+    return name.replace('Reflector', 'Shine');
+  }
+  return name;
+}
+
 // FightCore labels the strong hit-window of a multi-hit-window move "clean"
 // (paired with "late" for the weaker one) — Melee community terminology
 // calls this "sweetspot" instead, so relabel it for display.
@@ -231,11 +244,11 @@ function cleanHitboxName(name) {
   return name;
 }
 
-function buildCharacterMoves(moves, upSpecialFlavorName) {
+function buildCharacterMoves(moves, upSpecialFlavorName, characterName) {
   return (moves || [])
     .filter(m => m.hits && m.hits.length > 0) // skip placeholder/unused move slots
     .map(m => ({
-      move: cleanMoveName(m.name),
+      move: applyFlavorMoveName(cleanMoveName(m.name), characterName),
       type: m.type,
       isUpSpecial: isUpSpecialMove(m.name, upSpecialFlavorName),
       startup: m.start ?? null,
@@ -286,7 +299,7 @@ async function main() {
       weight: stats.weight ?? null,
       wavedashOOSFrames: (stats.jumpSquat != null) ? stats.jumpSquat + WAVEDASH_LANDING_LAG : null,
       wikiUrl: (char.characterInfo && char.characterInfo.ssbWiki) || null,
-      moves: buildCharacterMoves(char.moves, upSpecialNames.get(char.name)),
+      moves: buildCharacterMoves(char.moves, upSpecialNames.get(char.name), char.name),
     };
     fs.writeFileSync(path.join(OUT_DIR, `${slug}.json`), JSON.stringify(out, null, 2) + '\n');
   });

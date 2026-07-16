@@ -45,13 +45,15 @@ const CATEGORY_ORDER = ['Normals', 'Smashes', 'Aerials', 'Specials', 'Getup/Ledg
 
 // Per-character specials that are jump-cancelable OOS the same way aerials are
 // (jumpSquat + startup, not the Up Smash/Up Special "+1" shortcut) — most
-// famously Fox/Falco's Shine ("Reflector"). Confirmed against outofshield.com's
-// published Fox data: Shine OOS = 4 = jumpSquat(3) + startup(1). Mirrors the
-// same per-character exception list pattern analysis.js uses for Rivals
-// (JUMP_CANCEL_OOS_SPECIALS).
+// famously Fox/Falco's Shine. Confirmed against outofshield.com's published
+// Fox data: Shine OOS = 4 = jumpSquat(3) + startup(1). Mirrors the same
+// per-character exception list pattern analysis.js uses for Rivals
+// (JUMP_CANCEL_OOS_SPECIALS). "Shine" here matches scripts/fetch-melee-data.js's
+// applyFlavorMoveName, which relabels FightCore's generic "Reflector" to
+// "Shine" for these two characters only.
 const JUMP_CANCEL_SPECIALS = {
-  Fox: ['Reflector'],
-  Falco: ['Reflector'],
+  Fox: ['Shine'],
+  Falco: ['Shine'],
 };
 
 function isGrabMove(moveName) {
@@ -137,7 +139,7 @@ function dedupeAndLabelHitboxes(rows) {
 }
 
 // Collapses OOS options that are the same special cast from the ground vs.
-// in the air (e.g. "Reflector" / "Reflector (Air)", "Dolphin Slash" / "Dolphin
+// in the air (e.g. "Shine" / "Shine (Air)", "Dolphin Slash" / "Dolphin
 // Slash (Air)") when they resolve to the same OOS timing — showing both is
 // redundant since it's the same punish tool. Kept separate if the ground and
 // air versions genuinely differ in OOS speed.
