@@ -179,6 +179,38 @@ function dedupeGroundAirOOS(options) {
   return results;
 }
 
+// Same idea as dedupeGroundAirOOS, applied to shield-safety/punish-breakdown
+// rows instead of OOS options — collapses "Shine" / "Shine (Air)" (same
+// hitbox, same shield safety) into one row, since showing both is redundant
+// when they're equally safe. Grouped by (base move, hitbox label) so it only
+// merges genuinely matching hitboxes; kept separate whenever the ground and
+// air versions differ in safety for that hitbox.
+function dedupeGroundAirShieldSafety(rows) {
+  const groups = new Map();
+  rows.forEach(function(row) {
+    const base = row.move.replace(/\s*\(Air\)$/i, '').trim();
+    const key = base + '|' + (row.hitbox || '');
+    if (!groups.has(key)) groups.set(key, []);
+    groups.get(key).push(row);
+  });
+
+  const results = [];
+  groups.forEach(function(group) {
+    if (group.length === 1) { results.push(group[0]); return; }
+    const base = group[0].move.replace(/\s*\(Air\)$/i, '').trim();
+    const bySafety = new Map();
+    group.forEach(function(row) {
+      const safetyKey = row.shieldSafety ? row.shieldSafety.min + '|' + row.shieldSafety.max : 'null';
+      if (!bySafety.has(safetyKey)) bySafety.set(safetyKey, []);
+      bySafety.get(safetyKey).push(row);
+    });
+    bySafety.forEach(function(variants) {
+      results.push(variants.find(function(v) { return v.move === base; }) || variants[0]);
+    });
+  });
+  return results;
+}
+
 /**
  * Categorizes a move into one of: Normals, Smashes, Aerials, Specials, based on
  * FightCore's numeric type field (type 2 bundles Jab/Dash Attack in with Smashes,
@@ -240,7 +272,7 @@ function getAllShieldSafeties(characterData) {
       });
     });
   });
-  const deduped = dedupeAndLabelHitboxes(results);
+  const deduped = dedupeGroundAirShieldSafety(dedupeAndLabelHitboxes(results));
   deduped.sort(function(a, b) { return b.shieldSafety.max - a.shieldSafety.max; });
   return deduped;
 }
@@ -408,7 +440,7 @@ function analyzeMatchup(attackerData, defenderData) {
     });
   });
 
-  const deduped = dedupeAndLabelHitboxes(results);
+  const deduped = dedupeGroundAirShieldSafety(dedupeAndLabelHitboxes(results));
   deduped.sort(function(a, b) {
     if (a.punishCount !== b.punishCount) return a.punishCount - b.punishCount;
     return b.shieldSafety.max - a.shieldSafety.max;
