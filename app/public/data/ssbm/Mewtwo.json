@@ -1,7 +1,7 @@
 {
   "character": "Mewtwo",
   "slug": "Mewtwo",
-  "scrapedAt": "2026-07-16T00:20:57.679Z",
+  "scrapedAt": "2026-07-16T00:31:59.516Z",
   "jumpSquat": 5,
   "weight": 85,
   "wavedashOOSFrames": 15,
@@ -531,74 +531,92 @@
         {
           "hitbox": "Grounded Charging",
           "shieldSafety": {
-            "min": -24,
-            "max": -24
+            "isProjectile": true,
+            "isStun": true,
+            "min": 2,
+            "max": 2
           },
-          "shieldRaw": "-24"
+          "shieldRaw": "2"
         },
         {
           "hitbox": "Level 0",
           "shieldSafety": {
-            "min": -23,
-            "max": -23
+            "isProjectile": true,
+            "isStun": true,
+            "min": 3,
+            "max": 3
           },
-          "shieldRaw": "-23"
+          "shieldRaw": "3"
         },
         {
           "hitbox": "Level 1",
           "shieldSafety": {
-            "min": -22,
-            "max": -22
+            "isProjectile": true,
+            "isStun": true,
+            "min": 4,
+            "max": 4
           },
-          "shieldRaw": "-22"
+          "shieldRaw": "4"
         },
         {
           "hitbox": "Level 2",
           "shieldSafety": {
-            "min": -21,
-            "max": -21
+            "isProjectile": true,
+            "isStun": true,
+            "min": 5,
+            "max": 5
           },
-          "shieldRaw": "-21"
+          "shieldRaw": "5"
         },
         {
           "hitbox": "Level 3",
           "shieldSafety": {
-            "min": -20,
-            "max": -20
+            "isProjectile": true,
+            "isStun": true,
+            "min": 6,
+            "max": 6
           },
-          "shieldRaw": "-20"
+          "shieldRaw": "6"
         },
         {
           "hitbox": "Level 4",
           "shieldSafety": {
-            "min": -18,
-            "max": -18
+            "isProjectile": true,
+            "isStun": true,
+            "min": 8,
+            "max": 8
           },
-          "shieldRaw": "-18"
+          "shieldRaw": "8"
         },
         {
           "hitbox": "Level 5",
           "shieldSafety": {
-            "min": -17,
-            "max": -17
+            "isProjectile": true,
+            "isStun": true,
+            "min": 9,
+            "max": 9
           },
-          "shieldRaw": "-17"
+          "shieldRaw": "9"
         },
         {
           "hitbox": "Level 6",
           "shieldSafety": {
-            "min": -16,
-            "max": -16
+            "isProjectile": true,
+            "isStun": true,
+            "min": 10,
+            "max": 10
           },
-          "shieldRaw": "-16"
+          "shieldRaw": "10"
         },
         {
           "hitbox": "Level 7",
           "shieldSafety": {
-            "min": -13,
-            "max": -13
+            "isProjectile": true,
+            "isStun": true,
+            "min": 13,
+            "max": 13
           },
-          "shieldRaw": "-13"
+          "shieldRaw": "13"
         }
       ]
     },

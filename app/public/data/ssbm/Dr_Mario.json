@@ -1,7 +1,7 @@
 {
   "character": "Dr. Mario",
   "slug": "Dr_Mario",
-  "scrapedAt": "2026-07-16T00:20:57.687Z",
+  "scrapedAt": "2026-07-16T00:31:59.522Z",
   "jumpSquat": 4,
   "weight": 100,
   "wavedashOOSFrames": 14,
@@ -168,10 +168,12 @@
         {
           "hitbox": "Unknown",
           "shieldSafety": {
-            "min": -38,
-            "max": -38
+            "isProjectile": true,
+            "isStun": true,
+            "min": 5,
+            "max": 5
           },
-          "shieldRaw": "-38"
+          "shieldRaw": "5"
         }
       ]
     },
@@ -1006,10 +1008,12 @@
         {
           "hitbox": "Unknown",
           "shieldSafety": {
-            "min": -38,
-            "max": -38
+            "isProjectile": true,
+            "isStun": true,
+            "min": 5,
+            "max": 5
           },
-          "shieldRaw": "-38"
+          "shieldRaw": "5"
         }
       ]
     },

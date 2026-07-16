@@ -1,7 +1,7 @@
 {
   "character": "Sheik",
   "slug": "Sheik",
-  "scrapedAt": "2026-07-16T00:20:57.694Z",
+  "scrapedAt": "2026-07-16T00:31:59.526Z",
   "jumpSquat": 3,
   "weight": 90,
   "wavedashOOSFrames": 13,
@@ -56,34 +56,42 @@
         {
           "hitbox": "Unknown",
           "shieldSafety": {
-            "min": -37,
-            "max": -37
+            "isProjectile": true,
+            "isStun": true,
+            "min": 3,
+            "max": 3
           },
-          "shieldRaw": "-37"
+          "shieldRaw": "3"
         },
         {
           "hitbox": "Unknown",
           "shieldSafety": {
-            "min": -37,
-            "max": -37
+            "isProjectile": true,
+            "isStun": true,
+            "min": 3,
+            "max": 3
           },
-          "shieldRaw": "-37"
+          "shieldRaw": "3"
         },
         {
           "hitbox": "Unknown",
           "shieldSafety": {
-            "min": -37,
-            "max": -37
+            "isProjectile": true,
+            "isStun": true,
+            "min": 3,
+            "max": 3
           },
-          "shieldRaw": "-37"
+          "shieldRaw": "3"
         },
         {
           "hitbox": "Unknown",
           "shieldSafety": {
-            "min": -37,
-            "max": -37
+            "isProjectile": true,
+            "isStun": true,
+            "min": 3,
+            "max": 3
           },
-          "shieldRaw": "-37"
+          "shieldRaw": "3"
         }
       ]
     },
@@ -998,34 +1006,42 @@
         {
           "hitbox": "Unknown",
           "shieldSafety": {
-            "min": -36,
-            "max": -36
+            "isProjectile": true,
+            "isStun": true,
+            "min": 3,
+            "max": 3
           },
-          "shieldRaw": "-36"
+          "shieldRaw": "3"
         },
         {
           "hitbox": "Unknown",
           "shieldSafety": {
-            "min": -36,
-            "max": -36
+            "isProjectile": true,
+            "isStun": true,
+            "min": 3,
+            "max": 3
           },
-          "shieldRaw": "-36"
+          "shieldRaw": "3"
         },
         {
           "hitbox": "Unknown",
           "shieldSafety": {
-            "min": -36,
-            "max": -36
+            "isProjectile": true,
+            "isStun": true,
+            "min": 3,
+            "max": 3
           },
-          "shieldRaw": "-36"
+          "shieldRaw": "3"
         },
         {
           "hitbox": "Unknown",
           "shieldSafety": {
-            "min": -36,
-            "max": -36
+            "isProjectile": true,
+            "isStun": true,
+            "min": 3,
+            "max": 3
           },
-          "shieldRaw": "-36"
+          "shieldRaw": "3"
         }
       ]
     },

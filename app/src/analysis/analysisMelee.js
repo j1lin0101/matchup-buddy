@@ -34,6 +34,16 @@
  * these too) but are excluded from OOS options specifically — you can't be
  * shielding and also throwing a getup/ledge attack, so isExcludedMove and
  * isExcludedFromOOS diverge here.
+ *
+ * Projectiles (Fox's Blaster, Samus's Missile, etc. — see the hand-curated
+ * PROJECTILE_SPECIALS list in scripts/fetch-melee-data.js) get
+ * { isProjectile: true, isStun: true, min, max: shieldstun } instead of a
+ * computed shieldSafety, mirroring Rivals' cargo-scrape.js/analysis.js
+ * convention exactly. getSafestOptions skips isStun entries (not a meaningful
+ * "safe" classification); getAllShieldSafeties and analyzeMatchup do not —
+ * they still sort/classify using the raw stun value, same as Rivals — the
+ * only display difference is MeleeMatchupView.jsx showing a PROJ badge
+ * instead of a computed advantage number.
  */
 
 const SHIELD_RELEASE_FRAMES = 15;
@@ -241,6 +251,11 @@ function getAllShieldSafeties(characterData) {
  * When defenderOOSOptions is provided (matchup context), "safest" means fewest
  * punish options available — moves with 0–3 punishes, sorted by punish count then
  * by best shield safety. Without defender context, falls back to a frame threshold.
+ *
+ * Projectiles are excluded here (mirrors analysis.js's Rivals equivalent) —
+ * "safe" isn't a meaningful classification for a hitbox with no real on-shield
+ * frame advantage; they still appear in getAllShieldSafeties/analyzeMatchup
+ * with a PROJ badge instead of a computed number.
  */
 function getSafestOptions(characterData, defenderOOSOptions) {
   const entries = getAllShieldSafeties(characterData);
@@ -248,6 +263,7 @@ function getSafestOptions(characterData, defenderOOSOptions) {
   if (defenderOOSOptions) {
     const results = [];
     entries.forEach(function(entry) {
+      if (entry.shieldSafety.isStun) return;
       const defenderFrameAdv = -entry.shieldSafety.max;
       const punishCount = defenderOOSOptions.filter(function(opt) {
         return opt.oosStartup <= defenderFrameAdv;
@@ -263,6 +279,7 @@ function getSafestOptions(characterData, defenderOOSOptions) {
 
   const results = [];
   entries.forEach(function(entry) {
+    if (entry.shieldSafety.isStun) return;
     if (entry.shieldSafety.max < SAFE_THRESHOLD) return;
     results.push(entry);
   });

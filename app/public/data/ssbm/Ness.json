@@ -1,7 +1,7 @@
 {
   "character": "Ness",
   "slug": "Ness",
-  "scrapedAt": "2026-07-16T00:20:57.676Z",
+  "scrapedAt": "2026-07-16T00:31:59.514Z",
   "jumpSquat": 4,
   "weight": 94,
   "wavedashOOSFrames": 14,
@@ -422,34 +422,42 @@
         {
           "hitbox": "Shot",
           "shieldSafety": {
-            "min": -67,
-            "max": -67
+            "isProjectile": true,
+            "isStun": true,
+            "min": 2,
+            "max": 2
           },
-          "shieldRaw": "-67"
+          "shieldRaw": "2"
         },
         {
           "hitbox": "Hit 1 (Pillar)",
           "shieldSafety": {
-            "min": -66,
-            "max": -66
+            "isProjectile": true,
+            "isStun": true,
+            "min": 3,
+            "max": 3
           },
-          "shieldRaw": "-66"
+          "shieldRaw": "3"
         },
         {
           "hitbox": "Hits 2-12 (Pillar)",
           "shieldSafety": {
-            "min": -67,
-            "max": -67
+            "isProjectile": true,
+            "isStun": true,
+            "min": 2,
+            "max": 2
           },
-          "shieldRaw": "-67"
+          "shieldRaw": "2"
         },
         {
           "hitbox": "Hits 2-12 (Pillar)",
           "shieldSafety": {
-            "min": -67,
-            "max": -67
+            "isProjectile": true,
+            "isStun": true,
+            "min": 2,
+            "max": 2
           },
-          "shieldRaw": "-67"
+          "shieldRaw": "2"
         }
       ]
     },
@@ -1190,34 +1198,42 @@
         {
           "hitbox": "Shot",
           "shieldSafety": {
-            "min": -67,
-            "max": -67
+            "isProjectile": true,
+            "isStun": true,
+            "min": 2,
+            "max": 2
           },
-          "shieldRaw": "-67"
+          "shieldRaw": "2"
         },
         {
           "hitbox": "Hit 1 (Pillar)",
           "shieldSafety": {
-            "min": -66,
-            "max": -66
+            "isProjectile": true,
+            "isStun": true,
+            "min": 3,
+            "max": 3
           },
-          "shieldRaw": "-66"
+          "shieldRaw": "3"
         },
         {
           "hitbox": "Hits 2-12 (Pillar)",
           "shieldSafety": {
-            "min": -67,
-            "max": -67
+            "isProjectile": true,
+            "isStun": true,
+            "min": 2,
+            "max": 2
           },
-          "shieldRaw": "-67"
+          "shieldRaw": "2"
         },
         {
           "hitbox": "Hits 2-12 (Pillar)",
           "shieldSafety": {
-            "min": -67,
-            "max": -67
+            "isProjectile": true,
+            "isStun": true,
+            "min": 2,
+            "max": 2
           },
-          "shieldRaw": "-67"
+          "shieldRaw": "2"
         }
       ]
     },

@@ -1,7 +1,7 @@
 {
   "character": "Young Link",
   "slug": "Young_Link",
-  "scrapedAt": "2026-07-16T00:20:57.698Z",
+  "scrapedAt": "2026-07-16T00:31:59.530Z",
   "jumpSquat": 4,
   "weight": 85,
   "wavedashOOSFrames": 14,
@@ -16,58 +16,72 @@
         {
           "hitbox": "Pointblank",
           "shieldSafety": {
-            "min": -36,
-            "max": -36
+            "isProjectile": true,
+            "isStun": true,
+            "min": 2,
+            "max": 2
           },
-          "shieldRaw": "-36"
+          "shieldRaw": "2"
         },
         {
           "hitbox": "No Charge",
           "shieldSafety": {
-            "min": -33,
-            "max": -33
+            "isProjectile": true,
+            "isStun": true,
+            "min": 5,
+            "max": 5
           },
-          "shieldRaw": "-33"
+          "shieldRaw": "5"
         },
         {
           "hitbox": "Level 1 Charge",
           "shieldSafety": {
-            "min": -32,
-            "max": -32
+            "isProjectile": true,
+            "isStun": true,
+            "min": 6,
+            "max": 6
           },
-          "shieldRaw": "-32"
+          "shieldRaw": "6"
         },
         {
           "hitbox": "Level 2 Charge",
           "shieldSafety": {
-            "min": -32,
-            "max": -32
+            "isProjectile": true,
+            "isStun": true,
+            "min": 6,
+            "max": 6
           },
-          "shieldRaw": "-32"
+          "shieldRaw": "6"
         },
         {
           "hitbox": "Level 3 Charge",
           "shieldSafety": {
-            "min": -32,
-            "max": -32
+            "isProjectile": true,
+            "isStun": true,
+            "min": 6,
+            "max": 6
           },
-          "shieldRaw": "-32"
+          "shieldRaw": "6"
         },
         {
           "hitbox": "Level 4 Charge",
           "shieldSafety": {
-            "min": -31,
-            "max": -31
+            "isProjectile": true,
+            "isStun": true,
+            "min": 7,
+            "max": 7
           },
-          "shieldRaw": "-31"
+          "shieldRaw": "7"
         },
         {
           "hitbox": "Fully Charged",
           "shieldSafety": {
-            "min": -30,
-            "max": -30
+            "isProjectile": true,
+            "isStun": true,
+            "min": 8,
+            "max": 8
           },
-          "shieldRaw": "-30"
+          "shieldRaw": "8"
         }
       ]
     },
@@ -80,50 +94,62 @@
         {
           "hitbox": "Pointblank Frame1",
           "shieldSafety": {
-            "min": -35,
-            "max": -35
+            "isProjectile": true,
+            "isStun": true,
+            "min": 10,
+            "max": 10
           },
-          "shieldRaw": "-35"
+          "shieldRaw": "10"
         },
         {
           "hitbox": "Pointblank Frame2",
           "shieldSafety": {
-            "min": -35,
-            "max": -35
+            "isProjectile": true,
+            "isStun": true,
+            "min": 10,
+            "max": 10
           },
-          "shieldRaw": "-35"
+          "shieldRaw": "10"
         },
         {
           "hitbox": "Pointblank Frame3",
           "shieldSafety": {
-            "min": -35,
-            "max": -35
+            "isProjectile": true,
+            "isStun": true,
+            "min": 10,
+            "max": 10
           },
-          "shieldRaw": "-35"
+          "shieldRaw": "10"
         },
         {
           "hitbox": "Pointblank Tilt Frame1",
           "shieldSafety": {
-            "min": -36,
-            "max": -36
+            "isProjectile": true,
+            "isStun": true,
+            "min": 9,
+            "max": 9
           },
-          "shieldRaw": "-36"
+          "shieldRaw": "9"
         },
         {
           "hitbox": "Late",
           "shieldSafety": {
-            "min": -40,
-            "max": -40
+            "isProjectile": true,
+            "isStun": true,
+            "min": 5,
+            "max": 5
           },
-          "shieldRaw": "-40"
+          "shieldRaw": "5"
         },
         {
           "hitbox": "Return",
           "shieldSafety": {
-            "min": -43,
-            "max": -43
+            "isProjectile": true,
+            "isStun": true,
+            "min": 2,
+            "max": 2
           },
-          "shieldRaw": "-43"
+          "shieldRaw": "2"
         }
       ]
     },
@@ -135,38 +161,73 @@
       "hitboxes": [
         {
           "hitbox": "Explosion",
-          "shieldSafety": null,
-          "shieldRaw": null
+          "shieldSafety": {
+            "isProjectile": true,
+            "isStun": true,
+            "min": 2,
+            "max": 2
+          },
+          "shieldRaw": "2"
         },
         {
           "hitbox": "Grounded Dthrow",
-          "shieldSafety": null,
-          "shieldRaw": null
+          "shieldSafety": {
+            "isProjectile": true,
+            "isStun": true,
+            "min": 6,
+            "max": 6
+          },
+          "shieldRaw": "6"
         },
         {
           "hitbox": "Grounded Uthrow",
-          "shieldSafety": null,
-          "shieldRaw": null
+          "shieldSafety": {
+            "isProjectile": true,
+            "isStun": true,
+            "min": 5,
+            "max": 5
+          },
+          "shieldRaw": "5"
         },
         {
           "hitbox": "Grounded Fthrow",
-          "shieldSafety": null,
-          "shieldRaw": null
+          "shieldSafety": {
+            "isProjectile": true,
+            "isStun": true,
+            "min": 5,
+            "max": 5
+          },
+          "shieldRaw": "5"
         },
         {
           "hitbox": "Dash Throw",
-          "shieldSafety": null,
-          "shieldRaw": null
+          "shieldSafety": {
+            "isProjectile": true,
+            "isStun": true,
+            "min": 5,
+            "max": 5
+          },
+          "shieldRaw": "5"
         },
         {
           "hitbox": "Drop",
-          "shieldSafety": null,
-          "shieldRaw": null
+          "shieldSafety": {
+            "isProjectile": true,
+            "isStun": true,
+            "min": 2,
+            "max": 2
+          },
+          "shieldRaw": "2"
         },
         {
           "hitbox": "Release 19+",
-          "shieldSafety": null,
-          "shieldRaw": null
+          "shieldSafety": {
+            "isProjectile": true,
+            "isStun": true,
+            "min": 2,
+            "max": 2
+          },
+          "shieldRaw": "2"
         }
       ]
     },
@@ -1620,50 +1681,62 @@
         {
           "hitbox": "Pointblank Frame1",
           "shieldSafety": {
-            "min": -35,
-            "max": -35
+            "isProjectile": true,
+            "isStun": true,
+            "min": 10,
+            "max": 10
           },
-          "shieldRaw": "-35"
+          "shieldRaw": "10"
         },
         {
           "hitbox": "Pointblank Frame2",
           "shieldSafety": {
-            "min": -35,
-            "max": -35
+            "isProjectile": true,
+            "isStun": true,
+            "min": 10,
+            "max": 10
           },
-          "shieldRaw": "-35"
+          "shieldRaw": "10"
         },
         {
           "hitbox": "Pointblank Frame3",
           "shieldSafety": {
-            "min": -35,
-            "max": -35
+            "isProjectile": true,
+            "isStun": true,
+            "min": 10,
+            "max": 10
           },
-          "shieldRaw": "-35"
+          "shieldRaw": "10"
         },
         {
           "hitbox": "Pointblank Tilt Frame1",
           "shieldSafety": {
-            "min": -36,
-            "max": -36
+            "isProjectile": true,
+            "isStun": true,
+            "min": 9,
+            "max": 9
           },
-          "shieldRaw": "-36"
+          "shieldRaw": "9"
         },
         {
           "hitbox": "Late",
           "shieldSafety": {
-            "min": -40,
-            "max": -40
+            "isProjectile": true,
+            "isStun": true,
+            "min": 5,
+            "max": 5
           },
-          "shieldRaw": "-40"
+          "shieldRaw": "5"
         },
         {
           "hitbox": "Return",
           "shieldSafety": {
-            "min": -43,
-            "max": -43
+            "isProjectile": true,
+            "isStun": true,
+            "min": 2,
+            "max": 2
           },
-          "shieldRaw": "-43"
+          "shieldRaw": "2"
         }
       ]
     },
@@ -1675,18 +1748,33 @@
       "hitboxes": [
         {
           "hitbox": "Airborne Dthrow",
-          "shieldSafety": null,
-          "shieldRaw": null
+          "shieldSafety": {
+            "isProjectile": true,
+            "isStun": true,
+            "min": 5,
+            "max": 5
+          },
+          "shieldRaw": "5"
         },
         {
           "hitbox": "Airborne Uthrow",
-          "shieldSafety": null,
-          "shieldRaw": null
+          "shieldSafety": {
+            "isProjectile": true,
+            "isStun": true,
+            "min": 4,
+            "max": 4
+          },
+          "shieldRaw": "4"
         },
         {
           "hitbox": "Airborne Fthrow",
-          "shieldSafety": null,
-          "shieldRaw": null
+          "shieldSafety": {
+            "isProjectile": true,
+            "isStun": true,
+            "min": 4,
+            "max": 4
+          },
+          "shieldRaw": "4"
         }
       ]
     }

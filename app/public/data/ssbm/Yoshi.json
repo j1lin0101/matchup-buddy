@@ -1,7 +1,7 @@
 {
   "character": "Yoshi",
   "slug": "Yoshi",
-  "scrapedAt": "2026-07-16T00:20:57.688Z",
+  "scrapedAt": "2026-07-16T00:31:59.523Z",
   "jumpSquat": 5,
   "weight": 108,
   "wavedashOOSFrames": 15,
@@ -645,18 +645,22 @@
         {
           "hitbox": "Collision",
           "shieldSafety": {
-            "min": -47,
-            "max": -47
+            "isProjectile": true,
+            "isStun": true,
+            "min": 7,
+            "max": 7
           },
-          "shieldRaw": "-47"
+          "shieldRaw": "7"
         },
         {
           "hitbox": "Explosion",
           "shieldSafety": {
-            "min": -48,
-            "max": -48
+            "isProjectile": true,
+            "isStun": true,
+            "min": 6,
+            "max": 6
           },
-          "shieldRaw": "-48"
+          "shieldRaw": "6"
         }
       ]
     },
@@ -1347,18 +1351,22 @@
         {
           "hitbox": "Collision",
           "shieldSafety": {
-            "min": -47,
-            "max": -47
+            "isProjectile": true,
+            "isStun": true,
+            "min": 7,
+            "max": 7
           },
-          "shieldRaw": "-47"
+          "shieldRaw": "7"
         },
         {
           "hitbox": "Explosion",
           "shieldSafety": {
-            "min": -48,
-            "max": -48
+            "isProjectile": true,
+            "isStun": true,
+            "min": 6,
+            "max": 6
           },
-          "shieldRaw": "-48"
+          "shieldRaw": "6"
         }
       ]
     }

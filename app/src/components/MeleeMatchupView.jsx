@@ -33,6 +33,47 @@ function ShieldBadge({ value, color }) {
   )
 }
 
+// Mirrors Rivals' MatchupView.jsx ProjectileBadge exactly — a move that
+// detaches from the character and travels doesn't have a meaningful on-shield
+// frame advantage (the attacker isn't standing there when it lands), so
+// scripts/fetch-melee-data.js flags these with shieldSafety.isProjectile and
+// reports raw shieldstun instead of a computed number.
+const PROJECTILE_COLOR = '#7B68EE'
+const PROJ_TOOLTIP = "This move is a projectile — the attacker isn't standing at the shield when it lands, so a normal on-shield frame advantage isn't meaningful. We show raw shield stun instead."
+
+function ProjectileBadge({ stun }) {
+  const [visible, setVisible] = useState(false)
+  return (
+    <span style={{ position: 'relative', display: 'inline-flex' }}>
+      <span
+        onMouseEnter={() => setVisible(true)}
+        onMouseLeave={() => setVisible(false)}
+        style={{
+          display: 'inline-flex', alignItems: 'center', gap: '4px',
+          padding: '2px 8px', borderRadius: '4px',
+          background: PROJECTILE_COLOR + '22', color: PROJECTILE_COLOR,
+          border: `1px solid ${PROJECTILE_COLOR}44`,
+          fontSize: '0.75rem', fontWeight: 700, whiteSpace: 'nowrap', cursor: 'help',
+        }}
+      >
+        <span style={{ fontSize: '0.65rem', opacity: 0.8 }}>PROJ</span>
+        {stun}
+      </span>
+      {visible && (
+        <span style={{
+          position: 'absolute', bottom: 'calc(100% + 6px)', left: '50%', transform: 'translateX(-50%)',
+          background: 'var(--bg)', color: 'var(--text)', border: `1px solid ${PROJECTILE_COLOR}66`,
+          borderRadius: '6px', padding: '8px 10px', fontSize: '0.7rem', lineHeight: 1.45,
+          width: '240px', whiteSpace: 'normal', zIndex: 1000, pointerEvents: 'none',
+          boxShadow: '0 4px 12px rgba(0,0,0,0.5)',
+        }}>
+          {PROJ_TOOLTIP}
+        </span>
+      )}
+    </span>
+  )
+}
+
 function FrameBadge({ frames, color = 'var(--accent)' }) {
   return (
     <span style={{
@@ -192,7 +233,9 @@ function MoveRow({ row }) {
         )}
       </div>
       <div className="move-row-badges" style={{ textAlign: 'center' }}>
-        <ShieldBadge value={row.shieldSafety} color={statusColor} />
+        {row.shieldSafety?.isProjectile
+          ? <ProjectileBadge stun={row.shieldSafety.min} />
+          : <ShieldBadge value={row.shieldSafety} color={statusColor} />}
       </div>
       <div>
         {row.punishes.length > 0 ? (

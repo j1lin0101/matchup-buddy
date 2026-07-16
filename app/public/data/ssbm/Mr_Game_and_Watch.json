@@ -1,7 +1,7 @@
 {
   "character": "Mr. Game & Watch",
   "slug": "Mr_Game_and_Watch",
-  "scrapedAt": "2026-07-16T00:20:57.678Z",
+  "scrapedAt": "2026-07-16T00:31:59.515Z",
   "jumpSquat": 4,
   "weight": 60,
   "wavedashOOSFrames": 14,
@@ -387,18 +387,22 @@
         {
           "hitbox": "Sausage",
           "shieldSafety": {
-            "min": -46,
-            "max": -46
+            "isProjectile": true,
+            "isStun": true,
+            "min": 3,
+            "max": 3
           },
-          "shieldRaw": "-46"
+          "shieldRaw": "3"
         },
         {
           "hitbox": "Pan",
           "shieldSafety": {
-            "min": -45,
-            "max": -45
+            "isProjectile": true,
+            "isStun": true,
+            "min": 4,
+            "max": 4
           },
-          "shieldRaw": "-45"
+          "shieldRaw": "4"
         }
       ]
     },

@@ -1,7 +1,7 @@
 {
   "character": "Ice Climbers",
   "slug": "Ice_Climbers",
-  "scrapedAt": "2026-07-16T00:20:57.690Z",
+  "scrapedAt": "2026-07-16T00:31:59.524Z",
   "jumpSquat": 3,
   "weight": 88,
   "wavedashOOSFrames": 13,
@@ -523,18 +523,22 @@
         {
           "hitbox": "Melee",
           "shieldSafety": {
-            "min": -53,
-            "max": -53
+            "isProjectile": true,
+            "isStun": true,
+            "min": 6,
+            "max": 6
           },
-          "shieldRaw": "-53"
+          "shieldRaw": "6"
         },
         {
           "hitbox": "Shot",
           "shieldSafety": {
-            "min": -55,
-            "max": -55
+            "isProjectile": true,
+            "isStun": true,
+            "min": 4,
+            "max": 4
           },
-          "shieldRaw": "-55"
+          "shieldRaw": "4"
         }
       ]
     },

@@ -1,7 +1,7 @@
 {
   "character": "Zelda",
   "slug": "Zelda",
-  "scrapedAt": "2026-07-16T00:20:57.699Z",
+  "scrapedAt": "2026-07-16T00:31:59.532Z",
   "jumpSquat": 6,
   "weight": 90,
   "wavedashOOSFrames": 16,
@@ -251,10 +251,12 @@
         {
           "hitbox": "Unknown",
           "shieldSafety": {
-            "min": -72,
-            "max": -72
+            "isProjectile": true,
+            "isStun": true,
+            "min": 5,
+            "max": 5
           },
-          "shieldRaw": "-72"
+          "shieldRaw": "5"
         }
       ]
     },
@@ -1456,10 +1458,12 @@
         {
           "hitbox": "Unknown",
           "shieldSafety": {
-            "min": -72,
-            "max": -72
+            "isProjectile": true,
+            "isStun": true,
+            "min": 5,
+            "max": 5
           },
-          "shieldRaw": "-72"
+          "shieldRaw": "5"
         }
       ]
     },

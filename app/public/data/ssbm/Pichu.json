@@ -1,7 +1,7 @@
 {
   "character": "Pichu",
   "slug": "Pichu",
-  "scrapedAt": "2026-07-16T00:20:57.674Z",
+  "scrapedAt": "2026-07-16T00:31:59.513Z",
   "jumpSquat": 3,
   "weight": 55,
   "wavedashOOSFrames": 13,
@@ -769,18 +769,22 @@
         {
           "hitbox": "Grounded",
           "shieldSafety": {
-            "min": -52,
-            "max": -52
+            "isProjectile": true,
+            "isStun": true,
+            "min": 5,
+            "max": 5
           },
-          "shieldRaw": "-52"
+          "shieldRaw": "5"
         },
         {
           "hitbox": "Grounded",
           "shieldSafety": {
-            "min": -52,
-            "max": -52
+            "isProjectile": true,
+            "isStun": true,
+            "min": 5,
+            "max": 5
           },
-          "shieldRaw": "-52"
+          "shieldRaw": "5"
         }
       ]
     },
@@ -873,10 +877,12 @@
         {
           "hitbox": "Aerial",
           "shieldSafety": {
-            "min": -53,
-            "max": -53
+            "isProjectile": true,
+            "isStun": true,
+            "min": 4,
+            "max": 4
           },
-          "shieldRaw": "-53"
+          "shieldRaw": "4"
         }
       ]
     },

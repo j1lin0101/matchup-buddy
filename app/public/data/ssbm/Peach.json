@@ -1,7 +1,7 @@
 {
   "character": "Peach",
   "slug": "Peach",
-  "scrapedAt": "2026-07-16T00:20:57.693Z",
+  "scrapedAt": "2026-07-16T00:31:59.525Z",
   "jumpSquat": 5,
   "weight": 90,
   "wavedashOOSFrames": 15,
@@ -72,10 +72,12 @@
         {
           "hitbox": "Unknown",
           "shieldSafety": {
-            "min": -27,
-            "max": -27
+            "isProjectile": true,
+            "isStun": true,
+            "min": 2,
+            "max": 2
           },
-          "shieldRaw": "-27"
+          "shieldRaw": "2"
         }
       ]
     },
@@ -1211,10 +1213,12 @@
         {
           "hitbox": "Unknown",
           "shieldSafety": {
-            "min": -27,
-            "max": -27
+            "isProjectile": true,
+            "isStun": true,
+            "min": 2,
+            "max": 2
           },
-          "shieldRaw": "-27"
+          "shieldRaw": "2"
         }
       ]
     }

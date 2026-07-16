@@ -53,6 +53,20 @@
  * usname/dsname). One exception: Fox/Falco's Down Special keeps its "Shine"
  * name (applyFlavorMoveName) since that's how the community universally refers
  * to it — applied before the direction-naming pass so it isn't overwritten.
+ *
+ * Projectiles: a move that detaches from the character and travels doesn't
+ * have a meaningful "on shield" frame advantage the normal formula can
+ * compute — the attacker isn't standing at the shield when it lands, so
+ * their own endlag is irrelevant to what the defender can do. FightCore has
+ * no projectile flag, so PROJECTILE_SPECIALS below is a hand-curated list
+ * (verified against each character's ssbwiki move description, e.g. Fox's
+ * Blaster: "the fastest projectile used by any character in the game")
+ * keyed on our own post-rename "<Direction> Special" labels. Flagged hitboxes
+ * get { isProjectile: true, isStun: true, min, max: shieldstun } instead of a
+ * computed advantage — mirrors Rivals' cargo-scrape.js convention exactly
+ * (isStun always accompanies isProjectile there too), so analysisMelee.js and
+ * MeleeMatchupView.jsx reuse the same isStun-skip / ProjectileBadge pattern
+ * already proven in analysis.js / MatchupView.jsx.
  */
 
 const fetch = require('node-fetch');
@@ -233,9 +247,12 @@ function correctSpecialName(name) {
 // moves already renamed by applyFlavorMoveName, like Fox/Falco's Shine).
 function applyDirectionSpecialName(name, flavorNames) {
   if (!flavorNames) return name;
-  const airMatch = name.match(/^(.*?)\s*(\(Air\))$/);
+  // Case-insensitive: FightCore isn't consistent here (e.g. Kirby's Swallow
+  // air variant is literally "Swallow (air)", lowercase, unlike every other
+  // character's "(Air)") — normalized to "(Air)" in the output regardless.
+  const airMatch = name.match(/^(.*?)\s*(\(air\))$/i);
   const baseName = airMatch ? airMatch[1] : name;
-  const airSuffix = airMatch ? ' ' + airMatch[2] : '';
+  const airSuffix = airMatch ? ' (Air)' : '';
   const correctedBase = correctSpecialName(baseName);
   for (const [key, , label] of SPECIAL_DIRECTIONS) {
     const flavorName = flavorNames[key];
@@ -273,7 +290,11 @@ function calcAerialShieldAdvantage(shieldstun, landlag) {
 // same min/max range shape Rivals' scraper (cargo-scrape.js) already uses
 // for "shield safety varies" cases — the UI already renders a "-8 to -2"
 // style range whenever min !== max, so no display-side change was needed.
-function buildHitboxes(move) {
+//
+// Projectiles (isProjectile true) skip the formula entirely — see the file
+// header doc — and instead report the raw shieldstun as
+// { isProjectile: true, isStun: true, min, max }, min===max.
+function buildHitboxes(move, isProjectile) {
   const isAerial = move.type === 3;
   const hitboxes = [];
   const totalEnd = move.iasa ?? (move.totalFrames > 0 ? move.totalFrames : null);
@@ -285,7 +306,12 @@ function buildHitboxes(move) {
     (hit.hitboxes || []).forEach(hb => {
       let shieldSafety = null;
       let shieldRaw = null;
-      if (isAerial) {
+      if (isProjectile) {
+        if (hb.shieldstun != null) {
+          shieldSafety = { isProjectile: true, isStun: true, min: hb.shieldstun, max: hb.shieldstun };
+          shieldRaw = String(hb.shieldstun);
+        }
+      } else if (isAerial) {
         const cancelled = calcAerialShieldAdvantage(hb.shieldstun, move.lCanceledLandLag);
         const notCancelled = calcAerialShieldAdvantage(hb.shieldstun, move.landLag);
         if (cancelled != null && notCancelled != null) {
@@ -332,6 +358,36 @@ function applyFlavorMoveName(name, characterName) {
     return name.replace('Reflector', 'Shine');
   }
   return name;
+}
+
+// Hand-curated (see file header doc) — keyed on the post-rename "<Direction>
+// Special" label, matched by prefix so aerial variants ("Side Special (Air)")
+// are included automatically.
+const PROJECTILE_SPECIALS = {
+  Mario:              ['Neutral Special'],
+  'Dr. Mario':        ['Neutral Special'],
+  Luigi:              ['Neutral Special'],
+  Peach:              ['Down Special'],
+  Yoshi:              ['Up Special'],
+  Fox:                ['Neutral Special'],
+  Falco:              ['Neutral Special'],
+  Ness:               ['Side Special'],
+  'Ice Climbers':     ['Neutral Special'],
+  Kirby:              ['Neutral Special'],
+  Samus:              ['Neutral Special', 'Side Special'],
+  Zelda:              ['Side Special'],
+  Sheik:              ['Neutral Special'],
+  Link:               ['Neutral Special', 'Side Special', 'Down Special'],
+  'Young Link':       ['Neutral Special', 'Side Special', 'Down Special'],
+  Pichu:              ['Neutral Special'],
+  Pikachu:            ['Neutral Special'],
+  Mewtwo:             ['Neutral Special'],
+  'Mr. Game & Watch': ['Neutral Special'],
+};
+
+function isProjectileMove(moveName, characterName) {
+  const bases = PROJECTILE_SPECIALS[characterName] || [];
+  return bases.some(base => moveName === base || moveName.startsWith(base + ' '));
 }
 
 // FightCore's hit-window names (hit.name) follow a rough set of internal
@@ -455,12 +511,13 @@ function buildCharacterMoves(moves, flavorNames, characterName) {
       // alone by applyDirectionSpecialName below.
       const shineApplied = applyFlavorMoveName(cleanMoveName(m.name), characterName);
       const directionNamed = applyDirectionSpecialName(shineApplied, flavorNames);
+      const finalName = stripComboTierSuffix(directionNamed);
       return {
-        move: stripComboTierSuffix(directionNamed),
+        move: finalName,
         type: m.type,
         isUpSpecial: isUpSpecialMove(m.name, flavorNames),
         startup: m.start ?? null,
-        hitboxes: buildHitboxes(m),
+        hitboxes: buildHitboxes(m, isProjectileMove(finalName, characterName)),
       };
     });
   return mergeComboTierMoves(built);

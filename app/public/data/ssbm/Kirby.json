@@ -1,7 +1,7 @@
 {
   "character": "Kirby",
   "slug": "Kirby",
-  "scrapedAt": "2026-07-16T00:20:57.682Z",
+  "scrapedAt": "2026-07-16T00:31:59.519Z",
   "jumpSquat": 3,
   "weight": 70,
   "wavedashOOSFrames": 13,
@@ -594,10 +594,12 @@
         {
           "hitbox": "Spit Star",
           "shieldSafety": {
-            "min": -69,
-            "max": -69
+            "isProjectile": true,
+            "isStun": true,
+            "min": 10,
+            "max": 10
           },
-          "shieldRaw": "-69"
+          "shieldRaw": "10"
         }
       ]
     },
@@ -2213,7 +2215,7 @@
       ]
     },
     {
-      "move": "Neutral Special (air)",
+      "move": "Neutral Special (Air)",
       "type": 4,
       "isUpSpecial": false,
       "startup": 17,
@@ -2221,10 +2223,12 @@
         {
           "hitbox": "Spit Star",
           "shieldSafety": {
-            "min": -69,
-            "max": -69
+            "isProjectile": true,
+            "isStun": true,
+            "min": 10,
+            "max": 10
           },
-          "shieldRaw": "-69"
+          "shieldRaw": "10"
         }
       ]
     }
