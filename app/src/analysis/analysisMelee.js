@@ -388,11 +388,15 @@ function getOOSOptions(characterData) {
       oosStartup,
       jumpCancel:   jc,
       shieldSafety: bestShieldSafety,
+      category:     getCategory(move),
     });
   });
 
   const options = dedupeGroundAirOOS(moveOptions);
 
+  // Grab and Wavedash are universal OOS options not tied to any one move
+  // category — grouped under "Misc" for the punish-options filter (mirrors
+  // Rivals' OOS_FILTER_GROUPS convention in MatchupView.jsx).
   if (!options.some(function(o) { return isGrabMove(o.move); })) {
     options.push({
       move:         'Grab',
@@ -402,6 +406,7 @@ function getOOSOptions(characterData) {
       oosStartup:   7,
       jumpCancel:   false,
       shieldSafety: null,
+      category:     'Misc',
     });
   }
 
@@ -414,6 +419,7 @@ function getOOSOptions(characterData) {
       oosStartup:   characterData.wavedashOOSFrames,
       jumpCancel:   false,
       shieldSafety: null,
+      category:     'Misc',
     });
   }
 

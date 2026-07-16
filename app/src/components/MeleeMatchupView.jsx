@@ -1,4 +1,4 @@
-import { useState, useMemo } from 'react'
+import { useState, useMemo, useEffect, useRef } from 'react'
 import { useCharacterData } from '../hooks/useMatchupData'
 import {
   getSafestOptions,
@@ -7,6 +7,15 @@ import {
   analyzeMatchup,
   CATEGORY_ORDER,
 } from '../analysis/analysisMelee'
+
+// Grab and Wavedash are universal OOS options that don't belong to any of
+// CATEGORY_ORDER's move categories — grouped under "Misc" here, mirroring
+// Rivals' MatchupView.jsx OOS_FILTER_GROUPS convention.
+const OOS_FILTER_GROUPS = [...CATEGORY_ORDER, 'Misc']
+
+// A CSS custom property (not a fixed value) so the mobile media query in
+// index.css can make toolbar units a bit taller without touching desktop.
+const TOOLBAR_H = 'var(--toolbar-h)'
 
 const SAFE_COLOR   = 'var(--safe)'
 const RISKY_COLOR  = 'var(--risky)'
@@ -220,8 +229,11 @@ function OOSList({ charData }) {
   )
 }
 
-function MoveRow({ row }) {
+function MoveRow({ row, oosFilter }) {
   const statusColor = row.isSafe ? SAFE_COLOR : row.isRisky ? RISKY_COLOR : PUNISH_COLOR
+  const punishes = (oosFilter && oosFilter.size > 0)
+    ? row.punishes.filter(p => oosFilter.has(p.move))
+    : row.punishes
   return (
     <div className="move-row">
       <div>
@@ -238,9 +250,9 @@ function MoveRow({ row }) {
           : <ShieldBadge value={row.shieldSafety} color={statusColor} />}
       </div>
       <div>
-        {row.punishes.length > 0 ? (
+        {punishes.length > 0 ? (
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: '4px' }}>
-            {row.punishes.map((p, i) => (
+            {punishes.map((p, i) => (
               <span key={i} style={{
                 padding: '1px 7px', borderRadius: '4px', background: 'var(--surface)',
                 border: '1px solid var(--border)', fontSize: '0.72rem', color: 'var(--text)', whiteSpace: 'nowrap',
@@ -257,7 +269,7 @@ function MoveRow({ row }) {
   )
 }
 
-function CategoryAccordion({ category, rows }) {
+function CategoryAccordion({ category, rows, oosFilter }) {
   const [open, setOpen] = useState(true)
   const sorted = useMemo(() => [...rows].sort((a, b) => b.shieldSafety.max - a.shieldSafety.max), [rows])
   const safe        = rows.filter(r => r.isSafe).length
@@ -293,23 +305,307 @@ function CategoryAccordion({ category, rows }) {
             <span style={{ fontSize: '0.65rem', fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'var(--muted)', textAlign: 'center' }}>On Shield</span>
             <span style={{ fontSize: '0.65rem', fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'var(--muted)' }}>Punish Options</span>
           </div>
-          {sorted.map((row, i) => <MoveRow key={i} row={row} />)}
+          {sorted.map((row, i) => <MoveRow key={i} row={row} oosFilter={oosFilter} />)}
         </div>
       )}
     </div>
   )
 }
 
-function BreakdownTable({ matchup }) {
-  const byCategory = CATEGORY_ORDER
-    .map(category => ({ category, rows: matchup.breakdown.filter(r => r.category === category) }))
+function BreakdownTable({ matchup, categoryFilter, oosFilter }) {
+  const visibleCategories = (categoryFilter && categoryFilter !== 'All') ? [categoryFilter] : CATEGORY_ORDER
+  const byCategory = visibleCategories
+    .map(category => {
+      let rows = matchup.breakdown.filter(r => r.category === category)
+      if (oosFilter && oosFilter.size > 0) {
+        rows = rows.filter(r => Array.isArray(r.punishes) && r.punishes.some(p => oosFilter.has(p.move)))
+      }
+      return { category, rows }
+    })
     .filter(g => g.rows.length > 0)
 
-  if (!byCategory.length) return <EmptyNote>No move data.</EmptyNote>
+  if (!byCategory.length) {
+    return <EmptyNote>{categoryFilter !== 'All' || (oosFilter && oosFilter.size > 0) ? 'No moves match the current filters.' : 'No move data.'}</EmptyNote>
+  }
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
-      {byCategory.map(g => <CategoryAccordion key={g.category} category={g.category} rows={g.rows} />)}
+      {byCategory.map(g => <CategoryAccordion key={g.category} category={g.category} rows={g.rows} oosFilter={oosFilter} />)}
+    </div>
+  )
+}
+
+// Mirrors Rivals' MatchupView.jsx FilterModal: one modal with two tabs — the
+// attacker's move-category filter (radio, single-select) and the defender's
+// OOS punish-option filter (checkboxes, multi-select, grouped by category).
+// relevantOOSMoves narrows the punish-options list to only options that
+// actually appear as a punish somewhere in the currently category-filtered
+// breakdown, so the list doesn't show irrelevant options.
+function FilterModal({
+  attackerName, attackerColor,
+  defenderName, defenderColor,
+  categoryTabs, categoryFilter, setCategoryFilter,
+  defenderOOS, oosFilter, setOosFilter, relevantOOSMoves,
+  onClose,
+}) {
+  const [tab, setTab] = useState('attacks')
+  const modalRef = useRef(null)
+
+  useEffect(() => {
+    document.body.style.overflow = 'hidden'
+    return () => { document.body.style.overflow = '' }
+  }, [])
+
+  useEffect(() => {
+    function handleClick(e) {
+      if (modalRef.current && !modalRef.current.contains(e.target)) onClose()
+    }
+    document.addEventListener('mousedown', handleClick)
+    return () => document.removeEventListener('mousedown', handleClick)
+  }, [onClose])
+
+  function toggleOOS(moveName) {
+    setOosFilter(prev => {
+      const next = new Set(prev)
+      if (next.has(moveName)) next.delete(moveName)
+      else next.add(moveName)
+      return next
+    })
+  }
+
+  const grouped = useMemo(() => {
+    const map = {}
+    OOS_FILTER_GROUPS.forEach(g => { map[g] = [] })
+    defenderOOS.forEach(opt => {
+      const cat = opt.category
+      if (map[cat]) map[cat].push(opt)
+      else map['Misc'].push(opt)
+    })
+    return map
+  }, [defenderOOS])
+
+  const atkActive = categoryFilter !== 'All'
+  const oosActive = oosFilter.size
+
+  return (
+    <div style={{ position: 'fixed', inset: 0, background: 'rgba(0,0,0,0.6)', zIndex: 1000, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '24px' }}>
+      <div ref={modalRef} style={{ background: 'var(--surface)', borderRadius: '12px', width: '100%', maxWidth: '480px', maxHeight: '80vh', display: 'flex', flexDirection: 'column', border: '1px solid var(--border)' }}>
+
+        {/* Modal header */}
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '14px 20px', borderBottom: '1px solid var(--border)', flexShrink: 0 }}>
+          <span style={{ fontSize: '0.75rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.08em', color: 'var(--muted)' }}>Filters</span>
+          <button onClick={onClose} style={{ background: 'none', border: 'none', color: 'var(--muted)', fontSize: '1.1rem', cursor: 'pointer', lineHeight: 1 }}>✕</button>
+        </div>
+
+        {/* Inner tabs */}
+        <div style={{ display: 'flex', borderBottom: '1px solid var(--border)', flexShrink: 0 }}>
+          {[
+            { id: 'attacks', label: `${attackerName}'s Attacks`, color: attackerColor, badge: atkActive ? 1 : 0 },
+            { id: 'punish', label: `${defenderName}'s Punish Options`, color: defenderColor, badge: oosActive },
+          ].map(t => {
+            const isActive = tab === t.id
+            return (
+              <button
+                key={t.id}
+                onClick={() => setTab(t.id)}
+                style={{
+                  flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px',
+                  padding: '10px 16px', background: 'none', border: 'none',
+                  borderBottom: `2px solid ${isActive ? t.color : 'transparent'}`,
+                  color: isActive ? t.color : 'var(--muted)',
+                  fontWeight: isActive ? 700 : 400, fontSize: '0.78rem',
+                  cursor: 'pointer', transition: 'all 0.15s',
+                }}
+              >
+                {t.label}
+                {t.badge > 0 && (
+                  <span style={{ background: t.color, color: '#0e0e12', borderRadius: '10px', padding: '1px 7px', fontSize: '0.65rem', fontWeight: 700 }}>
+                    {t.badge}
+                  </span>
+                )}
+              </button>
+            )
+          })}
+        </div>
+
+        {/* Tab content */}
+        <div className="filter-modal-content" style={{ flex: 1, overflowY: 'auto', padding: '8px 0' }}>
+          {tab === 'attacks' && (
+            <div style={{ display: 'flex', flexDirection: 'column' }}>
+              {categoryTabs.map(c => {
+                const isActive = categoryFilter === c
+                return (
+                  <button
+                    key={c}
+                    onClick={() => setCategoryFilter(c)}
+                    style={{
+                      display: 'flex', alignItems: 'center', gap: '12px',
+                      padding: '12px 20px', background: 'none', border: 'none',
+                      borderLeft: `3px solid ${isActive ? attackerColor : 'transparent'}`,
+                      borderBottom: '1px solid var(--border)',
+                      cursor: 'pointer', textAlign: 'left', width: '100%',
+                      transition: 'background 0.1s',
+                    }}
+                    onMouseEnter={e => e.currentTarget.style.background = 'rgba(255,255,255,0.03)'}
+                    onMouseLeave={e => e.currentTarget.style.background = 'none'}
+                  >
+                    <span style={{
+                      width: '16px', height: '16px', borderRadius: '50%', flexShrink: 0,
+                      border: `2px solid ${isActive ? attackerColor : 'var(--muted)'}`,
+                      background: isActive ? attackerColor : 'transparent',
+                      display: 'flex', alignItems: 'center', justifyContent: 'center',
+                    }}>
+                      {isActive && <span style={{ width: '6px', height: '6px', borderRadius: '50%', background: '#0e0e12' }} />}
+                    </span>
+                    <span style={{ fontSize: '0.88rem', color: isActive ? attackerColor : 'var(--text)', fontWeight: isActive ? 700 : 400 }}>
+                      {c}
+                    </span>
+                  </button>
+                )
+              })}
+            </div>
+          )}
+          {tab === 'punish' && (
+            <div style={{ display: 'flex', flexDirection: 'column' }}>
+              {oosActive > 0 && (
+                <button onClick={() => setOosFilter(new Set())} style={{ alignSelf: 'flex-start', margin: '8px 20px', fontSize: '0.72rem', color: 'var(--muted)', background: 'none', border: 'none', cursor: 'pointer', textDecoration: 'underline' }}>
+                  Clear all ({oosActive})
+                </button>
+              )}
+              {OOS_FILTER_GROUPS.map(g => {
+                const opts = (grouped[g] || []).filter(o => !relevantOOSMoves || relevantOOSMoves.has(o.move))
+                if (!opts.length) return null
+                return (
+                  <div key={g}>
+                    <div style={{ fontSize: '0.65rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.09em', color: 'var(--muted)', padding: '10px 20px 4px' }}>{g}</div>
+                    {opts.map(opt => {
+                      const active = oosFilter.has(opt.move)
+                      return (
+                        <button
+                          key={opt.move}
+                          onClick={() => toggleOOS(opt.move)}
+                          style={{
+                            display: 'flex', alignItems: 'center', gap: '12px',
+                            padding: '11px 20px', background: 'none', border: 'none',
+                            borderLeft: `3px solid ${active ? defenderColor : 'transparent'}`,
+                            borderBottom: '1px solid var(--border)',
+                            cursor: 'pointer', width: '100%', textAlign: 'left',
+                            transition: 'background 0.1s',
+                          }}
+                          onMouseEnter={e => e.currentTarget.style.background = 'rgba(255,255,255,0.03)'}
+                          onMouseLeave={e => e.currentTarget.style.background = 'none'}
+                        >
+                          <span style={{
+                            width: '16px', height: '16px', borderRadius: '4px', flexShrink: 0,
+                            border: `2px solid ${active ? defenderColor : 'var(--muted)'}`,
+                            background: active ? defenderColor : 'transparent',
+                            display: 'flex', alignItems: 'center', justifyContent: 'center',
+                          }}>
+                            {active && <span style={{ fontSize: '0.7rem', color: '#0e0e12', fontWeight: 900, lineHeight: 1 }}>✓</span>}
+                          </span>
+                          <span style={{ flex: 1, fontSize: '0.88rem', color: active ? defenderColor : 'var(--text)', fontWeight: active ? 600 : 400 }}>{opt.label}</span>
+                          <span style={{ fontSize: '0.78rem', color: 'var(--muted)', fontWeight: 600 }}>{opt.oosStartup}f</span>
+                        </button>
+                      )
+                    })}
+                  </div>
+                )
+              })}
+            </div>
+          )}
+        </div>
+
+        {/* Apply button */}
+        <div style={{ padding: '12px 20px 16px', borderTop: '1px solid var(--border)', flexShrink: 0 }}>
+          <button
+            onClick={onClose}
+            style={{ width: '100%', padding: '11px', borderRadius: '8px', background: tab === 'punish' ? defenderColor : attackerColor, border: 'none', color: '#0e0e12', fontSize: '0.88rem', fontWeight: 700, cursor: 'pointer', letterSpacing: '0.04em' }}
+          >
+            Done
+          </button>
+        </div>
+      </div>
+    </div>
+  )
+}
+
+// Owns the category/OOS filter state for one attacking direction (mirrors
+// Rivals' BreakdownSection) and renders the "⚙ Filters" toolbar button plus
+// the filtered BreakdownTable.
+function AttackingView({ matchup, defenderOOS, attackerName, attackerColor, defenderName, defenderColor }) {
+  const [categoryFilter, setCategoryFilter] = useState('All')
+  const [oosFilter, setOosFilter] = useState(new Set())
+  const [filterModalOpen, setFilterModalOpen] = useState(false)
+
+  const categoryTabs = ['All', ...CATEGORY_ORDER]
+
+  // OOS moves that actually appear as punishes in the selected category's rows
+  const relevantOOSMoves = useMemo(() => {
+    const rows = categoryFilter === 'All'
+      ? matchup.breakdown
+      : matchup.breakdown.filter(r => r.category === categoryFilter)
+    const moves = new Set()
+    rows.forEach(r => (r.punishes || []).forEach(p => moves.add(p.move)))
+    return moves
+  }, [matchup, categoryFilter])
+
+  const atkActive = categoryFilter !== 'All' ? 1 : 0
+  const oosActive = oosFilter.size
+  const anyActive = atkActive > 0 || oosActive > 0
+
+  return (
+    <div>
+      <div className="toolbar-row" style={{ display: 'flex', gap: '10px', flexWrap: 'wrap', padding: '0 0 16px' }}>
+        <button
+          onClick={() => setFilterModalOpen(true)}
+          className="toolbar-filters-btn"
+          style={{
+            display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: '8px',
+            height: TOOLBAR_H, padding: '0 16px', borderRadius: 'var(--radius)',
+            border: `1px solid ${anyActive ? 'var(--text)' : 'var(--border)'}`,
+            background: anyActive ? attackerColor + '18' : 'var(--surface)',
+            color: 'var(--text)',
+            fontSize: '0.82rem', fontWeight: 600, cursor: 'pointer',
+            letterSpacing: '0.02em',
+          }}
+        >
+          <span>⚙ Filters</span>
+          {atkActive > 0 && (
+            <span style={{
+              width: '18px', height: '18px', borderRadius: '50%',
+              background: attackerColor, color: '#0e0e12',
+              fontSize: '0.65rem', fontWeight: 800,
+              display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
+            }}>
+              {atkActive}
+            </span>
+          )}
+          {oosActive > 0 && (
+            <span style={{
+              width: '18px', height: '18px', borderRadius: '50%',
+              background: defenderColor, color: '#0e0e12',
+              fontSize: '0.65rem', fontWeight: 800,
+              display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
+            }}>
+              {oosActive}
+            </span>
+          )}
+        </button>
+      </div>
+
+      {filterModalOpen && (
+        <FilterModal
+          attackerName={attackerName} attackerColor={attackerColor}
+          defenderName={defenderName} defenderColor={defenderColor}
+          categoryTabs={categoryTabs} categoryFilter={categoryFilter}
+          setCategoryFilter={v => { setCategoryFilter(v); setOosFilter(new Set()) }}
+          defenderOOS={defenderOOS} oosFilter={oosFilter} setOosFilter={setOosFilter}
+          relevantOOSMoves={relevantOOSMoves}
+          onClose={() => setFilterModalOpen(false)}
+        />
+      )}
+
+      <BreakdownTable matchup={matchup} categoryFilter={categoryFilter} oosFilter={oosFilter} />
     </div>
   )
 }
@@ -424,8 +720,22 @@ export default function MeleeMatchupView({ myChar, oppChar, onBack }) {
           </div>
         )}
 
-        {activeTab === 'me' && matchupVsMe && <BreakdownTable matchup={matchupVsMe} />}
-        {activeTab === 'opp' && matchupVsOpp && <BreakdownTable matchup={matchupVsOpp} />}
+        {activeTab === 'me' && matchupVsMe && (
+          <AttackingView
+            matchup={matchupVsMe}
+            defenderOOS={oppOOS}
+            attackerName={myChar} attackerColor="var(--accent)"
+            defenderName={oppChar} defenderColor="var(--accent2)"
+          />
+        )}
+        {activeTab === 'opp' && matchupVsOpp && (
+          <AttackingView
+            matchup={matchupVsOpp}
+            defenderOOS={myOOS}
+            attackerName={oppChar} attackerColor="var(--accent2)"
+            defenderName={myChar} defenderColor="var(--accent)"
+          />
+        )}
       </main>
     </div>
   )
