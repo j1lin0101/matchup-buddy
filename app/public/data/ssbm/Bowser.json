@@ -1,7 +1,7 @@
 {
   "character": "Bowser",
   "slug": "Bowser",
-  "scrapedAt": "2026-07-16T05:26:56.678Z",
+  "scrapedAt": "2026-07-16T23:32:37.725Z",
   "jumpSquat": 8,
   "weight": 117,
   "wavedashOOSFrames": 18,
@@ -19,7 +19,13 @@
             "min": -72,
             "max": -72
           },
-          "shieldRaw": "-72"
+          "shieldRaw": "-72",
+          "damage": 13,
+          "knockbackGrowth": 80,
+          "baseKnockback": 90,
+          "setKnockback": 0,
+          "angle": 80,
+          "endlag": 79
         },
         {
           "hitbox": "Hit 1 (Grounded)",
@@ -27,7 +33,13 @@
             "min": -72,
             "max": -72
           },
-          "shieldRaw": "-72"
+          "shieldRaw": "-72",
+          "damage": 13,
+          "knockbackGrowth": 80,
+          "baseKnockback": 90,
+          "setKnockback": 0,
+          "angle": 80,
+          "endlag": 79
         },
         {
           "hitbox": "Hits 2-6 (Grounded)",
@@ -35,7 +47,13 @@
             "min": -75,
             "max": -75
           },
-          "shieldRaw": "-75"
+          "shieldRaw": "-75",
+          "damage": 5,
+          "knockbackGrowth": 50,
+          "baseKnockback": 80,
+          "setKnockback": 0,
+          "angle": 90,
+          "endlag": 79
         },
         {
           "hitbox": "Hits 2-6 (Grounded)",
@@ -43,7 +61,13 @@
             "min": -75,
             "max": -75
           },
-          "shieldRaw": "-75"
+          "shieldRaw": "-75",
+          "damage": 5,
+          "knockbackGrowth": 50,
+          "baseKnockback": 80,
+          "setKnockback": 0,
+          "angle": 90,
+          "endlag": 79
         },
         {
           "hitbox": "Hits 7-11 (Grounded)",
@@ -51,7 +75,13 @@
             "min": -76,
             "max": -76
           },
-          "shieldRaw": "-76"
+          "shieldRaw": "-76",
+          "damage": 3,
+          "knockbackGrowth": 50,
+          "baseKnockback": 50,
+          "setKnockback": 0,
+          "angle": 70,
+          "endlag": 79
         },
         {
           "hitbox": "Hits 7-11 (Grounded)",
@@ -59,7 +89,13 @@
             "min": -76,
             "max": -76
           },
-          "shieldRaw": "-76"
+          "shieldRaw": "-76",
+          "damage": 3,
+          "knockbackGrowth": 50,
+          "baseKnockback": 50,
+          "setKnockback": 0,
+          "angle": 70,
+          "endlag": 79
         }
       ]
     },
@@ -75,7 +111,13 @@
             "min": -95,
             "max": -95
           },
-          "shieldRaw": "-95"
+          "shieldRaw": "-95",
+          "damage": 21,
+          "knockbackGrowth": 72,
+          "baseKnockback": 45,
+          "setKnockback": 0,
+          "angle": 76,
+          "endlag": 106
         },
         {
           "hitbox": "Landing",
@@ -83,7 +125,13 @@
             "min": -101,
             "max": -101
           },
-          "shieldRaw": "-101"
+          "shieldRaw": "-101",
+          "damage": 8,
+          "knockbackGrowth": 72,
+          "baseKnockback": 60,
+          "setKnockback": 0,
+          "angle": 76,
+          "endlag": 106
         }
       ]
     },
@@ -99,7 +147,13 @@
             "min": -90,
             "max": -90
           },
-          "shieldRaw": "-90"
+          "shieldRaw": "-90",
+          "damage": 2,
+          "knockbackGrowth": 50,
+          "baseKnockback": 12,
+          "setKnockback": 0,
+          "angle": 60,
+          "endlag": 92
         }
       ]
     },
@@ -115,7 +169,13 @@
             "min": -40,
             "max": -40
           },
-          "shieldRaw": "-40"
+          "shieldRaw": "-40",
+          "damage": 11,
+          "knockbackGrowth": 30,
+          "baseKnockback": 120,
+          "setKnockback": 0,
+          "angle": 80,
+          "endlag": 43
         },
         {
           "hitbox": "Id1",
@@ -123,7 +183,13 @@
             "min": -40,
             "max": -40
           },
-          "shieldRaw": "-40"
+          "shieldRaw": "-40",
+          "damage": 11,
+          "knockbackGrowth": 30,
+          "baseKnockback": 120,
+          "setKnockback": 0,
+          "angle": 80,
+          "endlag": 43
         },
         {
           "hitbox": "Id0",
@@ -131,7 +197,13 @@
             "min": -37,
             "max": -37
           },
-          "shieldRaw": "-37"
+          "shieldRaw": "-37",
+          "damage": 8,
+          "knockbackGrowth": 30,
+          "baseKnockback": 80,
+          "setKnockback": 0,
+          "angle": 80,
+          "endlag": 39
         },
         {
           "hitbox": "Id1",
@@ -139,7 +211,13 @@
             "min": -36,
             "max": -36
           },
-          "shieldRaw": "-36"
+          "shieldRaw": "-36",
+          "damage": 11,
+          "knockbackGrowth": 30,
+          "baseKnockback": 120,
+          "setKnockback": 0,
+          "angle": 80,
+          "endlag": 39
         }
       ]
     },
@@ -155,7 +233,13 @@
             "min": -17,
             "max": -17
           },
-          "shieldRaw": "-17"
+          "shieldRaw": "-17",
+          "damage": 14,
+          "knockbackGrowth": 100,
+          "baseKnockback": 25,
+          "setKnockback": 0,
+          "angle": 361,
+          "endlag": 21
         },
         {
           "hitbox": "Id1",
@@ -163,7 +247,13 @@
             "min": -18,
             "max": -18
           },
-          "shieldRaw": "-18"
+          "shieldRaw": "-18",
+          "damage": 12,
+          "knockbackGrowth": 100,
+          "baseKnockback": 25,
+          "setKnockback": 0,
+          "angle": 361,
+          "endlag": 21
         },
         {
           "hitbox": "Id2",
@@ -171,7 +261,13 @@
             "min": -18,
             "max": -18
           },
-          "shieldRaw": "-18"
+          "shieldRaw": "-18",
+          "damage": 13,
+          "knockbackGrowth": 100,
+          "baseKnockback": 25,
+          "setKnockback": 0,
+          "angle": 361,
+          "endlag": 21
         }
       ]
     },
@@ -187,7 +283,13 @@
             "min": -36,
             "max": -36
           },
-          "shieldRaw": "-36"
+          "shieldRaw": "-36",
+          "damage": 13,
+          "knockbackGrowth": 120,
+          "baseKnockback": 40,
+          "setKnockback": 0,
+          "angle": 100,
+          "endlag": 40
         },
         {
           "hitbox": "Id1",
@@ -195,7 +297,13 @@
             "min": -36,
             "max": -36
           },
-          "shieldRaw": "-36"
+          "shieldRaw": "-36",
+          "damage": 13,
+          "knockbackGrowth": 120,
+          "baseKnockback": 40,
+          "setKnockback": 0,
+          "angle": 100,
+          "endlag": 40
         }
       ]
     },
@@ -211,7 +319,13 @@
             "min": -34,
             "max": -34
           },
-          "shieldRaw": "-34"
+          "shieldRaw": "-34",
+          "damage": 13,
+          "knockbackGrowth": 100,
+          "baseKnockback": 15,
+          "setKnockback": 0,
+          "angle": 361,
+          "endlag": 37
         },
         {
           "hitbox": "Id1",
@@ -219,7 +333,13 @@
             "min": -34,
             "max": -34
           },
-          "shieldRaw": "-34"
+          "shieldRaw": "-34",
+          "damage": 13,
+          "knockbackGrowth": 100,
+          "baseKnockback": 15,
+          "setKnockback": 0,
+          "angle": 361,
+          "endlag": 37
         },
         {
           "hitbox": "Id0",
@@ -227,7 +347,13 @@
             "min": -22,
             "max": -22
           },
-          "shieldRaw": "-22"
+          "shieldRaw": "-22",
+          "damage": 10,
+          "knockbackGrowth": 100,
+          "baseKnockback": 12,
+          "setKnockback": 0,
+          "angle": 361,
+          "endlag": 24
         },
         {
           "hitbox": "Id1",
@@ -235,7 +361,13 @@
             "min": -22,
             "max": -22
           },
-          "shieldRaw": "-22"
+          "shieldRaw": "-22",
+          "damage": 10,
+          "knockbackGrowth": 100,
+          "baseKnockback": 12,
+          "setKnockback": 0,
+          "angle": 361,
+          "endlag": 24
         }
       ]
     },
@@ -251,7 +383,13 @@
             "min": -25,
             "max": -25
           },
-          "shieldRaw": "-25"
+          "shieldRaw": "-25",
+          "damage": 24,
+          "knockbackGrowth": 100,
+          "baseKnockback": 30,
+          "setKnockback": 0,
+          "angle": 361,
+          "endlag": 33
         },
         {
           "hitbox": "Id1",
@@ -259,7 +397,13 @@
             "min": -25,
             "max": -25
           },
-          "shieldRaw": "-25"
+          "shieldRaw": "-25",
+          "damage": 24,
+          "knockbackGrowth": 100,
+          "baseKnockback": 30,
+          "setKnockback": 0,
+          "angle": 60,
+          "endlag": 33
         }
       ]
     },
@@ -275,7 +419,13 @@
             "min": -27,
             "max": -27
           },
-          "shieldRaw": "-27"
+          "shieldRaw": "-27",
+          "damage": 20,
+          "knockbackGrowth": 86,
+          "baseKnockback": 40,
+          "setKnockback": 0,
+          "angle": 90,
+          "endlag": 32
         },
         {
           "hitbox": "Id1",
@@ -283,7 +433,13 @@
             "min": -28,
             "max": -28
           },
-          "shieldRaw": "-28"
+          "shieldRaw": "-28",
+          "damage": 17,
+          "knockbackGrowth": 86,
+          "baseKnockback": 40,
+          "setKnockback": 0,
+          "angle": 90,
+          "endlag": 32
         },
         {
           "hitbox": "Id0",
@@ -291,7 +447,13 @@
             "min": -16,
             "max": -16
           },
-          "shieldRaw": "-16"
+          "shieldRaw": "-16",
+          "damage": 12,
+          "knockbackGrowth": 100,
+          "baseKnockback": 60,
+          "setKnockback": 0,
+          "angle": 74,
+          "endlag": 23
         },
         {
           "hitbox": "Id1",
@@ -299,7 +461,13 @@
             "min": -16,
             "max": -16
           },
-          "shieldRaw": "-16"
+          "shieldRaw": "-16",
+          "damage": 12,
+          "knockbackGrowth": 100,
+          "baseKnockback": 60,
+          "setKnockback": 0,
+          "angle": 74,
+          "endlag": 23
         }
       ]
     },
@@ -315,7 +483,13 @@
             "min": -52,
             "max": -52
           },
-          "shieldRaw": "-52"
+          "shieldRaw": "-52",
+          "damage": 2,
+          "knockbackGrowth": 50,
+          "baseKnockback": 40,
+          "setKnockback": 0,
+          "angle": 150,
+          "endlag": 53
         },
         {
           "hitbox": "Id1",
@@ -323,7 +497,13 @@
             "min": -52,
             "max": -52
           },
-          "shieldRaw": "-52"
+          "shieldRaw": "-52",
+          "damage": 2,
+          "knockbackGrowth": 50,
+          "baseKnockback": 40,
+          "setKnockback": 0,
+          "angle": 150,
+          "endlag": 53
         },
         {
           "hitbox": "Id2",
@@ -331,7 +511,13 @@
             "min": -52,
             "max": -52
           },
-          "shieldRaw": "-52"
+          "shieldRaw": "-52",
+          "damage": 2,
+          "knockbackGrowth": 50,
+          "baseKnockback": 40,
+          "setKnockback": 0,
+          "angle": 190,
+          "endlag": 53
         },
         {
           "hitbox": "Id3",
@@ -339,7 +525,13 @@
             "min": -52,
             "max": -52
           },
-          "shieldRaw": "-52"
+          "shieldRaw": "-52",
+          "damage": 2,
+          "knockbackGrowth": 50,
+          "baseKnockback": 40,
+          "setKnockback": 0,
+          "angle": 190,
+          "endlag": 53
         },
         {
           "hitbox": "Id0",
@@ -347,7 +539,13 @@
             "min": -49,
             "max": -49
           },
-          "shieldRaw": "-49"
+          "shieldRaw": "-49",
+          "damage": 2,
+          "knockbackGrowth": 50,
+          "baseKnockback": 40,
+          "setKnockback": 0,
+          "angle": 150,
+          "endlag": 50
         },
         {
           "hitbox": "Id1",
@@ -355,7 +553,13 @@
             "min": -49,
             "max": -49
           },
-          "shieldRaw": "-49"
+          "shieldRaw": "-49",
+          "damage": 2,
+          "knockbackGrowth": 50,
+          "baseKnockback": 40,
+          "setKnockback": 0,
+          "angle": 150,
+          "endlag": 50
         },
         {
           "hitbox": "Id2",
@@ -363,7 +567,13 @@
             "min": -49,
             "max": -49
           },
-          "shieldRaw": "-49"
+          "shieldRaw": "-49",
+          "damage": 2,
+          "knockbackGrowth": 50,
+          "baseKnockback": 40,
+          "setKnockback": 0,
+          "angle": 190,
+          "endlag": 50
         },
         {
           "hitbox": "Id3",
@@ -371,7 +581,13 @@
             "min": -49,
             "max": -49
           },
-          "shieldRaw": "-49"
+          "shieldRaw": "-49",
+          "damage": 2,
+          "knockbackGrowth": 50,
+          "baseKnockback": 40,
+          "setKnockback": 0,
+          "angle": 190,
+          "endlag": 50
         },
         {
           "hitbox": "Id0",
@@ -379,7 +595,13 @@
             "min": -46,
             "max": -46
           },
-          "shieldRaw": "-46"
+          "shieldRaw": "-46",
+          "damage": 2,
+          "knockbackGrowth": 50,
+          "baseKnockback": 40,
+          "setKnockback": 0,
+          "angle": 150,
+          "endlag": 47
         },
         {
           "hitbox": "Id1",
@@ -387,7 +609,13 @@
             "min": -46,
             "max": -46
           },
-          "shieldRaw": "-46"
+          "shieldRaw": "-46",
+          "damage": 2,
+          "knockbackGrowth": 50,
+          "baseKnockback": 40,
+          "setKnockback": 0,
+          "angle": 150,
+          "endlag": 47
         },
         {
           "hitbox": "Id2",
@@ -395,7 +623,13 @@
             "min": -46,
             "max": -46
           },
-          "shieldRaw": "-46"
+          "shieldRaw": "-46",
+          "damage": 2,
+          "knockbackGrowth": 50,
+          "baseKnockback": 40,
+          "setKnockback": 0,
+          "angle": 190,
+          "endlag": 47
         },
         {
           "hitbox": "Id3",
@@ -403,7 +637,13 @@
             "min": -46,
             "max": -46
           },
-          "shieldRaw": "-46"
+          "shieldRaw": "-46",
+          "damage": 2,
+          "knockbackGrowth": 50,
+          "baseKnockback": 40,
+          "setKnockback": 0,
+          "angle": 190,
+          "endlag": 47
         },
         {
           "hitbox": "Id0",
@@ -411,7 +651,13 @@
             "min": -43,
             "max": -43
           },
-          "shieldRaw": "-43"
+          "shieldRaw": "-43",
+          "damage": 2,
+          "knockbackGrowth": 50,
+          "baseKnockback": 40,
+          "setKnockback": 0,
+          "angle": 150,
+          "endlag": 44
         },
         {
           "hitbox": "Id1",
@@ -419,7 +665,13 @@
             "min": -43,
             "max": -43
           },
-          "shieldRaw": "-43"
+          "shieldRaw": "-43",
+          "damage": 2,
+          "knockbackGrowth": 50,
+          "baseKnockback": 40,
+          "setKnockback": 0,
+          "angle": 150,
+          "endlag": 44
         },
         {
           "hitbox": "Id2",
@@ -427,7 +679,13 @@
             "min": -43,
             "max": -43
           },
-          "shieldRaw": "-43"
+          "shieldRaw": "-43",
+          "damage": 2,
+          "knockbackGrowth": 50,
+          "baseKnockback": 40,
+          "setKnockback": 0,
+          "angle": 190,
+          "endlag": 44
         },
         {
           "hitbox": "Id3",
@@ -435,7 +693,13 @@
             "min": -43,
             "max": -43
           },
-          "shieldRaw": "-43"
+          "shieldRaw": "-43",
+          "damage": 2,
+          "knockbackGrowth": 50,
+          "baseKnockback": 40,
+          "setKnockback": 0,
+          "angle": 190,
+          "endlag": 44
         },
         {
           "hitbox": "Id0",
@@ -443,7 +707,13 @@
             "min": -40,
             "max": -40
           },
-          "shieldRaw": "-40"
+          "shieldRaw": "-40",
+          "damage": 2,
+          "knockbackGrowth": 50,
+          "baseKnockback": 40,
+          "setKnockback": 0,
+          "angle": 150,
+          "endlag": 41
         },
         {
           "hitbox": "Id1",
@@ -451,7 +721,13 @@
             "min": -40,
             "max": -40
           },
-          "shieldRaw": "-40"
+          "shieldRaw": "-40",
+          "damage": 2,
+          "knockbackGrowth": 50,
+          "baseKnockback": 40,
+          "setKnockback": 0,
+          "angle": 150,
+          "endlag": 41
         },
         {
           "hitbox": "Id2",
@@ -459,7 +735,13 @@
             "min": -40,
             "max": -40
           },
-          "shieldRaw": "-40"
+          "shieldRaw": "-40",
+          "damage": 2,
+          "knockbackGrowth": 50,
+          "baseKnockback": 40,
+          "setKnockback": 0,
+          "angle": 190,
+          "endlag": 41
         },
         {
           "hitbox": "Id3",
@@ -467,7 +749,13 @@
             "min": -40,
             "max": -40
           },
-          "shieldRaw": "-40"
+          "shieldRaw": "-40",
+          "damage": 2,
+          "knockbackGrowth": 50,
+          "baseKnockback": 40,
+          "setKnockback": 0,
+          "angle": 190,
+          "endlag": 41
         },
         {
           "hitbox": "Id0",
@@ -475,7 +763,13 @@
             "min": -37,
             "max": -37
           },
-          "shieldRaw": "-37"
+          "shieldRaw": "-37",
+          "damage": 2,
+          "knockbackGrowth": 50,
+          "baseKnockback": 40,
+          "setKnockback": 0,
+          "angle": 150,
+          "endlag": 38
         },
         {
           "hitbox": "Id1",
@@ -483,7 +777,13 @@
             "min": -37,
             "max": -37
           },
-          "shieldRaw": "-37"
+          "shieldRaw": "-37",
+          "damage": 2,
+          "knockbackGrowth": 50,
+          "baseKnockback": 40,
+          "setKnockback": 0,
+          "angle": 150,
+          "endlag": 38
         },
         {
           "hitbox": "Id2",
@@ -491,7 +791,13 @@
             "min": -37,
             "max": -37
           },
-          "shieldRaw": "-37"
+          "shieldRaw": "-37",
+          "damage": 2,
+          "knockbackGrowth": 50,
+          "baseKnockback": 40,
+          "setKnockback": 0,
+          "angle": 190,
+          "endlag": 38
         },
         {
           "hitbox": "Id3",
@@ -499,7 +805,13 @@
             "min": -37,
             "max": -37
           },
-          "shieldRaw": "-37"
+          "shieldRaw": "-37",
+          "damage": 2,
+          "knockbackGrowth": 50,
+          "baseKnockback": 40,
+          "setKnockback": 0,
+          "angle": 190,
+          "endlag": 38
         },
         {
           "hitbox": "Id0",
@@ -507,7 +819,13 @@
             "min": -30,
             "max": -30
           },
-          "shieldRaw": "-30"
+          "shieldRaw": "-30",
+          "damage": 10,
+          "knockbackGrowth": 140,
+          "baseKnockback": 40,
+          "setKnockback": 0,
+          "angle": 90,
+          "endlag": 36
         }
       ]
     },
@@ -523,7 +841,13 @@
             "min": -8,
             "max": 0
           },
-          "shieldRaw": "-8/0"
+          "shieldRaw": "-8/0",
+          "damage": 13,
+          "knockbackGrowth": 80,
+          "baseKnockback": 20,
+          "setKnockback": 0,
+          "angle": 361,
+          "endlag": 7
         }
       ]
     },
@@ -539,7 +863,13 @@
             "min": -22,
             "max": -7
           },
-          "shieldRaw": "-22/-7"
+          "shieldRaw": "-22/-7",
+          "damage": 14,
+          "knockbackGrowth": 80,
+          "baseKnockback": 50,
+          "setKnockback": 0,
+          "angle": 361,
+          "endlag": 15
         },
         {
           "hitbox": "Id1",
@@ -547,7 +877,13 @@
             "min": -23,
             "max": -8
           },
-          "shieldRaw": "-23/-8"
+          "shieldRaw": "-23/-8",
+          "damage": 12,
+          "knockbackGrowth": 80,
+          "baseKnockback": 50,
+          "setKnockback": 0,
+          "angle": 361,
+          "endlag": 15
         },
         {
           "hitbox": "Id2",
@@ -555,7 +891,13 @@
             "min": -24,
             "max": -9
           },
-          "shieldRaw": "-24/-9"
+          "shieldRaw": "-24/-9",
+          "damage": 11,
+          "knockbackGrowth": 80,
+          "baseKnockback": 50,
+          "setKnockback": 0,
+          "angle": 361,
+          "endlag": 15
         }
       ]
     },
@@ -571,7 +913,13 @@
             "min": -28,
             "max": -10
           },
-          "shieldRaw": "-28/-10"
+          "shieldRaw": "-28/-10",
+          "damage": 13,
+          "knockbackGrowth": 80,
+          "baseKnockback": 25,
+          "setKnockback": 0,
+          "angle": 24,
+          "endlag": 17
         },
         {
           "hitbox": "Late",
@@ -579,7 +927,13 @@
             "min": -29,
             "max": -11
           },
-          "shieldRaw": "-29/-11"
+          "shieldRaw": "-29/-11",
+          "damage": 9,
+          "knockbackGrowth": 80,
+          "baseKnockback": 25,
+          "setKnockback": 0,
+          "angle": 361,
+          "endlag": 17
         }
       ]
     },
@@ -595,7 +949,13 @@
             "min": -21,
             "max": -6
           },
-          "shieldRaw": "-21/-6"
+          "shieldRaw": "-21/-6",
+          "damage": 17,
+          "knockbackGrowth": 100,
+          "baseKnockback": 50,
+          "setKnockback": 0,
+          "angle": 85,
+          "endlag": 15
         }
       ]
     },
@@ -611,7 +971,13 @@
             "min": -37,
             "max": -17
           },
-          "shieldRaw": "-37/-17"
+          "shieldRaw": "-37/-17",
+          "damage": 3,
+          "knockbackGrowth": 100,
+          "baseKnockback": 0,
+          "setKnockback": 10,
+          "angle": 80,
+          "endlag": 20
         },
         {
           "hitbox": "Id0",
@@ -619,7 +985,13 @@
             "min": -37,
             "max": -17
           },
-          "shieldRaw": "-37/-17"
+          "shieldRaw": "-37/-17",
+          "damage": 3,
+          "knockbackGrowth": 100,
+          "baseKnockback": 0,
+          "setKnockback": 10,
+          "angle": 80,
+          "endlag": 20
         },
         {
           "hitbox": "Id0",
@@ -627,7 +999,13 @@
             "min": -37,
             "max": -17
           },
-          "shieldRaw": "-37/-17"
+          "shieldRaw": "-37/-17",
+          "damage": 3,
+          "knockbackGrowth": 100,
+          "baseKnockback": 0,
+          "setKnockback": 10,
+          "angle": 80,
+          "endlag": 20
         },
         {
           "hitbox": "Id0",
@@ -635,7 +1013,13 @@
             "min": -37,
             "max": -17
           },
-          "shieldRaw": "-37/-17"
+          "shieldRaw": "-37/-17",
+          "damage": 3,
+          "knockbackGrowth": 100,
+          "baseKnockback": 0,
+          "setKnockback": 10,
+          "angle": 80,
+          "endlag": 20
         },
         {
           "hitbox": "Id0",
@@ -643,7 +1027,13 @@
             "min": -37,
             "max": -17
           },
-          "shieldRaw": "-37/-17"
+          "shieldRaw": "-37/-17",
+          "damage": 3,
+          "knockbackGrowth": 100,
+          "baseKnockback": 0,
+          "setKnockback": 10,
+          "angle": 80,
+          "endlag": 20
         },
         {
           "hitbox": "Id0",
@@ -651,7 +1041,13 @@
             "min": -37,
             "max": -17
           },
-          "shieldRaw": "-37/-17"
+          "shieldRaw": "-37/-17",
+          "damage": 3,
+          "knockbackGrowth": 100,
+          "baseKnockback": 0,
+          "setKnockback": 10,
+          "angle": 80,
+          "endlag": 20
         },
         {
           "hitbox": "Id0",
@@ -659,7 +1055,13 @@
             "min": -37,
             "max": -17
           },
-          "shieldRaw": "-37/-17"
+          "shieldRaw": "-37/-17",
+          "damage": 3,
+          "knockbackGrowth": 100,
+          "baseKnockback": 0,
+          "setKnockback": 10,
+          "angle": 80,
+          "endlag": 20
         },
         {
           "hitbox": "Id0",
@@ -667,7 +1069,13 @@
             "min": -37,
             "max": -17
           },
-          "shieldRaw": "-37/-17"
+          "shieldRaw": "-37/-17",
+          "damage": 3,
+          "knockbackGrowth": 100,
+          "baseKnockback": 0,
+          "setKnockback": 10,
+          "angle": 80,
+          "endlag": 20
         },
         {
           "hitbox": "Id0",
@@ -675,7 +1083,13 @@
             "min": -37,
             "max": -17
           },
-          "shieldRaw": "-37/-17"
+          "shieldRaw": "-37/-17",
+          "damage": 3,
+          "knockbackGrowth": 100,
+          "baseKnockback": 0,
+          "setKnockback": 10,
+          "angle": 80,
+          "endlag": 20
         }
       ]
     },
@@ -691,7 +1105,13 @@
             "min": -52,
             "max": -52
           },
-          "shieldRaw": "-52"
+          "shieldRaw": "-52",
+          "damage": 12,
+          "knockbackGrowth": 90,
+          "baseKnockback": 80,
+          "setKnockback": 0,
+          "angle": 80,
+          "endlag": 59
         },
         {
           "hitbox": "Slash",
@@ -699,7 +1119,13 @@
             "min": -53,
             "max": -53
           },
-          "shieldRaw": "-53"
+          "shieldRaw": "-53",
+          "damage": 10,
+          "knockbackGrowth": 90,
+          "baseKnockback": 80,
+          "setKnockback": 0,
+          "angle": 80,
+          "endlag": 59
         },
         {
           "hitbox": "Bite",
@@ -707,7 +1133,13 @@
             "min": -56,
             "max": -56
           },
-          "shieldRaw": "-56"
+          "shieldRaw": "-56",
+          "damage": 4,
+          "knockbackGrowth": 0,
+          "baseKnockback": 0,
+          "setKnockback": 0,
+          "angle": 80,
+          "endlag": 59
         },
         {
           "hitbox": "Fthrow",
@@ -715,7 +1147,13 @@
             "min": -53,
             "max": -53
           },
-          "shieldRaw": "-53"
+          "shieldRaw": "-53",
+          "damage": 11,
+          "knockbackGrowth": 20,
+          "baseKnockback": 12,
+          "setKnockback": 0,
+          "angle": 30,
+          "endlag": 59
         },
         {
           "hitbox": "Fthrow Hit",
@@ -723,7 +1161,13 @@
             "min": -56,
             "max": -56
           },
-          "shieldRaw": "-56"
+          "shieldRaw": "-56",
+          "damage": 4,
+          "knockbackGrowth": 15,
+          "baseKnockback": 140,
+          "setKnockback": 0,
+          "angle": 80,
+          "endlag": 59
         },
         {
           "hitbox": "Bthrow",
@@ -731,7 +1175,13 @@
             "min": -53,
             "max": -53
           },
-          "shieldRaw": "-53"
+          "shieldRaw": "-53",
+          "damage": 11,
+          "knockbackGrowth": 88,
+          "baseKnockback": 62,
+          "setKnockback": 0,
+          "angle": 361,
+          "endlag": 59
         }
       ]
     },
@@ -744,22 +1194,46 @@
         {
           "hitbox": "Slow",
           "shieldSafety": null,
-          "shieldRaw": null
+          "shieldRaw": null,
+          "damage": 10,
+          "knockbackGrowth": 100,
+          "baseKnockback": 0,
+          "setKnockback": 90,
+          "angle": 361,
+          "endlag": null
         },
         {
           "hitbox": "Slow",
           "shieldSafety": null,
-          "shieldRaw": null
+          "shieldRaw": null,
+          "damage": 10,
+          "knockbackGrowth": 100,
+          "baseKnockback": 0,
+          "setKnockback": 90,
+          "angle": 361,
+          "endlag": null
         },
         {
           "hitbox": "Fast",
           "shieldSafety": null,
-          "shieldRaw": null
+          "shieldRaw": null,
+          "damage": 8,
+          "knockbackGrowth": 100,
+          "baseKnockback": 0,
+          "setKnockback": 90,
+          "angle": 361,
+          "endlag": null
         },
         {
           "hitbox": "Fast",
           "shieldSafety": null,
-          "shieldRaw": null
+          "shieldRaw": null,
+          "damage": 8,
+          "knockbackGrowth": 100,
+          "baseKnockback": 0,
+          "setKnockback": 90,
+          "angle": 361,
+          "endlag": null
         }
       ]
     },
@@ -772,7 +1246,13 @@
         {
           "hitbox": "Id0",
           "shieldSafety": null,
-          "shieldRaw": null
+          "shieldRaw": null,
+          "damage": 3,
+          "knockbackGrowth": 100,
+          "baseKnockback": 0,
+          "setKnockback": 30,
+          "angle": 80,
+          "endlag": null
         }
       ]
     },
@@ -788,7 +1268,13 @@
             "min": -33,
             "max": -33
           },
-          "shieldRaw": "-33"
+          "shieldRaw": "-33",
+          "damage": 10,
+          "knockbackGrowth": 50,
+          "baseKnockback": 60,
+          "setKnockback": 0,
+          "angle": 45,
+          "endlag": 39
         }
       ]
     },
@@ -804,7 +1290,13 @@
             "min": -53,
             "max": -53
           },
-          "shieldRaw": "-53"
+          "shieldRaw": "-53",
+          "damage": 10,
+          "knockbackGrowth": 50,
+          "baseKnockback": 60,
+          "setKnockback": 0,
+          "angle": 45,
+          "endlag": 59
         }
       ]
     },
@@ -820,7 +1312,13 @@
             "min": -21,
             "max": -21
           },
-          "shieldRaw": "-21"
+          "shieldRaw": "-21",
+          "damage": 1,
+          "knockbackGrowth": 100,
+          "baseKnockback": 0,
+          "setKnockback": 0,
+          "angle": 0,
+          "endlag": 20
         },
         {
           "hitbox": "Id0",
@@ -828,7 +1326,13 @@
             "min": -17,
             "max": -17
           },
-          "shieldRaw": "-17"
+          "shieldRaw": "-17",
+          "damage": 1,
+          "knockbackGrowth": 100,
+          "baseKnockback": 0,
+          "setKnockback": 0,
+          "angle": 0,
+          "endlag": 16
         },
         {
           "hitbox": "Id0",
@@ -836,7 +1340,13 @@
             "min": -13,
             "max": -13
           },
-          "shieldRaw": "-13"
+          "shieldRaw": "-13",
+          "damage": 1,
+          "knockbackGrowth": 100,
+          "baseKnockback": 0,
+          "setKnockback": 0,
+          "angle": 0,
+          "endlag": 12
         },
         {
           "hitbox": "Id0",
@@ -844,7 +1354,13 @@
             "min": -9,
             "max": -9
           },
-          "shieldRaw": "-9"
+          "shieldRaw": "-9",
+          "damage": 1,
+          "knockbackGrowth": 100,
+          "baseKnockback": 0,
+          "setKnockback": 0,
+          "angle": 0,
+          "endlag": 8
         },
         {
           "hitbox": "Id0",
@@ -852,7 +1368,13 @@
             "min": -5,
             "max": -5
           },
-          "shieldRaw": "-5"
+          "shieldRaw": "-5",
+          "damage": 1,
+          "knockbackGrowth": 100,
+          "baseKnockback": 0,
+          "setKnockback": 0,
+          "angle": 0,
+          "endlag": 4
         },
         {
           "hitbox": "Id0",
@@ -860,7 +1382,13 @@
             "min": -1,
             "max": -1
           },
-          "shieldRaw": "-1"
+          "shieldRaw": "-1",
+          "damage": 1,
+          "knockbackGrowth": 100,
+          "baseKnockback": 0,
+          "setKnockback": 0,
+          "angle": 0,
+          "endlag": 0
         },
         {
           "hitbox": "Id0",
@@ -868,7 +1396,13 @@
             "min": 3,
             "max": 3
           },
-          "shieldRaw": "3"
+          "shieldRaw": "3",
+          "damage": 1,
+          "knockbackGrowth": 100,
+          "baseKnockback": 0,
+          "setKnockback": 0,
+          "angle": 0,
+          "endlag": -4
         },
         {
           "hitbox": "Id0",
@@ -876,7 +1410,13 @@
             "min": 7,
             "max": 7
           },
-          "shieldRaw": "7"
+          "shieldRaw": "7",
+          "damage": 1,
+          "knockbackGrowth": 100,
+          "baseKnockback": 0,
+          "setKnockback": 0,
+          "angle": 0,
+          "endlag": -8
         },
         {
           "hitbox": "Id0",
@@ -884,7 +1424,13 @@
             "min": 11,
             "max": 11
           },
-          "shieldRaw": "11"
+          "shieldRaw": "11",
+          "damage": 1,
+          "knockbackGrowth": 100,
+          "baseKnockback": 0,
+          "setKnockback": 0,
+          "angle": 0,
+          "endlag": -12
         }
       ]
     },
@@ -900,7 +1446,13 @@
             "min": 15,
             "max": 15
           },
-          "shieldRaw": "15"
+          "shieldRaw": "15",
+          "damage": 12,
+          "knockbackGrowth": 100,
+          "baseKnockback": 0,
+          "setKnockback": 0,
+          "angle": 0,
+          "endlag": -8
         },
         {
           "hitbox": "Id1",
@@ -908,7 +1460,13 @@
             "min": 15,
             "max": 15
           },
-          "shieldRaw": "15"
+          "shieldRaw": "15",
+          "damage": 12,
+          "knockbackGrowth": 100,
+          "baseKnockback": 0,
+          "setKnockback": 0,
+          "angle": 0,
+          "endlag": -8
         }
       ]
     },
@@ -924,7 +1482,13 @@
             "min": -10,
             "max": -10
           },
-          "shieldRaw": "-10"
+          "shieldRaw": "-10",
+          "damage": 5,
+          "knockbackGrowth": 100,
+          "baseKnockback": 0,
+          "setKnockback": 20,
+          "angle": 83,
+          "endlag": 12
         },
         {
           "hitbox": "Id1",
@@ -932,7 +1496,13 @@
             "min": -10,
             "max": -10
           },
-          "shieldRaw": "-10"
+          "shieldRaw": "-10",
+          "damage": 5,
+          "knockbackGrowth": 100,
+          "baseKnockback": 0,
+          "setKnockback": 20,
+          "angle": 83,
+          "endlag": 12
         },
         {
           "hitbox": "Id2",
@@ -940,7 +1510,13 @@
             "min": -10,
             "max": -10
           },
-          "shieldRaw": "-10"
+          "shieldRaw": "-10",
+          "damage": 5,
+          "knockbackGrowth": 100,
+          "baseKnockback": 0,
+          "setKnockback": 20,
+          "angle": 83,
+          "endlag": 12
         }
       ]
     },
@@ -956,7 +1532,13 @@
             "min": -14,
             "max": -14
           },
-          "shieldRaw": "-14"
+          "shieldRaw": "-14",
+          "damage": 6,
+          "knockbackGrowth": 110,
+          "baseKnockback": 30,
+          "setKnockback": 0,
+          "angle": 361,
+          "endlag": 16
         },
         {
           "hitbox": "Id1",
@@ -964,7 +1546,13 @@
             "min": -14,
             "max": -14
           },
-          "shieldRaw": "-14"
+          "shieldRaw": "-14",
+          "damage": 6,
+          "knockbackGrowth": 110,
+          "baseKnockback": 30,
+          "setKnockback": 0,
+          "angle": 361,
+          "endlag": 16
         },
         {
           "hitbox": "Id2",
@@ -972,7 +1560,13 @@
             "min": -14,
             "max": -14
           },
-          "shieldRaw": "-14"
+          "shieldRaw": "-14",
+          "damage": 6,
+          "knockbackGrowth": 110,
+          "baseKnockback": 30,
+          "setKnockback": 0,
+          "angle": 361,
+          "endlag": 16
         }
       ]
     },
@@ -988,7 +1582,13 @@
             "min": -52,
             "max": -52
           },
-          "shieldRaw": "-52"
+          "shieldRaw": "-52",
+          "damage": 12,
+          "knockbackGrowth": 90,
+          "baseKnockback": 80,
+          "setKnockback": 0,
+          "angle": 80,
+          "endlag": 59
         },
         {
           "hitbox": "Slash",
@@ -996,7 +1596,13 @@
             "min": -53,
             "max": -53
           },
-          "shieldRaw": "-53"
+          "shieldRaw": "-53",
+          "damage": 10,
+          "knockbackGrowth": 90,
+          "baseKnockback": 80,
+          "setKnockback": 0,
+          "angle": 80,
+          "endlag": 59
         },
         {
           "hitbox": "Bite",
@@ -1004,7 +1610,13 @@
             "min": -56,
             "max": -56
           },
-          "shieldRaw": "-56"
+          "shieldRaw": "-56",
+          "damage": 4,
+          "knockbackGrowth": 0,
+          "baseKnockback": 0,
+          "setKnockback": 0,
+          "angle": 80,
+          "endlag": 59
         },
         {
           "hitbox": "Fthrow Aerial",
@@ -1012,7 +1624,13 @@
             "min": -53,
             "max": -53
           },
-          "shieldRaw": "-53"
+          "shieldRaw": "-53",
+          "damage": 11,
+          "knockbackGrowth": 20,
+          "baseKnockback": 12,
+          "setKnockback": 0,
+          "angle": 30,
+          "endlag": 59
         },
         {
           "hitbox": "Fthrow",
@@ -1020,7 +1638,13 @@
             "min": -53,
             "max": -53
           },
-          "shieldRaw": "-53"
+          "shieldRaw": "-53",
+          "damage": 11,
+          "knockbackGrowth": 20,
+          "baseKnockback": 12,
+          "setKnockback": 0,
+          "angle": 30,
+          "endlag": 59
         },
         {
           "hitbox": "Fthrow Hit",
@@ -1028,7 +1652,13 @@
             "min": -56,
             "max": -56
           },
-          "shieldRaw": "-56"
+          "shieldRaw": "-56",
+          "damage": 4,
+          "knockbackGrowth": 15,
+          "baseKnockback": 140,
+          "setKnockback": 0,
+          "angle": 80,
+          "endlag": 59
         },
         {
           "hitbox": "Bthrow",
@@ -1036,7 +1666,13 @@
             "min": -53,
             "max": -53
           },
-          "shieldRaw": "-53"
+          "shieldRaw": "-53",
+          "damage": 11,
+          "knockbackGrowth": 88,
+          "baseKnockback": 62,
+          "setKnockback": 0,
+          "angle": 361,
+          "endlag": 59
         },
         {
           "hitbox": "Bthrow Aerial",
@@ -1044,7 +1680,13 @@
             "min": -53,
             "max": -53
           },
-          "shieldRaw": "-53"
+          "shieldRaw": "-53",
+          "damage": 10,
+          "knockbackGrowth": 88,
+          "baseKnockback": 62,
+          "setKnockback": 0,
+          "angle": 361,
+          "endlag": 59
         }
       ]
     },
@@ -1057,12 +1699,24 @@
         {
           "hitbox": "Aerial",
           "shieldSafety": null,
-          "shieldRaw": null
+          "shieldRaw": null,
+          "damage": 21,
+          "knockbackGrowth": 72,
+          "baseKnockback": 45,
+          "setKnockback": 0,
+          "angle": 76,
+          "endlag": null
         },
         {
           "hitbox": "Landing",
           "shieldSafety": null,
-          "shieldRaw": null
+          "shieldRaw": null,
+          "damage": 8,
+          "knockbackGrowth": 72,
+          "baseKnockback": 60,
+          "setKnockback": 0,
+          "angle": 76,
+          "endlag": null
         }
       ]
     },
@@ -1078,7 +1732,13 @@
             "min": -43,
             "max": -43
           },
-          "shieldRaw": "-43"
+          "shieldRaw": "-43",
+          "damage": 10,
+          "knockbackGrowth": 60,
+          "baseKnockback": 80,
+          "setKnockback": 0,
+          "angle": 80,
+          "endlag": 49
         },
         {
           "hitbox": "Hits 2-6 (Aerial)",
@@ -1086,7 +1746,13 @@
             "min": -46,
             "max": -46
           },
-          "shieldRaw": "-46"
+          "shieldRaw": "-46",
+          "damage": 3,
+          "knockbackGrowth": 20,
+          "baseKnockback": 50,
+          "setKnockback": 0,
+          "angle": 84,
+          "endlag": 49
         },
         {
           "hitbox": "Hits 7-11 (Aerial)",
@@ -1094,7 +1760,13 @@
             "min": -47,
             "max": -47
           },
-          "shieldRaw": "-47"
+          "shieldRaw": "-47",
+          "damage": 2,
+          "knockbackGrowth": 20,
+          "baseKnockback": 50,
+          "setKnockback": 0,
+          "angle": 84,
+          "endlag": 49
         }
       ]
     },
@@ -1110,7 +1782,13 @@
             "min": -90,
             "max": -90
           },
-          "shieldRaw": "-90"
+          "shieldRaw": "-90",
+          "damage": 2,
+          "knockbackGrowth": 50,
+          "baseKnockback": 12,
+          "setKnockback": 0,
+          "angle": 60,
+          "endlag": 92
         }
       ]
     },
@@ -1126,7 +1804,13 @@
             "min": -31,
             "max": -31
           },
-          "shieldRaw": "-31"
+          "shieldRaw": "-31",
+          "damage": 0,
+          "knockbackGrowth": 100,
+          "baseKnockback": 0,
+          "setKnockback": 0,
+          "angle": 361,
+          "endlag": 31
         },
         {
           "hitbox": "Id1",
@@ -1134,7 +1818,13 @@
             "min": -31,
             "max": -31
           },
-          "shieldRaw": "-31"
+          "shieldRaw": "-31",
+          "damage": 0,
+          "knockbackGrowth": 100,
+          "baseKnockback": 0,
+          "setKnockback": 0,
+          "angle": 361,
+          "endlag": 31
         },
         {
           "hitbox": "Id2",
@@ -1142,7 +1832,13 @@
             "min": -31,
             "max": -31
           },
-          "shieldRaw": "-31"
+          "shieldRaw": "-31",
+          "damage": 0,
+          "knockbackGrowth": 100,
+          "baseKnockback": 0,
+          "setKnockback": 0,
+          "angle": 361,
+          "endlag": 31
         }
       ]
     },
@@ -1158,7 +1854,13 @@
             "min": -40,
             "max": -40
           },
-          "shieldRaw": "-40"
+          "shieldRaw": "-40",
+          "damage": 0,
+          "knockbackGrowth": 100,
+          "baseKnockback": 0,
+          "setKnockback": 0,
+          "angle": 361,
+          "endlag": 39
         },
         {
           "hitbox": "Id1",
@@ -1166,7 +1868,13 @@
             "min": -40,
             "max": -40
           },
-          "shieldRaw": "-40"
+          "shieldRaw": "-40",
+          "damage": 0,
+          "knockbackGrowth": 100,
+          "baseKnockback": 0,
+          "setKnockback": 0,
+          "angle": 361,
+          "endlag": 39
         },
         {
           "hitbox": "Id2",
@@ -1174,7 +1882,13 @@
             "min": -40,
             "max": -40
           },
-          "shieldRaw": "-40"
+          "shieldRaw": "-40",
+          "damage": 0,
+          "knockbackGrowth": 100,
+          "baseKnockback": 0,
+          "setKnockback": 0,
+          "angle": 361,
+          "endlag": 39
         }
       ]
     },
@@ -1190,7 +1904,13 @@
             "min": -17,
             "max": -17
           },
-          "shieldRaw": "-17"
+          "shieldRaw": "-17",
+          "damage": 15,
+          "knockbackGrowth": 100,
+          "baseKnockback": 29,
+          "setKnockback": 0,
+          "angle": 361,
+          "endlag": 21
         },
         {
           "hitbox": "Id1",
@@ -1198,7 +1918,13 @@
             "min": -18,
             "max": -18
           },
-          "shieldRaw": "-18"
+          "shieldRaw": "-18",
+          "damage": 13,
+          "knockbackGrowth": 100,
+          "baseKnockback": 29,
+          "setKnockback": 0,
+          "angle": 361,
+          "endlag": 21
         },
         {
           "hitbox": "Id2",
@@ -1206,7 +1932,13 @@
             "min": -17,
             "max": -17
           },
-          "shieldRaw": "-17"
+          "shieldRaw": "-17",
+          "damage": 15,
+          "knockbackGrowth": 100,
+          "baseKnockback": 29,
+          "setKnockback": 0,
+          "angle": 361,
+          "endlag": 21
         }
       ]
     },
@@ -1222,7 +1954,13 @@
             "min": -18,
             "max": -18
           },
-          "shieldRaw": "-18"
+          "shieldRaw": "-18",
+          "damage": 13,
+          "knockbackGrowth": 100,
+          "baseKnockback": 31,
+          "setKnockback": 0,
+          "angle": 361,
+          "endlag": 21
         },
         {
           "hitbox": "Id1",
@@ -1230,7 +1968,13 @@
             "min": -19,
             "max": -19
           },
-          "shieldRaw": "-19"
+          "shieldRaw": "-19",
+          "damage": 11,
+          "knockbackGrowth": 100,
+          "baseKnockback": 32,
+          "setKnockback": 0,
+          "angle": 361,
+          "endlag": 21
         },
         {
           "hitbox": "Id2",
@@ -1238,7 +1982,13 @@
             "min": -18,
             "max": -18
           },
-          "shieldRaw": "-18"
+          "shieldRaw": "-18",
+          "damage": 13,
+          "knockbackGrowth": 100,
+          "baseKnockback": 31,
+          "setKnockback": 0,
+          "angle": 361,
+          "endlag": 21
         }
       ]
     },
@@ -1254,7 +2004,13 @@
             "min": -45,
             "max": -45
           },
-          "shieldRaw": "-45"
+          "shieldRaw": "-45",
+          "damage": 6,
+          "knockbackGrowth": 50,
+          "baseKnockback": 80,
+          "setKnockback": 0,
+          "angle": 361,
+          "endlag": 49
         },
         {
           "hitbox": "Hit 1 (Back)",
@@ -1262,7 +2018,13 @@
             "min": -45,
             "max": -45
           },
-          "shieldRaw": "-45"
+          "shieldRaw": "-45",
+          "damage": 6,
+          "knockbackGrowth": 50,
+          "baseKnockback": 80,
+          "setKnockback": 0,
+          "angle": 361,
+          "endlag": 49
         },
         {
           "hitbox": "Hit 1 (Back)",
@@ -1270,7 +2032,13 @@
             "min": -45,
             "max": -45
           },
-          "shieldRaw": "-45"
+          "shieldRaw": "-45",
+          "damage": 6,
+          "knockbackGrowth": 50,
+          "baseKnockback": 80,
+          "setKnockback": 0,
+          "angle": 361,
+          "endlag": 49
         },
         {
           "hitbox": "Hit 2 (Back)",
@@ -1278,7 +2046,13 @@
             "min": -45,
             "max": -45
           },
-          "shieldRaw": "-45"
+          "shieldRaw": "-45",
+          "damage": 6,
+          "knockbackGrowth": 50,
+          "baseKnockback": 80,
+          "setKnockback": 0,
+          "angle": 361,
+          "endlag": 49
         },
         {
           "hitbox": "Hit 2 (Back)",
@@ -1286,7 +2060,13 @@
             "min": -45,
             "max": -45
           },
-          "shieldRaw": "-45"
+          "shieldRaw": "-45",
+          "damage": 6,
+          "knockbackGrowth": 50,
+          "baseKnockback": 80,
+          "setKnockback": 0,
+          "angle": 361,
+          "endlag": 49
         },
         {
           "hitbox": "Hit 2 (Back)",
@@ -1294,7 +2074,13 @@
             "min": -45,
             "max": -45
           },
-          "shieldRaw": "-45"
+          "shieldRaw": "-45",
+          "damage": 6,
+          "knockbackGrowth": 50,
+          "baseKnockback": 80,
+          "setKnockback": 0,
+          "angle": 361,
+          "endlag": 49
         },
         {
           "hitbox": "Hit 1 (Front)",
@@ -1302,7 +2088,13 @@
             "min": -45,
             "max": -45
           },
-          "shieldRaw": "-45"
+          "shieldRaw": "-45",
+          "damage": 6,
+          "knockbackGrowth": 50,
+          "baseKnockback": 80,
+          "setKnockback": 0,
+          "angle": 361,
+          "endlag": 49
         },
         {
           "hitbox": "Hit 1 (Front)",
@@ -1310,7 +2102,13 @@
             "min": -45,
             "max": -45
           },
-          "shieldRaw": "-45"
+          "shieldRaw": "-45",
+          "damage": 6,
+          "knockbackGrowth": 50,
+          "baseKnockback": 80,
+          "setKnockback": 0,
+          "angle": 361,
+          "endlag": 49
         },
         {
           "hitbox": "Hit 1 (Front)",
@@ -1318,7 +2116,13 @@
             "min": -45,
             "max": -45
           },
-          "shieldRaw": "-45"
+          "shieldRaw": "-45",
+          "damage": 6,
+          "knockbackGrowth": 50,
+          "baseKnockback": 80,
+          "setKnockback": 0,
+          "angle": 361,
+          "endlag": 49
         },
         {
           "hitbox": "Hit 2 (Front)",
@@ -1326,7 +2130,13 @@
             "min": -45,
             "max": -45
           },
-          "shieldRaw": "-45"
+          "shieldRaw": "-45",
+          "damage": 6,
+          "knockbackGrowth": 50,
+          "baseKnockback": 80,
+          "setKnockback": 0,
+          "angle": 361,
+          "endlag": 49
         },
         {
           "hitbox": "Hit 2 (Front)",
@@ -1334,7 +2144,13 @@
             "min": -45,
             "max": -45
           },
-          "shieldRaw": "-45"
+          "shieldRaw": "-45",
+          "damage": 6,
+          "knockbackGrowth": 50,
+          "baseKnockback": 80,
+          "setKnockback": 0,
+          "angle": 361,
+          "endlag": 49
         },
         {
           "hitbox": "Hit 2 (Front)",
@@ -1342,7 +2158,13 @@
             "min": -45,
             "max": -45
           },
-          "shieldRaw": "-45"
+          "shieldRaw": "-45",
+          "damage": 6,
+          "knockbackGrowth": 50,
+          "baseKnockback": 80,
+          "setKnockback": 0,
+          "angle": 361,
+          "endlag": 49
         },
         {
           "hitbox": "Hit 2 (Front)",
@@ -1350,7 +2172,13 @@
             "min": -45,
             "max": -45
           },
-          "shieldRaw": "-45"
+          "shieldRaw": "-45",
+          "damage": 6,
+          "knockbackGrowth": 50,
+          "baseKnockback": 80,
+          "setKnockback": 0,
+          "angle": 361,
+          "endlag": 49
         }
       ]
     }

@@ -8,6 +8,9 @@ import {
   CATEGORY_ORDER,
   SHIELD_RELEASE_FRAMES,
   POWERSHIELD_RELEASE_FRAMES,
+  getMeleeBreakers,
+  getMeleeOnHitOptions,
+  getMeleeOnHitBreakdown,
 } from '../analysis/analysisMelee'
 
 // Grab and Wavedash are universal OOS options that don't belong to any of
@@ -271,6 +274,48 @@ function OOSList({ charData }) {
   )
 }
 
+// Moves that always beat Crouch Cancel or ASDI Down against the opponent's
+// real weight, regardless of the defender's damage % — the Overview-page
+// counterpart to Rivals' FloorhugList, mirroring this file's existing
+// SafestOptionsList/OOSList row style.
+function BreakersList({ charData, opponentWeight }) {
+  const breakers = useMemo(
+    () => getMeleeBreakers(charData, opponentWeight),
+    [charData, opponentWeight]
+  )
+  if (!breakers.length) return <EmptyNote>No moves always break CC or ASDI Down.</EmptyNote>
+  return (
+    <div style={{ display: 'flex', flexDirection: 'column' }}>
+      {breakers.map((b, i) => (
+        <div key={i} style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '0.82rem', padding: '10px 16px', borderBottom: '1px solid var(--border)' }}>
+          <div style={{ flex: 1, minWidth: 0 }}>
+            <span style={{ fontWeight: 600 }}>{b.move}</span>
+            {b.hitbox && <span style={{ color: 'var(--muted)', marginLeft: '6px', fontSize: '0.75rem' }}>[{b.hitbox}]</span>}
+          </div>
+          <div style={{ display: 'flex', gap: '6px', flexShrink: 0 }}>
+            {b.breaksCC && <FrameOnlyBadge label="Breaks CC" color={PUNISH_COLOR} />}
+            {b.breaksASDI && <FrameOnlyBadge label="Breaks ASDI" color={PUNISH_COLOR} />}
+          </div>
+        </div>
+      ))}
+    </div>
+  )
+}
+
+// A plain text badge (no frame-count suffix, unlike FrameBadge) for short
+// static labels like "Breaks CC".
+function FrameOnlyBadge({ label, color = 'var(--accent)' }) {
+  return (
+    <span style={{
+      display: 'inline-block', padding: '2px 8px', borderRadius: '4px',
+      background: color + '22', color, border: `1px solid ${color}44`,
+      fontSize: '0.7rem', fontWeight: 700, whiteSpace: 'nowrap', flexShrink: 0,
+    }}>
+      {label}
+    </span>
+  )
+}
+
 function MoveRow({ row, oosFilter }) {
   const statusColor = row.isSafe ? SAFE_COLOR : row.isRisky ? RISKY_COLOR : PUNISH_COLOR
   const punishes = (oosFilter && oosFilter.size > 0)
@@ -373,6 +418,141 @@ function BreakdownTable({ matchup, categoryFilter, oosFilter }) {
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
       {byCategory.map(g => <CategoryAccordion key={g.category} category={g.category} rows={g.rows} oosFilter={oosFilter} />)}
+    </div>
+  )
+}
+
+// On-hit (CC/ASDI Down) row — rows have `advantage`/`breaks`/`isKnockdown`
+// instead of `shieldSafety`, so this can't reuse MoveRow directly.
+function OnHitMoveRow({ row, oosFilter }) {
+  const punishes = (oosFilter && oosFilter.size > 0)
+    ? row.punishes.filter(p => oosFilter.has(p.move))
+    : row.punishes
+
+  if (row.isKnockdown) {
+    return (
+      <div className="move-row">
+        <div>
+          <span style={{ fontWeight: 600, color: SAFE_COLOR }}>{row.move}</span>
+          {row.hitbox && (
+            <span className="hitbox-label" style={{ color: 'var(--muted)', marginLeft: '6px', fontSize: '0.75rem' }}>
+              [{row.hitbox}]
+            </span>
+          )}
+        </div>
+        <div className="move-row-badges" style={{ textAlign: 'center' }}>
+          <FrameOnlyBadge label="Knockdown" color={SAFE_COLOR} />
+        </div>
+        <div>
+          <span style={{ color: 'var(--muted)', fontSize: '0.75rem' }}>—</span>
+        </div>
+      </div>
+    )
+  }
+
+  const statusColor = row.advantage > 0 ? SAFE_COLOR : row.advantage >= -3 ? RISKY_COLOR : PUNISH_COLOR
+  const advLabel = `${row.advantage > 0 ? '+' : ''}${row.advantage}`
+
+  return (
+    <div className="move-row">
+      <div>
+        <span style={{ fontWeight: 600, color: statusColor }}>{row.move}</span>
+        {row.hitbox && (
+          <span className="hitbox-label" style={{ color: 'var(--muted)', marginLeft: '6px', fontSize: '0.75rem' }}>
+            [{row.hitbox}]
+          </span>
+        )}
+      </div>
+      <div className="move-row-badges" style={{ display: 'flex', gap: '4px', justifyContent: 'center', alignItems: 'center' }}>
+        <span style={{
+          display: 'inline-block', padding: '2px 8px', borderRadius: '4px',
+          background: statusColor + '22', color: statusColor, border: `1px solid ${statusColor}44`,
+          fontSize: '0.75rem', fontWeight: 700, whiteSpace: 'nowrap',
+        }}>{advLabel}</span>
+        {row.breaks && <FrameOnlyBadge label="Breaks CC" color="var(--muted)" />}
+      </div>
+      <div>
+        {punishes.length > 0 ? (
+          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '4px' }}>
+            {punishes.map((p, i) => (
+              <span key={i} style={{
+                padding: '1px 7px', borderRadius: '4px', background: 'var(--surface)',
+                border: '1px solid var(--border)', fontSize: '0.72rem', color: 'var(--text)', whiteSpace: 'nowrap',
+              }}>
+                {p.label} <span style={{ color: 'var(--muted)' }}>{p.onHitStartup}f</span>
+              </span>
+            ))}
+          </div>
+        ) : (
+          <span style={{ color: 'var(--muted)', fontSize: '0.75rem' }}>None</span>
+        )}
+      </div>
+    </div>
+  )
+}
+
+function OnHitCategoryAccordion({ category, rows, oosFilter }) {
+  const [open, setOpen] = useState(true)
+  const sorted = useMemo(() => [...rows].sort((a, b) => b.advantage - a.advantage), [rows])
+  const safe        = rows.filter(r => r.isKnockdown || r.advantage > 0).length
+  const risky       = rows.filter(r => !r.isKnockdown && r.advantage <= 0 && r.advantage >= -3).length
+  const punishable  = rows.filter(r => !r.isKnockdown && r.advantage < -3).length
+
+  return (
+    <div style={{ border: '1px solid var(--border)', borderRadius: 'var(--radius)', overflow: 'hidden' }}>
+      <button
+        onClick={() => setOpen(o => !o)}
+        style={{
+          width: '100%', display: 'flex', alignItems: 'center', gap: '12px',
+          padding: '10px 16px', background: 'var(--surface)', border: 'none',
+          borderBottom: open ? '1px solid var(--border)' : 'none', cursor: 'pointer', textAlign: 'left',
+        }}
+      >
+        <span style={{ fontSize: '0.72rem', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--text)', flex: 1 }}>
+          {category}
+        </span>
+        <div className="accordion-counts">
+          <div className="accordion-counts-row">
+            <span style={{ color: SAFE_COLOR, fontSize: '0.72rem' }}>{safe} safe</span>
+            <span style={{ color: RISKY_COLOR, fontSize: '0.72rem' }}>{risky} risky</span>
+            <span style={{ color: PUNISH_COLOR, fontSize: '0.72rem' }}>{punishable} punishable</span>
+          </div>
+        </div>
+        <span style={{ color: 'var(--muted)', fontSize: '0.7rem', marginLeft: '4px', flexShrink: 0 }}>{open ? '▲' : '▼'}</span>
+      </button>
+      {open && (
+        <div style={{ background: 'var(--surface)' }}>
+          <div className="col-headers">
+            <span style={{ fontSize: '0.65rem', fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'var(--muted)' }}>Move</span>
+            <span style={{ fontSize: '0.65rem', fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'var(--muted)', textAlign: 'center' }}>On Hit</span>
+            <span style={{ fontSize: '0.65rem', fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'var(--muted)' }}>Punish Options</span>
+          </div>
+          {sorted.map((row, i) => <OnHitMoveRow key={i} row={row} oosFilter={oosFilter} />)}
+        </div>
+      )}
+    </div>
+  )
+}
+
+function MeleeOnHitTable({ breakdown, categoryFilter, oosFilter }) {
+  const visibleCategories = (categoryFilter && categoryFilter !== 'All') ? [categoryFilter] : CATEGORY_ORDER
+  const byCategory = visibleCategories
+    .map(category => {
+      let rows = breakdown.filter(r => r.category === category)
+      if (oosFilter && oosFilter.size > 0) {
+        rows = rows.filter(r => Array.isArray(r.punishes) && r.punishes.some(p => oosFilter.has(p.move)))
+      }
+      return { category, rows }
+    })
+    .filter(g => g.rows.length > 0)
+
+  if (!byCategory.length) {
+    return <EmptyNote>{categoryFilter !== 'All' || (oosFilter && oosFilter.size > 0) ? 'No moves match the current filters.' : 'No move data.'}</EmptyNote>
+  }
+
+  return (
+    <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+      {byCategory.map(g => <OnHitCategoryAccordion key={g.category} category={g.category} rows={g.rows} oosFilter={oosFilter} />)}
     </div>
   )
 }
@@ -579,6 +759,9 @@ function AttackingView({ attackerData, defenderData, attackerName, attackerColor
   const [oosFilter, setOosFilter] = useState(new Set())
   const [filterModalOpen, setFilterModalOpen] = useState(false)
   const [shieldMode, setShieldMode] = useState('normal')
+  const [subTab, setSubTab] = useState('onShield')
+  const [pct, setPct] = useState(0)
+  const [isCrouch, setIsCrouch] = useState(false) // false = ASDI Down, true = Crouch Cancel
 
   const shieldReleaseFrames = shieldMode === 'powershield' ? POWERSHIELD_RELEASE_FRAMES : SHIELD_RELEASE_FRAMES
   // The defender's own OOS options don't depend on shield mode — only the
@@ -591,18 +774,30 @@ function AttackingView({ attackerData, defenderData, attackerName, attackerColor
     () => analyzeMatchup(attackerData, defenderData, shieldReleaseFrames),
     [attackerData, defenderData, shieldReleaseFrames]
   )
+  const onHitOptions = useMemo(
+    () => getMeleeOnHitOptions(defenderData),
+    [defenderData]
+  )
+  const onHitBreakdown = useMemo(
+    () => getMeleeOnHitBreakdown(attackerData, defenderData, pct, isCrouch),
+    [attackerData, defenderData, pct, isCrouch]
+  )
+
+  const isOnHit = subTab === 'onHit'
+  const activeRows = isOnHit ? onHitBreakdown : matchup.breakdown
+  const activeDefenderOptions = isOnHit ? onHitOptions : defenderOOS
 
   const categoryTabs = ['All', ...CATEGORY_ORDER]
 
-  // OOS moves that actually appear as punishes in the selected category's rows
+  // OOS/on-hit moves that actually appear as punishes in the selected category's rows
   const relevantOOSMoves = useMemo(() => {
     const rows = categoryFilter === 'All'
-      ? matchup.breakdown
-      : matchup.breakdown.filter(r => r.category === categoryFilter)
+      ? activeRows
+      : activeRows.filter(r => r.category === categoryFilter)
     const moves = new Set()
     rows.forEach(r => (r.punishes || []).forEach(p => moves.add(p.move)))
     return moves
-  }, [matchup, categoryFilter])
+  }, [activeRows, categoryFilter])
 
   const atkActive = categoryFilter !== 'All' ? 1 : 0
   const oosActive = oosFilter.size
@@ -610,16 +805,73 @@ function AttackingView({ attackerData, defenderData, attackerName, attackerColor
 
   return (
     <div>
+      <div className="matchup-subtabs" style={{ display: 'flex', gap: '4px', marginBottom: '12px' }}>
+        {[
+          { id: 'onShield', label: 'On Shield' },
+          { id: 'onHit', label: 'On Hit' },
+        ].map(t => {
+          const active = subTab === t.id
+          return (
+            <button
+              key={t.id}
+              onClick={() => setSubTab(t.id)}
+              style={{
+                padding: '8px 16px', background: 'none', border: 'none',
+                borderBottom: `2px solid ${active ? attackerColor : 'transparent'}`,
+                color: active ? attackerColor : 'var(--muted)', fontWeight: active ? 700 : 400,
+                fontSize: '0.8rem', cursor: 'pointer', letterSpacing: '0.02em',
+              }}
+            >
+              {t.label}
+            </button>
+          )
+        })}
+      </div>
+
       <div className="toolbar-row" style={{ display: 'flex', gap: '10px', flexWrap: 'wrap', padding: '0 0 16px' }}>
-        <SegmentedToggle
-          activeColor={attackerColor}
-          value={shieldMode}
-          onChange={setShieldMode}
-          options={[
-            { value: 'normal', label: 'Normal Shield' },
-            { value: 'powershield', label: 'Powershield' },
-          ]}
-        />
+        {!isOnHit ? (
+          <SegmentedToggle
+            activeColor={attackerColor}
+            value={shieldMode}
+            onChange={setShieldMode}
+            options={[
+              { value: 'normal', label: 'Normal Shield' },
+              { value: 'powershield', label: 'Powershield' },
+            ]}
+          />
+        ) : (
+          <>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+              <span style={{ fontSize: '0.72rem', fontWeight: 700, color: 'var(--muted)', textTransform: 'uppercase', letterSpacing: '0.07em', flexShrink: 0 }}>
+                {defenderName}
+              </span>
+              <input
+                type="number"
+                min={0} max={999} step={1}
+                value={pct}
+                onChange={e => setPct(Math.max(0, Math.min(999, Number(e.target.value) || 0)))}
+                style={{
+                  width: '56px', height: TOOLBAR_H, padding: '0 8px', borderRadius: '6px',
+                  border: '1px solid var(--border)', background: 'var(--bg)',
+                  color: 'var(--text)', fontSize: '0.82rem', fontWeight: 700, textAlign: 'right',
+                }}
+              />
+              <span style={{ fontSize: '0.82rem', fontWeight: 700, color: 'var(--muted)' }}>%</span>
+            </div>
+
+            <ToolbarDivider />
+
+            <SegmentedToggle
+              activeColor={attackerColor}
+              value={isCrouch}
+              onChange={setIsCrouch}
+              options={[
+                { value: false, label: 'ASDI Down' },
+                { value: true, label: 'Crouch Cancel' },
+              ]}
+            />
+          </>
+        )}
 
         <ToolbarDivider />
 
@@ -666,13 +918,15 @@ function AttackingView({ attackerData, defenderData, attackerName, attackerColor
           defenderName={defenderName} defenderColor={defenderColor}
           categoryTabs={categoryTabs} categoryFilter={categoryFilter}
           setCategoryFilter={v => { setCategoryFilter(v); setOosFilter(new Set()) }}
-          defenderOOS={defenderOOS} oosFilter={oosFilter} setOosFilter={setOosFilter}
+          defenderOOS={activeDefenderOptions} oosFilter={oosFilter} setOosFilter={setOosFilter}
           relevantOOSMoves={relevantOOSMoves}
           onClose={() => setFilterModalOpen(false)}
         />
       )}
 
-      <BreakdownTable matchup={matchup} categoryFilter={categoryFilter} oosFilter={oosFilter} />
+      {isOnHit
+        ? <MeleeOnHitTable breakdown={onHitBreakdown} categoryFilter={categoryFilter} oosFilter={oosFilter} />
+        : <BreakdownTable matchup={matchup} categoryFilter={categoryFilter} oosFilter={oosFilter} />}
     </div>
   )
 }
@@ -781,6 +1035,21 @@ export default function MeleeMatchupView({ myChar, oppChar, onBack }) {
               {oppData
                 ? <Section title="Fastest OOS Options" accent="var(--accent2)" tooltip="Fastest options available out of shield, sorted by total frames from shielding to the move hitting. Includes wavedash.">
                     <OOSList charData={oppData} />
+                  </Section>
+                : null}
+            </div>
+
+            <div className="char-panel-breakers-my">
+              {myData && oppData
+                ? <Section title="CC/ASDI Breakers" accent="var(--accent)" tooltip="Moves that always beat Crouch Cancel or ASDI Down against this opponent's weight, regardless of their percent.">
+                    <BreakersList charData={myData} opponentWeight={oppData.weight} />
+                  </Section>
+                : null}
+            </div>
+            <div className="char-panel-breakers-opp">
+              {myData && oppData
+                ? <Section title="CC/ASDI Breakers" accent="var(--accent2)" tooltip="Moves that always beat Crouch Cancel or ASDI Down against this opponent's weight, regardless of their percent.">
+                    <BreakersList charData={oppData} opponentWeight={myData.weight} />
                   </Section>
                 : null}
             </div>

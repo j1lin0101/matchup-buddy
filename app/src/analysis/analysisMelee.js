@@ -67,6 +67,13 @@ const GRAB_OOS_DELAY = 0;
 const JUMP_CANCEL_SHARED_FRAME = 1;
 const SAFE_THRESHOLD = -3;
 
+// "On hit" (not-shielding) constants — Crouch Cancel and ASDI Down. See the
+// getMelee* functions below for how these are used.
+const CC_KB_THRESHOLD = 32;        // Crouch Cancel reduces knockback below this; at/above, CC doesn't help
+const CC_REDUCTION = 2 / 3;        // multiplier CC applies to knockback when it helps
+const ASDI_DOWN_KB_THRESHOLD = 80; // Melee's real tumble/special-fall threshold — ASDI Down can't keep you grounded at/above this
+const ON_HIT_HITSTUN_SCALAR = 0.4; // hitstun = floor(finalKB * ON_HIT_HITSTUN_SCALAR)
+
 const CATEGORY_ORDER = ['Normals', 'Smashes', 'Aerials', 'Specials', 'Getup/Ledge'];
 
 // Per-character specials that are jump-cancelable OOS the same way aerials are
@@ -101,6 +108,15 @@ function isExcludedMove(move) {
 // shield — on top of everything isExcludedMove already excludes.
 function isExcludedFromOOS(move) {
   if (move.type === 7 || move.type === 8) return true;
+  return isExcludedMove(move);
+}
+
+// On-hit (CC/ASDI Down) analysis excludes Grab on top of everything
+// isExcludedMove already excludes — a grab connecting produces a grab state,
+// not a CC/ASDI-hit state, so it's not a meaningful row in that table.
+// Getup/Ledge (type 7/8) stay included here, unlike isExcludedFromOOS.
+function isExcludedFromOnHit(move) {
+  if (isGrabMove(move.move)) return true;
   return isExcludedMove(move);
 }
 
@@ -249,6 +265,70 @@ function dedupeGroundAirShieldSafety(rows) {
       bySafety.get(safetyKey).push(row);
     });
     bySafety.forEach(function(variants) {
+      results.push(variants.find(function(v) { return v.move === base; }) || variants[0]);
+    });
+  });
+  return results;
+}
+
+// Same idea as dedupeAndLabelHitboxes, adapted for on-hit rows (which carry
+// `advantage`/`breaks`/`isKnockdown` instead of `shieldSafety`). `breaks`/
+// `isKnockdown` are folded into the exact-duplicate key so a knockdown
+// variant of a hitbox is never silently collapsed with a non-knockdown one
+// that happens to share the same advantage number.
+function dedupeAndLabelOnHitHitboxes(rows) {
+  const exactSeen = new Set();
+  const deduped = [];
+  rows.forEach(function(row) {
+    const label = isGenericHitboxName(row.hitbox) ? null : row.hitbox;
+    const key = row.move + '|' + (label || '') + '|' + row.advantage + '|' + row.breaks + '|' + row.isKnockdown;
+    if (exactSeen.has(key)) return;
+    exactSeen.add(key);
+    deduped.push(Object.assign({}, row, { hitbox: label }));
+  });
+
+  const groups = new Map();
+  deduped.forEach(function(row) {
+    const key = row.move + '|' + (row.hitbox || '');
+    if (!groups.has(key)) groups.set(key, []);
+    groups.get(key).push(row);
+  });
+
+  const results = [];
+  groups.forEach(function(group) {
+    if (group.length === 1) { results.push(group[0]); return; }
+    const sorted = [...group].sort(function(a, b) { return b.advantage - a.advantage; });
+    sorted.forEach(function(row, i) {
+      const label = row.hitbox ? `${row.hitbox} (${i + 1})` : `Hit ${i + 1}`;
+      results.push(Object.assign({}, row, { hitbox: label }));
+    });
+  });
+  return results;
+}
+
+// Same idea as dedupeGroundAirShieldSafety, adapted for on-hit rows —
+// collapses "Move" / "Move (Air)" into one row when a hitbox has identical
+// advantage and breaks/isKnockdown status on both sides.
+function dedupeGroundAirOnHit(rows) {
+  const groups = new Map();
+  rows.forEach(function(row) {
+    const base = row.move.replace(/\s*\(Air\)$/i, '').trim();
+    const key = base + '|' + (row.hitbox || '');
+    if (!groups.has(key)) groups.set(key, []);
+    groups.get(key).push(row);
+  });
+
+  const results = [];
+  groups.forEach(function(group) {
+    if (group.length === 1) { results.push(group[0]); return; }
+    const base = group[0].move.replace(/\s*\(Air\)$/i, '').trim();
+    const byOutcome = new Map();
+    group.forEach(function(row) {
+      const outcomeKey = row.advantage + '|' + row.breaks + '|' + row.isKnockdown;
+      if (!byOutcome.has(outcomeKey)) byOutcome.set(outcomeKey, []);
+      byOutcome.get(outcomeKey).push(row);
+    });
+    byOutcome.forEach(function(variants) {
       results.push(variants.find(function(v) { return v.move === base; }) || variants[0]);
     });
   });
@@ -533,6 +613,183 @@ function analyzeMatchup(attackerData, defenderData, shieldReleaseFrames = SHIELD
   };
 }
 
+/* ── On Hit (Crouch Cancel / ASDI Down) analysis ──
+ *
+ * Everything below models the OTHER defensive option — getting hit while
+ * NOT shielding — mirroring Rivals' analysis.js Floorhug/CC system, but for
+ * Melee's real Crouch Cancel and ASDI Down mechanics.
+ *
+ * Crouch Cancel: standard Melee knockback formula; if the result is under
+ * CC_KB_THRESHOLD (32), CC reduces it by CC_REDUCTION (2/3) and the
+ * character survives with reduced hitstun. At/above the threshold, CC
+ * doesn't help at all — full knockback applies.
+ *
+ * ASDI Down: NOT a knockback-reduction mechanic (unlike CC) — it's purely
+ * positional (stays grounded vs. gets launched). Modeled via Melee's real
+ * tumble/special-fall threshold: at/above ASDI_DOWN_KB_THRESHOLD (80) the
+ * defender is launched airborne regardless of ASDI input ("breaks", shown
+ * as a Knockdown badge with no punish list — mirrors Rivals' exact
+ * treatment of a broken floorhug). Below that, ASDI Down keeps them
+ * grounded with the same hitstun as if nothing special happened.
+ */
+
+/**
+ * Standard Melee total-knockback formula. `setKnockback` (when nonzero)
+ * bypasses the %-scaling formula entirely — it's a fixed value regardless of
+ * the defender's damage. Monotonically increasing in `pct` otherwise, so
+ * `pct=0` always gives the global-minimum knockback for a hitbox/defender
+ * pair — this is what lets getMeleeBreakers check "always breaks" with a
+ * single call instead of a per-character baked table.
+ */
+function calcMeleeKnockback(hitbox, defenderWeight, pct) {
+  if (hitbox.setKnockback) return hitbox.setKnockback;
+  if (hitbox.damage == null || hitbox.knockbackGrowth == null ||
+      hitbox.baseKnockback == null || defenderWeight == null) return null;
+  const p = Math.max(0, pct);
+  const scaled = ((p / 10 + p * hitbox.damage / 20) * (200 / (defenderWeight + 100)) * 1.4) + 18;
+  return (scaled * hitbox.knockbackGrowth / 100) + hitbox.baseKnockback;
+}
+
+// Applies Crouch Cancel or ASDI Down to a hitbox's raw knockback and
+// returns the resulting hitstun. See the module doc above for the mechanics.
+function calcMeleeOnHitOutcome(hitbox, defenderWeight, pct, isCrouch) {
+  const rawKB = calcMeleeKnockback(hitbox, defenderWeight, pct);
+  if (rawKB == null) return null;
+  if (isCrouch) {
+    const breaks = rawKB >= CC_KB_THRESHOLD;
+    const finalKB = breaks ? rawKB : rawKB * CC_REDUCTION;
+    return { rawKB, finalKB, breaks, hitstun: Math.floor(finalKB * ON_HIT_HITSTUN_SCALAR) };
+  }
+  const breaks = rawKB >= ASDI_DOWN_KB_THRESHOLD;
+  return { rawKB, finalKB: rawKB, breaks, hitstun: Math.floor(rawKB * ON_HIT_HITSTUN_SCALAR) };
+}
+
+/**
+ * Overview-panel data source: moves that always beat CC/ASDI Down against a
+ * specific opponent's weight, regardless of the defender's damage % (checked
+ * at pct=0, the global minimum). Matchup-specific by design — since both
+ * characters are always loaded together in this app, this uses the actual
+ * opponent's real weight rather than a neutral baseline like Rivals'
+ * matchup-agnostic Floorhug panel.
+ */
+function getMeleeBreakers(attackerData, defenderWeight) {
+  const seen = new Set();
+  const results = [];
+  attackerData.moves.forEach(function(move) {
+    if (isExcludedFromOnHit(move)) return;
+    move.hitboxes.forEach(function(h) {
+      const minKB = calcMeleeKnockback(h, defenderWeight, 0);
+      if (minKB == null) return;
+      const breaksCC = minKB >= CC_KB_THRESHOLD;
+      const breaksASDI = minKB >= ASDI_DOWN_KB_THRESHOLD;
+      if (!breaksCC && !breaksASDI) return;
+      const hitbox = isGenericHitboxName(h.hitbox) ? null : h.hitbox;
+      const key = move.move + '|' + (hitbox || '') + '|' + breaksCC + '|' + breaksASDI;
+      if (seen.has(key)) return;
+      seen.add(key);
+      results.push({
+        move:     move.move,
+        hitbox,
+        category: getCategory(move),
+        startup:  move.startup,
+        breaksCC,
+        breaksASDI,
+      });
+    });
+  });
+  return results;
+}
+
+/**
+ * Defender's punish-option list when NOT in shield — no shield-release delay
+ * at all since the defender isn't shielding. Aerials still need jumpsquat
+ * (must leave the ground); everything else is raw startup. Grab and Shield
+ * itself are added as universal options (mirrors Rivals' getOnHitOptions,
+ * which also treats Shield as a frame-1 option).
+ */
+function getMeleeOnHitOptions(characterData) {
+  const moveOptions = [];
+  characterData.moves.forEach(function(move) {
+    if (isExcludedFromOOS(move)) return; // same exclusion set applies (no dodges, no throws/pummel except grab, no getup/ledge)
+    if (move.startup == null) return;
+    const isAerial = move.type === 3;
+    if (isAerial && characterData.jumpSquat == null) return;
+    const delay = isAerial ? characterData.jumpSquat : 0;
+    const onHitStartup = move.startup + delay;
+    moveOptions.push({
+      move:         move.move,
+      label:        move.move,
+      startup:      move.startup,
+      onHitStartup,
+      oosStartup:   onHitStartup, // alias so the shared FilterModal (reads opt.oosStartup) works unmodified
+      jumpCancel:   isAerial,
+      category:     getCategory(move),
+    });
+  });
+  // Collapses "Move" / "Move (Air)" pairs with identical timing (e.g. Fox's
+  // Shine — grounded startup alone, no jumpsquat needed either way, so the
+  // air-cast variant is a redundant duplicate here) — same helper the
+  // on-shield OOS list already uses for this.
+  const options = dedupeGroundAirOOS(moveOptions);
+  if (!options.some(function(o) { return isGrabMove(o.move); })) {
+    options.push({ move: 'Grab', label: 'Grab', startup: 7, onHitStartup: 7, oosStartup: 7, jumpCancel: false, category: 'Misc' });
+  }
+  options.push({ move: 'Shield', label: 'Shield', startup: 1, onHitStartup: 1, oosStartup: 1, jumpCancel: false, category: 'Misc' });
+  options.sort(function(a, b) { return a.onHitStartup - b.onHitStartup; });
+  return options;
+}
+
+/**
+ * On Hit breakdown: given attacker/defender character data, the defender's
+ * current damage % (pct), and whether they're Crouch Canceling (isCrouch,
+ * false = ASDI Down), returns a breakdown of each attacker move+hitbox with
+ * the resulting advantage and which defender moves can punish it.
+ *
+ * Projectile hitboxes are excluded entirely (not badged, unlike the
+ * shield-safety table's PROJ treatment) — the attacker isn't physically
+ * present at the point of impact for a projectile, so "attacker's own
+ * recovery vs. defender's hitstun" isn't a meaningful comparison. They're
+ * still included in getMeleeBreakers, since "does this always break
+ * CC/ASDI" only depends on the hit's own knockback numbers.
+ */
+function getMeleeOnHitBreakdown(attackerData, defenderData, pct, isCrouch) {
+  const defenderWeight = defenderData.weight;
+  const defenderOptions = getMeleeOnHitOptions(defenderData);
+  const results = [];
+
+  attackerData.moves.forEach(function(move) {
+    if (isExcludedFromOnHit(move)) return;
+    move.hitboxes.forEach(function(h) {
+      if (h.shieldSafety && h.shieldSafety.isProjectile) return;
+
+      const outcome = calcMeleeOnHitOutcome(h, defenderWeight, pct, isCrouch);
+      if (!outcome || h.endlag == null) return;
+      const advantage = outcome.hitstun - h.endlag;
+
+      // Knockdown only applies in ASDI Down mode when it breaks (defender
+      // launched airborne) — CC breaking still leaves the defender grounded
+      // with real (larger) hitstun, so punishes apply normally there.
+      const isKnockdown = !isCrouch && outcome.breaks;
+      const punishes = (!isKnockdown && advantage <= 0)
+        ? defenderOptions.filter(function(o) { return o.onHitStartup <= -advantage; })
+        : [];
+
+      results.push({
+        move:       move.move,
+        hitbox:     h.hitbox || null,
+        category:   getCategory(move),
+        startup:    move.startup,
+        breaks:     outcome.breaks,
+        isKnockdown,
+        advantage,
+        punishes,
+      });
+    });
+  });
+
+  return dedupeGroundAirOnHit(dedupeAndLabelOnHitHitboxes(results));
+}
+
 export {
   CATEGORY_ORDER,
   SHIELD_RELEASE_FRAMES,
@@ -550,4 +807,9 @@ export {
   getOOSOptions,
   getDisplayOOSOptions,
   analyzeMatchup,
+  CC_KB_THRESHOLD,
+  ASDI_DOWN_KB_THRESHOLD,
+  getMeleeBreakers,
+  getMeleeOnHitOptions,
+  getMeleeOnHitBreakdown,
 };

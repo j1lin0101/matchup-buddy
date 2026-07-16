@@ -75,11 +75,13 @@ body {
   .top-panels-grid .char-panel-oos-my        { order: 3; }
   .top-panels-grid .char-panel-floorhug-my   { order: 4; }
   .top-panels-grid .char-panel-combo-my      { order: 4; }
+  .top-panels-grid .char-panel-breakers-my   { order: 4; }
   .top-panels-grid .char-col-header-opp      { order: 5; }
   .top-panels-grid .char-panel-safe-opp      { order: 6; }
   .top-panels-grid .char-panel-oos-opp       { order: 7; }
   .top-panels-grid .char-panel-floorhug-opp  { order: 8; }
   .top-panels-grid .char-panel-combo-opp     { order: 8; }
+  .top-panels-grid .char-panel-breakers-opp  { order: 8; }
 }
 
 /* ── Responsive: Page padding ── */

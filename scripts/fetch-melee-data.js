@@ -333,6 +333,25 @@ function buildHitboxes(move, isProjectile) {
         hitbox: humanizeHitboxName(hit.name || hb.name || null),
         shieldSafety,
         shieldRaw,
+        // Raw knockback ingredients (Melee's real KB formula, used by the
+        // CC/ASDI Down "on hit" analysis) — ?? not || since setKnockback: 0
+        // is a meaningful "no set knockback" value, not missing data.
+        damage:          hb.damage          ?? null,
+        knockbackGrowth: hb.knockbackGrowth ?? null,
+        baseKnockback:   hb.baseKnockback   ?? null,
+        setKnockback:    hb.setKnockback    ?? null,
+        angle:           hb.angle           ?? null,
+        // Attacker's own recovery after this hitbox, for on-hit frame
+        // advantage (hitstun - endlag). Aerials use the L-cancelled (best
+        // case) landing lag as a flat number, mirroring the shield-safety
+        // formula's optimistic side. Projectiles get null — the attacker
+        // isn't standing at the point of impact, so their own recovery
+        // isn't a meaningful comparison there.
+        endlag: isProjectile
+          ? null
+          : isAerial
+            ? (move.lCanceledLandLag ?? null)
+            : recovery,
       });
     });
   });
