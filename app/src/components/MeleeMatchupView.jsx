@@ -6,6 +6,8 @@ import {
   getOOSOptions,
   analyzeMatchup,
   CATEGORY_ORDER,
+  SHIELD_RELEASE_FRAMES,
+  POWERSHIELD_RELEASE_FRAMES,
 } from '../analysis/analysisMelee'
 
 // Grab and Wavedash are universal OOS options that don't belong to any of
@@ -93,6 +95,46 @@ function FrameBadge({ frames, color = 'var(--accent)' }) {
       {frames}f
     </span>
   )
+}
+
+// Mirrors Rivals' MatchupView.jsx SegmentedToggle exactly.
+function SegmentedToggle({ options, value, onChange, activeColor }) {
+  return (
+    <div className="segmented-toggle" style={{
+      display: 'flex', alignItems: 'stretch', height: TOOLBAR_H,
+      border: '1px solid var(--border)', borderRadius: 'var(--radius)', overflow: 'hidden',
+    }}>
+      {options.map((opt, i) => {
+        const active = value === opt.value
+        return (
+          <button
+            key={String(opt.value)}
+            onClick={() => onChange(opt.value)}
+            aria-label={opt.title || opt.label}
+            title={opt.title || opt.label}
+            style={{
+              display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: '6px',
+              height: TOOLBAR_H, padding: '0 14px',
+              border: 'none',
+              borderLeft: i > 0 ? '1px solid var(--border)' : 'none',
+              background: active ? activeColor + '22' : 'var(--surface)',
+              color: active ? activeColor : 'var(--muted)',
+              fontSize: '0.72rem', fontWeight: 600, lineHeight: 1,
+              cursor: 'pointer', transition: 'all 0.15s',
+            }}
+          >
+            {opt.label}
+          </button>
+        )
+      })}
+    </div>
+  )
+}
+
+// A thin vertical rule placed between separate toolbar units. Hidden on mobile,
+// where the toolbar stacks vertically instead (see .toolbar-row in index.css).
+function ToolbarDivider() {
+  return <div className="toolbar-divider" style={{ width: '1px', alignSelf: 'stretch', background: 'var(--border)' }} />
 }
 
 function TooltipIcon({ text }) {
@@ -532,10 +574,32 @@ function FilterModal({
 // Owns the category/OOS filter state for one attacking direction (mirrors
 // Rivals' BreakdownSection) and renders the "⚙ Filters" toolbar button plus
 // the filtered BreakdownTable.
-function AttackingView({ matchup, defenderOOS, attackerName, attackerColor, defenderName, defenderColor }) {
+function AttackingView({ attackerData, defenderData, attackerName, attackerColor, defenderName, defenderColor }) {
   const [categoryFilter, setCategoryFilter] = useState('All')
   const [oosFilter, setOosFilter] = useState(new Set())
   const [filterModalOpen, setFilterModalOpen] = useState(false)
+  const [shieldMode, setShieldMode] = useState('normal')
+
+  const shieldReleaseFrames = shieldMode === 'powershield' ? POWERSHIELD_RELEASE_FRAMES : SHIELD_RELEASE_FRAMES
+  const defenderOOS = useMemo(
+    () => getOOSOptions(defenderData, shieldReleaseFrames),
+    [defenderData, shieldReleaseFrames]
+  )
+  const matchup = useMemo(
+    () => analyzeMatchup(attackerData, defenderData, shieldReleaseFrames),
+    [attackerData, defenderData, shieldReleaseFrames]
+  )
+
+  // Reset the OOS filter when shield mode changes — the option set (and its
+  // timing) is different between normal and powershield, so a previously
+  // selected option may no longer mean the same thing.
+  const prevShieldMode = useRef(shieldMode)
+  useEffect(() => {
+    if (prevShieldMode.current !== shieldMode) {
+      setOosFilter(new Set())
+      prevShieldMode.current = shieldMode
+    }
+  }, [shieldMode])
 
   const categoryTabs = ['All', ...CATEGORY_ORDER]
 
@@ -556,6 +620,18 @@ function AttackingView({ matchup, defenderOOS, attackerName, attackerColor, defe
   return (
     <div>
       <div className="toolbar-row" style={{ display: 'flex', gap: '10px', flexWrap: 'wrap', padding: '0 0 16px' }}>
+        <SegmentedToggle
+          activeColor={attackerColor}
+          value={shieldMode}
+          onChange={setShieldMode}
+          options={[
+            { value: 'normal', label: 'Normal Shield' },
+            { value: 'powershield', label: 'Powershield' },
+          ]}
+        />
+
+        <ToolbarDivider />
+
         <button
           onClick={() => setFilterModalOpen(true)}
           className="toolbar-filters-btn"
@@ -617,11 +693,11 @@ export default function MeleeMatchupView({ myChar, oppChar, onBack }) {
 
   const loading = myLoading || oppLoading
 
+  // Overview panel always uses normal shield (only the Attacking tabs get the
+  // shield-mode toggle — see AttackingView, which computes its own matchup/OOS
+  // per shield mode since powershield timing only matters for punish analysis).
   const myOOS  = useMemo(() => myData  ? getOOSOptions(myData)  : [], [myData])
   const oppOOS = useMemo(() => oppData ? getOOSOptions(oppData) : [], [oppData])
-
-  const matchupVsOpp = useMemo(() => (myData && oppData) ? analyzeMatchup(oppData, myData) : null, [myData, oppData])  // opp attacks, I defend
-  const matchupVsMe  = useMemo(() => (myData && oppData) ? analyzeMatchup(myData, oppData) : null, [myData, oppData]) // I attack, opp defends
 
   if (loading) return (
     <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: '100vh', color: 'var(--muted)' }}>
@@ -720,18 +796,16 @@ export default function MeleeMatchupView({ myChar, oppChar, onBack }) {
           </div>
         )}
 
-        {activeTab === 'me' && matchupVsMe && (
+        {activeTab === 'me' && myData && oppData && (
           <AttackingView
-            matchup={matchupVsMe}
-            defenderOOS={oppOOS}
+            attackerData={myData} defenderData={oppData}
             attackerName={myChar} attackerColor="var(--accent)"
             defenderName={oppChar} defenderColor="var(--accent2)"
           />
         )}
-        {activeTab === 'opp' && matchupVsOpp && (
+        {activeTab === 'opp' && myData && oppData && (
           <AttackingView
-            matchup={matchupVsOpp}
-            defenderOOS={myOOS}
+            attackerData={oppData} defenderData={myData}
             attackerName={oppChar} attackerColor="var(--accent2)"
             defenderName={myChar} defenderColor="var(--accent)"
           />
