@@ -1,7 +1,7 @@
 {
   "character": "Marth",
   "slug": "Marth",
-  "scrapedAt": "2026-07-16T00:01:15.397Z",
+  "scrapedAt": "2026-07-16T00:09:11.977Z",
   "jumpSquat": 4,
   "weight": 87,
   "wavedashOOSFrames": 14,
@@ -72,7 +72,7 @@
       ]
     },
     {
-      "move": "Counter",
+      "move": "Down Special",
       "type": 4,
       "isUpSpecial": false,
       "startup": 5,
@@ -739,7 +739,7 @@
       ]
     },
     {
-      "move": "Dolphin Slash",
+      "move": "Up Special",
       "type": 4,
       "isUpSpecial": true,
       "startup": 5,
@@ -771,7 +771,7 @@
       ]
     },
     {
-      "move": "Sword Dance (1, Side)",
+      "move": "Side Special (1, Side)",
       "type": 4,
       "isUpSpecial": false,
       "startup": 6,
@@ -811,7 +811,7 @@
       ]
     },
     {
-      "move": "Shield Breaker",
+      "move": "Neutral Special",
       "type": 4,
       "isUpSpecial": false,
       "startup": 16,
@@ -1027,7 +1027,7 @@
       ]
     },
     {
-      "move": "Dolphin Slash (Air)",
+      "move": "Up Special (Air)",
       "type": 4,
       "isUpSpecial": true,
       "startup": 5,
@@ -1195,7 +1195,7 @@
       ]
     },
     {
-      "move": "Sword Dance (2, Neutral/Side/Down)",
+      "move": "Side Special (2, Neutral/Side/Down)",
       "type": 4,
       "isUpSpecial": false,
       "startup": 14,
@@ -1235,7 +1235,7 @@
       ]
     },
     {
-      "move": "Sword Dance (2, Up)",
+      "move": "Side Special (2, Up)",
       "type": 4,
       "isUpSpecial": false,
       "startup": 12,
@@ -1275,7 +1275,7 @@
       ]
     },
     {
-      "move": "Sword Dance (3, Side/Neutral)",
+      "move": "Side Special (3, Side/Neutral)",
       "type": 4,
       "isUpSpecial": false,
       "startup": 11,
@@ -1315,7 +1315,7 @@
       ]
     },
     {
-      "move": "Sword Dance (3, Up)",
+      "move": "Side Special (3, Up)",
       "type": 4,
       "isUpSpecial": false,
       "startup": 13,
@@ -1355,7 +1355,7 @@
       ]
     },
     {
-      "move": "Sword Dance (3, Down)",
+      "move": "Side Special (3, Down)",
       "type": 4,
       "isUpSpecial": false,
       "startup": 15,
@@ -1395,7 +1395,7 @@
       ]
     },
     {
-      "move": "Sword Dance (4, Side/Neutral)",
+      "move": "Side Special (4, Side/Neutral)",
       "type": 4,
       "isUpSpecial": false,
       "startup": 23,
@@ -1435,7 +1435,7 @@
       ]
     },
     {
-      "move": "Sword Dance (4, Up)",
+      "move": "Side Special (4, Up)",
       "type": 4,
       "isUpSpecial": false,
       "startup": 20,
@@ -1475,7 +1475,7 @@
       ]
     },
     {
-      "move": "Sword Dance (4, Down)",
+      "move": "Side Special (4, Down)",
       "type": 4,
       "isUpSpecial": false,
       "startup": null,
@@ -1547,7 +1547,7 @@
       ]
     },
     {
-      "move": "Counter (Air)",
+      "move": "Down Special (Air)",
       "type": 4,
       "isUpSpecial": false,
       "startup": 5,
@@ -1587,7 +1587,7 @@
       ]
     },
     {
-      "move": "Sword Dance (1, Side) (Air)",
+      "move": "Side Special (1, Side) (Air)",
       "type": 4,
       "isUpSpecial": false,
       "startup": 6,

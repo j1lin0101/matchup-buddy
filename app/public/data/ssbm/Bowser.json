@@ -1,14 +1,14 @@
 {
   "character": "Bowser",
   "slug": "Bowser",
-  "scrapedAt": "2026-07-16T00:01:15.392Z",
+  "scrapedAt": "2026-07-16T00:09:11.970Z",
   "jumpSquat": 8,
   "weight": 117,
   "wavedashOOSFrames": 18,
   "wikiUrl": "https://www.ssbwiki.com/Bowser_(SSBM)",
   "moves": [
     {
-      "move": "Whirling Fortress",
+      "move": "Up Special",
       "type": 4,
       "isUpSpecial": true,
       "startup": 5,
@@ -64,7 +64,7 @@
       ]
     },
     {
-      "move": "Bowser Bomb",
+      "move": "Down Special",
       "type": 4,
       "isUpSpecial": false,
       "startup": 42,
@@ -88,7 +88,7 @@
       ]
     },
     {
-      "move": "Fire Breath",
+      "move": "Neutral Special",
       "type": 4,
       "isUpSpecial": false,
       "startup": 23,
@@ -680,7 +680,7 @@
       ]
     },
     {
-      "move": "Koopa Klaw",
+      "move": "Side Special",
       "type": 4,
       "isUpSpecial": false,
       "startup": 16,
@@ -977,7 +977,7 @@
       ]
     },
     {
-      "move": "Koopa Klaw (Air)",
+      "move": "Side Special (Air)",
       "type": 4,
       "isUpSpecial": false,
       "startup": 16,
@@ -1049,7 +1049,7 @@
       ]
     },
     {
-      "move": "Bowser Bomb (Air)",
+      "move": "Down Special (Air)",
       "type": 4,
       "isUpSpecial": false,
       "startup": 32,
@@ -1067,7 +1067,7 @@
       ]
     },
     {
-      "move": "Whirling Fortress (Air)",
+      "move": "Up Special (Air)",
       "type": 4,
       "isUpSpecial": true,
       "startup": 5,
@@ -1099,7 +1099,7 @@
       ]
     },
     {
-      "move": "Fire Breath (Air)",
+      "move": "Neutral Special (Air)",
       "type": 4,
       "isUpSpecial": false,
       "startup": 23,

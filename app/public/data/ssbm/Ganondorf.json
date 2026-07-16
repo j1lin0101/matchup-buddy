@@ -1,14 +1,14 @@
 {
   "character": "Ganondorf",
   "slug": "Ganondorf",
-  "scrapedAt": "2026-07-16T00:01:15.393Z",
+  "scrapedAt": "2026-07-16T00:09:11.971Z",
   "jumpSquat": 6,
   "weight": 109,
   "wavedashOOSFrames": 16,
   "wikiUrl": "https://www.ssbwiki.com/Ganondorf_(SSBM)",
   "moves": [
     {
-      "move": "Warlock Punch",
+      "move": "Neutral Special",
       "type": 4,
       "isUpSpecial": false,
       "startup": 70,
@@ -40,7 +40,7 @@
       ]
     },
     {
-      "move": "Gerudo Dragon",
+      "move": "Side Special",
       "type": 4,
       "isUpSpecial": false,
       "startup": 15,
@@ -88,7 +88,7 @@
       ]
     },
     {
-      "move": "Dark Dive",
+      "move": "Up Special",
       "type": 4,
       "isUpSpecial": true,
       "startup": 13,
@@ -112,7 +112,7 @@
       ]
     },
     {
-      "move": "Wizard's Foot",
+      "move": "Down Special",
       "type": 4,
       "isUpSpecial": false,
       "startup": 14,
@@ -814,7 +814,7 @@
       ]
     },
     {
-      "move": "Gerudo Dragon (Air)",
+      "move": "Side Special (Air)",
       "type": 4,
       "isUpSpecial": false,
       "startup": 15,
@@ -862,7 +862,7 @@
       ]
     },
     {
-      "move": "Wizard's Foot (Air)",
+      "move": "Down Special (Air)",
       "type": 4,
       "isUpSpecial": false,
       "startup": 15,
@@ -1134,7 +1134,7 @@
       ]
     },
     {
-      "move": "Dark Dive (Air)",
+      "move": "Up Special (Air)",
       "type": 4,
       "isUpSpecial": true,
       "startup": 13,

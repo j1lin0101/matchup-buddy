@@ -1,14 +1,14 @@
 {
   "character": "Sheik",
   "slug": "Sheik",
-  "scrapedAt": "2026-07-16T00:01:15.396Z",
+  "scrapedAt": "2026-07-16T00:09:11.975Z",
   "jumpSquat": 3,
   "weight": 90,
   "wavedashOOSFrames": 13,
   "wikiUrl": "https://www.ssbwiki.com/Sheik_(SSBM)",
   "moves": [
     {
-      "move": "Chain",
+      "move": "Side Special",
       "type": 4,
       "isUpSpecial": false,
       "startup": 22,
@@ -48,7 +48,7 @@
       ]
     },
     {
-      "move": "Needle Storm",
+      "move": "Neutral Special",
       "type": 4,
       "isUpSpecial": false,
       "startup": 4,
@@ -88,7 +88,7 @@
       ]
     },
     {
-      "move": "Vanish",
+      "move": "Up Special",
       "type": 4,
       "isUpSpecial": true,
       "startup": 36,
@@ -990,7 +990,7 @@
       ]
     },
     {
-      "move": "Needle Storm (Air)",
+      "move": "Neutral Special (Air)",
       "type": 4,
       "isUpSpecial": false,
       "startup": 11,
@@ -1190,7 +1190,7 @@
       ]
     },
     {
-      "move": "Up B (Air)",
+      "move": "Up Special (Air)",
       "type": 4,
       "isUpSpecial": false,
       "startup": 36,
@@ -1206,7 +1206,7 @@
       ]
     },
     {
-      "move": "Chain (Air)",
+      "move": "Side Special (Air)",
       "type": 4,
       "isUpSpecial": false,
       "startup": 22,

@@ -1,7 +1,7 @@
 {
   "character": "Luigi",
   "slug": "Luigi",
-  "scrapedAt": "2026-07-16T00:01:15.395Z",
+  "scrapedAt": "2026-07-16T00:09:11.973Z",
   "jumpSquat": 4,
   "weight": 100,
   "wavedashOOSFrames": 14,
@@ -382,7 +382,7 @@
       ]
     },
     {
-      "move": "Green Missile",
+      "move": "Side Special",
       "type": 4,
       "isUpSpecial": false,
       "startup": 23,
@@ -422,7 +422,7 @@
       ]
     },
     {
-      "move": "Super Jump Punch",
+      "move": "Up Special",
       "type": 4,
       "isUpSpecial": true,
       "startup": 5,
@@ -454,7 +454,7 @@
       ]
     },
     {
-      "move": "Luigi Cyclone",
+      "move": "Down Special",
       "type": 4,
       "isUpSpecial": false,
       "startup": 6,
@@ -502,7 +502,7 @@
       ]
     },
     {
-      "move": "Fireball",
+      "move": "Neutral Special",
       "type": 4,
       "isUpSpecial": false,
       "startup": 17,
@@ -886,7 +886,7 @@
       ]
     },
     {
-      "move": "Luigi Cyclone (Air)",
+      "move": "Down Special (Air)",
       "type": 4,
       "isUpSpecial": false,
       "startup": 6,
@@ -942,7 +942,7 @@
       ]
     },
     {
-      "move": "Super Jump Punch (Air)",
+      "move": "Up Special (Air)",
       "type": 4,
       "isUpSpecial": true,
       "startup": 5,
@@ -1078,7 +1078,7 @@
       ]
     },
     {
-      "move": "Green Missile (Air)",
+      "move": "Side Special (Air)",
       "type": 4,
       "isUpSpecial": false,
       "startup": 23,

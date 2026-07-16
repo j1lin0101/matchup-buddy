@@ -1,14 +1,14 @@
 {
   "character": "Captain Falcon",
   "slug": "Captain_Falcon",
-  "scrapedAt": "2026-07-16T00:01:15.386Z",
+  "scrapedAt": "2026-07-16T00:09:11.963Z",
   "jumpSquat": 4,
   "weight": 104,
   "wavedashOOSFrames": 14,
   "wikiUrl": "https://www.ssbwiki.com/Captain_Falcon_(SSBM)",
   "moves": [
     {
-      "move": "Falcon Punch",
+      "move": "Neutral Special",
       "type": 4,
       "isUpSpecial": false,
       "startup": 52,
@@ -40,7 +40,7 @@
       ]
     },
     {
-      "move": "Raptor Boost",
+      "move": "Side Special",
       "type": 4,
       "isUpSpecial": false,
       "startup": 15,
@@ -88,7 +88,7 @@
       ]
     },
     {
-      "move": "Facon kick",
+      "move": "Down Special",
       "type": 4,
       "isUpSpecial": false,
       "startup": 14,
@@ -718,7 +718,7 @@
       ]
     },
     {
-      "move": "Falcon Dive",
+      "move": "Up Special",
       "type": 4,
       "isUpSpecial": true,
       "startup": 13,
@@ -934,7 +934,7 @@
       ]
     },
     {
-      "move": "Falcon Kick (Air)",
+      "move": "Down Special (Air)",
       "type": 4,
       "isUpSpecial": false,
       "startup": 15,
@@ -990,7 +990,7 @@
       ]
     },
     {
-      "move": "Falcon Punch (Air)",
+      "move": "Neutral Special (Air)",
       "type": 4,
       "isUpSpecial": false,
       "startup": 52,
@@ -1022,7 +1022,7 @@
       ]
     },
     {
-      "move": "Raptor Boost (Air)",
+      "move": "Side Special (Air)",
       "type": 4,
       "isUpSpecial": false,
       "startup": 15,
@@ -1070,7 +1070,7 @@
       ]
     },
     {
-      "move": "Falcon Dive (Air)",
+      "move": "Up Special (Air)",
       "type": 4,
       "isUpSpecial": true,
       "startup": 13,

@@ -1,14 +1,14 @@
 {
   "character": "Dr. Mario",
   "slug": "Dr_Mario",
-  "scrapedAt": "2026-07-16T00:01:15.394Z",
+  "scrapedAt": "2026-07-16T00:09:11.973Z",
   "jumpSquat": 4,
   "weight": 100,
   "wavedashOOSFrames": 14,
   "wikiUrl": "https://www.ssbwiki.com/Dr._Mario_(SSBM)",
   "moves": [
     {
-      "move": "Super Sheet",
+      "move": "Side Special",
       "type": 4,
       "isUpSpecial": false,
       "startup": 12,
@@ -40,7 +40,7 @@
       ]
     },
     {
-      "move": "Super Jump Punch",
+      "move": "Up Special",
       "type": 4,
       "isUpSpecial": true,
       "startup": 3,
@@ -112,7 +112,7 @@
       ]
     },
     {
-      "move": "Dr. Tornado",
+      "move": "Down Special",
       "type": 4,
       "isUpSpecial": false,
       "startup": 8,
@@ -160,7 +160,7 @@
       ]
     },
     {
-      "move": "Megavitamins",
+      "move": "Neutral Special",
       "type": 4,
       "isUpSpecial": false,
       "startup": 14,
@@ -950,7 +950,7 @@
       ]
     },
     {
-      "move": "Dr. Tornado (Air)",
+      "move": "Down Special (Air)",
       "type": 4,
       "isUpSpecial": false,
       "startup": 8,
@@ -998,7 +998,7 @@
       ]
     },
     {
-      "move": "Megavitamins (Air)",
+      "move": "Neutral Special (Air)",
       "type": 4,
       "isUpSpecial": false,
       "startup": 14,
@@ -1014,7 +1014,7 @@
       ]
     },
     {
-      "move": "Super Sheet (Air)",
+      "move": "Side Special (Air)",
       "type": 4,
       "isUpSpecial": false,
       "startup": 12,
@@ -1046,7 +1046,7 @@
       ]
     },
     {
-      "move": "Super Jump Punch (Air)",
+      "move": "Up Special (Air)",
       "type": 4,
       "isUpSpecial": true,
       "startup": 3,

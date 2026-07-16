@@ -1,7 +1,7 @@
 {
   "character": "Kirby",
   "slug": "Kirby",
-  "scrapedAt": "2026-07-16T00:01:15.392Z",
+  "scrapedAt": "2026-07-16T00:09:11.970Z",
   "jumpSquat": 3,
   "weight": 70,
   "wavedashOOSFrames": 13,
@@ -586,7 +586,7 @@
       ]
     },
     {
-      "move": "Swallow",
+      "move": "Neutral Special",
       "type": 4,
       "isUpSpecial": false,
       "startup": 17,
@@ -1427,7 +1427,7 @@
       ]
     },
     {
-      "move": "Hammer Hit",
+      "move": "Side Special Hit",
       "type": 4,
       "isUpSpecial": false,
       "startup": 22,
@@ -1459,7 +1459,7 @@
       ]
     },
     {
-      "move": "Final Cutter",
+      "move": "Up Special",
       "type": 4,
       "isUpSpecial": true,
       "startup": 2,
@@ -1515,7 +1515,7 @@
       ]
     },
     {
-      "move": "Stone",
+      "move": "Down Special",
       "type": 4,
       "isUpSpecial": false,
       "startup": 30,
@@ -1853,7 +1853,7 @@
       ]
     },
     {
-      "move": "Hammer Spin (Air)",
+      "move": "Side Special Spin (Air)",
       "type": 4,
       "isUpSpecial": false,
       "startup": 7,
@@ -2093,7 +2093,7 @@
       ]
     },
     {
-      "move": "Final Cutter (Air)",
+      "move": "Up Special (Air)",
       "type": 4,
       "isUpSpecial": true,
       "startup": 2,
@@ -2149,7 +2149,7 @@
       ]
     },
     {
-      "move": "Stone (Air)",
+      "move": "Down Special (Air)",
       "type": 4,
       "isUpSpecial": false,
       "startup": 30,
@@ -2213,7 +2213,7 @@
       ]
     },
     {
-      "move": "Swallow (air)",
+      "move": "Neutral Special (air)",
       "type": 4,
       "isUpSpecial": false,
       "startup": 17,

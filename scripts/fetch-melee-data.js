@@ -42,6 +42,14 @@
  * flavor name (e.g. Fox's "Fire Fox") — so we cross-reference ssbwiki.com's
  * {{MovesetTable}} `usname` param per character (same technique already proven
  * for SSBU) to flag which move is functionally the Up Special.
+ *
+ * Special move display names: FightCore's flavor names for specials (e.g. "Fox
+ * Illusion", "Blaster", "Fire Fox") are replaced with generic "<Direction>
+ * Special" labels (Neutral/Side/Up/Down Special), using the same ssbwiki
+ * MovesetTable cross-reference extended to all four name params (nsname/ssname/
+ * usname/dsname). One exception: Fox/Falco's Down Special keeps its "Shine"
+ * name (applyFlavorMoveName) since that's how the community universally refers
+ * to it — applied before the direction-naming pass so it isn't overwritten.
  */
 
 const fetch = require('node-fetch');
@@ -135,8 +143,16 @@ async function downloadIcon(name, url) {
 }
 
 // Fetches ssbwiki.com's "<Name> (SSBM)" page for every character and parses the
-// {{MovesetTable}} template's usname param into { characterName -> flavorName }.
-async function fetchUpSpecialNames(characterNames) {
+// {{MovesetTable}} template's four special-move name params (nsname/ssname/
+// usname/dsname) into { characterName -> { neutral, side, up, down } flavor names }.
+const SPECIAL_DIRECTIONS = [
+  ['neutral', 'nsname', 'Neutral Special'],
+  ['side',    'ssname', 'Side Special'],
+  ['up',      'usname', 'Up Special'],
+  ['down',    'dsname', 'Down Special'],
+];
+
+async function fetchSpecialNames(characterNames) {
   const result = new Map();
   const batchSize = 20;
   for (let i = 0; i < characterNames.length; i += batchSize) {
@@ -149,27 +165,81 @@ async function fetchUpSpecialNames(characterNames) {
       const res = await fetch(`${SSBWIKI_API}?${params}`, { headers: { 'User-Agent': UA } });
       if (!res.ok) throw new Error(`HTTP ${res.status}`);
       return res.json();
-    }, `Fetching Up Special names batch ${i / batchSize + 1}`);
+    }, `Fetching Special names batch ${i / batchSize + 1}`);
 
     Object.values(data.query.pages).forEach(page => {
       if (page.missing !== undefined || !page.revisions) return;
       const name = page.title.replace(/ \(SSBM\)$/, '');
       const content = page.revisions[0]['*'];
-      const m = content.match(/\|usname\s*=\s*([^\n|]+)/i);
-      if (!m) return;
-      const flavorName = m[1].trim().replace(/\[\[(?:[^\]|]*\|)?([^\]]+)\]\]/g, '$1').trim();
-      result.set(name, flavorName);
+      const flavorNames = {};
+      SPECIAL_DIRECTIONS.forEach(([key, param]) => {
+        const m = content.match(new RegExp(`\\|${param}\\s*=\\s*([^\\n|]+)`, 'i'));
+        if (!m) return;
+        flavorNames[key] = m[1].trim().replace(/\[\[(?:[^\]|]*\|)?([^\]]+)\]\]/g, '$1').trim();
+      });
+      result.set(name, flavorNames);
     });
   }
   return result;
 }
 
-// Matches a FightCore move name against the ssbwiki Up Special flavor name.
-// Exact match first; falls back to a prefix match since FightCore sometimes adds
-// a variant suffix (e.g. "Fire Fox (Air)").
-function isUpSpecialMove(moveName, flavorName) {
+// Matches a FightCore move name against an ssbwiki flavor name. Exact match
+// first; falls back to a prefix match since FightCore sometimes adds a
+// variant suffix (e.g. "Fire Fox (Air)").
+function matchesFlavorName(moveName, flavorName) {
   if (!flavorName) return false;
   return moveName === flavorName || moveName.startsWith(flavorName);
+}
+
+function isUpSpecialMove(moveName, flavorNames) {
+  return matchesFlavorName(moveName, flavorNames && flavorNames.up);
+}
+
+// FightCore's raw special-move names occasionally have typos, are left as an
+// unnamed placeholder, or use different spelling/punctuation/terminology than
+// ssbwiki's flavor name — any of which would otherwise stop
+// applyDirectionSpecialName below from finding a match. Each entry is a
+// prefix correction (applied with startsWith, not exact match) so it also
+// fixes multi-hit combo variants that trail extra text after the base name
+// (e.g. Marth's "Sword Dance (1, Side)" -> "Dancing Blade (1, Side)", which
+// then matches ssname and becomes "Side Special (1, Side)").
+const SPECIAL_NAME_CORRECTIONS = {
+  'Facon kick': 'Falcon Kick',              // Captain Falcon: typo ("Facon" -> "Falcon")
+  'Neutral special': 'Rollout',             // Jigglypuff: FightCore left this unnamed
+  'Side special': 'Egg Roll',               // Yoshi: FightCore left this unnamed
+  'Homing Missle': 'Missile',               // Samus: typo ("Missle") + FightCore's own sub-variant name
+  'Up B': 'Vanish',                         // Sheik: FightCore left the air variant unnamed
+  'Judgement': 'Judgment',                  // Mr. Game & Watch: British vs. American spelling
+  'Farores Wind': "Farore's Wind",          // Zelda: FightCore drops the apostrophe
+  'Sword Dance': 'Dancing Blade',           // Marth: FightCore's own community-convention name for the same move
+  'Double Edged Dance': 'Double-Edge Dance', // Roy: spelling/hyphenation variant of the same move
+};
+
+function correctSpecialName(name) {
+  for (const [wrong, right] of Object.entries(SPECIAL_NAME_CORRECTIONS)) {
+    if (name.startsWith(wrong)) return right + name.slice(wrong.length);
+  }
+  return name;
+}
+
+// Renames a special move from its character-specific flavor name (e.g. "Fox
+// Illusion", "Blaster") to a generic "<Direction> Special" label, preserving
+// any trailing "(Air)" suffix FightCore adds (e.g. "Fox Illusion (Air)" ->
+// "Side Special (Air)"). Left alone if it doesn't match any of the four
+// ssbwiki flavor names for this character (covers non-special moves, and
+// moves already renamed by applyFlavorMoveName, like Fox/Falco's Shine).
+function applyDirectionSpecialName(name, flavorNames) {
+  if (!flavorNames) return name;
+  const airMatch = name.match(/^(.*?)\s*(\(Air\))$/);
+  const baseName = airMatch ? airMatch[1] : name;
+  const airSuffix = airMatch ? ' ' + airMatch[2] : '';
+  const correctedBase = correctSpecialName(baseName);
+  for (const [key, , label] of SPECIAL_DIRECTIONS) {
+    const flavorName = flavorNames[key];
+    if (!matchesFlavorName(correctedBase, flavorName)) continue;
+    return label + correctedBase.slice(flavorName.length) + airSuffix;
+  }
+  return name;
 }
 
 function calcGroundedShieldAdvantage(shieldstun, active, recovery) {
@@ -244,16 +314,23 @@ function cleanHitboxName(name) {
   return name;
 }
 
-function buildCharacterMoves(moves, upSpecialFlavorName, characterName) {
+function buildCharacterMoves(moves, flavorNames, characterName) {
   return (moves || [])
     .filter(m => m.hits && m.hits.length > 0) // skip placeholder/unused move slots
-    .map(m => ({
-      move: applyFlavorMoveName(cleanMoveName(m.name), characterName),
-      type: m.type,
-      isUpSpecial: isUpSpecialMove(m.name, upSpecialFlavorName),
-      startup: m.start ?? null,
-      hitboxes: buildHitboxes(m),
-    }));
+    .map(m => {
+      // Shine must be applied before the generic direction-naming pass, since
+      // once Fox/Falco's Down Special is renamed to "Shine" it no longer
+      // matches ssbwiki's dsname flavor name ("Reflector") and so is left
+      // alone by applyDirectionSpecialName below.
+      const shineApplied = applyFlavorMoveName(cleanMoveName(m.name), characterName);
+      return {
+        move: applyDirectionSpecialName(shineApplied, flavorNames),
+        type: m.type,
+        isUpSpecial: isUpSpecialMove(m.name, flavorNames),
+        startup: m.start ?? null,
+        hitboxes: buildHitboxes(m),
+      };
+    });
 }
 
 async function main() {
@@ -281,11 +358,11 @@ async function main() {
     console.log('done');
   }
 
-  console.log('Fetching Up Special names from ssbwiki.com...');
-  const upSpecialNames = await fetchUpSpecialNames(characters.map(c => c.name));
-  const missingUpSpecial = characters.filter(c => !upSpecialNames.get(c.name));
-  if (missingUpSpecial.length) {
-    console.log(`  WARNING: no Up Special name resolved for: ${missingUpSpecial.map(c => c.name).join(', ')}`);
+  console.log('Fetching special move names from ssbwiki.com...');
+  const specialNames = await fetchSpecialNames(characters.map(c => c.name));
+  const missingSpecials = characters.filter(c => !specialNames.get(c.name));
+  if (missingSpecials.length) {
+    console.log(`  WARNING: no special move names resolved for: ${missingSpecials.map(c => c.name).join(', ')}`);
   }
 
   characters.forEach(char => {
@@ -299,7 +376,7 @@ async function main() {
       weight: stats.weight ?? null,
       wavedashOOSFrames: (stats.jumpSquat != null) ? stats.jumpSquat + WAVEDASH_LANDING_LAG : null,
       wikiUrl: (char.characterInfo && char.characterInfo.ssbWiki) || null,
-      moves: buildCharacterMoves(char.moves, upSpecialNames.get(char.name), char.name),
+      moves: buildCharacterMoves(char.moves, specialNames.get(char.name), char.name),
     };
     fs.writeFileSync(path.join(OUT_DIR, `${slug}.json`), JSON.stringify(out, null, 2) + '\n');
   });

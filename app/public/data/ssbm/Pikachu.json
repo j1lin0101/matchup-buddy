@@ -1,14 +1,14 @@
 {
   "character": "Pikachu",
   "slug": "Pikachu",
-  "scrapedAt": "2026-07-16T00:01:15.396Z",
+  "scrapedAt": "2026-07-16T00:09:11.975Z",
   "jumpSquat": 3,
   "weight": 80,
   "wavedashOOSFrames": 13,
   "wikiUrl": "https://www.ssbwiki.com/Pikachu_(SSBM)",
   "moves": [
     {
-      "move": "Skull Bash",
+      "move": "Side Special",
       "type": 4,
       "isUpSpecial": false,
       "startup": 5,
@@ -40,7 +40,7 @@
       ]
     },
     {
-      "move": "Quick Attack",
+      "move": "Up Special",
       "type": 4,
       "isUpSpecial": true,
       "startup": 13,
@@ -64,7 +64,7 @@
       ]
     },
     {
-      "move": "Thunder",
+      "move": "Down Special",
       "type": 4,
       "isUpSpecial": false,
       "startup": 20,
@@ -88,7 +88,7 @@
       ]
     },
     {
-      "move": "Thunder Jolt",
+      "move": "Neutral Special",
       "type": 4,
       "isUpSpecial": false,
       "startup": 18,
@@ -922,7 +922,7 @@
       ]
     },
     {
-      "move": "Thunder Jolt (Air)",
+      "move": "Neutral Special (Air)",
       "type": 4,
       "isUpSpecial": false,
       "startup": 18,
@@ -1162,7 +1162,7 @@
       ]
     },
     {
-      "move": "Skull Bash (Air)",
+      "move": "Side Special (Air)",
       "type": 4,
       "isUpSpecial": false,
       "startup": 5,
@@ -1194,7 +1194,7 @@
       ]
     },
     {
-      "move": "Quick Attack (Air)",
+      "move": "Up Special (Air)",
       "type": 4,
       "isUpSpecial": true,
       "startup": 13,
@@ -1218,7 +1218,7 @@
       ]
     },
     {
-      "move": "Thunder (Air)",
+      "move": "Down Special (Air)",
       "type": 4,
       "isUpSpecial": false,
       "startup": 20,

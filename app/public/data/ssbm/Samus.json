@@ -1,7 +1,7 @@
 {
   "character": "Samus",
   "slug": "Samus",
-  "scrapedAt": "2026-07-16T00:01:15.397Z",
+  "scrapedAt": "2026-07-16T00:09:11.976Z",
   "jumpSquat": 3,
   "weight": 110,
   "wavedashOOSFrames": 13,
@@ -195,7 +195,7 @@
       ]
     },
     {
-      "move": "Screw Attack",
+      "move": "Up Special",
       "type": 4,
       "isUpSpecial": true,
       "startup": 4,
@@ -307,7 +307,7 @@
       ]
     },
     {
-      "move": "Charge Shot",
+      "move": "Neutral Special",
       "type": 4,
       "isUpSpecial": false,
       "startup": 14,
@@ -379,7 +379,7 @@
       ]
     },
     {
-      "move": "Homing Missle",
+      "move": "Side Special",
       "type": 4,
       "isUpSpecial": false,
       "startup": 22,
@@ -403,7 +403,7 @@
       ]
     },
     {
-      "move": "Bomb",
+      "move": "Down Special",
       "type": 4,
       "isUpSpecial": false,
       "startup": 10,
@@ -1091,7 +1091,7 @@
       ]
     },
     {
-      "move": "Homing Missle (Air)",
+      "move": "Side Special (Air)",
       "type": 4,
       "isUpSpecial": false,
       "startup": 15,
@@ -1115,7 +1115,7 @@
       ]
     },
     {
-      "move": "Screw Attack (Air)",
+      "move": "Up Special (Air)",
       "type": 4,
       "isUpSpecial": true,
       "startup": 4,
@@ -1515,7 +1515,7 @@
       ]
     },
     {
-      "move": "Bomb (Air)",
+      "move": "Down Special (Air)",
       "type": 4,
       "isUpSpecial": false,
       "startup": 10,
