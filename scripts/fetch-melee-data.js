@@ -288,8 +288,8 @@ function calcAerialShieldAdvantage(shieldstun, landlag) {
 // whether the player L-cancels roughly halves the landing lag and therefore
 // the punishability. Stored as { min: no L-cancel, max: L-cancelled }, the
 // same min/max range shape Rivals' scraper (cargo-scrape.js) already uses
-// for "shield safety varies" cases — the UI already renders a "-8 to -2"
-// style range whenever min !== max, so no display-side change was needed.
+// for "shield safety varies" cases — the UI renders these as a "-8/-2"
+// style range (no-L-cancel/L-cancelled) whenever min !== max.
 //
 // Projectiles (isProjectile true) skip the formula entirely — see the file
 // header doc — and instead report the raw shieldstun as
@@ -316,7 +316,7 @@ function buildHitboxes(move, isProjectile) {
         const notCancelled = calcAerialShieldAdvantage(hb.shieldstun, move.landLag);
         if (cancelled != null && notCancelled != null) {
           shieldSafety = { min: notCancelled, max: cancelled };
-          shieldRaw = notCancelled === cancelled ? String(cancelled) : `${notCancelled} to ${cancelled}`;
+          shieldRaw = notCancelled === cancelled ? String(cancelled) : `${notCancelled}/${cancelled}`;
         } else if (cancelled != null || notCancelled != null) {
           const only = cancelled ?? notCancelled;
           shieldSafety = { min: only, max: only };

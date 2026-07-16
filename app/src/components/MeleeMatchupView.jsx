@@ -21,7 +21,7 @@ function nameToSlug(name) {
 function ShieldBadge({ value, color }) {
   if (!value) return null
   const v = value.max
-  const label = value.min === value.max ? `${v > 0 ? '+' : ''}${v}` : `${value.min} to ${value.max}`
+  const label = value.min === value.max ? `${v > 0 ? '+' : ''}${v}` : `${value.min}/${value.max}`
   return (
     <span style={{
       display: 'inline-block', padding: '2px 8px', borderRadius: '4px',
@@ -182,7 +182,7 @@ function SafestOptionsList({ charData, defenderOOSOptions }) {
       {options.map((o, i) => {
         const fmt = n => `${n > 0 ? '+' : ''}${n}`
         const v = o.shieldSafety.max
-        const tagLabel = o.shieldSafety.min === v ? fmt(v) : `${fmt(o.shieldSafety.min)} to ${fmt(v)}`
+        const tagLabel = o.shieldSafety.min === v ? fmt(v) : `${fmt(o.shieldSafety.min)}/${fmt(v)}`
         return (
           <div key={i} style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '0.82rem', padding: '10px 16px', borderBottom: '1px solid var(--border)' }}>
             <div style={{ flex: 1, minWidth: 0 }}>
