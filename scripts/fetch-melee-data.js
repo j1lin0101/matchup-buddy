@@ -304,7 +304,7 @@ function buildHitboxes(move) {
         }
       }
       hitboxes.push({
-        hitbox: cleanHitboxName(hit.name || hb.name || null),
+        hitbox: humanizeHitboxName(hit.name || hb.name || null),
         shieldSafety,
         shieldRaw,
       });
@@ -334,16 +334,119 @@ function applyFlavorMoveName(name, characterName) {
   return name;
 }
 
-// FightCore labels the strong hit-window of a multi-hit-window move "clean"
-// (paired with "late" for the weaker one) — Melee community terminology
-// calls this "sweetspot" instead, so relabel it for display.
-function cleanHitboxName(name) {
-  if (name === 'clean') return 'sweetspot';
+// FightCore's hit-window names (hit.name) follow a rough set of internal
+// conventions, not a single clean vocabulary. Rather than pass raw tokens
+// like "front_hit2_clean" or "ground_hit1" straight through, this parses out
+// a hit number/range and any recognized qualifier words, then recomposes as
+// "Hit N (Qualifier, Qualifier)" — matching the "Move [Hit # or Early/
+// Sweetspot/Late or Specific Quality or Aerial/Grounded]" scheme used
+// throughout the UI. Unrecognized tokens are Title-Cased rather than lost,
+// so nothing shows raw snake_case even for obscure character-specific hits.
+const HITBOX_QUALIFIER_WORDS = {
+  up: 'Up', down: 'Down', side: 'Side', front: 'Front', back: 'Back',
+  ground: 'Grounded', air: 'Aerial',
+  clean: 'Sweetspot', late: 'Late', early: 'Early', mid: 'Mid',
+  charged: 'Charged', uncharged: 'Uncharged', charging: 'Charging',
+  fullcharge: 'Full Charge', charge: 'Charge',
+};
+
+function titleCaseWord(word) {
+  return word.charAt(0).toUpperCase() + word.slice(1);
+}
+
+function humanizeHitboxName(name) {
+  if (!name) return name;
+  const tokens = String(name).split('_').filter(Boolean);
+  let hitLabel = null;
+  const qualifiers = [];
+  let i = 0;
+  while (i < tokens.length) {
+    const t = tokens[i].toLowerCase();
+
+    if (t === 'lvl' && tokens[i + 1] && /^\d+$/.test(tokens[i + 1])) {
+      qualifiers.push(`Level ${tokens[i + 1]}`);
+      i += 2;
+      continue;
+    }
+
+    const hitMatch = t.match(/^hits?(\d+)$/);
+    if (hitMatch) {
+      let label;
+      if (tokens[i + 1] && /^\d+$/.test(tokens[i + 1])) {
+        label = `Hits ${hitMatch[1]}-${tokens[i + 1]}`;
+        i += 2;
+      } else {
+        label = `Hit ${hitMatch[1]}`;
+        i += 1;
+      }
+      if (!hitLabel) hitLabel = label; else qualifiers.push(label);
+      continue;
+    }
+
+    if (/^\d+$/.test(t)) {
+      qualifiers.push(t);
+      i += 1;
+      continue;
+    }
+
+    qualifiers.push(HITBOX_QUALIFIER_WORDS[t] || titleCaseWord(t));
+    i += 1;
+  }
+
+  // Adjacent standalone digits (e.g. Marth's "hit4_down_1_4") are a frame
+  // sub-range, not two separate qualifiers — merge into "1-4".
+  for (let j = 0; j < qualifiers.length - 1; j++) {
+    if (/^\d+$/.test(qualifiers[j]) && /^\d+$/.test(qualifiers[j + 1])) {
+      qualifiers.splice(j, 2, `${qualifiers[j]}-${qualifiers[j + 1]}`);
+    }
+  }
+
+  if (hitLabel && qualifiers.length) return `${hitLabel} (${qualifiers.join(', ')})`;
+  if (hitLabel) return hitLabel;
+  if (qualifiers.length) return qualifiers.join(' ');
   return name;
 }
 
+// FightCore represents Marth/Roy's 4-hit combo special (Dancing Blade /
+// Double-Edge Dance) as a separate top-level "move" per combo tier (e.g.
+// "Side Special (2, Up)", "Side Special (3, Down)"), each with its own
+// startup and hitboxes. That tier/direction info is already captured by the
+// hit's own name (-> "Hit 2 (Up)", "Hit 3 (Down)" via humanizeHitboxName
+// above), making the move-name suffix redundant — this strips it so
+// buildCharacterMoves' merge step below can combine every tier into one
+// "Side Special" move with multiple hitboxes, per the "Move [Hit #...]"
+// naming scheme.
+function stripComboTierSuffix(name) {
+  return name.replace(/\s*\(\d+[,\s].*?\)(\s*\(Air\))?$/, '$1').trim();
+}
+
+// Combines moves that collapsed to the same (name, type) after
+// stripComboTierSuffix — currently only Marth/Roy's combo specials —
+// concatenating their hitboxes in tier order and keeping the fastest
+// (lowest) startup, since only the first tier is ever reachable as a fresh
+// option; later tiers only follow an already-connected earlier hit.
+function mergeComboTierMoves(moves) {
+  const byKey = new Map();
+  const order = [];
+  moves.forEach(m => {
+    const key = m.move + '|' + m.type;
+    if (!byKey.has(key)) {
+      byKey.set(key, { ...m, hitboxes: [...m.hitboxes] });
+      order.push(key);
+    } else {
+      const existing = byKey.get(key);
+      existing.hitboxes.push(...m.hitboxes);
+      if (m.startup != null && (existing.startup == null || m.startup < existing.startup)) {
+        existing.startup = m.startup;
+      }
+      existing.isUpSpecial = existing.isUpSpecial || m.isUpSpecial;
+    }
+  });
+  return order.map(key => byKey.get(key));
+}
+
 function buildCharacterMoves(moves, flavorNames, characterName) {
-  return (moves || [])
+  const built = (moves || [])
     .filter(m => m.hits && m.hits.length > 0) // skip placeholder/unused move slots
     .map(m => {
       // Shine must be applied before the generic direction-naming pass, since
@@ -351,14 +454,16 @@ function buildCharacterMoves(moves, flavorNames, characterName) {
       // matches ssbwiki's dsname flavor name ("Reflector") and so is left
       // alone by applyDirectionSpecialName below.
       const shineApplied = applyFlavorMoveName(cleanMoveName(m.name), characterName);
+      const directionNamed = applyDirectionSpecialName(shineApplied, flavorNames);
       return {
-        move: applyDirectionSpecialName(shineApplied, flavorNames),
+        move: stripComboTierSuffix(directionNamed),
         type: m.type,
         isUpSpecial: isUpSpecialMove(m.name, flavorNames),
         startup: m.start ?? null,
         hitboxes: buildHitboxes(m),
       };
     });
+  return mergeComboTierMoves(built);
 }
 
 async function main() {

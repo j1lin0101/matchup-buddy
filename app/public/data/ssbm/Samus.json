@@ -1,7 +1,7 @@
 {
   "character": "Samus",
   "slug": "Samus",
-  "scrapedAt": "2026-07-16T00:13:25.843Z",
+  "scrapedAt": "2026-07-16T00:20:57.694Z",
   "jumpSquat": 3,
   "weight": 110,
   "wavedashOOSFrames": 13,
@@ -14,7 +14,7 @@
       "startup": 0,
       "hitboxes": [
         {
-          "hitbox": "unknown",
+          "hitbox": "Unknown",
           "shieldSafety": {
             "min": -35,
             "max": -35
@@ -30,7 +30,7 @@
       "startup": 0,
       "hitboxes": [
         {
-          "hitbox": "unknown",
+          "hitbox": "Unknown",
           "shieldSafety": {
             "min": -36,
             "max": -36
@@ -46,7 +46,7 @@
       "startup": 13,
       "hitboxes": [
         {
-          "hitbox": "id0",
+          "hitbox": "Id0",
           "shieldSafety": {
             "min": -27,
             "max": -27
@@ -54,7 +54,7 @@
           "shieldRaw": "-27"
         },
         {
-          "hitbox": "id0",
+          "hitbox": "Id0",
           "shieldSafety": {
             "min": -25,
             "max": -25
@@ -62,7 +62,7 @@
           "shieldRaw": "-25"
         },
         {
-          "hitbox": "id0",
+          "hitbox": "Id0",
           "shieldSafety": {
             "min": -23,
             "max": -23
@@ -70,7 +70,7 @@
           "shieldRaw": "-23"
         },
         {
-          "hitbox": "id0",
+          "hitbox": "Id0",
           "shieldSafety": {
             "min": -21,
             "max": -21
@@ -78,7 +78,7 @@
           "shieldRaw": "-21"
         },
         {
-          "hitbox": "id0",
+          "hitbox": "Id0",
           "shieldSafety": {
             "min": -19,
             "max": -19
@@ -86,7 +86,7 @@
           "shieldRaw": "-19"
         },
         {
-          "hitbox": "id0",
+          "hitbox": "Id0",
           "shieldSafety": {
             "min": -17,
             "max": -17
@@ -94,7 +94,7 @@
           "shieldRaw": "-17"
         },
         {
-          "hitbox": "id0",
+          "hitbox": "Id0",
           "shieldSafety": {
             "min": -15,
             "max": -15
@@ -110,7 +110,7 @@
       "startup": 0,
       "hitboxes": [
         {
-          "hitbox": "unknown",
+          "hitbox": "Unknown",
           "shieldSafety": {
             "min": -37,
             "max": -37
@@ -126,7 +126,7 @@
       "startup": null,
       "hitboxes": [
         {
-          "hitbox": "id0",
+          "hitbox": "Id0",
           "shieldSafety": null,
           "shieldRaw": null
         }
@@ -139,32 +139,32 @@
       "startup": null,
       "hitboxes": [
         {
-          "hitbox": "slow",
+          "hitbox": "Slow",
           "shieldSafety": null,
           "shieldRaw": null
         },
         {
-          "hitbox": "slow",
+          "hitbox": "Slow",
           "shieldSafety": null,
           "shieldRaw": null
         },
         {
-          "hitbox": "slow",
+          "hitbox": "Slow",
           "shieldSafety": null,
           "shieldRaw": null
         },
         {
-          "hitbox": "fast",
+          "hitbox": "Fast",
           "shieldSafety": null,
           "shieldRaw": null
         },
         {
-          "hitbox": "fast",
+          "hitbox": "Fast",
           "shieldSafety": null,
           "shieldRaw": null
         },
         {
-          "hitbox": "fast",
+          "hitbox": "Fast",
           "shieldSafety": null,
           "shieldRaw": null
         }
@@ -177,7 +177,7 @@
       "startup": 18,
       "hitboxes": [
         {
-          "hitbox": "id0",
+          "hitbox": "Id0",
           "shieldSafety": {
             "min": -6,
             "max": 2
@@ -185,7 +185,7 @@
           "shieldRaw": "-6 to 2"
         },
         {
-          "hitbox": "id1",
+          "hitbox": "Id1",
           "shieldSafety": {
             "min": -6,
             "max": 2
@@ -201,7 +201,7 @@
       "startup": 4,
       "hitboxes": [
         {
-          "hitbox": "ground_hit1",
+          "hitbox": "Hit 1 (Grounded)",
           "shieldSafety": {
             "min": -47,
             "max": -47
@@ -209,7 +209,7 @@
           "shieldRaw": "-47"
         },
         {
-          "hitbox": "ground_hit1",
+          "hitbox": "Hit 1 (Grounded)",
           "shieldSafety": {
             "min": -47,
             "max": -47
@@ -217,7 +217,7 @@
           "shieldRaw": "-47"
         },
         {
-          "hitbox": "ground_hit1",
+          "hitbox": "Hit 1 (Grounded)",
           "shieldSafety": {
             "min": -47,
             "max": -47
@@ -225,7 +225,7 @@
           "shieldRaw": "-47"
         },
         {
-          "hitbox": "ground_hit1",
+          "hitbox": "Hit 1 (Grounded)",
           "shieldSafety": {
             "min": -47,
             "max": -47
@@ -233,7 +233,7 @@
           "shieldRaw": "-47"
         },
         {
-          "hitbox": "ground_hits2_4",
+          "hitbox": "Hits 2-4 (Grounded)",
           "shieldSafety": {
             "min": -47,
             "max": -47
@@ -241,7 +241,7 @@
           "shieldRaw": "-47"
         },
         {
-          "hitbox": "ground_hits2_4",
+          "hitbox": "Hits 2-4 (Grounded)",
           "shieldSafety": {
             "min": -47,
             "max": -47
@@ -249,7 +249,7 @@
           "shieldRaw": "-47"
         },
         {
-          "hitbox": "ground_hits2_4",
+          "hitbox": "Hits 2-4 (Grounded)",
           "shieldSafety": {
             "min": -47,
             "max": -47
@@ -257,7 +257,7 @@
           "shieldRaw": "-47"
         },
         {
-          "hitbox": "ground_hits2_4",
+          "hitbox": "Hits 2-4 (Grounded)",
           "shieldSafety": {
             "min": -47,
             "max": -47
@@ -265,7 +265,7 @@
           "shieldRaw": "-47"
         },
         {
-          "hitbox": "ground_hits5_12",
+          "hitbox": "Hits 5-12 (Grounded)",
           "shieldSafety": {
             "min": -47,
             "max": -47
@@ -273,7 +273,7 @@
           "shieldRaw": "-47"
         },
         {
-          "hitbox": "ground_hits5_12",
+          "hitbox": "Hits 5-12 (Grounded)",
           "shieldSafety": {
             "min": -47,
             "max": -47
@@ -281,7 +281,7 @@
           "shieldRaw": "-47"
         },
         {
-          "hitbox": "ground_hits5_12",
+          "hitbox": "Hits 5-12 (Grounded)",
           "shieldSafety": {
             "min": -47,
             "max": -47
@@ -289,7 +289,7 @@
           "shieldRaw": "-47"
         },
         {
-          "hitbox": "ground_hits5_12",
+          "hitbox": "Hits 5-12 (Grounded)",
           "shieldSafety": {
             "min": -47,
             "max": -47
@@ -297,7 +297,7 @@
           "shieldRaw": "-47"
         },
         {
-          "hitbox": "ground_hit13",
+          "hitbox": "Hit 13 (Grounded)",
           "shieldSafety": {
             "min": -47,
             "max": -47
@@ -313,7 +313,7 @@
       "startup": 14,
       "hitboxes": [
         {
-          "hitbox": "lvl_0",
+          "hitbox": "Level 0",
           "shieldSafety": {
             "min": -41,
             "max": -41
@@ -321,7 +321,7 @@
           "shieldRaw": "-41"
         },
         {
-          "hitbox": "lvl_1",
+          "hitbox": "Level 1",
           "shieldSafety": {
             "min": -40,
             "max": -40
@@ -329,7 +329,7 @@
           "shieldRaw": "-40"
         },
         {
-          "hitbox": "lvl_2",
+          "hitbox": "Level 2",
           "shieldSafety": {
             "min": -39,
             "max": -39
@@ -337,7 +337,7 @@
           "shieldRaw": "-39"
         },
         {
-          "hitbox": "lvl_3",
+          "hitbox": "Level 3",
           "shieldSafety": {
             "min": -38,
             "max": -38
@@ -345,7 +345,7 @@
           "shieldRaw": "-38"
         },
         {
-          "hitbox": "lvl_4",
+          "hitbox": "Level 4",
           "shieldSafety": {
             "min": -36,
             "max": -36
@@ -353,7 +353,7 @@
           "shieldRaw": "-36"
         },
         {
-          "hitbox": "lvl_5",
+          "hitbox": "Level 5",
           "shieldSafety": {
             "min": -34,
             "max": -34
@@ -361,7 +361,7 @@
           "shieldRaw": "-34"
         },
         {
-          "hitbox": "lvl_6",
+          "hitbox": "Level 6",
           "shieldSafety": {
             "min": -33,
             "max": -33
@@ -369,7 +369,7 @@
           "shieldRaw": "-33"
         },
         {
-          "hitbox": "lvl_7",
+          "hitbox": "Level 7",
           "shieldSafety": {
             "min": -31,
             "max": -31
@@ -385,7 +385,7 @@
       "startup": 22,
       "hitboxes": [
         {
-          "hitbox": "homing",
+          "hitbox": "Homing",
           "shieldSafety": {
             "min": -45,
             "max": -45
@@ -409,7 +409,7 @@
       "startup": 10,
       "hitboxes": [
         {
-          "hitbox": "bomb",
+          "hitbox": "Bomb",
           "shieldSafety": {
             "min": -50,
             "max": -50
@@ -417,7 +417,7 @@
           "shieldRaw": "-50"
         },
         {
-          "hitbox": "explosion",
+          "hitbox": "Explosion",
           "shieldSafety": {
             "min": -50,
             "max": -50
@@ -433,7 +433,7 @@
       "startup": 5,
       "hitboxes": [
         {
-          "hitbox": "id0",
+          "hitbox": "Id0",
           "shieldSafety": {
             "min": -7,
             "max": 1
@@ -441,7 +441,7 @@
           "shieldRaw": "-7 to 1"
         },
         {
-          "hitbox": "id1",
+          "hitbox": "Id1",
           "shieldSafety": {
             "min": -7,
             "max": 1
@@ -449,7 +449,7 @@
           "shieldRaw": "-7 to 1"
         },
         {
-          "hitbox": "id0",
+          "hitbox": "Id0",
           "shieldSafety": {
             "min": -9,
             "max": -1
@@ -457,7 +457,7 @@
           "shieldRaw": "-9 to -1"
         },
         {
-          "hitbox": "id1",
+          "hitbox": "Id1",
           "shieldSafety": {
             "min": -9,
             "max": -1
@@ -473,7 +473,7 @@
       "startup": 7,
       "hitboxes": [
         {
-          "hitbox": "id0",
+          "hitbox": "Id0",
           "shieldSafety": {
             "min": -23,
             "max": -23
@@ -481,7 +481,7 @@
           "shieldRaw": "-23"
         },
         {
-          "hitbox": "id0",
+          "hitbox": "Id0",
           "shieldSafety": {
             "min": -21,
             "max": -21
@@ -497,7 +497,7 @@
       "startup": 6,
       "hitboxes": [
         {
-          "hitbox": "id0",
+          "hitbox": "Id0",
           "shieldSafety": {
             "min": -18,
             "max": -18
@@ -505,7 +505,7 @@
           "shieldRaw": "-18"
         },
         {
-          "hitbox": "id1",
+          "hitbox": "Id1",
           "shieldSafety": {
             "min": -18,
             "max": -18
@@ -513,7 +513,7 @@
           "shieldRaw": "-18"
         },
         {
-          "hitbox": "id2",
+          "hitbox": "Id2",
           "shieldSafety": {
             "min": -18,
             "max": -18
@@ -521,7 +521,7 @@
           "shieldRaw": "-18"
         },
         {
-          "hitbox": "id3",
+          "hitbox": "Id3",
           "shieldSafety": {
             "min": -18,
             "max": -18
@@ -537,7 +537,7 @@
       "startup": 14,
       "hitboxes": [
         {
-          "hitbox": "id0",
+          "hitbox": "Id0",
           "shieldSafety": {
             "min": -14,
             "max": -14
@@ -545,7 +545,7 @@
           "shieldRaw": "-14"
         },
         {
-          "hitbox": "id1",
+          "hitbox": "Id1",
           "shieldSafety": {
             "min": -14,
             "max": -14
@@ -553,7 +553,7 @@
           "shieldRaw": "-14"
         },
         {
-          "hitbox": "id2",
+          "hitbox": "Id2",
           "shieldSafety": {
             "min": -14,
             "max": -14
@@ -561,7 +561,7 @@
           "shieldRaw": "-14"
         },
         {
-          "hitbox": "id3",
+          "hitbox": "Id3",
           "shieldSafety": {
             "min": -14,
             "max": -14
@@ -577,7 +577,7 @@
       "startup": 6,
       "hitboxes": [
         {
-          "hitbox": "id0",
+          "hitbox": "Id0",
           "shieldSafety": {
             "min": -25,
             "max": -25
@@ -585,7 +585,7 @@
           "shieldRaw": "-25"
         },
         {
-          "hitbox": "id1",
+          "hitbox": "Id1",
           "shieldSafety": {
             "min": -25,
             "max": -25
@@ -593,7 +593,7 @@
           "shieldRaw": "-25"
         },
         {
-          "hitbox": "id2",
+          "hitbox": "Id2",
           "shieldSafety": {
             "min": -25,
             "max": -25
@@ -609,7 +609,7 @@
       "startup": 10,
       "hitboxes": [
         {
-          "hitbox": "id0",
+          "hitbox": "Id0",
           "shieldSafety": {
             "min": -25,
             "max": -25
@@ -617,7 +617,7 @@
           "shieldRaw": "-25"
         },
         {
-          "hitbox": "id1",
+          "hitbox": "Id1",
           "shieldSafety": {
             "min": -25,
             "max": -25
@@ -625,7 +625,7 @@
           "shieldRaw": "-25"
         },
         {
-          "hitbox": "id2",
+          "hitbox": "Id2",
           "shieldSafety": {
             "min": -25,
             "max": -25
@@ -641,7 +641,7 @@
       "startup": 12,
       "hitboxes": [
         {
-          "hitbox": "id0",
+          "hitbox": "Id0",
           "shieldSafety": {
             "min": -43,
             "max": -43
@@ -649,7 +649,7 @@
           "shieldRaw": "-43"
         },
         {
-          "hitbox": "id1",
+          "hitbox": "Id1",
           "shieldSafety": {
             "min": -43,
             "max": -43
@@ -657,7 +657,7 @@
           "shieldRaw": "-43"
         },
         {
-          "hitbox": "id0",
+          "hitbox": "Id0",
           "shieldSafety": {
             "min": -39,
             "max": -39
@@ -665,7 +665,7 @@
           "shieldRaw": "-39"
         },
         {
-          "hitbox": "id1",
+          "hitbox": "Id1",
           "shieldSafety": {
             "min": -39,
             "max": -39
@@ -673,7 +673,7 @@
           "shieldRaw": "-39"
         },
         {
-          "hitbox": "id0",
+          "hitbox": "Id0",
           "shieldSafety": {
             "min": -35,
             "max": -35
@@ -681,7 +681,7 @@
           "shieldRaw": "-35"
         },
         {
-          "hitbox": "id1",
+          "hitbox": "Id1",
           "shieldSafety": {
             "min": -35,
             "max": -35
@@ -689,7 +689,7 @@
           "shieldRaw": "-35"
         },
         {
-          "hitbox": "id0",
+          "hitbox": "Id0",
           "shieldSafety": {
             "min": -30,
             "max": -30
@@ -697,7 +697,7 @@
           "shieldRaw": "-30"
         },
         {
-          "hitbox": "id1",
+          "hitbox": "Id1",
           "shieldSafety": {
             "min": -30,
             "max": -30
@@ -705,7 +705,7 @@
           "shieldRaw": "-30"
         },
         {
-          "hitbox": "id0",
+          "hitbox": "Id0",
           "shieldSafety": {
             "min": -26,
             "max": -26
@@ -713,7 +713,7 @@
           "shieldRaw": "-26"
         },
         {
-          "hitbox": "id1",
+          "hitbox": "Id1",
           "shieldSafety": {
             "min": -26,
             "max": -26
@@ -729,7 +729,7 @@
       "startup": 6,
       "hitboxes": [
         {
-          "hitbox": "id0",
+          "hitbox": "Id0",
           "shieldSafety": {
             "min": -30,
             "max": -30
@@ -737,7 +737,7 @@
           "shieldRaw": "-30"
         },
         {
-          "hitbox": "id1",
+          "hitbox": "Id1",
           "shieldSafety": {
             "min": -30,
             "max": -30
@@ -745,7 +745,7 @@
           "shieldRaw": "-30"
         },
         {
-          "hitbox": "id0",
+          "hitbox": "Id0",
           "shieldSafety": {
             "min": -23,
             "max": -23
@@ -753,7 +753,7 @@
           "shieldRaw": "-23"
         },
         {
-          "hitbox": "id1",
+          "hitbox": "Id1",
           "shieldSafety": {
             "min": -23,
             "max": -23
@@ -769,7 +769,7 @@
       "startup": 4,
       "hitboxes": [
         {
-          "hitbox": "id0",
+          "hitbox": "Id0",
           "shieldSafety": {
             "min": -11,
             "max": -3
@@ -777,7 +777,7 @@
           "shieldRaw": "-11 to -3"
         },
         {
-          "hitbox": "id1",
+          "hitbox": "Id1",
           "shieldSafety": {
             "min": -11,
             "max": -3
@@ -785,7 +785,7 @@
           "shieldRaw": "-11 to -3"
         },
         {
-          "hitbox": "id0",
+          "hitbox": "Id0",
           "shieldSafety": {
             "min": -11,
             "max": -3
@@ -793,7 +793,7 @@
           "shieldRaw": "-11 to -3"
         },
         {
-          "hitbox": "id1",
+          "hitbox": "Id1",
           "shieldSafety": {
             "min": -11,
             "max": -3
@@ -801,7 +801,7 @@
           "shieldRaw": "-11 to -3"
         },
         {
-          "hitbox": "id0",
+          "hitbox": "Id0",
           "shieldSafety": {
             "min": -11,
             "max": -3
@@ -809,7 +809,7 @@
           "shieldRaw": "-11 to -3"
         },
         {
-          "hitbox": "id1",
+          "hitbox": "Id1",
           "shieldSafety": {
             "min": -11,
             "max": -3
@@ -817,7 +817,7 @@
           "shieldRaw": "-11 to -3"
         },
         {
-          "hitbox": "id0",
+          "hitbox": "Id0",
           "shieldSafety": {
             "min": -11,
             "max": -3
@@ -825,7 +825,7 @@
           "shieldRaw": "-11 to -3"
         },
         {
-          "hitbox": "id1",
+          "hitbox": "Id1",
           "shieldSafety": {
             "min": -11,
             "max": -3
@@ -833,7 +833,7 @@
           "shieldRaw": "-11 to -3"
         },
         {
-          "hitbox": "id0",
+          "hitbox": "Id0",
           "shieldSafety": {
             "min": -11,
             "max": -3
@@ -841,7 +841,7 @@
           "shieldRaw": "-11 to -3"
         },
         {
-          "hitbox": "id1",
+          "hitbox": "Id1",
           "shieldSafety": {
             "min": -11,
             "max": -3
@@ -857,7 +857,7 @@
       "startup": 9,
       "hitboxes": [
         {
-          "hitbox": "unknown",
+          "hitbox": "Unknown",
           "shieldSafety": {
             "min": -9,
             "max": -1
@@ -865,7 +865,7 @@
           "shieldRaw": "-9 to -1"
         },
         {
-          "hitbox": "unknown",
+          "hitbox": "Unknown",
           "shieldSafety": {
             "min": -9,
             "max": -1
@@ -873,7 +873,7 @@
           "shieldRaw": "-9 to -1"
         },
         {
-          "hitbox": "unknown",
+          "hitbox": "Unknown",
           "shieldSafety": {
             "min": -7,
             "max": 1
@@ -889,7 +889,7 @@
       "startup": 5,
       "hitboxes": [
         {
-          "hitbox": "id0",
+          "hitbox": "Id0",
           "shieldSafety": {
             "min": -12,
             "max": -4
@@ -897,7 +897,7 @@
           "shieldRaw": "-12 to -4"
         },
         {
-          "hitbox": "id1",
+          "hitbox": "Id1",
           "shieldSafety": {
             "min": -12,
             "max": -4
@@ -905,7 +905,7 @@
           "shieldRaw": "-12 to -4"
         },
         {
-          "hitbox": "id2",
+          "hitbox": "Id2",
           "shieldSafety": {
             "min": -12,
             "max": -4
@@ -913,7 +913,7 @@
           "shieldRaw": "-12 to -4"
         },
         {
-          "hitbox": "id0",
+          "hitbox": "Id0",
           "shieldSafety": {
             "min": -13,
             "max": -5
@@ -921,7 +921,7 @@
           "shieldRaw": "-13 to -5"
         },
         {
-          "hitbox": "id1",
+          "hitbox": "Id1",
           "shieldSafety": {
             "min": -13,
             "max": -5
@@ -929,7 +929,7 @@
           "shieldRaw": "-13 to -5"
         },
         {
-          "hitbox": "id2",
+          "hitbox": "Id2",
           "shieldSafety": {
             "min": -13,
             "max": -5
@@ -937,7 +937,7 @@
           "shieldRaw": "-13 to -5"
         },
         {
-          "hitbox": "id0",
+          "hitbox": "Id0",
           "shieldSafety": {
             "min": -13,
             "max": -5
@@ -945,7 +945,7 @@
           "shieldRaw": "-13 to -5"
         },
         {
-          "hitbox": "id1",
+          "hitbox": "Id1",
           "shieldSafety": {
             "min": -13,
             "max": -5
@@ -953,7 +953,7 @@
           "shieldRaw": "-13 to -5"
         },
         {
-          "hitbox": "id2",
+          "hitbox": "Id2",
           "shieldSafety": {
             "min": -13,
             "max": -5
@@ -961,7 +961,7 @@
           "shieldRaw": "-13 to -5"
         },
         {
-          "hitbox": "id0",
+          "hitbox": "Id0",
           "shieldSafety": {
             "min": -13,
             "max": -5
@@ -969,7 +969,7 @@
           "shieldRaw": "-13 to -5"
         },
         {
-          "hitbox": "id1",
+          "hitbox": "Id1",
           "shieldSafety": {
             "min": -13,
             "max": -5
@@ -977,7 +977,7 @@
           "shieldRaw": "-13 to -5"
         },
         {
-          "hitbox": "id2",
+          "hitbox": "Id2",
           "shieldSafety": {
             "min": -13,
             "max": -5
@@ -985,7 +985,7 @@
           "shieldRaw": "-13 to -5"
         },
         {
-          "hitbox": "id0",
+          "hitbox": "Id0",
           "shieldSafety": {
             "min": -13,
             "max": -5
@@ -993,7 +993,7 @@
           "shieldRaw": "-13 to -5"
         },
         {
-          "hitbox": "id1",
+          "hitbox": "Id1",
           "shieldSafety": {
             "min": -13,
             "max": -5
@@ -1001,7 +1001,7 @@
           "shieldRaw": "-13 to -5"
         },
         {
-          "hitbox": "id2",
+          "hitbox": "Id2",
           "shieldSafety": {
             "min": -13,
             "max": -5
@@ -1009,7 +1009,7 @@
           "shieldRaw": "-13 to -5"
         },
         {
-          "hitbox": "id0",
+          "hitbox": "Id0",
           "shieldSafety": {
             "min": -12,
             "max": -4
@@ -1017,7 +1017,7 @@
           "shieldRaw": "-12 to -4"
         },
         {
-          "hitbox": "id1",
+          "hitbox": "Id1",
           "shieldSafety": {
             "min": -12,
             "max": -4
@@ -1025,7 +1025,7 @@
           "shieldRaw": "-12 to -4"
         },
         {
-          "hitbox": "id2",
+          "hitbox": "Id2",
           "shieldSafety": {
             "min": -12,
             "max": -4
@@ -1041,7 +1041,7 @@
       "startup": 3,
       "hitboxes": [
         {
-          "hitbox": "id0",
+          "hitbox": "Id0",
           "shieldSafety": {
             "min": -11,
             "max": -11
@@ -1049,7 +1049,7 @@
           "shieldRaw": "-11"
         },
         {
-          "hitbox": "id1",
+          "hitbox": "Id1",
           "shieldSafety": {
             "min": -11,
             "max": -11
@@ -1057,7 +1057,7 @@
           "shieldRaw": "-11"
         },
         {
-          "hitbox": "id2",
+          "hitbox": "Id2",
           "shieldSafety": {
             "min": -11,
             "max": -11
@@ -1073,7 +1073,7 @@
       "startup": 4,
       "hitboxes": [
         {
-          "hitbox": "id0",
+          "hitbox": "Id0",
           "shieldSafety": {
             "min": -20,
             "max": -20
@@ -1081,7 +1081,7 @@
           "shieldRaw": "-20"
         },
         {
-          "hitbox": "id1",
+          "hitbox": "Id1",
           "shieldSafety": {
             "min": -20,
             "max": -20
@@ -1097,7 +1097,7 @@
       "startup": 15,
       "hitboxes": [
         {
-          "hitbox": "homing",
+          "hitbox": "Homing",
           "shieldSafety": {
             "min": -45,
             "max": -45
@@ -1121,7 +1121,7 @@
       "startup": 4,
       "hitboxes": [
         {
-          "hitbox": "air_hits1_3",
+          "hitbox": "Hits 1-3 (Aerial)",
           "shieldSafety": {
             "min": -45,
             "max": -45
@@ -1129,7 +1129,7 @@
           "shieldRaw": "-45"
         },
         {
-          "hitbox": "air_hits1_3",
+          "hitbox": "Hits 1-3 (Aerial)",
           "shieldSafety": {
             "min": -45,
             "max": -45
@@ -1137,7 +1137,7 @@
           "shieldRaw": "-45"
         },
         {
-          "hitbox": "air_hits1_3",
+          "hitbox": "Hits 1-3 (Aerial)",
           "shieldSafety": {
             "min": -45,
             "max": -45
@@ -1145,7 +1145,7 @@
           "shieldRaw": "-45"
         },
         {
-          "hitbox": "air_hits1_3",
+          "hitbox": "Hits 1-3 (Aerial)",
           "shieldSafety": {
             "min": -45,
             "max": -45
@@ -1153,7 +1153,7 @@
           "shieldRaw": "-45"
         },
         {
-          "hitbox": "air_hits4_11",
+          "hitbox": "Hits 4-11 (Aerial)",
           "shieldSafety": {
             "min": -45,
             "max": -45
@@ -1161,7 +1161,7 @@
           "shieldRaw": "-45"
         },
         {
-          "hitbox": "air_hits4_11",
+          "hitbox": "Hits 4-11 (Aerial)",
           "shieldSafety": {
             "min": -45,
             "max": -45
@@ -1169,7 +1169,7 @@
           "shieldRaw": "-45"
         },
         {
-          "hitbox": "air_hits4_11",
+          "hitbox": "Hits 4-11 (Aerial)",
           "shieldSafety": {
             "min": -45,
             "max": -45
@@ -1177,7 +1177,7 @@
           "shieldRaw": "-45"
         },
         {
-          "hitbox": "air_hits4_11",
+          "hitbox": "Hits 4-11 (Aerial)",
           "shieldSafety": {
             "min": -45,
             "max": -45
@@ -1185,7 +1185,7 @@
           "shieldRaw": "-45"
         },
         {
-          "hitbox": "air_hit12",
+          "hitbox": "Hit 12 (Aerial)",
           "shieldSafety": {
             "min": -45,
             "max": -45
@@ -1201,7 +1201,7 @@
       "startup": 18,
       "hitboxes": [
         {
-          "hitbox": "id0",
+          "hitbox": "Id0",
           "shieldSafety": {
             "min": -75,
             "max": -75
@@ -1209,7 +1209,7 @@
           "shieldRaw": "-75"
         },
         {
-          "hitbox": "id1",
+          "hitbox": "Id1",
           "shieldSafety": {
             "min": -75,
             "max": -75
@@ -1217,7 +1217,7 @@
           "shieldRaw": "-75"
         },
         {
-          "hitbox": "id0",
+          "hitbox": "Id0",
           "shieldSafety": {
             "min": -73,
             "max": -73
@@ -1225,7 +1225,7 @@
           "shieldRaw": "-73"
         },
         {
-          "hitbox": "id0",
+          "hitbox": "Id0",
           "shieldSafety": {
             "min": -70,
             "max": -70
@@ -1233,7 +1233,7 @@
           "shieldRaw": "-70"
         },
         {
-          "hitbox": "id0",
+          "hitbox": "Id0",
           "shieldSafety": {
             "min": -67,
             "max": -67
@@ -1241,7 +1241,7 @@
           "shieldRaw": "-67"
         },
         {
-          "hitbox": "id0",
+          "hitbox": "Id0",
           "shieldSafety": {
             "min": -64,
             "max": -64
@@ -1249,7 +1249,7 @@
           "shieldRaw": "-64"
         },
         {
-          "hitbox": "id0",
+          "hitbox": "Id0",
           "shieldSafety": {
             "min": -61,
             "max": -61
@@ -1257,7 +1257,7 @@
           "shieldRaw": "-61"
         },
         {
-          "hitbox": "id0",
+          "hitbox": "Id0",
           "shieldSafety": {
             "min": -58,
             "max": -58
@@ -1273,7 +1273,7 @@
       "startup": 18,
       "hitboxes": [
         {
-          "hitbox": "id0",
+          "hitbox": "Id0",
           "shieldSafety": {
             "min": -55,
             "max": -55
@@ -1281,7 +1281,7 @@
           "shieldRaw": "-55"
         },
         {
-          "hitbox": "id1",
+          "hitbox": "Id1",
           "shieldSafety": {
             "min": -55,
             "max": -55
@@ -1289,7 +1289,7 @@
           "shieldRaw": "-55"
         },
         {
-          "hitbox": "id0",
+          "hitbox": "Id0",
           "shieldSafety": {
             "min": -52,
             "max": -52
@@ -1297,7 +1297,7 @@
           "shieldRaw": "-52"
         },
         {
-          "hitbox": "id0",
+          "hitbox": "Id0",
           "shieldSafety": {
             "min": -50,
             "max": -50
@@ -1305,7 +1305,7 @@
           "shieldRaw": "-50"
         },
         {
-          "hitbox": "id0",
+          "hitbox": "Id0",
           "shieldSafety": {
             "min": -47,
             "max": -47
@@ -1313,7 +1313,7 @@
           "shieldRaw": "-47"
         },
         {
-          "hitbox": "id0",
+          "hitbox": "Id0",
           "shieldSafety": {
             "min": -44,
             "max": -44
@@ -1321,7 +1321,7 @@
           "shieldRaw": "-44"
         },
         {
-          "hitbox": "id0",
+          "hitbox": "Id0",
           "shieldSafety": {
             "min": -41,
             "max": -41
@@ -1337,7 +1337,7 @@
       "startup": 6,
       "hitboxes": [
         {
-          "hitbox": "id0",
+          "hitbox": "Id0",
           "shieldSafety": {
             "min": -18,
             "max": -18
@@ -1345,7 +1345,7 @@
           "shieldRaw": "-18"
         },
         {
-          "hitbox": "id1",
+          "hitbox": "Id1",
           "shieldSafety": {
             "min": -18,
             "max": -18
@@ -1353,7 +1353,7 @@
           "shieldRaw": "-18"
         },
         {
-          "hitbox": "id2",
+          "hitbox": "Id2",
           "shieldSafety": {
             "min": -18,
             "max": -18
@@ -1361,7 +1361,7 @@
           "shieldRaw": "-18"
         },
         {
-          "hitbox": "id3",
+          "hitbox": "Id3",
           "shieldSafety": {
             "min": -18,
             "max": -18
@@ -1377,7 +1377,7 @@
       "startup": 6,
       "hitboxes": [
         {
-          "hitbox": "id0",
+          "hitbox": "Id0",
           "shieldSafety": {
             "min": -18,
             "max": -18
@@ -1385,7 +1385,7 @@
           "shieldRaw": "-18"
         },
         {
-          "hitbox": "id1",
+          "hitbox": "Id1",
           "shieldSafety": {
             "min": -18,
             "max": -18
@@ -1393,7 +1393,7 @@
           "shieldRaw": "-18"
         },
         {
-          "hitbox": "id2",
+          "hitbox": "Id2",
           "shieldSafety": {
             "min": -18,
             "max": -18
@@ -1401,7 +1401,7 @@
           "shieldRaw": "-18"
         },
         {
-          "hitbox": "id3",
+          "hitbox": "Id3",
           "shieldSafety": {
             "min": -18,
             "max": -18
@@ -1417,7 +1417,7 @@
       "startup": null,
       "hitboxes": [
         {
-          "hitbox": "back_hit1",
+          "hitbox": "Hit 1 (Back)",
           "shieldSafety": {
             "min": -44,
             "max": -44
@@ -1425,7 +1425,7 @@
           "shieldRaw": "-44"
         },
         {
-          "hitbox": "back_hit1",
+          "hitbox": "Hit 1 (Back)",
           "shieldSafety": {
             "min": -44,
             "max": -44
@@ -1433,7 +1433,7 @@
           "shieldRaw": "-44"
         },
         {
-          "hitbox": "back_hit1",
+          "hitbox": "Hit 1 (Back)",
           "shieldSafety": {
             "min": -44,
             "max": -44
@@ -1441,7 +1441,7 @@
           "shieldRaw": "-44"
         },
         {
-          "hitbox": "back_hit1",
+          "hitbox": "Hit 1 (Back)",
           "shieldSafety": {
             "min": -44,
             "max": -44
@@ -1449,7 +1449,7 @@
           "shieldRaw": "-44"
         },
         {
-          "hitbox": "back_hit2",
+          "hitbox": "Hit 2 (Back)",
           "shieldSafety": {
             "min": -45,
             "max": -45
@@ -1457,7 +1457,7 @@
           "shieldRaw": "-45"
         },
         {
-          "hitbox": "back_hit2",
+          "hitbox": "Hit 2 (Back)",
           "shieldSafety": {
             "min": -45,
             "max": -45
@@ -1465,7 +1465,7 @@
           "shieldRaw": "-45"
         },
         {
-          "hitbox": "back_hit2",
+          "hitbox": "Hit 2 (Back)",
           "shieldSafety": {
             "min": -45,
             "max": -45
@@ -1473,7 +1473,7 @@
           "shieldRaw": "-45"
         },
         {
-          "hitbox": "back_hit2",
+          "hitbox": "Hit 2 (Back)",
           "shieldSafety": {
             "min": -45,
             "max": -45
@@ -1481,7 +1481,7 @@
           "shieldRaw": "-45"
         },
         {
-          "hitbox": "front_hit1",
+          "hitbox": "Hit 1 (Front)",
           "shieldSafety": {
             "min": -45,
             "max": -45
@@ -1489,7 +1489,7 @@
           "shieldRaw": "-45"
         },
         {
-          "hitbox": "front_hit1",
+          "hitbox": "Hit 1 (Front)",
           "shieldSafety": {
             "min": -45,
             "max": -45
@@ -1497,7 +1497,7 @@
           "shieldRaw": "-45"
         },
         {
-          "hitbox": "front_hit2",
+          "hitbox": "Hit 2 (Front)",
           "shieldSafety": {
             "min": -45,
             "max": -45
@@ -1505,7 +1505,7 @@
           "shieldRaw": "-45"
         },
         {
-          "hitbox": "front_hit2",
+          "hitbox": "Hit 2 (Front)",
           "shieldSafety": {
             "min": -45,
             "max": -45
@@ -1521,7 +1521,7 @@
       "startup": 10,
       "hitboxes": [
         {
-          "hitbox": "bomb",
+          "hitbox": "Bomb",
           "shieldSafety": {
             "min": -50,
             "max": -50
@@ -1529,7 +1529,7 @@
           "shieldRaw": "-50"
         },
         {
-          "hitbox": "explosion",
+          "hitbox": "Explosion",
           "shieldSafety": {
             "min": -50,
             "max": -50
