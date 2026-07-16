@@ -54,7 +54,7 @@ export default function CharacterSelect({ game = 'roa2', label, accentColor, sel
     setSearch('')
     fetch(`${import.meta.env.BASE_URL}data/${game}/characters.json`)
       .then(r => r.json())
-      .then(d => setCharacters(d.characters.map(c => c.name)))
+      .then(d => setCharacters(d.characters.map(c => c.name).sort((a, b) => a.localeCompare(b))))
       .catch(console.error)
   }, [game])
 
