@@ -117,7 +117,7 @@ function SegmentedToggle({ options, value, onChange, activeColor }) {
             title={opt.title || opt.label}
             style={{
               display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: '6px',
-              height: TOOLBAR_H, padding: '0 14px',
+              height: TOOLBAR_H, padding: opt.icon ? '0 12px' : '0 14px',
               border: 'none',
               borderLeft: i > 0 ? '1px solid var(--border)' : 'none',
               background: active ? activeColor + '22' : 'var(--surface)',
@@ -126,11 +126,33 @@ function SegmentedToggle({ options, value, onChange, activeColor }) {
               cursor: 'pointer', transition: 'all 0.15s',
             }}
           >
+            {opt.icon}
             {opt.label}
           </button>
         )
       })}
     </div>
+  )
+}
+
+// Mirrors Rivals' MatchupView.jsx SimplifiedIcon/ExpandedIcon exactly.
+function SimplifiedIcon() {
+  return (
+    <svg width="15" height="12" viewBox="0 0 18 14" fill="none" stroke="currentColor" strokeWidth="1.4" aria-hidden="true">
+      <rect x="1" y="1" width="16" height="12" rx="1.5" />
+      <line x1="9" y1="1" x2="9" y2="13" />
+    </svg>
+  )
+}
+
+function ExpandedIcon() {
+  return (
+    <svg width="15" height="12" viewBox="0 0 18 14" fill="none" stroke="currentColor" strokeWidth="1.4" aria-hidden="true">
+      <rect x="1" y="1" width="16" height="12" rx="1.5" />
+      <line x1="5" y1="1" x2="5" y2="13" />
+      <line x1="9" y1="1" x2="9" y2="13" />
+      <line x1="13" y1="1" x2="13" y2="13" />
+    </svg>
   )
 }
 
@@ -316,13 +338,13 @@ function FrameOnlyBadge({ label, color = 'var(--accent)' }) {
   )
 }
 
-function MoveRow({ row, oosFilter }) {
+function MoveRow({ row, oosFilter, simplified }) {
   const statusColor = row.isSafe ? SAFE_COLOR : row.isRisky ? RISKY_COLOR : PUNISH_COLOR
   const punishes = (oosFilter && oosFilter.size > 0)
     ? row.punishes.filter(p => oosFilter.has(p.move))
     : row.punishes
   return (
-    <div className="move-row">
+    <div className={`move-row${simplified ? ' simplified' : ''}`}>
       <div>
         <span style={{ fontWeight: 600, color: statusColor }}>{row.move}</span>
         {row.hitbox && (
@@ -331,11 +353,13 @@ function MoveRow({ row, oosFilter }) {
           </span>
         )}
       </div>
-      <div className="move-row-badges" style={{ textAlign: 'center' }}>
-        {row.shieldSafety?.isProjectile
-          ? <ProjectileBadge stun={row.shieldSafety.min} />
-          : <ShieldBadge value={row.shieldSafety} color={statusColor} />}
-      </div>
+      {!simplified && (
+        <div className="move-row-badges" style={{ textAlign: 'center' }}>
+          {row.shieldSafety?.isProjectile
+            ? <ProjectileBadge stun={row.shieldSafety.min} />
+            : <ShieldBadge value={row.shieldSafety} color={statusColor} />}
+        </div>
+      )}
       <div>
         {punishes.length > 0 ? (
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: '4px' }}>
@@ -356,7 +380,7 @@ function MoveRow({ row, oosFilter }) {
   )
 }
 
-function CategoryAccordion({ category, rows, oosFilter }) {
+function CategoryAccordion({ category, rows, oosFilter, simplified }) {
   const [open, setOpen] = useState(true)
   const sorted = useMemo(() => [...rows].sort((a, b) => b.shieldSafety.max - a.shieldSafety.max), [rows])
   const safe        = rows.filter(r => r.isSafe).length
@@ -387,19 +411,19 @@ function CategoryAccordion({ category, rows, oosFilter }) {
       </button>
       {open && (
         <div style={{ background: 'var(--surface)' }}>
-          <div className="col-headers">
+          <div className={`col-headers${simplified ? ' simplified' : ''}`}>
             <span style={{ fontSize: '0.65rem', fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'var(--muted)' }}>Move</span>
-            <span style={{ fontSize: '0.65rem', fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'var(--muted)', textAlign: 'center' }}>On Shield</span>
+            {!simplified && <span style={{ fontSize: '0.65rem', fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'var(--muted)', textAlign: 'center' }}>On Shield</span>}
             <span style={{ fontSize: '0.65rem', fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'var(--muted)' }}>Punish Options</span>
           </div>
-          {sorted.map((row, i) => <MoveRow key={i} row={row} oosFilter={oosFilter} />)}
+          {sorted.map((row, i) => <MoveRow key={i} row={row} oosFilter={oosFilter} simplified={simplified} />)}
         </div>
       )}
     </div>
   )
 }
 
-function BreakdownTable({ matchup, categoryFilter, oosFilter }) {
+function BreakdownTable({ matchup, categoryFilter, oosFilter, simplified }) {
   const visibleCategories = (categoryFilter && categoryFilter !== 'All') ? [categoryFilter] : CATEGORY_ORDER
   const byCategory = visibleCategories
     .map(category => {
@@ -417,21 +441,21 @@ function BreakdownTable({ matchup, categoryFilter, oosFilter }) {
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
-      {byCategory.map(g => <CategoryAccordion key={g.category} category={g.category} rows={g.rows} oosFilter={oosFilter} />)}
+      {byCategory.map(g => <CategoryAccordion key={g.category} category={g.category} rows={g.rows} oosFilter={oosFilter} simplified={simplified} />)}
     </div>
   )
 }
 
 // On-hit (CC/ASDI Down) row — rows have `advantage`/`breaks`/`isKnockdown`
 // instead of `shieldSafety`, so this can't reuse MoveRow directly.
-function OnHitMoveRow({ row, oosFilter }) {
+function OnHitMoveRow({ row, oosFilter, simplified }) {
   const punishes = (oosFilter && oosFilter.size > 0)
     ? row.punishes.filter(p => oosFilter.has(p.move))
     : row.punishes
 
   if (row.isKnockdown) {
     return (
-      <div className="move-row">
+      <div className={`move-row${simplified ? ' simplified' : ''}`}>
         <div>
           <span style={{ fontWeight: 600, color: SAFE_COLOR }}>{row.move}</span>
           {row.hitbox && (
@@ -440,9 +464,11 @@ function OnHitMoveRow({ row, oosFilter }) {
             </span>
           )}
         </div>
-        <div className="move-row-badges" style={{ textAlign: 'center' }}>
-          <FrameOnlyBadge label="Knockdown" color={SAFE_COLOR} />
-        </div>
+        {!simplified && (
+          <div className="move-row-badges" style={{ textAlign: 'center' }}>
+            <FrameOnlyBadge label="Knockdown" color={SAFE_COLOR} />
+          </div>
+        )}
         <div>
           <span style={{ color: 'var(--muted)', fontSize: '0.75rem' }}>—</span>
         </div>
@@ -454,7 +480,7 @@ function OnHitMoveRow({ row, oosFilter }) {
   const advLabel = `${row.advantage > 0 ? '+' : ''}${row.advantage}`
 
   return (
-    <div className="move-row">
+    <div className={`move-row${simplified ? ' simplified' : ''}`}>
       <div>
         <span style={{ fontWeight: 600, color: statusColor }}>{row.move}</span>
         {row.hitbox && (
@@ -463,14 +489,16 @@ function OnHitMoveRow({ row, oosFilter }) {
           </span>
         )}
       </div>
-      <div className="move-row-badges" style={{ display: 'flex', gap: '4px', justifyContent: 'center', alignItems: 'center' }}>
-        <span style={{
-          display: 'inline-block', padding: '2px 8px', borderRadius: '4px',
-          background: statusColor + '22', color: statusColor, border: `1px solid ${statusColor}44`,
-          fontSize: '0.75rem', fontWeight: 700, whiteSpace: 'nowrap',
-        }}>{advLabel}</span>
-        {row.breaks && <FrameOnlyBadge label="Breaks CC" color="var(--muted)" />}
-      </div>
+      {!simplified && (
+        <div className="move-row-badges" style={{ display: 'flex', gap: '4px', justifyContent: 'center', alignItems: 'center' }}>
+          <span style={{
+            display: 'inline-block', padding: '2px 8px', borderRadius: '4px',
+            background: statusColor + '22', color: statusColor, border: `1px solid ${statusColor}44`,
+            fontSize: '0.75rem', fontWeight: 700, whiteSpace: 'nowrap',
+          }}>{advLabel}</span>
+          {row.breaks && <FrameOnlyBadge label="Breaks CC" color="var(--muted)" />}
+        </div>
+      )}
       <div>
         {punishes.length > 0 ? (
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: '4px' }}>
@@ -491,7 +519,7 @@ function OnHitMoveRow({ row, oosFilter }) {
   )
 }
 
-function OnHitCategoryAccordion({ category, rows, oosFilter }) {
+function OnHitCategoryAccordion({ category, rows, oosFilter, simplified }) {
   const [open, setOpen] = useState(true)
   const sorted = useMemo(() => [...rows].sort((a, b) => b.advantage - a.advantage), [rows])
   const safe        = rows.filter(r => r.isKnockdown || r.advantage > 0).length
@@ -522,19 +550,19 @@ function OnHitCategoryAccordion({ category, rows, oosFilter }) {
       </button>
       {open && (
         <div style={{ background: 'var(--surface)' }}>
-          <div className="col-headers">
+          <div className={`col-headers${simplified ? ' simplified' : ''}`}>
             <span style={{ fontSize: '0.65rem', fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'var(--muted)' }}>Move</span>
-            <span style={{ fontSize: '0.65rem', fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'var(--muted)', textAlign: 'center' }}>On Hit</span>
+            {!simplified && <span style={{ fontSize: '0.65rem', fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'var(--muted)', textAlign: 'center' }}>On Hit</span>}
             <span style={{ fontSize: '0.65rem', fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'var(--muted)' }}>Punish Options</span>
           </div>
-          {sorted.map((row, i) => <OnHitMoveRow key={i} row={row} oosFilter={oosFilter} />)}
+          {sorted.map((row, i) => <OnHitMoveRow key={i} row={row} oosFilter={oosFilter} simplified={simplified} />)}
         </div>
       )}
     </div>
   )
 }
 
-function MeleeOnHitTable({ breakdown, categoryFilter, oosFilter }) {
+function MeleeOnHitTable({ breakdown, categoryFilter, oosFilter, simplified }) {
   const visibleCategories = (categoryFilter && categoryFilter !== 'All') ? [categoryFilter] : CATEGORY_ORDER
   const byCategory = visibleCategories
     .map(category => {
@@ -552,7 +580,7 @@ function MeleeOnHitTable({ breakdown, categoryFilter, oosFilter }) {
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
-      {byCategory.map(g => <OnHitCategoryAccordion key={g.category} category={g.category} rows={g.rows} oosFilter={oosFilter} />)}
+      {byCategory.map(g => <OnHitCategoryAccordion key={g.category} category={g.category} rows={g.rows} oosFilter={oosFilter} simplified={simplified} />)}
     </div>
   )
 }
@@ -762,6 +790,8 @@ function AttackingView({ attackerData, defenderData, attackerName, attackerColor
   const [subTab, setSubTab] = useState('onShield')
   const [pct, setPct] = useState(0)
   const [isCrouch, setIsCrouch] = useState(false) // false = ASDI Down, true = Crouch Cancel
+  const [viewMode, setViewMode] = useState('expanded')
+  const simplified = viewMode === 'simplified'
 
   const shieldReleaseFrames = shieldMode === 'powershield' ? POWERSHIELD_RELEASE_FRAMES : SHIELD_RELEASE_FRAMES
   // The defender's own OOS options don't depend on shield mode — only the
@@ -829,6 +859,18 @@ function AttackingView({ attackerData, defenderData, attackerName, attackerColor
       </div>
 
       <div className="toolbar-row" style={{ display: 'flex', gap: '10px', flexWrap: 'wrap', padding: '0 0 16px' }}>
+        <SegmentedToggle
+          activeColor={attackerColor}
+          value={viewMode}
+          onChange={setViewMode}
+          options={[
+            { value: 'simplified', icon: <SimplifiedIcon />, title: 'Simplified — Move and Punish Options only' },
+            { value: 'expanded', icon: <ExpandedIcon />, title: 'Expanded — all columns' },
+          ]}
+        />
+
+        <ToolbarDivider />
+
         {!isOnHit ? (
           <SegmentedToggle
             activeColor={attackerColor}
@@ -925,8 +967,8 @@ function AttackingView({ attackerData, defenderData, attackerName, attackerColor
       )}
 
       {isOnHit
-        ? <MeleeOnHitTable breakdown={onHitBreakdown} categoryFilter={categoryFilter} oosFilter={oosFilter} />
-        : <BreakdownTable matchup={matchup} categoryFilter={categoryFilter} oosFilter={oosFilter} />}
+        ? <MeleeOnHitTable breakdown={onHitBreakdown} categoryFilter={categoryFilter} oosFilter={oosFilter} simplified={simplified} />
+        : <BreakdownTable matchup={matchup} categoryFilter={categoryFilter} oosFilter={oosFilter} simplified={simplified} />}
     </div>
   )
 }
