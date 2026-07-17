@@ -664,6 +664,26 @@ function calcMeleeOnHitOutcome(hitbox, defenderWeight, pct, isCrouch) {
   return { rawKB, finalKB: rawKB, breaks, hitstun: Math.floor(rawKB * ON_HIT_HITSTUN_SCALAR) };
 }
 
+// The defender % at which this hitbox's raw knockback first reaches the
+// tumble threshold (independent of CC/ASDI — tumble is a raw-knockback
+// state, not affected by DI input). calcMeleeKnockback is linear in pct
+// (KB = pct*slope + intercept), so this is solved directly rather than
+// searched. Returns 0 if the hit always tumbles (even at 0%), null if it
+// never does (fixed/scaling knockback that can't reach 80).
+function calcMeleeTumblePercent(hitbox, defenderWeight) {
+  if (hitbox.setKnockback) {
+    return hitbox.setKnockback >= ASDI_DOWN_KB_THRESHOLD ? 0 : null;
+  }
+  if (hitbox.damage == null || hitbox.knockbackGrowth == null ||
+      hitbox.baseKnockback == null || defenderWeight == null) return null;
+  const growthFactor = (1 / 10 + hitbox.damage / 20) * (200 / (defenderWeight + 100)) * 1.4;
+  const slope = growthFactor * hitbox.knockbackGrowth / 100;
+  const intercept = (18 * hitbox.knockbackGrowth / 100) + hitbox.baseKnockback;
+  if (intercept >= ASDI_DOWN_KB_THRESHOLD) return 0;
+  if (slope <= 0) return null;
+  return Math.ceil((ASDI_DOWN_KB_THRESHOLD - intercept) / slope);
+}
+
 /**
  * Overview-panel data source: moves that always beat CC/ASDI Down against a
  * specific opponent's weight, regardless of the defender's damage % (checked
@@ -783,6 +803,7 @@ function getMeleeOnHitBreakdown(attackerData, defenderData, pct, isCrouch) {
         isKnockdown,
         advantage,
         punishes,
+        tumblePercent: calcMeleeTumblePercent(h, defenderWeight),
       });
     });
   });

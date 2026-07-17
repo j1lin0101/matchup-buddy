@@ -324,6 +324,31 @@ function BreakersList({ charData, opponentWeight }) {
   )
 }
 
+// Tumble % color scale — mirrors Rivals' MatchupView.jsx tumbleColor exactly.
+// Low % = good (combos early) → High % = risky (won't tumble until late).
+function tumbleColor(pct) {
+  if (pct === null || pct === undefined) return '#888899'
+  if (pct <= 40)  return '#00CED1'  // cyan          — tumbles very early, great combo tool
+  if (pct <= 80)  return '#F0E442'  // yellow        — tumbles at low %
+  if (pct <= 130) return '#DA70D6'  // orchid/purple — mid-range, situational
+  if (pct <= 200) return '#888899'  // muted gray    — high %, hard to use
+  return '#444455'                  // very muted    — extreme threshold, rarely relevant
+}
+
+function MeleeTumbleBadge({ pct }) {
+  if (pct === null || pct === undefined) return <span style={{ color: 'var(--muted)', fontSize: '0.75rem' }}>—</span>
+  const color = tumbleColor(pct)
+  return (
+    <span style={{
+      display: 'inline-block', padding: '2px 8px', borderRadius: '4px',
+      background: color + '22', color, border: `1px solid ${color}55`,
+      fontSize: '0.75rem', fontWeight: 700, whiteSpace: 'nowrap',
+    }}>
+      {pct}%
+    </span>
+  )
+}
+
 // A plain text badge (no frame-count suffix, unlike FrameBadge) for short
 // static labels like "Breaks CC".
 function FrameOnlyBadge({ label, color = 'var(--accent)' }) {
@@ -455,7 +480,7 @@ function OnHitMoveRow({ row, oosFilter, simplified }) {
 
   if (row.isKnockdown) {
     return (
-      <div className={`move-row${simplified ? ' simplified' : ''}`}>
+      <div className={`on-hit-row${simplified ? ' simplified' : ''}`}>
         <div>
           <span style={{ fontWeight: 600, color: SAFE_COLOR }}>{row.move}</span>
           {row.hitbox && (
@@ -465,8 +490,13 @@ function OnHitMoveRow({ row, oosFilter, simplified }) {
           )}
         </div>
         {!simplified && (
-          <div className="move-row-badges" style={{ textAlign: 'center' }}>
+          <div style={{ textAlign: 'center' }}>
             <FrameOnlyBadge label="Knockdown" color={SAFE_COLOR} />
+          </div>
+        )}
+        {!simplified && (
+          <div style={{ textAlign: 'center' }}>
+            <MeleeTumbleBadge pct={row.tumblePercent} />
           </div>
         )}
         <div>
@@ -480,7 +510,7 @@ function OnHitMoveRow({ row, oosFilter, simplified }) {
   const advLabel = `${row.advantage > 0 ? '+' : ''}${row.advantage}`
 
   return (
-    <div className={`move-row${simplified ? ' simplified' : ''}`}>
+    <div className={`on-hit-row${simplified ? ' simplified' : ''}`}>
       <div>
         <span style={{ fontWeight: 600, color: statusColor }}>{row.move}</span>
         {row.hitbox && (
@@ -490,13 +520,18 @@ function OnHitMoveRow({ row, oosFilter, simplified }) {
         )}
       </div>
       {!simplified && (
-        <div className="move-row-badges" style={{ display: 'flex', gap: '4px', justifyContent: 'center', alignItems: 'center' }}>
+        <div style={{ display: 'flex', gap: '4px', justifyContent: 'center', alignItems: 'center' }}>
           <span style={{
             display: 'inline-block', padding: '2px 8px', borderRadius: '4px',
             background: statusColor + '22', color: statusColor, border: `1px solid ${statusColor}44`,
             fontSize: '0.75rem', fontWeight: 700, whiteSpace: 'nowrap',
           }}>{advLabel}</span>
           {row.breaks && <FrameOnlyBadge label="Breaks CC" color="var(--muted)" />}
+        </div>
+      )}
+      {!simplified && (
+        <div style={{ textAlign: 'center' }}>
+          <MeleeTumbleBadge pct={row.tumblePercent} />
         </div>
       )}
       <div>
@@ -519,12 +554,19 @@ function OnHitMoveRow({ row, oosFilter, simplified }) {
   )
 }
 
+const TUMBLE_EARLY_COLOR  = '#00CED1'  // cyan   ≤40%
+const TUMBLE_MEDIUM_COLOR = '#F0E442'  // yellow ≤80%
+const TUMBLE_HIGH_COLOR   = '#DA70D6'  // orchid >80%
+
 function OnHitCategoryAccordion({ category, rows, oosFilter, simplified }) {
   const [open, setOpen] = useState(true)
   const sorted = useMemo(() => [...rows].sort((a, b) => b.advantage - a.advantage), [rows])
   const safe        = rows.filter(r => r.isKnockdown || r.advantage > 0).length
   const risky       = rows.filter(r => !r.isKnockdown && r.advantage <= 0 && r.advantage >= -3).length
   const punishable  = rows.filter(r => !r.isKnockdown && r.advantage < -3).length
+  const earlyKD = rows.filter(r => r.tumblePercent != null && r.tumblePercent <= 40).length
+  const midKD   = rows.filter(r => r.tumblePercent != null && r.tumblePercent > 40 && r.tumblePercent <= 80).length
+  const highKD  = rows.filter(r => r.tumblePercent != null && r.tumblePercent > 80).length
 
   return (
     <div style={{ border: '1px solid var(--border)', borderRadius: 'var(--radius)', overflow: 'hidden' }}>
@@ -545,14 +587,21 @@ function OnHitCategoryAccordion({ category, rows, oosFilter, simplified }) {
             <span style={{ color: RISKY_COLOR, fontSize: '0.72rem' }}>{risky} risky</span>
             <span style={{ color: PUNISH_COLOR, fontSize: '0.72rem' }}>{punishable} punishable</span>
           </div>
+          <span className="accordion-counts-divider">|</span>
+          <div className="accordion-counts-row">
+            {earlyKD > 0 && <span style={{ fontSize: '0.72rem', fontWeight: 400, color: TUMBLE_EARLY_COLOR }}>{earlyKD} early KD</span>}
+            {midKD   > 0 && <span style={{ fontSize: '0.72rem', fontWeight: 400, color: TUMBLE_MEDIUM_COLOR }}>{midKD} mid KD</span>}
+            {highKD  > 0 && <span style={{ fontSize: '0.72rem', fontWeight: 400, color: TUMBLE_HIGH_COLOR }}>{highKD} high KD</span>}
+          </div>
         </div>
         <span style={{ color: 'var(--muted)', fontSize: '0.7rem', marginLeft: '4px', flexShrink: 0 }}>{open ? '▲' : '▼'}</span>
       </button>
       {open && (
         <div style={{ background: 'var(--surface)' }}>
-          <div className={`col-headers${simplified ? ' simplified' : ''}`}>
+          <div className={`on-hit-col-headers${simplified ? ' simplified' : ''}`}>
             <span style={{ fontSize: '0.65rem', fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'var(--muted)' }}>Move</span>
             {!simplified && <span style={{ fontSize: '0.65rem', fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'var(--muted)', textAlign: 'center' }}>On Hit</span>}
+            {!simplified && <span style={{ fontSize: '0.65rem', fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'var(--muted)', textAlign: 'center' }}>Tumble %</span>}
             <span style={{ fontSize: '0.65rem', fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'var(--muted)' }}>Punish Options</span>
           </div>
           {sorted.map((row, i) => <OnHitMoveRow key={i} row={row} oosFilter={oosFilter} simplified={simplified} />)}
