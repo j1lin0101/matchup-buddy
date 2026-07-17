@@ -240,6 +240,41 @@ body {
   .on-hit-row > div:nth-child(4) > div { justify-content: flex-end; }
 }
 
+/* ── Melee's On Hit table — same idea as .on-hit-row, but a 5th column
+   (Beats CC?) since Melee's toggle-free model needs one more axis than
+   Rivals' 4-column shape supports. ── */
+.melee-on-hit-col-headers {
+  padding: 6px 16px;
+  border-bottom: 1px solid var(--border);
+  display: grid;
+  grid-template-columns: 0.7fr 90px 90px 90px 1fr;
+  gap: 16px;
+}
+.melee-on-hit-row {
+  padding: 10px 16px;
+  border-bottom: 1px solid var(--border);
+  display: grid;
+  grid-template-columns: 0.7fr 90px 90px 90px 1fr;
+  gap: 16px;
+  align-items: center;
+  font-size: 0.82rem;
+}
+@media (max-width: 600px) {
+  .melee-on-hit-col-headers { display: none; }
+  .melee-on-hit-row {
+    grid-template-columns: 2fr 3fr;
+    grid-template-rows: auto auto auto auto;
+    gap: 4px 12px;
+    align-items: start;
+  }
+  .melee-on-hit-row > div:nth-child(1) { grid-column: 1; grid-row: 1 / 4; align-self: start; }
+  .melee-on-hit-row > div:nth-child(2) { grid-column: 2; grid-row: 1; text-align: right; justify-self: end; }
+  .melee-on-hit-row > div:nth-child(3) { grid-column: 2; grid-row: 2; text-align: right; justify-self: end; }
+  .melee-on-hit-row > div:nth-child(4) { grid-column: 2; grid-row: 3; text-align: right; justify-self: end; }
+  .melee-on-hit-row > div:nth-child(5) { grid-column: 2; grid-row: 4; text-align: right; }
+  .melee-on-hit-row > div:nth-child(5) > div { justify-content: flex-end; }
+}
+
 /* ── Responsive: Move row ── */
 .move-row {
   padding: 10px 16px;
@@ -284,22 +319,30 @@ body {
 .on-hit-row.simplified {
   grid-template-columns: 0.8fr 1fr;
 }
+.melee-on-hit-col-headers.simplified,
+.melee-on-hit-row.simplified {
+  grid-template-columns: 0.7fr 1fr;
+}
 @media (max-width: 600px) {
   .move-row.simplified,
-  .on-hit-row.simplified {
+  .on-hit-row.simplified,
+  .melee-on-hit-row.simplified {
     grid-template-columns: 1fr;
     grid-template-rows: auto auto;
   }
   .move-row.simplified > div,
-  .on-hit-row.simplified > div {
+  .on-hit-row.simplified > div,
+  .melee-on-hit-row.simplified > div {
     grid-column: 1;
     text-align: left;
     justify-self: stretch;
   }
   .move-row.simplified > div:nth-child(1),
-  .on-hit-row.simplified > div:nth-child(1) { grid-row: 1; }
+  .on-hit-row.simplified > div:nth-child(1),
+  .melee-on-hit-row.simplified > div:nth-child(1) { grid-row: 1; }
   .move-row.simplified > div:nth-child(2),
-  .on-hit-row.simplified > div:nth-child(2) { grid-row: 2; margin-top: 4px; }
+  .on-hit-row.simplified > div:nth-child(2),
+  .melee-on-hit-row.simplified > div:nth-child(2) { grid-row: 2; margin-top: 4px; }
 }
 
 /* ── Toolbar row: every unit gets its own explicit width so alignment never

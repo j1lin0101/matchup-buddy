@@ -349,6 +349,23 @@ function MeleeTumbleBadge({ pct }) {
   )
 }
 
+// "Beats CC?" — whether this hit's raw knockback overcomes Crouch Cancel's
+// reduction (KB ≥ 32). Independent of the Tumble %/Knockdown check (KB ≥
+// 80), which answers "beats ASDI Down?" — ASDI Down never reduces
+// knockback, so that question is just the tumble check, not a separate axis.
+function BeatsCCBadge({ beats }) {
+  if (!beats) return <span style={{ color: 'var(--muted)', fontSize: '0.75rem' }}>No</span>
+  return (
+    <span style={{
+      display: 'inline-block', padding: '2px 8px', borderRadius: '4px',
+      background: 'var(--muted)22', color: 'var(--text)', border: '1px solid var(--muted)44',
+      fontSize: '0.75rem', fontWeight: 700, whiteSpace: 'nowrap',
+    }}>
+      Yes
+    </span>
+  )
+}
+
 // A plain text badge (no frame-count suffix, unlike FrameBadge) for short
 // static labels like "Breaks CC".
 function FrameOnlyBadge({ label, color = 'var(--accent)' }) {
@@ -471,8 +488,11 @@ function BreakdownTable({ matchup, categoryFilter, oosFilter, simplified }) {
   )
 }
 
-// On-hit (CC/ASDI Down) row — rows have `advantage`/`breaks`/`isKnockdown`
-// instead of `shieldSafety`, so this can't reuse MoveRow directly.
+// On-hit (CC/ASDI Down) row — rows have `advantage`/`beatsCC`/`isKnockdown`
+// instead of `shieldSafety`, so this can't reuse MoveRow directly. No
+// defensive-tech toggle: the defender always gets CC's reduction when it
+// applies, and Knockdown (row.isKnockdown) already answers "beats ASDI
+// Down?" since ASDI Down never reduces knockback — see analysisMelee.js.
 function OnHitMoveRow({ row, oosFilter, simplified }) {
   const punishes = (oosFilter && oosFilter.size > 0)
     ? row.punishes.filter(p => oosFilter.has(p.move))
@@ -480,7 +500,7 @@ function OnHitMoveRow({ row, oosFilter, simplified }) {
 
   if (row.isKnockdown) {
     return (
-      <div className={`on-hit-row${simplified ? ' simplified' : ''}`}>
+      <div className={`melee-on-hit-row${simplified ? ' simplified' : ''}`}>
         <div>
           <span style={{ fontWeight: 600, color: SAFE_COLOR }}>{row.move}</span>
           {row.hitbox && (
@@ -499,6 +519,11 @@ function OnHitMoveRow({ row, oosFilter, simplified }) {
             <MeleeTumbleBadge pct={row.tumblePercent} />
           </div>
         )}
+        {!simplified && (
+          <div style={{ textAlign: 'center' }}>
+            <BeatsCCBadge beats={row.beatsCC} />
+          </div>
+        )}
         <div>
           <span style={{ color: 'var(--muted)', fontSize: '0.75rem' }}>—</span>
         </div>
@@ -510,7 +535,7 @@ function OnHitMoveRow({ row, oosFilter, simplified }) {
   const advLabel = `${row.advantage > 0 ? '+' : ''}${row.advantage}`
 
   return (
-    <div className={`on-hit-row${simplified ? ' simplified' : ''}`}>
+    <div className={`melee-on-hit-row${simplified ? ' simplified' : ''}`}>
       <div>
         <span style={{ fontWeight: 600, color: statusColor }}>{row.move}</span>
         {row.hitbox && (
@@ -520,18 +545,22 @@ function OnHitMoveRow({ row, oosFilter, simplified }) {
         )}
       </div>
       {!simplified && (
-        <div style={{ display: 'flex', gap: '4px', justifyContent: 'center', alignItems: 'center' }}>
+        <div style={{ textAlign: 'center' }}>
           <span style={{
             display: 'inline-block', padding: '2px 8px', borderRadius: '4px',
             background: statusColor + '22', color: statusColor, border: `1px solid ${statusColor}44`,
             fontSize: '0.75rem', fontWeight: 700, whiteSpace: 'nowrap',
           }}>{advLabel}</span>
-          {row.breaks && <FrameOnlyBadge label="Breaks CC" color="var(--muted)" />}
         </div>
       )}
       {!simplified && (
         <div style={{ textAlign: 'center' }}>
           <MeleeTumbleBadge pct={row.tumblePercent} />
+        </div>
+      )}
+      {!simplified && (
+        <div style={{ textAlign: 'center' }}>
+          <BeatsCCBadge beats={row.beatsCC} />
         </div>
       )}
       <div>
@@ -598,10 +627,11 @@ function OnHitCategoryAccordion({ category, rows, oosFilter, simplified }) {
       </button>
       {open && (
         <div style={{ background: 'var(--surface)' }}>
-          <div className={`on-hit-col-headers${simplified ? ' simplified' : ''}`}>
+          <div className={`melee-on-hit-col-headers${simplified ? ' simplified' : ''}`}>
             <span style={{ fontSize: '0.65rem', fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'var(--muted)' }}>Move</span>
             {!simplified && <span style={{ fontSize: '0.65rem', fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'var(--muted)', textAlign: 'center' }}>On Hit</span>}
             {!simplified && <span style={{ fontSize: '0.65rem', fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'var(--muted)', textAlign: 'center' }}>Tumble %</span>}
+            {!simplified && <span style={{ fontSize: '0.65rem', fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'var(--muted)', textAlign: 'center' }}>Beats CC?</span>}
             <span style={{ fontSize: '0.65rem', fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'var(--muted)' }}>Punish Options</span>
           </div>
           {sorted.map((row, i) => <OnHitMoveRow key={i} row={row} oosFilter={oosFilter} simplified={simplified} />)}
@@ -838,7 +868,6 @@ function AttackingView({ attackerData, defenderData, attackerName, attackerColor
   const [shieldMode, setShieldMode] = useState('normal')
   const [subTab, setSubTab] = useState('onShield')
   const [pct, setPct] = useState(0)
-  const [isCrouch, setIsCrouch] = useState(false) // false = ASDI Down, true = Crouch Cancel
   const [viewMode, setViewMode] = useState('expanded')
   const simplified = viewMode === 'simplified'
 
@@ -858,8 +887,8 @@ function AttackingView({ attackerData, defenderData, attackerName, attackerColor
     [defenderData]
   )
   const onHitBreakdown = useMemo(
-    () => getMeleeOnHitBreakdown(attackerData, defenderData, pct, isCrouch),
-    [attackerData, defenderData, pct, isCrouch]
+    () => getMeleeOnHitBreakdown(attackerData, defenderData, pct),
+    [attackerData, defenderData, pct]
   )
 
   const isOnHit = subTab === 'onHit'
@@ -933,37 +962,23 @@ function AttackingView({ attackerData, defenderData, attackerName, attackerColor
             ]}
           />
         ) : (
-          <>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-              <span style={{ fontSize: '0.72rem', fontWeight: 700, color: 'var(--muted)', textTransform: 'uppercase', letterSpacing: '0.07em', flexShrink: 0 }}>
-                {defenderName}
-              </span>
-              <input
-                type="number"
-                min={0} max={999} step={1}
-                value={pct}
-                onChange={e => setPct(Math.max(0, Math.min(999, Number(e.target.value) || 0)))}
-                style={{
-                  width: '56px', height: TOOLBAR_H, padding: '0 8px', borderRadius: '6px',
-                  border: '1px solid var(--border)', background: 'var(--bg)',
-                  color: 'var(--text)', fontSize: '0.82rem', fontWeight: 700, textAlign: 'right',
-                }}
-              />
-              <span style={{ fontSize: '0.82rem', fontWeight: 700, color: 'var(--muted)' }}>%</span>
-            </div>
-
-            <ToolbarDivider />
-
-            <SegmentedToggle
-              activeColor={attackerColor}
-              value={isCrouch}
-              onChange={setIsCrouch}
-              options={[
-                { value: false, label: 'ASDI Down' },
-                { value: true, label: 'Crouch Cancel' },
-              ]}
+          <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+            <span style={{ fontSize: '0.72rem', fontWeight: 700, color: 'var(--muted)', textTransform: 'uppercase', letterSpacing: '0.07em', flexShrink: 0 }}>
+              {defenderName}
+            </span>
+            <input
+              type="number"
+              min={0} max={999} step={1}
+              value={pct}
+              onChange={e => setPct(Math.max(0, Math.min(999, Number(e.target.value) || 0)))}
+              style={{
+                width: '56px', height: TOOLBAR_H, padding: '0 8px', borderRadius: '6px',
+                border: '1px solid var(--border)', background: 'var(--bg)',
+                color: 'var(--text)', fontSize: '0.82rem', fontWeight: 700, textAlign: 'right',
+              }}
             />
-          </>
+            <span style={{ fontSize: '0.82rem', fontWeight: 700, color: 'var(--muted)' }}>%</span>
+          </div>
         )}
 
         <ToolbarDivider />

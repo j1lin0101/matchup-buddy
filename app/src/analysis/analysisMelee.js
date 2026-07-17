@@ -272,7 +272,7 @@ function dedupeGroundAirShieldSafety(rows) {
 }
 
 // Same idea as dedupeAndLabelHitboxes, adapted for on-hit rows (which carry
-// `advantage`/`breaks`/`isKnockdown` instead of `shieldSafety`). `breaks`/
+// `advantage`/`beatsCC`/`isKnockdown` instead of `shieldSafety`). `beatsCC`/
 // `isKnockdown` are folded into the exact-duplicate key so a knockdown
 // variant of a hitbox is never silently collapsed with a non-knockdown one
 // that happens to share the same advantage number.
@@ -281,7 +281,7 @@ function dedupeAndLabelOnHitHitboxes(rows) {
   const deduped = [];
   rows.forEach(function(row) {
     const label = isGenericHitboxName(row.hitbox) ? null : row.hitbox;
-    const key = row.move + '|' + (label || '') + '|' + row.advantage + '|' + row.breaks + '|' + row.isKnockdown;
+    const key = row.move + '|' + (label || '') + '|' + row.advantage + '|' + row.beatsCC + '|' + row.isKnockdown;
     if (exactSeen.has(key)) return;
     exactSeen.add(key);
     deduped.push(Object.assign({}, row, { hitbox: label }));
@@ -308,7 +308,7 @@ function dedupeAndLabelOnHitHitboxes(rows) {
 
 // Same idea as dedupeGroundAirShieldSafety, adapted for on-hit rows —
 // collapses "Move" / "Move (Air)" into one row when a hitbox has identical
-// advantage and breaks/isKnockdown status on both sides.
+// advantage and beatsCC/isKnockdown status on both sides.
 function dedupeGroundAirOnHit(rows) {
   const groups = new Map();
   rows.forEach(function(row) {
@@ -324,7 +324,7 @@ function dedupeGroundAirOnHit(rows) {
     const base = group[0].move.replace(/\s*\(Air\)$/i, '').trim();
     const byOutcome = new Map();
     group.forEach(function(row) {
-      const outcomeKey = row.advantage + '|' + row.breaks + '|' + row.isKnockdown;
+      const outcomeKey = row.advantage + '|' + row.beatsCC + '|' + row.isKnockdown;
       if (!byOutcome.has(outcomeKey)) byOutcome.set(outcomeKey, []);
       byOutcome.get(outcomeKey).push(row);
     });
@@ -650,18 +650,20 @@ function calcMeleeKnockback(hitbox, defenderWeight, pct) {
   return (scaled * hitbox.knockbackGrowth / 100) + hitbox.baseKnockback;
 }
 
-// Applies Crouch Cancel or ASDI Down to a hitbox's raw knockback and
-// returns the resulting hitstun. See the module doc above for the mechanics.
-function calcMeleeOnHitOutcome(hitbox, defenderWeight, pct, isCrouch) {
+// Computes a hitbox's on-hit outcome assuming the defender always takes
+// Crouch Cancel's knockback reduction when it's available (CC never hurts,
+// so a defender minimizing hitstun never has a reason to skip it). Tumble
+// (knockdown) is checked against raw, unreduced knockback — ASDI Down never
+// reduces knockback, it only matters for whether tumble is forced at all,
+// so "does this beat ASDI Down" is exactly the tumble check, independent of
+// whether CC is also being used. See the module doc above for the mechanics.
+function calcMeleeOnHitOutcome(hitbox, defenderWeight, pct) {
   const rawKB = calcMeleeKnockback(hitbox, defenderWeight, pct);
   if (rawKB == null) return null;
-  if (isCrouch) {
-    const breaks = rawKB >= CC_KB_THRESHOLD;
-    const finalKB = breaks ? rawKB : rawKB * CC_REDUCTION;
-    return { rawKB, finalKB, breaks, hitstun: Math.floor(finalKB * ON_HIT_HITSTUN_SCALAR) };
-  }
-  const breaks = rawKB >= ASDI_DOWN_KB_THRESHOLD;
-  return { rawKB, finalKB: rawKB, breaks, hitstun: Math.floor(rawKB * ON_HIT_HITSTUN_SCALAR) };
+  const isKnockdown = rawKB >= ASDI_DOWN_KB_THRESHOLD;
+  const beatsCC = rawKB >= CC_KB_THRESHOLD;
+  const finalKB = beatsCC ? rawKB : rawKB * CC_REDUCTION;
+  return { rawKB, finalKB, isKnockdown, beatsCC, hitstun: Math.floor(finalKB * ON_HIT_HITSTUN_SCALAR) };
 }
 
 // The defender % at which this hitbox's raw knockback first reaches the
@@ -760,10 +762,15 @@ function getMeleeOnHitOptions(characterData) {
 }
 
 /**
- * On Hit breakdown: given attacker/defender character data, the defender's
- * current damage % (pct), and whether they're Crouch Canceling (isCrouch,
- * false = ASDI Down), returns a breakdown of each attacker move+hitbox with
- * the resulting advantage and which defender moves can punish it.
+ * On Hit breakdown: given attacker/defender character data and the
+ * defender's current damage % (pct), returns a breakdown of each attacker
+ * move+hitbox with the resulting advantage and which defender moves can
+ * punish it. No defensive-tech toggle — the defender is assumed to always
+ * take Crouch Cancel's knockback reduction when it helps (see
+ * calcMeleeOnHitOutcome), and tumble/knockdown is checked against raw
+ * knockback (ASDI Down never reduces knockback, so "beats ASDI Down" and
+ * "causes tumble" are the same check — already surfaced via isKnockdown and
+ * tumblePercent below).
  *
  * Projectile hitboxes are excluded entirely (not badged, unlike the
  * shield-safety table's PROJ treatment) — the attacker isn't physically
@@ -772,7 +779,7 @@ function getMeleeOnHitOptions(characterData) {
  * still included in getMeleeBreakers, since "does this always break
  * CC/ASDI" only depends on the hit's own knockback numbers.
  */
-function getMeleeOnHitBreakdown(attackerData, defenderData, pct, isCrouch) {
+function getMeleeOnHitBreakdown(attackerData, defenderData, pct) {
   const defenderWeight = defenderData.weight;
   const defenderOptions = getMeleeOnHitOptions(defenderData);
   const results = [];
@@ -782,14 +789,11 @@ function getMeleeOnHitBreakdown(attackerData, defenderData, pct, isCrouch) {
     move.hitboxes.forEach(function(h) {
       if (h.shieldSafety && h.shieldSafety.isProjectile) return;
 
-      const outcome = calcMeleeOnHitOutcome(h, defenderWeight, pct, isCrouch);
+      const outcome = calcMeleeOnHitOutcome(h, defenderWeight, pct);
       if (!outcome || h.endlag == null) return;
       const advantage = outcome.hitstun - h.endlag;
 
-      // Knockdown only applies in ASDI Down mode when it breaks (defender
-      // launched airborne) — CC breaking still leaves the defender grounded
-      // with real (larger) hitstun, so punishes apply normally there.
-      const isKnockdown = !isCrouch && outcome.breaks;
+      const isKnockdown = outcome.isKnockdown;
       const punishes = (!isKnockdown && advantage <= 0)
         ? defenderOptions.filter(function(o) { return o.onHitStartup <= -advantage; })
         : [];
@@ -799,7 +803,7 @@ function getMeleeOnHitBreakdown(attackerData, defenderData, pct, isCrouch) {
         hitbox:     h.hitbox || null,
         category:   getCategory(move),
         startup:    move.startup,
-        breaks:     outcome.breaks,
+        beatsCC:    outcome.beatsCC,
         isKnockdown,
         advantage,
         punishes,
