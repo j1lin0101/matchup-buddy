@@ -835,30 +835,32 @@ function AttackingView({ attackerData, defenderData, attackerName, attackerColor
 
   return (
     <div>
-      <div className="matchup-subtabs" style={{ display: 'flex', gap: '4px', marginBottom: '12px' }}>
-        {[
-          { id: 'onShield', label: 'On Shield' },
-          { id: 'onHit', label: 'On Hit' },
-        ].map(t => {
-          const active = subTab === t.id
-          return (
-            <button
-              key={t.id}
-              onClick={() => setSubTab(t.id)}
-              style={{
-                padding: '8px 16px', background: 'none', border: 'none',
-                borderBottom: `2px solid ${active ? attackerColor : 'transparent'}`,
-                color: active ? attackerColor : 'var(--muted)', fontWeight: active ? 700 : 400,
-                fontSize: '0.8rem', cursor: 'pointer', letterSpacing: '0.02em',
-              }}
-            >
-              {t.label}
-            </button>
-          )
-        })}
-      </div>
+      {/* Sub-tabs + toolbar live in one shared card so they read as a single unit */}
+      <div style={{ border: '1px solid var(--border)', borderRadius: 'var(--radius)', overflow: 'hidden', marginBottom: '16px', background: 'var(--surface)' }}>
+        <div style={{ display: 'flex', alignItems: 'center', borderBottom: '1px solid var(--border)' }}>
+          {[
+            { id: 'onShield', label: 'On Shield' },
+            { id: 'onHit', label: 'On Hit' },
+          ].map(t => {
+            const active = subTab === t.id
+            return (
+              <button
+                key={t.id}
+                onClick={() => setSubTab(t.id)}
+                style={{
+                  padding: '10px 20px', background: 'none', border: 'none',
+                  borderBottom: `2px solid ${active ? attackerColor : 'transparent'}`,
+                  color: active ? attackerColor : 'var(--muted)', fontWeight: active ? 700 : 400,
+                  fontSize: '0.82rem', cursor: 'pointer', letterSpacing: '0.02em',
+                }}
+              >
+                {t.label}
+              </button>
+            )
+          })}
+        </div>
 
-      <div className="toolbar-row" style={{ display: 'flex', gap: '10px', flexWrap: 'wrap', padding: '0 0 16px' }}>
+        <div className="toolbar-row" style={{ display: 'flex', gap: '10px', flexWrap: 'wrap', padding: '10px 16px' }}>
         <SegmentedToggle
           activeColor={attackerColor}
           value={viewMode}
@@ -952,6 +954,7 @@ function AttackingView({ attackerData, defenderData, attackerName, attackerColor
             </span>
           )}
         </button>
+        </div>
       </div>
 
       {filterModalOpen && (
