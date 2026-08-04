@@ -70,6 +70,11 @@ const MOVE_DISPLAY = {
   LedgeAttack:    'Ledge Attack',
   LedgeSpecial:   'Ledge Special',
   WalljumpSpecial:'Walljump Special',
+  // Gouie-specific: Nspecial2 is the inhale's forced-eject follow-up (distinct
+  // from the swallow itself); Mire is the puddle-of-hands hazard spawned by
+  // Down Special / a charged Neutral Special, tracked as its own move entry.
+  Nspecial2:      'Neutral Special (Eject)',
+  Mire:           'Mire',
 };
 
 // Canonical display order for moves output
@@ -77,12 +82,30 @@ const MOVE_ORDER = [
   'Jab','Ftilt','Utilt','Dtilt','Dattack',
   'Fstrong','Ustrong','Dstrong',
   'Nair','Fair','Bair','Uair','Dair','Zair',
-  'Nspecial','Fspecial','Uspecial','Dspecial',
+  'Nspecial','Nspecial2','Fspecial','Uspecial','Dspecial','Mire',
   'NspecialAir','FspecialAir','UspecialAir','DspecialAir',
   'Grab','DashGrab','PivotGrab',
   'Pummel','PummelSpecial',
   'Fthrow','Bthrow','Uthrow','Dthrow',
   'GetupAttack','GetupSpecial','LedgeAttack','LedgeSpecial','WalljumpSpecial',
+];
+
+// Wiki-side casing inconsistency observed on Gouie's entries ("DAttack" vs.
+// every other character's "Dattack") — normalized on read so it still lands
+// in its canonical MOVE_ORDER position instead of falling through to the
+// unknown-attack tail with a literal "DAttack" display name.
+const ATTACK_ALIASES = { DAttack: 'Dattack' };
+
+// Characters whose ROA2_Articles rows are filed under a different `chara`
+// value — e.g. Big Gouie has no Articles rows of its own; its projectile
+// flags (Goober, Mire, etc.) are shared with base Gouie's entries.
+const ARTICLE_FALLBACK_CHARA = { 'Big Gouie': 'Gouie' };
+
+// Scraped and written alongside the public roster, but NOT added to
+// characters.json — Gouie's Big form is a toggle within his own matchup
+// page (see MatchupView), not a separate character-select tile.
+const EXTRA_SCRAPE_TARGETS = [
+  { name: 'Big Gouie', slug: 'Big_Gouie' },
 ];
 
 // These moves have no meaningful shield safety
@@ -355,6 +378,15 @@ async function scrapeCharacter(charName, charSlug, characterWeights) {
       `chara="${charName}"`),
   ]);
 
+  // Some forms (e.g. Big Gouie) have no Articles rows of their own — their
+  // projectiles are filed under the base character's chara value instead.
+  let effectiveArticles = articlesArr;
+  if (articlesArr.length === 0 && ARTICLE_FALLBACK_CHARA[charName]) {
+    effectiveArticles = await cargo('ROA2_Articles',
+      'chara,moveID,ArticleName,bIsProjectile,bIsAttachedToOwner',
+      `chara="${ARTICLE_FALLBACK_CHARA[charName]}"`);
+  }
+
   // ── Build lookup maps ──
   const hitMap = {};   // moveID → nameID → hit row
   for (const h of hitDataArr) {
@@ -363,13 +395,14 @@ async function scrapeCharacter(charName, charSlug, characterWeights) {
   }
 
   const articleMap = {};  // moveID → article row
-  for (const a of articlesArr) articleMap[a.moveID] = a;
+  for (const a of effectiveArticles) articleMap[a.moveID] = a;
 
   // ── Group modes by attack ──
   const attackModes = new Map();
   for (const mode of modes) {
-    if (!attackModes.has(mode.attack)) attackModes.set(mode.attack, []);
-    attackModes.get(mode.attack).push(mode);
+    const attack = ATTACK_ALIASES[mode.attack] || mode.attack;
+    if (!attackModes.has(attack)) attackModes.set(attack, []);
+    attackModes.get(attack).push(mode);
   }
 
   // ── Build output moves in canonical order ──
@@ -533,7 +566,9 @@ async function main() {
   if (!fs.existsSync(DATA_DIR))   fs.mkdirSync(DATA_DIR,   { recursive: true });
   if (!fs.existsSync(PUBLIC_DIR)) fs.mkdirSync(PUBLIC_DIR, { recursive: true });
 
-  for (const { name, slug } of characters) {
+  const allTargets = [...characters, ...EXTRA_SCRAPE_TARGETS];
+
+  for (const { name, slug } of allTargets) {
     try {
       const data    = await scrapeCharacter(name, slug, characterWeights);
       const payload = JSON.stringify(data, null, 2);
@@ -547,7 +582,7 @@ async function main() {
   }
 
   console.log('\nAll done. Verifying files...');
-  for (const { slug } of characters) {
+  for (const { slug } of allTargets) {
     const p = path.join(DATA_DIR, `${slug}.json`);
     if (fs.existsSync(p)) {
       const d = JSON.parse(fs.readFileSync(p));
