@@ -7,6 +7,20 @@ const SAFE_COLOR  = 'var(--safe)'
 const RISKY_COLOR = 'var(--risky)'
 const PUNISH_COLOR = 'var(--punish)'
 
+// Characters with an alternate form scraped as its own separate character in
+// the underlying data (see scripts/cargo-scrape.js — Big Gouie has its own
+// weight/moves/slug, and every other character's perCharacterTumble maps
+// already carry a distinct "BIG GOUIE" key from that same scrape). The form
+// toggle only swaps which data file loads and which name flows into
+// analysis/display — routing, icons, and the wiki link stay pinned to the
+// base roster character since Big Gouie has neither of its own.
+const CHARACTER_FORMS = {
+  Gouie: [
+    { id: 'normal', label: 'Normal', charName: 'Gouie' },
+    { id: 'big',    label: 'Big',    charName: 'Big Gouie' },
+  ],
+}
+
 // Tumble % color scale — distinct colors per tier, separate from the shield safety scale.
 // Low % = good (combos early) → High % = risky (won't tumble until late)
 function tumbleColor(pct) {
@@ -147,8 +161,12 @@ function StunBadge({ stun }) {
   )
 }
 
-function CharColumnHeader({ name, accent }) {
-  const slug = name.replace(/ /g, '_')
+// linkName is the base roster character (e.g. "Gouie") used for the icon
+// file and wiki link, which stay pinned to the base character even when
+// name reflects an alternate form ("Big Gouie") that has neither its own
+// icon asset nor its own wiki page — Big Gouie is documented on Gouie's page.
+function CharColumnHeader({ name, accent, linkName }) {
+  const slug = (linkName || name).replace(/ /g, '_')
   const wikiUrl = `https://dragdown.wiki/wiki/RoA2/${slug}`
   return (
     <a
@@ -1754,8 +1772,20 @@ function HelpModal({ onClose }) {
 export default function MatchupView({ myChar, oppChar, onBack }) {
   const [helpOpen, setHelpOpen] = useState(false)
   const [activeTab, setActiveTab] = useState('overview')
-  const { data: myData,  loading: myLoading  } = useCharacterData(myChar)
-  const { data: oppData, loading: oppLoading } = useCharacterData(oppChar)
+
+  // Form toggle (currently just Gouie/Big Gouie) — myChar/oppChar themselves
+  // never change, so routing/icons/wiki links stay pinned to the base
+  // character; only the *effective* name used for data-fetching and
+  // analysis swaps between forms.
+  const [myFormId, setMyFormId]   = useState('normal')
+  const [oppFormId, setOppFormId] = useState('normal')
+  const myForms  = CHARACTER_FORMS[myChar]  || null
+  const oppForms = CHARACTER_FORMS[oppChar] || null
+  const myCharEffective  = myForms  ? myForms.find(f => f.id === myFormId).charName   : myChar
+  const oppCharEffective = oppForms ? oppForms.find(f => f.id === oppFormId).charName : oppChar
+
+  const { data: myData,  loading: myLoading  } = useCharacterData(myCharEffective)
+  const { data: oppData, loading: oppLoading } = useCharacterData(oppCharEffective)
 
   const loading = myLoading || oppLoading
 
@@ -1778,13 +1808,15 @@ export default function MatchupView({ myChar, oppChar, onBack }) {
     </div>
   )
 
+  // Icon/tab-slug paths stay pinned to the base character (myChar/oppChar) —
+  // Big Gouie has no icon asset of its own.
   const mySlug  = myChar.replace(/ /g, '_')
   const oppSlug = oppChar.replace(/ /g, '_')
 
   const tabs = [
     { id: 'overview', label: 'Matchup Overview' },
-    { id: 'me',  label: `${myChar} Attacking`,  icon: `${import.meta.env.BASE_URL}icons/roa2/${mySlug}.png`,  color: 'var(--accent)' },
-    { id: 'opp', label: `${oppChar} Attacking`, icon: `${import.meta.env.BASE_URL}icons/roa2/${oppSlug}.png`, color: 'var(--accent2)' },
+    { id: 'me',  label: `${myCharEffective} Attacking`,  icon: `${import.meta.env.BASE_URL}icons/roa2/${mySlug}.png`,  color: 'var(--accent)' },
+    { id: 'opp', label: `${oppCharEffective} Attacking`, icon: `${import.meta.env.BASE_URL}icons/roa2/${oppSlug}.png`, color: 'var(--accent2)' },
   ]
 
   return (
@@ -1804,13 +1836,39 @@ export default function MatchupView({ myChar, oppChar, onBack }) {
         </button>
         <div style={{ minWidth: 0, flex: 1 }}>
           <h1 style={{ fontSize: 'clamp(0.72rem, 3.8vw, 1.1rem)', fontWeight: 700, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
-            <span style={{ color: 'var(--accent)' }}>{myChar}</span>
+            <span style={{ color: 'var(--accent)' }}>{myCharEffective}</span>
             <span style={{ color: 'var(--muted)', margin: '0 8px' }}>vs</span>
-            <span style={{ color: 'var(--accent2)' }}>{oppChar}</span>
+            <span style={{ color: 'var(--accent2)' }}>{oppCharEffective}</span>
           </h1>
           <p style={{ color: 'var(--muted)', fontSize: '0.72rem', marginTop: '2px', lineHeight: 1.6 }}>
             Shield safety &amp; punish analysis
           </p>
+          {(myForms || oppForms) && (
+            <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap', marginTop: '6px' }}>
+              {myForms && (
+                <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+                  <span style={{ fontSize: '0.68rem', fontWeight: 700, color: 'var(--accent)' }}>{myChar}:</span>
+                  <SegmentedToggle
+                    activeColor="var(--accent)"
+                    value={myFormId}
+                    onChange={setMyFormId}
+                    options={myForms.map(f => ({ value: f.id, label: f.label }))}
+                  />
+                </div>
+              )}
+              {oppForms && (
+                <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+                  <span style={{ fontSize: '0.68rem', fontWeight: 700, color: 'var(--accent2)' }}>{oppChar}:</span>
+                  <SegmentedToggle
+                    activeColor="var(--accent2)"
+                    value={oppFormId}
+                    onChange={setOppFormId}
+                    options={oppForms.map(f => ({ value: f.id, label: f.label }))}
+                  />
+                </div>
+              )}
+            </div>
+          )}
         </div>
 
         <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flexShrink: 0 }}>
@@ -1895,8 +1953,8 @@ export default function MatchupView({ myChar, oppChar, onBack }) {
 
         {activeTab === 'overview' && (
           <div className="top-panels-grid">
-            <div className="char-col-header-my"><CharColumnHeader name={myChar} accent="var(--accent)" /></div>
-            <div className="char-col-header-opp"><CharColumnHeader name={oppChar} accent="var(--accent2)" /></div>
+            <div className="char-col-header-my"><CharColumnHeader name={myCharEffective} linkName={myChar} accent="var(--accent)" /></div>
+            <div className="char-col-header-opp"><CharColumnHeader name={oppCharEffective} linkName={oppChar} accent="var(--accent2)" /></div>
 
             <div className="char-panel-safe-my">
               {myData
@@ -1950,8 +2008,8 @@ export default function MatchupView({ myChar, oppChar, onBack }) {
           <BreakdownSection
             matchupVsOpp={matchupVsOpp}
             matchupVsMe={matchupVsMe}
-            myChar={myChar}
-            oppChar={oppChar}
+            myChar={myCharEffective}
+            oppChar={oppCharEffective}
             myOOS={myOOS}
             oppOOS={oppOOS}
             view={activeTab}
