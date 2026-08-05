@@ -1336,7 +1336,7 @@ function ToolbarDivider() {
 
 function BreakdownSection({
   matchupVsOpp, matchupVsMe, myChar, oppChar, myOOS, oppOOS, view, myData, oppData,
-  activeBaseChar, activeForms, activeFormId, setActiveFormId, activeAccent,
+  myBaseChar, oppBaseChar, myForms, oppForms, myFormId, oppFormId, setMyFormId, setOppFormId,
 }) {
   const [categoryFilter, setCategoryFilter] = useState('All')
   const [oosFilter, setOosFilter] = useState(new Set())
@@ -1547,17 +1547,19 @@ function BreakdownSection({
               </div>
         )}
 
-        {/* Form toggle — its own line, only shown for characters with an
-            alternate form (currently just Gouie) */}
-        {activeForms && (
-          <div style={{ padding: '10px 16px', borderTop: '1px solid var(--border)' }}>
-            <FormToggle
-              forms={activeForms}
-              value={activeFormId}
-              onChange={setActiveFormId}
-              accent={activeAccent}
-              baseChar={activeBaseChar}
-            />
+        {/* Form toggle(s) — own line(s), shown for either side that has an
+            alternate form (currently just Gouie). Shown regardless of which
+            side is attacking in this view: a defender's form can change
+            their own OOS options and shield/tumble numbers just as much as
+            an attacker's form changes their own move data. */}
+        {(myForms || oppForms) && (
+          <div style={{ padding: '10px 16px', borderTop: '1px solid var(--border)', display: 'flex', flexDirection: 'column', gap: '8px' }}>
+            {myForms && (
+              <FormToggle forms={myForms} value={myFormId} onChange={setMyFormId} accent="var(--accent)" baseChar={myBaseChar} />
+            )}
+            {oppForms && (
+              <FormToggle forms={oppForms} value={oppFormId} onChange={setOppFormId} accent="var(--accent2)" baseChar={oppBaseChar} />
+            )}
           </div>
         )}
       </div>
@@ -2031,11 +2033,14 @@ export default function MatchupView({ myChar, oppChar, onBack }) {
             view={activeTab}
             myData={myData}
             oppData={oppData}
-            activeBaseChar={activeTab === 'me' ? myChar : oppChar}
-            activeForms={activeTab === 'me' ? myForms : oppForms}
-            activeFormId={activeTab === 'me' ? myFormId : oppFormId}
-            setActiveFormId={activeTab === 'me' ? setMyFormId : setOppFormId}
-            activeAccent={activeTab === 'me' ? 'var(--accent)' : 'var(--accent2)'}
+            myBaseChar={myChar}
+            oppBaseChar={oppChar}
+            myForms={myForms}
+            oppForms={oppForms}
+            myFormId={myFormId}
+            oppFormId={oppFormId}
+            setMyFormId={setMyFormId}
+            setOppFormId={setOppFormId}
           />
         )}
 
