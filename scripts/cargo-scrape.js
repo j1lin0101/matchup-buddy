@@ -7,7 +7,10 @@
  *   ROA2_MoveMode   – frame data, active windows, per-hitbox custom SS overrides
  *   ROA2_HitData    – damage, knockback, stun multipliers
  *   ROA2_Articles   – projectile / article flags
- *   ROA2_CharacterData – weights (for tumble % calculation)
+ *   CharacterData_RoA2 – weights (for tumble % calculation). Renamed from
+ *     ROA2_CharacterData in a site-wide Cargo table restructuring (matches
+ *     the CharacterData_<Game> convention now used for every other game on
+ *     the wiki, e.g. CharacterData_SSBU, CharacterData_PPlus).
  *
  * Shield safety formula (from Module:RoA2_Move_Card):
  *   ShieldStun  = max(2, floor(Damage × 0.8 + 1) + ExtraShieldStun)
@@ -559,7 +562,7 @@ async function scrapeCharacter(charName, charSlug, characterWeights) {
 
 async function main() {
   console.log('Fetching character weights...');
-  const weightRows    = await cargo('ROA2_CharacterData', 'chara,Weight', 'chara IS NOT NULL');
+  const weightRows    = await cargo('CharacterData_RoA2', 'chara,Weight', 'chara IS NOT NULL');
   const characterWeights = weightRows.map(r => ({ chara: r.chara, Weight: Number(r.Weight) }));
   console.log(`  ${characterWeights.length} characters loaded.\n`);
 

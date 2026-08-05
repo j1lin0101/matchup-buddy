@@ -1,7 +1,7 @@
 {
   "character": "Absa",
   "slug": "Absa",
-  "scrapedAt": "2026-08-04T19:32:22.714Z",
+  "scrapedAt": "2026-08-05T17:48:34.559Z",
   "moves": [
     {
       "move": "Jab",
@@ -10,10 +10,10 @@
         {
           "hitbox": "Jab 1",
           "shieldSafety": {
-            "min": -10,
-            "max": -8
+            "min": -15,
+            "max": -13
           },
-          "shieldRaw": "-10 to -8",
+          "shieldRaw": "-15 to -13",
           "tumblePercent": null,
           "tumbleRaw": "Never",
           "perCharacterTumble": {},
@@ -29,15 +29,15 @@
           "kbs": 0,
           "hitstunMultiplier": 1,
           "damage": 3,
-          "endlag": 10
+          "endlag": 15
         },
         {
           "hitbox": "Jab 2",
           "shieldSafety": {
-            "min": -10,
-            "max": -8
+            "min": -15,
+            "max": -13
           },
-          "shieldRaw": "-10 to -8",
+          "shieldRaw": "-15 to -13",
           "tumblePercent": null,
           "tumbleRaw": "Never",
           "perCharacterTumble": {},
@@ -53,7 +53,7 @@
           "kbs": 0,
           "hitstunMultiplier": 1,
           "damage": 3,
-          "endlag": 10
+          "endlag": 15
         }
       ]
     },
@@ -1325,15 +1325,15 @@
         {
           "hitbox": "Double Blip: Blip",
           "shieldSafety": {
-            "min": -17,
-            "max": -17
+            "min": -18,
+            "max": -18
           },
-          "shieldRaw": "-17",
+          "shieldRaw": "-18",
           "tumblePercent": {
-            "min": 385,
-            "max": 385
+            "min": 386,
+            "max": 386
           },
-          "tumbleRaw": "385%",
+          "tumbleRaw": "386%",
           "perCharacterTumble": {},
           "perCharacterTumbleAerial": {},
           "knockbackAngle": 90,
@@ -1346,21 +1346,21 @@
           "bkb": 4,
           "kbs": 0.1,
           "hitstunMultiplier": 1,
-          "damage": 4,
+          "damage": 3,
           "endlag": null
         },
         {
           "hitbox": "Single Blip (Short): Blip",
           "shieldSafety": {
-            "min": -17,
-            "max": -17
+            "min": -18,
+            "max": -18
           },
-          "shieldRaw": "-17",
+          "shieldRaw": "-18",
           "tumblePercent": {
-            "min": 385,
-            "max": 385
+            "min": 386,
+            "max": 386
           },
-          "tumbleRaw": "385%",
+          "tumbleRaw": "386%",
           "perCharacterTumble": {},
           "perCharacterTumbleAerial": {},
           "knockbackAngle": 90,
@@ -1373,7 +1373,7 @@
           "bkb": 4,
           "kbs": 0.1,
           "hitstunMultiplier": 1,
-          "damage": 4,
+          "damage": 3,
           "endlag": null
         }
       ]
@@ -1478,7 +1478,7 @@
     },
     {
       "move": "Grab",
-      "startup": 8,
+      "startup": 7,
       "hitboxes": []
     },
     {

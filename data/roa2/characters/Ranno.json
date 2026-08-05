@@ -1,7 +1,7 @@
 {
   "character": "Ranno",
   "slug": "Ranno",
-  "scrapedAt": "2026-08-04T19:32:24.835Z",
+  "scrapedAt": "2026-08-05T17:48:36.805Z",
   "moves": [
     {
       "move": "Jab",
@@ -715,9 +715,9 @@
           "hitbox": "Regular: Body (Weak)",
           "shieldSafety": {
             "min": -32,
-            "max": -31
+            "max": -32
           },
-          "shieldRaw": "-32 to -31",
+          "shieldRaw": "-32",
           "tumblePercent": {
             "min": 15,
             "max": 21
@@ -1157,29 +1157,29 @@
           },
           "shieldRaw": "-3",
           "tumblePercent": {
-            "min": 40,
-            "max": 52
+            "min": 33,
+            "max": 43
           },
-          "tumbleRaw": "40 - 52%",
+          "tumbleRaw": "33 - 43%",
           "perCharacterTumble": {
-            "ABSA": 43,
-            "BIG GOUIE": 50,
-            "CLAIREN": 45,
-            "ETALUS": 51,
-            "FLEET": 45,
-            "FORSBURN": 48,
-            "GALVAN": 50,
-            "GOUIE": 40,
-            "KRAGG": 51,
-            "LA REINA": 49,
-            "LOXODONT": 52,
-            "MAYPUL": 44,
-            "OLYMPIA": 43,
-            "ORCANE": 48,
-            "RANNO": 46,
-            "SLADE": 48,
-            "WRASTOR": 41,
-            "ZETTERBURN": 48
+            "ABSA": 36,
+            "BIG GOUIE": 42,
+            "CLAIREN": 37,
+            "ETALUS": 42,
+            "FLEET": 37,
+            "FORSBURN": 39,
+            "GALVAN": 41,
+            "GOUIE": 33,
+            "KRAGG": 42,
+            "LA REINA": 41,
+            "LOXODONT": 43,
+            "MAYPUL": 36,
+            "OLYMPIA": 35,
+            "ORCANE": 39,
+            "RANNO": 38,
+            "SLADE": 40,
+            "WRASTOR": 34,
+            "ZETTERBURN": 39
           },
           "perCharacterTumbleAerial": {},
           "knockbackAngle": 60,
@@ -1190,10 +1190,10 @@
           "sdiMultiplier": 1,
           "autoFloorhuggable": false,
           "bkb": 5,
-          "kbs": 0.55,
+          "kbs": 0.65,
           "hitstunMultiplier": 1,
           "damage": 7,
-          "endlag": 24
+          "endlag": 28
         },
         {
           "hitbox": "Leg (Strong)",
@@ -1239,7 +1239,7 @@
           "kbs": 0.85,
           "hitstunMultiplier": 1,
           "damage": 9,
-          "endlag": 24
+          "endlag": 28
         },
         {
           "hitbox": "Heel (Spike)",
@@ -1308,7 +1308,7 @@
           "kbs": 0.6,
           "hitstunMultiplier": 1,
           "damage": 10,
-          "endlag": 24
+          "endlag": 28
         }
       ]
     },
@@ -1908,10 +1908,10 @@
         {
           "hitbox": "Divekick",
           "shieldSafety": {
-            "min": -28,
-            "max": -28
+            "min": -32,
+            "max": -32
           },
-          "shieldRaw": "-28",
+          "shieldRaw": "-32",
           "tumblePercent": {
             "min": 3,
             "max": 4
@@ -2194,7 +2194,7 @@
     },
     {
       "move": "Grab",
-      "startup": 8,
+      "startup": 7,
       "hitboxes": []
     },
     {

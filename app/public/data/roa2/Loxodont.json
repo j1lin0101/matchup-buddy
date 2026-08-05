@@ -1,7 +1,7 @@
 {
   "character": "Loxodont",
   "slug": "Loxodont",
-  "scrapedAt": "2026-08-04T19:32:26.135Z",
+  "scrapedAt": "2026-08-05T17:48:38.166Z",
   "moves": [
     {
       "move": "Jab",
@@ -11,9 +11,9 @@
           "hitbox": "Jab 1: Handle",
           "shieldSafety": {
             "min": -18,
-            "max": -16
+            "max": -17
           },
-          "shieldRaw": "-18 to -16",
+          "shieldRaw": "-18 to -17",
           "tumblePercent": null,
           "tumbleRaw": "Never",
           "perCharacterTumble": {},
@@ -29,15 +29,15 @@
           "kbs": 0,
           "hitstunMultiplier": 1,
           "damage": 4,
-          "endlag": 19
+          "endlag": 20
         },
         {
           "hitbox": "Jab 1: Axehead",
           "shieldSafety": {
             "min": -17,
-            "max": -15
+            "max": -16
           },
-          "shieldRaw": "-17 to -15",
+          "shieldRaw": "-17 to -16",
           "tumblePercent": null,
           "tumbleRaw": "Never",
           "perCharacterTumble": {},
@@ -53,7 +53,7 @@
           "kbs": 0,
           "hitstunMultiplier": 1,
           "damage": 5,
-          "endlag": 19
+          "endlag": 20
         },
         {
           "hitbox": "Jab 2: Handle",
@@ -170,7 +170,7 @@
           "forceFlinch": false,
           "asdiMultiplier": 1.5,
           "sdiMultiplier": 1,
-          "autoFloorhuggable": false,
+          "autoFloorhuggable": true,
           "bkb": 6,
           "kbs": 0,
           "hitstunMultiplier": 1.5,
@@ -194,7 +194,7 @@
           "forceFlinch": false,
           "asdiMultiplier": -1,
           "sdiMultiplier": 1,
-          "autoFloorhuggable": false,
+          "autoFloorhuggable": true,
           "bkb": 6.8,
           "kbs": 0,
           "hitstunMultiplier": 1.5,
@@ -5023,7 +5023,7 @@
     },
     {
       "move": "Grab",
-      "startup": 8,
+      "startup": 7,
       "hitboxes": []
     },
     {

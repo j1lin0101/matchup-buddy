@@ -1,7 +1,7 @@
 {
   "character": "Etalus",
   "slug": "Etalus",
-  "scrapedAt": "2026-08-04T19:32:23.115Z",
+  "scrapedAt": "2026-08-05T17:48:35.035Z",
   "moves": [
     {
       "move": "Jab",
@@ -768,7 +768,7 @@
       "startup": 19,
       "hitboxes": [
         {
-          "hitbox": "Armor: Hit 1",
+          "hitbox": "Regular: Hit 1 Lower",
           "shieldSafety": {
             "min": -42,
             "max": -41
@@ -795,109 +795,14 @@
           "endlag": 38
         },
         {
-          "hitbox": "Armor: Hit 2",
-          "shieldSafety": {
-            "min": -32,
-            "max": -29
-          },
-          "shieldRaw": "-32 to -29",
-          "tumblePercent": {
-            "min": 0,
-            "max": 1
-          },
-          "tumbleRaw": "0 - 1%",
-          "perCharacterTumble": {
-            "ABSA": 0,
-            "BIG GOUIE": 1,
-            "CLAIREN": 0,
-            "ETALUS": 1,
-            "FLEET": 0,
-            "FORSBURN": 0,
-            "GALVAN": 1,
-            "GOUIE": 0,
-            "KRAGG": 1,
-            "LA REINA": 1,
-            "LOXODONT": 1,
-            "MAYPUL": 0,
-            "OLYMPIA": 0,
-            "ORCANE": 0,
-            "RANNO": 0,
-            "SLADE": 0,
-            "WRASTOR": 0,
-            "ZETTERBURN": 0
-          },
-          "perCharacterTumbleAerial": {},
-          "knockbackAngle": 90,
-          "knockbackAngleMode": "SpecifiedAngle",
-          "forceTumble": false,
-          "forceFlinch": false,
-          "asdiMultiplier": -1,
-          "sdiMultiplier": 1,
-          "autoFloorhuggable": false,
-          "bkb": 7,
-          "kbs": 1.15,
-          "hitstunMultiplier": 1,
-          "damage": 12,
-          "endlag": 38
-        },
-        {
-          "hitbox": "Armor: Ice Shards",
-          "shieldSafety": {
-            "min": -35,
-            "max": -21
-          },
-          "shieldRaw": "-35 to -21",
-          "tumblePercent": {
-            "min": 60,
-            "max": 75
-          },
-          "tumbleRaw": "60 - 75%",
-          "perCharacterTumble": {
-            "ABSA": 64,
-            "BIG GOUIE": 73,
-            "CLAIREN": 67,
-            "ETALUS": 74,
-            "FLEET": 66,
-            "FORSBURN": 70,
-            "GALVAN": 73,
-            "GOUIE": 60,
-            "KRAGG": 75,
-            "LA REINA": 72,
-            "LOXODONT": 75,
-            "MAYPUL": 65,
-            "OLYMPIA": 63,
-            "ORCANE": 70,
-            "RANNO": 68,
-            "SLADE": 70,
-            "WRASTOR": 61,
-            "ZETTERBURN": 70
-          },
-          "perCharacterTumbleAerial": {},
-          "knockbackAngle": 70,
-          "knockbackAngleMode": "SpecifiedAngle",
-          "forceTumble": false,
-          "forceFlinch": false,
-          "asdiMultiplier": -1,
-          "sdiMultiplier": 1,
-          "autoFloorhuggable": false,
-          "bkb": 6,
-          "kbs": 0.3,
-          "hitstunMultiplier": 1,
-          "damage": 3,
-          "endlag": 38
-        },
-        {
-          "hitbox": "Regular: Hit 1",
+          "hitbox": "Regular: Hit 1 Upper",
           "shieldSafety": {
             "min": -42,
             "max": -41
           },
           "shieldRaw": "-42 to -41",
-          "tumblePercent": {
-            "min": 0,
-            "max": 0
-          },
-          "tumbleRaw": "0%",
+          "tumblePercent": null,
+          "tumbleRaw": "Never",
           "perCharacterTumble": {},
           "perCharacterTumbleAerial": {},
           "knockbackAngle": 105,
@@ -907,7 +812,7 @@
           "asdiMultiplier": -1,
           "sdiMultiplier": 0,
           "autoFloorhuggable": false,
-          "bkb": 13,
+          "bkb": 8.5,
           "kbs": 0,
           "hitstunMultiplier": 0.8,
           "damage": 3,
@@ -2193,7 +2098,7 @@
     },
     {
       "move": "Grab",
-      "startup": 8,
+      "startup": 7,
       "hitboxes": []
     },
     {

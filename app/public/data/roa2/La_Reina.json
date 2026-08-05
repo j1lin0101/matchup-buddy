@@ -1,7 +1,7 @@
 {
   "character": "La Reina",
   "slug": "La_Reina",
-  "scrapedAt": "2026-08-04T19:32:27.026Z",
+  "scrapedAt": "2026-08-05T17:48:39.215Z",
   "moves": [
     {
       "move": "Jab",
@@ -204,7 +204,7 @@
           "forceFlinch": false,
           "asdiMultiplier": -1,
           "sdiMultiplier": 1,
-          "autoFloorhuggable": false,
+          "autoFloorhuggable": true,
           "bkb": 4,
           "kbs": 0.6,
           "hitstunMultiplier": 1,
@@ -250,7 +250,7 @@
           "forceFlinch": false,
           "asdiMultiplier": -1,
           "sdiMultiplier": 1,
-          "autoFloorhuggable": false,
+          "autoFloorhuggable": true,
           "bkb": 4,
           "kbs": 0.6,
           "hitstunMultiplier": 1,
@@ -296,7 +296,7 @@
           "forceFlinch": false,
           "asdiMultiplier": -1,
           "sdiMultiplier": 1,
-          "autoFloorhuggable": false,
+          "autoFloorhuggable": true,
           "bkb": 4,
           "kbs": 0.6,
           "hitstunMultiplier": 1,
@@ -1037,7 +1037,7 @@
             "ZETTERBURN": 16
           },
           "perCharacterTumbleAerial": {},
-          "knockbackAngle": 75,
+          "knockbackAngle": 72,
           "knockbackAngleMode": "SpecifiedAngle",
           "forceTumble": false,
           "forceFlinch": false,
@@ -1475,7 +1475,7 @@
     },
     {
       "move": "Grab",
-      "startup": 8,
+      "startup": 7,
       "hitboxes": []
     },
     {

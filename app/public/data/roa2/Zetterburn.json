@@ -1,7 +1,7 @@
 {
   "character": "Zetterburn",
   "slug": "Zetterburn",
-  "scrapedAt": "2026-08-04T19:32:21.440Z",
+  "scrapedAt": "2026-08-05T17:48:33.224Z",
   "moves": [
     {
       "move": "Jab",
@@ -1402,7 +1402,7 @@
           "kbs": 0.6,
           "hitstunMultiplier": 1,
           "damage": 12,
-          "endlag": 23
+          "endlag": 24
         },
         {
           "hitbox": "Regular",
@@ -1471,7 +1471,7 @@
           "kbs": 0.55,
           "hitstunMultiplier": 1,
           "damage": 10,
-          "endlag": 23
+          "endlag": 24
         }
       ]
     },
@@ -1887,7 +1887,7 @@
     },
     {
       "move": "Grab",
-      "startup": 8,
+      "startup": 7,
       "hitboxes": []
     },
     {

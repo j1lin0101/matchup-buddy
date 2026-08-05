@@ -1,7 +1,7 @@
 {
   "character": "Orcane",
   "slug": "Orcane",
-  "scrapedAt": "2026-08-04T19:32:23.514Z",
+  "scrapedAt": "2026-08-05T17:48:35.547Z",
   "moves": [
     {
       "move": "Jab",
@@ -1300,10 +1300,10 @@
         {
           "hitbox": "Geyser Top (Strong)",
           "shieldSafety": {
-            "min": -5,
-            "max": -5
+            "min": -7,
+            "max": -7
           },
-          "shieldRaw": "-5",
+          "shieldRaw": "-7",
           "tumblePercent": {
             "min": 0,
             "max": 2
@@ -1346,10 +1346,10 @@
         {
           "hitbox": "Geyser Jet (Weak)",
           "shieldSafety": {
-            "min": -7,
-            "max": -7
+            "min": -9,
+            "max": -9
           },
-          "shieldRaw": "-7",
+          "shieldRaw": "-9",
           "tumblePercent": {
             "min": 10,
             "max": 14
@@ -1392,10 +1392,10 @@
         {
           "hitbox": "Belly Early",
           "shieldSafety": {
-            "min": -8,
-            "max": -8
+            "min": -10,
+            "max": -10
           },
-          "shieldRaw": "-8",
+          "shieldRaw": "-10",
           "tumblePercent": {
             "min": 12,
             "max": 17,
@@ -1461,10 +1461,10 @@
         {
           "hitbox": "Belly Late",
           "shieldSafety": {
-            "min": -8,
-            "max": -8
+            "min": -10,
+            "max": -10
           },
-          "shieldRaw": "-8",
+          "shieldRaw": "-10",
           "tumblePercent": {
             "min": 38,
             "max": 48,
@@ -1649,7 +1649,7 @@
           "forceFlinch": false,
           "asdiMultiplier": -1,
           "sdiMultiplier": 1,
-          "autoFloorhuggable": true,
+          "autoFloorhuggable": false,
           "bkb": 4,
           "kbs": 0.25,
           "hitstunMultiplier": 0.75,
@@ -2069,7 +2069,7 @@
           "forceFlinch": false,
           "asdiMultiplier": -1,
           "sdiMultiplier": 1,
-          "autoFloorhuggable": true,
+          "autoFloorhuggable": false,
           "bkb": 4,
           "kbs": 0.2,
           "hitstunMultiplier": 0.75,
@@ -2080,7 +2080,7 @@
     },
     {
       "move": "Grab",
-      "startup": 8,
+      "startup": 7,
       "hitboxes": []
     },
     {

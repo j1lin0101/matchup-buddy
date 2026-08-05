@@ -1,7 +1,7 @@
 {
   "character": "Fleet",
   "slug": "Fleet",
-  "scrapedAt": "2026-08-04T19:32:25.661Z",
+  "scrapedAt": "2026-08-05T17:48:37.682Z",
   "moves": [
     {
       "move": "Jab",
@@ -1013,34 +1013,34 @@
         {
           "hitbox": "Early (Strong)",
           "shieldSafety": {
-            "min": -2,
-            "max": -2
+            "min": -4,
+            "max": -4
           },
-          "shieldRaw": "-2",
+          "shieldRaw": "-4",
           "tumblePercent": {
-            "min": 28,
-            "max": 37
+            "min": 30,
+            "max": 39
           },
-          "tumbleRaw": "28 - 37%",
+          "tumbleRaw": "30 - 39%",
           "perCharacterTumble": {
-            "ABSA": 30,
-            "BIG GOUIE": 36,
-            "CLAIREN": 32,
-            "ETALUS": 36,
-            "FLEET": 32,
-            "FORSBURN": 34,
-            "GALVAN": 36,
-            "GOUIE": 28,
-            "KRAGG": 37,
-            "LA REINA": 35,
-            "LOXODONT": 37,
-            "MAYPUL": 31,
-            "OLYMPIA": 30,
-            "ORCANE": 34,
-            "RANNO": 33,
-            "SLADE": 34,
-            "WRASTOR": 29,
-            "ZETTERBURN": 34
+            "ABSA": 32,
+            "BIG GOUIE": 38,
+            "CLAIREN": 34,
+            "ETALUS": 38,
+            "FLEET": 34,
+            "FORSBURN": 36,
+            "GALVAN": 38,
+            "GOUIE": 30,
+            "KRAGG": 39,
+            "LA REINA": 37,
+            "LOXODONT": 39,
+            "MAYPUL": 33,
+            "OLYMPIA": 32,
+            "ORCANE": 36,
+            "RANNO": 35,
+            "SLADE": 36,
+            "WRASTOR": 31,
+            "ZETTERBURN": 36
           },
           "perCharacterTumbleAerial": {},
           "knockbackAngle": 45,
@@ -1053,7 +1053,7 @@
           "bkb": 4.25,
           "kbs": 0.85,
           "hitstunMultiplier": 1,
-          "damage": 9,
+          "damage": 7,
           "endlag": 25
         },
         {
@@ -1064,29 +1064,29 @@
           },
           "shieldRaw": "-5",
           "tumblePercent": {
-            "min": 55,
-            "max": 70
+            "min": 56,
+            "max": 71
           },
-          "tumbleRaw": "55 - 70%",
+          "tumbleRaw": "56 - 71%",
           "perCharacterTumble": {
-            "ABSA": 60,
-            "BIG GOUIE": 69,
-            "CLAIREN": 62,
-            "ETALUS": 69,
-            "FLEET": 61,
-            "FORSBURN": 65,
-            "GALVAN": 68,
-            "GOUIE": 55,
-            "KRAGG": 70,
-            "LA REINA": 67,
-            "LOXODONT": 70,
-            "MAYPUL": 60,
-            "OLYMPIA": 59,
-            "ORCANE": 65,
-            "RANNO": 63,
-            "SLADE": 66,
-            "WRASTOR": 56,
-            "ZETTERBURN": 65
+            "ABSA": 61,
+            "BIG GOUIE": 70,
+            "CLAIREN": 63,
+            "ETALUS": 70,
+            "FLEET": 62,
+            "FORSBURN": 66,
+            "GALVAN": 69,
+            "GOUIE": 56,
+            "KRAGG": 71,
+            "LA REINA": 68,
+            "LOXODONT": 71,
+            "MAYPUL": 61,
+            "OLYMPIA": 60,
+            "ORCANE": 66,
+            "RANNO": 64,
+            "SLADE": 67,
+            "WRASTOR": 57,
+            "ZETTERBURN": 66
           },
           "perCharacterTumbleAerial": {},
           "knockbackAngle": 45,
@@ -1099,7 +1099,7 @@
           "bkb": 2.6,
           "kbs": 0.7,
           "hitstunMultiplier": 1,
-          "damage": 6,
+          "damage": 5,
           "endlag": 25
         }
       ]
@@ -1994,7 +1994,7 @@
     },
     {
       "move": "Grab",
-      "startup": 8,
+      "startup": 7,
       "hitboxes": []
     },
     {
@@ -2078,6 +2078,30 @@
         },
         {
           "hitbox": "Homing Arrows",
+          "shieldSafety": null,
+          "shieldRaw": null,
+          "tumblePercent": {
+            "min": 37,
+            "max": 37
+          },
+          "tumbleRaw": "37%",
+          "perCharacterTumble": {},
+          "perCharacterTumbleAerial": {},
+          "knockbackAngle": 40,
+          "knockbackAngleMode": "SpecifiedAngle",
+          "forceTumble": false,
+          "forceFlinch": false,
+          "asdiMultiplier": -1,
+          "sdiMultiplier": 0,
+          "autoFloorhuggable": false,
+          "bkb": 8,
+          "kbs": 0.15,
+          "hitstunMultiplier": 1,
+          "damage": 1,
+          "endlag": 24
+        },
+        {
+          "hitbox": "Final Arrow",
           "shieldSafety": null,
           "shieldRaw": null,
           "tumblePercent": {
@@ -2227,7 +2251,7 @@
     },
     {
       "move": "Down Throw",
-      "startup": 16,
+      "startup": 21,
       "hitboxes": [
         {
           "hitbox": "Shot",
@@ -2248,7 +2272,7 @@
           "kbs": 0.3,
           "hitstunMultiplier": 1,
           "damage": 4,
-          "endlag": 21
+          "endlag": 16
         }
       ]
     },
@@ -2415,7 +2439,53 @@
       "startup": 33,
       "hitboxes": [
         {
-          "hitbox": "Arrow",
+          "hitbox": "Release Hit",
+          "shieldSafety": {
+            "min": -21,
+            "max": -21
+          },
+          "shieldRaw": "-21",
+          "tumblePercent": {
+            "min": 5,
+            "max": 8
+          },
+          "tumbleRaw": "5 - 8%",
+          "perCharacterTumble": {
+            "ABSA": 6,
+            "BIG GOUIE": 8,
+            "CLAIREN": 6,
+            "ETALUS": 8,
+            "FLEET": 6,
+            "FORSBURN": 7,
+            "GALVAN": 8,
+            "GOUIE": 5,
+            "KRAGG": 8,
+            "LA REINA": 7,
+            "LOXODONT": 8,
+            "MAYPUL": 6,
+            "OLYMPIA": 6,
+            "ORCANE": 7,
+            "RANNO": 7,
+            "SLADE": 7,
+            "WRASTOR": 5,
+            "ZETTERBURN": 7
+          },
+          "perCharacterTumbleAerial": {},
+          "knockbackAngle": 70,
+          "knockbackAngleMode": "SpecifiedAngle",
+          "forceTumble": false,
+          "forceFlinch": false,
+          "asdiMultiplier": -1,
+          "sdiMultiplier": 1,
+          "autoFloorhuggable": false,
+          "bkb": 8,
+          "kbs": 0.4,
+          "hitstunMultiplier": 1,
+          "damage": 7,
+          "endlag": 26
+        },
+        {
+          "hitbox": "Flying Arrow",
           "shieldSafety": {
             "min": 5,
             "max": 5,

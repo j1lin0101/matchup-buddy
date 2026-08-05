@@ -1,7 +1,7 @@
 {
   "character": "Olympia",
   "slug": "Olympia",
-  "scrapedAt": "2026-08-04T19:32:26.613Z",
+  "scrapedAt": "2026-08-05T17:48:38.692Z",
   "moves": [
     {
       "move": "Jab",
@@ -406,7 +406,7 @@
             "ZETTERBURN": 72
           },
           "perCharacterTumbleAerial": {},
-          "knockbackAngle": 65,
+          "knockbackAngle": 70,
           "knockbackAngleMode": "SpecifiedAngle",
           "forceTumble": false,
           "forceFlinch": false,
@@ -452,7 +452,7 @@
             "ZETTERBURN": 72
           },
           "perCharacterTumbleAerial": {},
-          "knockbackAngle": 55,
+          "knockbackAngle": 65,
           "knockbackAngleMode": "SpecifiedAngle",
           "forceTumble": false,
           "forceFlinch": false,
@@ -1964,7 +1964,7 @@
     },
     {
       "move": "Grab",
-      "startup": 8,
+      "startup": 7,
       "hitboxes": []
     },
     {
@@ -2060,7 +2060,7 @@
           "tumbleRaw": "☑️",
           "perCharacterTumble": {},
           "perCharacterTumbleAerial": {},
-          "knockbackAngle": 125,
+          "knockbackAngle": 120,
           "knockbackAngleMode": "SpecifiedAngle",
           "forceTumble": true,
           "forceFlinch": false,
@@ -2071,7 +2071,7 @@
           "kbs": 0.4,
           "hitstunMultiplier": 1,
           "damage": 5,
-          "endlag": 25
+          "endlag": 21
         }
       ]
     },
@@ -2098,7 +2098,7 @@
           "kbs": 0.6,
           "hitstunMultiplier": 1,
           "damage": 4,
-          "endlag": 32
+          "endlag": 30
         }
       ]
     },

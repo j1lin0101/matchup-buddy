@@ -1,7 +1,7 @@
 {
   "character": "Maypul",
   "slug": "Maypul",
-  "scrapedAt": "2026-08-04T19:32:22.317Z",
+  "scrapedAt": "2026-08-05T17:48:34.147Z",
   "moves": [
     {
       "move": "Jab",
@@ -426,10 +426,10 @@
         {
           "hitbox": "Vine (Weak)",
           "shieldSafety": {
-            "min": -24,
-            "max": -23
+            "min": -26,
+            "max": -25
           },
-          "shieldRaw": "-24 to -23",
+          "shieldRaw": "-26 to -25",
           "tumblePercent": {
             "min": 11,
             "max": 16
@@ -467,15 +467,15 @@
           "kbs": 0.9,
           "hitstunMultiplier": 1,
           "damage": 10,
-          "endlag": 30
+          "endlag": 32
         },
         {
           "hitbox": "Leaf (Strong)",
           "shieldSafety": {
-            "min": -24,
-            "max": -22
+            "min": -26,
+            "max": -24
           },
-          "shieldRaw": "-24 to -22",
+          "shieldRaw": "-26 to -24",
           "tumblePercent": {
             "min": 1,
             "max": 3
@@ -513,7 +513,7 @@
           "kbs": 1.05,
           "hitstunMultiplier": 1,
           "damage": 11,
-          "endlag": 30
+          "endlag": 32
         }
       ]
     },
@@ -818,58 +818,58 @@
         {
           "hitbox": "Fair",
           "shieldSafety": {
-            "min": -6,
-            "max": -6
+            "min": -4,
+            "max": -4
           },
-          "shieldRaw": "-6",
+          "shieldRaw": "-4",
           "tumblePercent": {
-            "min": 46,
-            "max": 60,
+            "min": 44,
+            "max": 58,
             "aerial": {
-              "min": 42,
-              "max": 55
+              "min": 40,
+              "max": 53
             }
           },
-          "tumbleRaw": "46 - 60%",
+          "tumbleRaw": "44 - 58%",
           "perCharacterTumble": {
-            "ABSA": 50,
-            "BIG GOUIE": 58,
-            "CLAIREN": 53,
-            "ETALUS": 59,
-            "FLEET": 52,
-            "FORSBURN": 55,
-            "GALVAN": 58,
-            "GOUIE": 46,
-            "KRAGG": 59,
-            "LA REINA": 57,
-            "LOXODONT": 60,
-            "MAYPUL": 51,
-            "OLYMPIA": 50,
-            "ORCANE": 55,
-            "RANNO": 54,
-            "SLADE": 56,
-            "WRASTOR": 47,
-            "ZETTERBURN": 55
+            "ABSA": 48,
+            "BIG GOUIE": 56,
+            "CLAIREN": 51,
+            "ETALUS": 57,
+            "FLEET": 50,
+            "FORSBURN": 53,
+            "GALVAN": 56,
+            "GOUIE": 44,
+            "KRAGG": 57,
+            "LA REINA": 55,
+            "LOXODONT": 58,
+            "MAYPUL": 49,
+            "OLYMPIA": 48,
+            "ORCANE": 53,
+            "RANNO": 52,
+            "SLADE": 54,
+            "WRASTOR": 45,
+            "ZETTERBURN": 53
           },
           "perCharacterTumbleAerial": {
-            "ABSA": 46,
-            "BIG GOUIE": 53,
-            "CLAIREN": 48,
-            "ETALUS": 54,
-            "FLEET": 47,
-            "FORSBURN": 50,
-            "GALVAN": 53,
-            "GOUIE": 42,
-            "KRAGG": 54,
-            "LA REINA": 52,
-            "LOXODONT": 55,
-            "MAYPUL": 46,
-            "OLYMPIA": 45,
-            "ORCANE": 50,
-            "RANNO": 49,
-            "SLADE": 51,
-            "WRASTOR": 43,
-            "ZETTERBURN": 50
+            "ABSA": 44,
+            "BIG GOUIE": 51,
+            "CLAIREN": 46,
+            "ETALUS": 52,
+            "FLEET": 45,
+            "FORSBURN": 48,
+            "GALVAN": 51,
+            "GOUIE": 40,
+            "KRAGG": 52,
+            "LA REINA": 50,
+            "LOXODONT": 53,
+            "MAYPUL": 44,
+            "OLYMPIA": 43,
+            "ORCANE": 48,
+            "RANNO": 47,
+            "SLADE": 49,
+            "WRASTOR": 41,
+            "ZETTERBURN": 48
           },
           "knockbackAngle": 320,
           "knockbackAngleMode": "SpecifiedAngle",
@@ -881,7 +881,7 @@
           "bkb": 4.5,
           "kbs": 0.45,
           "hitstunMultiplier": 1,
-          "damage": 8,
+          "damage": 10,
           "endlag": 19
         }
       ]
@@ -986,7 +986,7 @@
           "forceFlinch": false,
           "asdiMultiplier": 1.2,
           "sdiMultiplier": 0.5,
-          "autoFloorhuggable": false,
+          "autoFloorhuggable": true,
           "bkb": 3.3,
           "kbs": 0,
           "hitstunMultiplier": 1,
@@ -1010,7 +1010,7 @@
           "forceFlinch": false,
           "asdiMultiplier": 1.2,
           "sdiMultiplier": 0,
-          "autoFloorhuggable": false,
+          "autoFloorhuggable": true,
           "bkb": 5,
           "kbs": 0,
           "hitstunMultiplier": 1,
@@ -1622,7 +1622,7 @@
     },
     {
       "move": "Grab",
-      "startup": 8,
+      "startup": 7,
       "hitboxes": []
     },
     {
@@ -1854,7 +1854,7 @@
           "kbs": 0.6,
           "hitstunMultiplier": 1,
           "damage": 6,
-          "endlag": 24
+          "endlag": 20
         },
         {
           "hitbox": "Throw",
@@ -1897,7 +1897,7 @@
           "kbs": 0.6,
           "hitstunMultiplier": 1,
           "damage": 6,
-          "endlag": 24
+          "endlag": 20
         }
       ]
     },
