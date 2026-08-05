@@ -203,6 +203,25 @@ function CharColumnHeader({ name, accent, linkName }) {
   )
 }
 
+// Normal/Big form toggle for characters with an alternate form (currently
+// just Gouie — see CHARACTER_FORMS). Reused both under CharColumnHeader on
+// the Overview tab and as an extra toolbar line on the Attacking tabs.
+function FormToggle({ forms, value, onChange, accent, baseChar, style }) {
+  return (
+    <div style={{ display: 'flex', alignItems: 'center', gap: '6px', ...style }}>
+      <span style={{ fontSize: '0.65rem', fontWeight: 700, color: accent, textTransform: 'uppercase', letterSpacing: '0.06em' }}>
+        {baseChar}:
+      </span>
+      <SegmentedToggle
+        activeColor={accent}
+        value={value}
+        onChange={onChange}
+        options={forms.map(f => ({ value: f.id, label: f.label }))}
+      />
+    </div>
+  )
+}
+
 function TooltipIcon({ text }) {
   const [visible, setVisible] = useState(false)
   return (
@@ -1315,7 +1334,10 @@ function ToolbarDivider() {
   return <div className="toolbar-divider" style={{ width: '1px', alignSelf: 'stretch', background: 'var(--border)' }} />
 }
 
-function BreakdownSection({ matchupVsOpp, matchupVsMe, myChar, oppChar, myOOS, oppOOS, view, myData, oppData }) {
+function BreakdownSection({
+  matchupVsOpp, matchupVsMe, myChar, oppChar, myOOS, oppOOS, view, myData, oppData,
+  activeBaseChar, activeForms, activeFormId, setActiveFormId, activeAccent,
+}) {
   const [categoryFilter, setCategoryFilter] = useState('All')
   const [oosFilter, setOosFilter] = useState(new Set())
   const [filterModalOpen, setFilterModalOpen] = useState(false)
@@ -1523,6 +1545,20 @@ function BreakdownSection({ matchupVsOpp, matchupVsMe, myChar, oppChar, myOOS, o
                   )}
                 </button>
               </div>
+        )}
+
+        {/* Form toggle — its own line, only shown for characters with an
+            alternate form (currently just Gouie) */}
+        {activeForms && (
+          <div style={{ padding: '10px 16px', borderTop: '1px solid var(--border)' }}>
+            <FormToggle
+              forms={activeForms}
+              value={activeFormId}
+              onChange={setActiveFormId}
+              accent={activeAccent}
+              baseChar={activeBaseChar}
+            />
+          </div>
         )}
       </div>
 
@@ -1843,32 +1879,6 @@ export default function MatchupView({ myChar, oppChar, onBack }) {
           <p style={{ color: 'var(--muted)', fontSize: '0.72rem', marginTop: '2px', lineHeight: 1.6 }}>
             Shield safety &amp; punish analysis
           </p>
-          {(myForms || oppForms) && (
-            <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap', marginTop: '6px' }}>
-              {myForms && (
-                <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-                  <span style={{ fontSize: '0.68rem', fontWeight: 700, color: 'var(--accent)' }}>{myChar}:</span>
-                  <SegmentedToggle
-                    activeColor="var(--accent)"
-                    value={myFormId}
-                    onChange={setMyFormId}
-                    options={myForms.map(f => ({ value: f.id, label: f.label }))}
-                  />
-                </div>
-              )}
-              {oppForms && (
-                <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-                  <span style={{ fontSize: '0.68rem', fontWeight: 700, color: 'var(--accent2)' }}>{oppChar}:</span>
-                  <SegmentedToggle
-                    activeColor="var(--accent2)"
-                    value={oppFormId}
-                    onChange={setOppFormId}
-                    options={oppForms.map(f => ({ value: f.id, label: f.label }))}
-                  />
-                </div>
-              )}
-            </div>
-          )}
         </div>
 
         <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flexShrink: 0 }}>
@@ -1953,8 +1963,14 @@ export default function MatchupView({ myChar, oppChar, onBack }) {
 
         {activeTab === 'overview' && (
           <div className="top-panels-grid">
-            <div className="char-col-header-my"><CharColumnHeader name={myCharEffective} linkName={myChar} accent="var(--accent)" /></div>
-            <div className="char-col-header-opp"><CharColumnHeader name={oppCharEffective} linkName={oppChar} accent="var(--accent2)" /></div>
+            <div className="char-col-header-my">
+              <CharColumnHeader name={myCharEffective} linkName={myChar} accent="var(--accent)" />
+              {myForms && <FormToggle forms={myForms} value={myFormId} onChange={setMyFormId} accent="var(--accent)" baseChar={myChar} style={{ marginTop: '2px', marginLeft: '4px' }} />}
+            </div>
+            <div className="char-col-header-opp">
+              <CharColumnHeader name={oppCharEffective} linkName={oppChar} accent="var(--accent2)" />
+              {oppForms && <FormToggle forms={oppForms} value={oppFormId} onChange={setOppFormId} accent="var(--accent2)" baseChar={oppChar} style={{ marginTop: '2px', marginLeft: '4px' }} />}
+            </div>
 
             <div className="char-panel-safe-my">
               {myData
@@ -2015,6 +2031,11 @@ export default function MatchupView({ myChar, oppChar, onBack }) {
             view={activeTab}
             myData={myData}
             oppData={oppData}
+            activeBaseChar={activeTab === 'me' ? myChar : oppChar}
+            activeForms={activeTab === 'me' ? myForms : oppForms}
+            activeFormId={activeTab === 'me' ? myFormId : oppFormId}
+            setActiveFormId={activeTab === 'me' ? setMyFormId : setOppFormId}
+            activeAccent={activeTab === 'me' ? 'var(--accent)' : 'var(--accent2)'}
           />
         )}
 
