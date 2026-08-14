@@ -1180,6 +1180,51 @@ export default function MeleeMatchupView({ myChar, oppChar, onBack }) {
           />
         )}
       </main>
+
+      <footer style={{
+        borderTop: '1px solid var(--border)',
+        padding: '14px 32px',
+        textAlign: 'center',
+        fontSize: '0.78rem',
+        color: 'var(--muted)',
+        display: 'flex',
+        flexDirection: 'column',
+        gap: '6px',
+      }}>
+        <span>
+          Created by{' '}
+          <a
+            href="https://x.com/boi_jir0"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{ color: 'var(--accent)', textDecoration: 'none', fontWeight: 600 }}
+          >
+            @boi_jiro
+          </a>
+        </span>
+        <span>
+          All frame data sourced from{' '}
+          <a
+            href="https://github.com/FightCore/frame-data"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{ color: 'var(--accent)', textDecoration: 'none' }}
+          >
+            FightCore/frame-data
+          </a>.
+        </span>
+        <span>
+          Have a bug fix, feature suggestion, or general feedback? Please feel free to fill out{' '}
+          <a
+            href="https://forms.gle/7uZnA3EzMN2k19WA9"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{ color: 'var(--accent)', textDecoration: 'none' }}
+          >
+            this form
+          </a>.
+        </span>
+      </footer>
     </div>
   )
 }
