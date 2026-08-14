@@ -1,7 +1,7 @@
 {
   "character": "Galvan",
   "slug": "Galvan",
-  "scrapedAt": "2026-08-05T17:48:39.616Z",
+  "scrapedAt": "2026-08-14T20:10:22.904Z",
   "moves": [
     {
       "move": "Jab",
@@ -2482,6 +2482,60 @@
           "hitstunMultiplier": 1,
           "damage": 5,
           "endlag": 27
+        }
+      ]
+    },
+    {
+      "move": "Drill",
+      "startup": null,
+      "hitboxes": [
+        {
+          "hitbox": "Drill KB",
+          "shieldSafety": {
+            "min": 2,
+            "max": 2,
+            "isStun": true,
+            "isProjectile": true
+          },
+          "shieldRaw": "Stun: 2",
+          "tumblePercent": {
+            "min": 7,
+            "max": 9
+          },
+          "tumbleRaw": "7 - 9%",
+          "perCharacterTumble": {
+            "ABSA": 7,
+            "BIG GOUIE": 9,
+            "CLAIREN": 8,
+            "ETALUS": 9,
+            "FLEET": 8,
+            "FORSBURN": 8,
+            "GALVAN": 9,
+            "GOUIE": 7,
+            "KRAGG": 9,
+            "LA REINA": 9,
+            "LOXODONT": 9,
+            "MAYPUL": 8,
+            "OLYMPIA": 7,
+            "ORCANE": 8,
+            "RANNO": 8,
+            "SLADE": 8,
+            "WRASTOR": 7,
+            "ZETTERBURN": 8
+          },
+          "perCharacterTumbleAerial": {},
+          "knockbackAngle": 0,
+          "knockbackAngleMode": "UseCustomAngle",
+          "forceTumble": false,
+          "forceFlinch": false,
+          "asdiMultiplier": -1,
+          "sdiMultiplier": 1,
+          "autoFloorhuggable": false,
+          "bkb": 8,
+          "kbs": 0.5,
+          "hitstunMultiplier": 1,
+          "damage": 3,
+          "endlag": null
         }
       ]
     }

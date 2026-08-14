@@ -1,7 +1,7 @@
 {
   "character": "Orcane",
   "slug": "Orcane",
-  "scrapedAt": "2026-08-05T17:48:35.547Z",
+  "scrapedAt": "2026-08-14T20:10:19.190Z",
   "moves": [
     {
       "move": "Jab",
@@ -2562,6 +2562,64 @@
           "hitstunMultiplier": 1,
           "damage": 3,
           "endlag": 8
+        }
+      ]
+    },
+    {
+      "move": "Bubble",
+      "startup": null,
+      "hitboxes": [
+        {
+          "hitbox": "Horizontal",
+          "shieldSafety": {
+            "min": 2,
+            "max": 2,
+            "isStun": true,
+            "isProjectile": true
+          },
+          "shieldRaw": "Stun: 2",
+          "tumblePercent": null,
+          "tumbleRaw": "Never",
+          "perCharacterTumble": {},
+          "perCharacterTumbleAerial": {},
+          "knockbackAngle": 45,
+          "knockbackAngleMode": "SpecifiedAngle",
+          "forceTumble": false,
+          "forceFlinch": false,
+          "asdiMultiplier": 1,
+          "sdiMultiplier": 0,
+          "autoFloorhuggable": true,
+          "bkb": 4,
+          "kbs": 0,
+          "hitstunMultiplier": 1,
+          "damage": 1,
+          "endlag": null
+        },
+        {
+          "hitbox": "Vertical",
+          "shieldSafety": {
+            "min": 2,
+            "max": 2,
+            "isStun": true,
+            "isProjectile": true
+          },
+          "shieldRaw": "Stun: 2",
+          "tumblePercent": null,
+          "tumbleRaw": "Never",
+          "perCharacterTumble": {},
+          "perCharacterTumbleAerial": {},
+          "knockbackAngle": 90,
+          "knockbackAngleMode": "SpecifiedAngle",
+          "forceTumble": false,
+          "forceFlinch": false,
+          "asdiMultiplier": 1,
+          "sdiMultiplier": 0,
+          "autoFloorhuggable": true,
+          "bkb": 4,
+          "kbs": 0,
+          "hitstunMultiplier": 1,
+          "damage": 1,
+          "endlag": null
         }
       ]
     }
