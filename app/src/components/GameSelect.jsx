@@ -14,16 +14,13 @@ export default function GameSelect() {
   return (
     <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
       <header className="select-header">
-        <div className="select-header-text" style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', gap: '14px' }}>
-          <img src={`${import.meta.env.BASE_URL}logo.png`} alt="" style={{ width: '56px', height: '56px', flexShrink: 0 }} />
-          <div>
-            <h1 style={{ fontSize: '1.5rem', fontWeight: 700, letterSpacing: '0.02em', color: 'var(--accent)' }}>
-              MatchupBuddy
-            </h1>
-            <p style={{ color: 'var(--muted)', fontSize: '0.85rem', marginTop: '4px' }}>
-              Shield safety &amp; punish analysis
-            </p>
-          </div>
+        <div className="select-header-text">
+          <h1 style={{ fontSize: '1.5rem', fontWeight: 700, letterSpacing: '0.02em', color: 'var(--accent)' }}>
+            MatchupBuddy
+          </h1>
+          <p style={{ color: 'var(--muted)', fontSize: '0.85rem', marginTop: '4px' }}>
+            Shield safety &amp; punish analysis
+          </p>
         </div>
         <a
           href="https://ko-fi.com/boi_jiro"
@@ -44,7 +41,12 @@ export default function GameSelect() {
         flex: 1, display: 'flex', flexDirection: 'column',
         alignItems: 'center', justifyContent: 'center', padding: '32px',
       }}>
-        <h2 style={{ fontSize: '0.95rem', fontWeight: 700, color: 'var(--muted)', textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: '24px' }}>
+        <img
+          src={`${import.meta.env.BASE_URL}logo.png`}
+          alt=""
+          style={{ width: '96px', height: '96px', marginBottom: '20px' }}
+        />
+        <h2 style={{ fontSize: '1.4rem', fontWeight: 700, color: 'var(--muted)', textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: '24px' }}>
           Which game?
         </h2>
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: '20px', justifyContent: 'center', maxWidth: '880px' }}>
