@@ -91,6 +91,7 @@ function SelectPage({ game }) {
           target="_blank"
           rel="noopener noreferrer"
           className="kofi-link"
+          aria-label="Support me on Ko-Fi!"
           style={{
             display: 'inline-flex', alignItems: 'center', gap: '6px',
             padding: '6px 14px', borderRadius: '6px',
@@ -98,7 +99,7 @@ function SelectPage({ game }) {
             color: 'var(--muted)', fontSize: '0.78rem', fontWeight: 600,
             textDecoration: 'none', flexShrink: 0,
           }}
-        >☕ Support me on Ko-Fi!</a>
+        >☕<span className="kofi-text"> Support me on Ko-Fi!</span></a>
       </header>
 
       <main className="select-main">

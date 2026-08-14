@@ -114,8 +114,8 @@ body {
   flex-direction: column;
 }
 @media (max-width: 600px) {
-  .select-header { flex-direction: column; align-items: flex-start; }
-  .select-header .kofi-link { margin-top: 10px; }
+  .select-header .kofi-text { display: none; }
+  .select-header .kofi-link { padding: 6px 10px; }
 }
 .select-main {
   flex: 1;
