@@ -36,27 +36,23 @@ function useRoster(game) {
   return characters
 }
 
+// Demo video is a general MatchupBuddy walkthrough (recorded against RoA2's
+// UI, but the same panels/tabs it covers exist across every game) — shown
+// on every game's select page rather than gated per-game.
+const DEMO_VIDEO_ID = 'W2QBwcA57y0'
+
 const GAME_META = {
   roa2: {
     label: 'Rivals of Aether 2',
     tagline: 'Shield safety & punish analysis',
-    wikiUrl: 'https://dragdown.wiki/wiki/RoA2',
-    sourceName: 'dragdown.wiki',
-    demoVideoId: 'W2QBwcA57y0',
   },
   ssbu: {
     label: 'Super Smash Bros. Ultimate',
     tagline: 'Shield safety & punish analysis',
-    wikiUrl: 'https://dragdown.wiki/wiki/SSBU',
-    sourceName: 'dragdown.wiki',
-    demoVideoId: null,
   },
   ssbm: {
     label: 'Super Smash Bros. Melee',
     tagline: 'Shield safety & punish analysis',
-    wikiUrl: 'https://www.fightcore.gg',
-    sourceName: 'FightCore',
-    demoVideoId: null,
   },
 }
 
@@ -149,22 +145,20 @@ function SelectPage({ game }) {
           )}
         </div>
 
-        {meta.demoVideoId && (
-          <div style={{ marginTop: '48px', width: '100%', maxWidth: '640px', margin: '48px auto 0' }}>
-            <h2 style={{ fontSize: '1rem', fontWeight: 700, color: 'var(--text)', marginBottom: '16px' }}>
-              How do I use this site?
-            </h2>
-            <div style={{ position: 'relative', paddingBottom: '56.25%', height: 0, borderRadius: 'var(--radius)', overflow: 'hidden', border: '1px solid var(--border)' }}>
-              <iframe
-                src={`https://www.youtube.com/embed/${meta.demoVideoId}`}
-                title="MatchupBuddy demo"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-                style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', border: 'none' }}
-              />
-            </div>
+        <div style={{ marginTop: '48px', width: '100%', maxWidth: '640px', margin: '48px auto 0' }}>
+          <h2 style={{ fontSize: '1rem', fontWeight: 700, color: 'var(--text)', marginBottom: '16px' }}>
+            How do I use this site?
+          </h2>
+          <div style={{ position: 'relative', paddingBottom: '56.25%', height: 0, borderRadius: 'var(--radius)', overflow: 'hidden', border: '1px solid var(--border)' }}>
+            <iframe
+              src={`https://www.youtube.com/embed/${DEMO_VIDEO_ID}`}
+              title="MatchupBuddy demo"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+              style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', border: 'none' }}
+            />
           </div>
-        )}
+        </div>
       </main>
       <footer style={{
         borderTop: '1px solid var(--border)',
@@ -185,10 +179,16 @@ function SelectPage({ game }) {
         </span>
         <span>
           All frame data and definitions sourced from{' '}
-          <a href={meta.wikiUrl} target="_blank" rel="noopener noreferrer"
+          <a href="https://dragdown.wiki" target="_blank" rel="noopener noreferrer"
             style={{ color: 'var(--accent)', textDecoration: 'none' }}>
-            {meta.sourceName}
-          </a>.
+            dragdown.wiki
+          </a>{' '}
+          (Rivals of Aether 2, Smash Ultimate) and{' '}
+          <a href="https://github.com/FightCore/frame-data" target="_blank" rel="noopener noreferrer"
+            style={{ color: 'var(--accent)', textDecoration: 'none' }}>
+            FightCore/frame-data
+          </a>{' '}
+          (Smash Melee).
         </span>
         <span>
           Have a bug fix, feature suggestion, or general feedback? Please feel free to fill out{' '}
