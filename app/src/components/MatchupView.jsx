@@ -2070,13 +2070,23 @@ export default function MatchupView({ myChar, oppChar, onBack }) {
         <span>
           All frame data and definitions sourced from{' '}
           <a
-            href="https://dragdown.wiki/wiki/RoA2"
+            href="https://dragdown.wiki"
             target="_blank"
             rel="noopener noreferrer"
             style={{ color: 'var(--accent)', textDecoration: 'none' }}
           >
             dragdown.wiki
-          </a>.
+          </a>{' '}
+          (Rivals of Aether 2, Smash Ultimate) and{' '}
+          <a
+            href="https://github.com/FightCore/frame-data"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{ color: 'var(--accent)', textDecoration: 'none' }}
+          >
+            FightCore/frame-data
+          </a>{' '}
+          (Smash Melee).
         </span>
         <span>
           Have a bug fix, feature suggestion, or general feedback? Please feel free to fill out{' '}
