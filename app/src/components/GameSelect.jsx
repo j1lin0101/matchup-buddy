@@ -39,7 +39,7 @@ export default function GameSelect() {
 
       <main style={{
         flex: 1, display: 'flex', flexDirection: 'column',
-        alignItems: 'center', justifyContent: 'center', padding: '32px',
+        alignItems: 'center', justifyContent: 'flex-start', padding: '48px 32px 32px',
       }}>
         <img
           src={`${import.meta.env.BASE_URL}logo.png`}
