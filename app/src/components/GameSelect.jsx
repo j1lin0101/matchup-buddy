@@ -44,7 +44,7 @@ export default function GameSelect() {
         <img
           src={`${import.meta.env.BASE_URL}logo.png`}
           alt=""
-          style={{ width: '96px', height: '96px', marginBottom: '20px' }}
+          style={{ width: '160px', height: '160px', marginBottom: '20px' }}
         />
         <h2 style={{ fontSize: '1.4rem', fontWeight: 700, color: 'var(--muted)', textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: '24px' }}>
           Which game?
