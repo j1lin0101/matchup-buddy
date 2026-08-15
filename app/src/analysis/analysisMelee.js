@@ -69,9 +69,15 @@ const SAFE_THRESHOLD = -3;
 
 // "On hit" (not-shielding) constants — Crouch Cancel and ASDI Down. See the
 // getMelee* functions below for how these are used.
-const CC_KB_THRESHOLD = 32;        // Crouch Cancel reduces knockback below this; at/above, CC doesn't help
-const CC_REDUCTION = 2 / 3;        // multiplier CC applies to knockback when it helps
-const ASDI_DOWN_KB_THRESHOLD = 80; // Melee's real tumble/special-fall threshold — ASDI Down can't keep you grounded at/above this
+const CC_REDUCTION = 2 / 3;        // multiplier CC applies to knockback — always applies when crouching, no threshold
+const ASDI_DOWN_KB_THRESHOLD = 80; // Melee's real tumble/special-fall threshold, checked against final (post-CC-reduction, if any) knockback
+// Derived, not independent: Crouch Cancelling "breaks" (still results in a
+// knockdown) exactly when the REDUCED knockback clears the tumble threshold,
+// i.e. rawKB * CC_REDUCTION >= ASDI_DOWN_KB_THRESHOLD, i.e. rawKB >=
+// ASDI_DOWN_KB_THRESHOLD / CC_REDUCTION. Works out to 120 — which is exactly
+// the number FightCore's own site uses for its "Crouch-Cancel" threshold
+// card, confirming this is the correct model rather than a coincidence.
+const CC_KB_THRESHOLD = ASDI_DOWN_KB_THRESHOLD / CC_REDUCTION;
 const ON_HIT_HITSTUN_SCALAR = 0.4; // hitstun = floor(finalKB * ON_HIT_HITSTUN_SCALAR)
 
 const CATEGORY_ORDER = ['Normals', 'Smashes', 'Aerials', 'Specials', 'Getup/Ledge'];
@@ -272,16 +278,16 @@ function dedupeGroundAirShieldSafety(rows) {
 }
 
 // Same idea as dedupeAndLabelHitboxes, adapted for on-hit rows (which carry
-// `advantage`/`beatsCC`/`isKnockdown` instead of `shieldSafety`). `beatsCC`/
-// `isKnockdown` are folded into the exact-duplicate key so a knockdown
-// variant of a hitbox is never silently collapsed with a non-knockdown one
-// that happens to share the same advantage number.
+// `advantage`/`isKnockdown` instead of `shieldSafety`). `isKnockdown` is
+// folded into the exact-duplicate key so a knockdown variant of a hitbox is
+// never silently collapsed with a non-knockdown one that happens to share
+// the same advantage number.
 function dedupeAndLabelOnHitHitboxes(rows) {
   const exactSeen = new Set();
   const deduped = [];
   rows.forEach(function(row) {
     const label = isGenericHitboxName(row.hitbox) ? null : row.hitbox;
-    const key = row.move + '|' + (label || '') + '|' + row.advantage + '|' + row.beatsCC + '|' + row.isKnockdown;
+    const key = row.move + '|' + (label || '') + '|' + row.advantage + '|' + row.isKnockdown;
     if (exactSeen.has(key)) return;
     exactSeen.add(key);
     deduped.push(Object.assign({}, row, { hitbox: label }));
@@ -308,7 +314,7 @@ function dedupeAndLabelOnHitHitboxes(rows) {
 
 // Same idea as dedupeGroundAirShieldSafety, adapted for on-hit rows —
 // collapses "Move" / "Move (Air)" into one row when a hitbox has identical
-// advantage and beatsCC/isKnockdown status on both sides.
+// advantage and isKnockdown status on both sides.
 function dedupeGroundAirOnHit(rows) {
   const groups = new Map();
   rows.forEach(function(row) {
@@ -324,7 +330,7 @@ function dedupeGroundAirOnHit(rows) {
     const base = group[0].move.replace(/\s*\(Air\)$/i, '').trim();
     const byOutcome = new Map();
     group.forEach(function(row) {
-      const outcomeKey = row.advantage + '|' + row.beatsCC + '|' + row.isKnockdown;
+      const outcomeKey = row.advantage + '|' + row.isKnockdown;
       if (!byOutcome.has(outcomeKey)) byOutcome.set(outcomeKey, []);
       byOutcome.get(outcomeKey).push(row);
     });
@@ -529,9 +535,15 @@ function getOOSOptions(characterData) {
  * Returns only the OOS options at 15f or faster — used for the overview display
  * panel. analyzeMatchup uses the full getOOSOptions so punish counts reflect all
  * moves that can realistically punish, not just the fastest ones.
+ *
+ * Wavedash is always kept regardless of the 15f cutoff — unlike Rivals (a fixed
+ * 12f for every character, which always clears its own display filter), Melee's
+ * wavedash cost is jumpSquat + 10 and varies per character (13f-18f), so a flat
+ * threshold would silently drop it for slower-jumpsquat characters (e.g. Bowser
+ * at 18f) even though the panel's own tooltip promises "Includes wavedash."
  */
 function getDisplayOOSOptions(characterData) {
-  return getOOSOptions(characterData).filter(function(o) { return o.oosStartup <= 15; });
+  return getOOSOptions(characterData).filter(function(o) { return o.oosStartup <= 15 || o.move === 'Wavedash'; });
 }
 
 /**
@@ -617,20 +629,26 @@ function analyzeMatchup(attackerData, defenderData, shieldReleaseFrames = SHIELD
  *
  * Everything below models the OTHER defensive option — getting hit while
  * NOT shielding — mirroring Rivals' analysis.js Floorhug/CC system, but for
- * Melee's real Crouch Cancel and ASDI Down mechanics.
+ * Melee's real Crouch Cancel and ASDI Down mechanics. The Character
+ * Attacking pages expose these as a toggle (mirroring Rivals' own
+ * Floorhug/Crouch Cancel toggle) rather than showing both at once.
  *
- * Crouch Cancel: standard Melee knockback formula; if the result is under
- * CC_KB_THRESHOLD (32), CC reduces it by CC_REDUCTION (2/3) and the
- * character survives with reduced hitstun. At/above the threshold, CC
- * doesn't help at all — full knockback applies.
+ * Crouch Cancel mode: standard Melee knockback formula, then ALWAYS reduced
+ * by CC_REDUCTION (2/3) — there is no magnitude threshold that turns this
+ * off. The reduced knockback is then checked against Melee's universal
+ * tumble threshold (ASDI_DOWN_KB_THRESHOLD, 80): if it still clears 80, the
+ * defender tumbles airborne anyway ("Knockdown", same treatment as a broken
+ * ASDI Down — mirrors Rivals' exact treatment of a broken floorhug). Below
+ * that, the defender stays grounded with reduced hitstun.
  *
- * ASDI Down: NOT a knockback-reduction mechanic (unlike CC) — it's purely
- * positional (stays grounded vs. gets launched). Modeled via Melee's real
- * tumble/special-fall threshold: at/above ASDI_DOWN_KB_THRESHOLD (80) the
- * defender is launched airborne regardless of ASDI input ("breaks", shown
- * as a Knockdown badge with no punish list — mirrors Rivals' exact
- * treatment of a broken floorhug). Below that, ASDI Down keeps them
- * grounded with the same hitstun as if nothing special happened.
+ * ASDI Down mode: no knockback reduction at all — raw knockback is checked
+ * directly against ASDI_DOWN_KB_THRESHOLD (80) for tumble.
+ *
+ * Tumble % (calcMeleeTumblePercent) always reflects the ASDI Down
+ * threshold on RAW knockback regardless of which mode is toggled — it's the
+ * same "does this hit ever force a knockdown" question FightCore's site
+ * answers with its "ASDI Down" threshold card, independent of whether the
+ * defender is also crouching.
  */
 
 /**
@@ -650,40 +668,43 @@ function calcMeleeKnockback(hitbox, defenderWeight, pct) {
   return (scaled * hitbox.knockbackGrowth / 100) + hitbox.baseKnockback;
 }
 
-// Computes a hitbox's on-hit outcome assuming the defender always takes
-// Crouch Cancel's knockback reduction when it's available (CC never hurts,
-// so a defender minimizing hitstun never has a reason to skip it). Tumble
-// (knockdown) is checked against raw, unreduced knockback — ASDI Down never
-// reduces knockback, it only matters for whether tumble is forced at all,
-// so "does this beat ASDI Down" is exactly the tumble check, independent of
-// whether CC is also being used. See the module doc above for the mechanics.
-function calcMeleeOnHitOutcome(hitbox, defenderWeight, pct) {
+// Computes a hitbox's on-hit outcome for whichever technique is currently
+// toggled. Crouch Cancel mode always applies CC_REDUCTION, then checks
+// tumble against the reduced knockback; ASDI Down mode never reduces
+// knockback and checks tumble directly against the raw value. See the
+// module doc above for the corrected mechanical model.
+function calcMeleeOnHitOutcome(hitbox, defenderWeight, pct, isCrouch) {
   const rawKB = calcMeleeKnockback(hitbox, defenderWeight, pct);
   if (rawKB == null) return null;
-  const isKnockdown = rawKB >= ASDI_DOWN_KB_THRESHOLD;
-  const beatsCC = rawKB >= CC_KB_THRESHOLD;
-  const finalKB = beatsCC ? rawKB : rawKB * CC_REDUCTION;
-  return { rawKB, finalKB, isKnockdown, beatsCC, hitstun: Math.floor(finalKB * ON_HIT_HITSTUN_SCALAR) };
+  const finalKB = isCrouch ? rawKB * CC_REDUCTION : rawKB;
+  const isKnockdown = finalKB >= ASDI_DOWN_KB_THRESHOLD;
+  return { rawKB, finalKB, isKnockdown, hitstun: Math.floor(finalKB * ON_HIT_HITSTUN_SCALAR) };
 }
 
-// The defender % at which this hitbox's raw knockback first reaches the
-// tumble threshold (independent of CC/ASDI — tumble is a raw-knockback
-// state, not affected by DI input). calcMeleeKnockback is linear in pct
-// (KB = pct*slope + intercept), so this is solved directly rather than
-// searched. Returns 0 if the hit always tumbles (even at 0%), null if it
-// never does (fixed/scaling knockback that can't reach 80).
-function calcMeleeTumblePercent(hitbox, defenderWeight) {
+// The defender % at which this hitbox's raw knockback first reaches a given
+// threshold. calcMeleeKnockback is linear in pct (KB = pct*slope +
+// intercept), so this is solved directly rather than searched. Returns 0 if
+// the hit already meets the threshold at 0%, null if it never does
+// (fixed/scaling knockback that can't reach it).
+function calcMeleeBreakPercent(hitbox, defenderWeight, threshold) {
   if (hitbox.setKnockback) {
-    return hitbox.setKnockback >= ASDI_DOWN_KB_THRESHOLD ? 0 : null;
+    return hitbox.setKnockback >= threshold ? 0 : null;
   }
   if (hitbox.damage == null || hitbox.knockbackGrowth == null ||
       hitbox.baseKnockback == null || defenderWeight == null) return null;
   const growthFactor = (1 / 10 + hitbox.damage / 20) * (200 / (defenderWeight + 100)) * 1.4;
   const slope = growthFactor * hitbox.knockbackGrowth / 100;
   const intercept = (18 * hitbox.knockbackGrowth / 100) + hitbox.baseKnockback;
-  if (intercept >= ASDI_DOWN_KB_THRESHOLD) return 0;
+  if (intercept >= threshold) return 0;
   if (slope <= 0) return null;
-  return Math.ceil((ASDI_DOWN_KB_THRESHOLD - intercept) / slope);
+  return Math.ceil((threshold - intercept) / slope);
+}
+
+// The defender % at which this hitbox's RAW knockback first reaches
+// ASDI_DOWN_KB_THRESHOLD (80) — always-visible regardless of the CC/ASDI
+// toggle, mirroring FightCore's own "ASDI Down" threshold card.
+function calcMeleeTumblePercent(hitbox, defenderWeight) {
+  return calcMeleeBreakPercent(hitbox, defenderWeight, ASDI_DOWN_KB_THRESHOLD);
 }
 
 /**
@@ -693,12 +714,21 @@ function calcMeleeTumblePercent(hitbox, defenderWeight) {
  * characters are always loaded together in this app, this uses the actual
  * opponent's real weight rather than a neutral baseline like Rivals'
  * matchup-agnostic Floorhug panel.
+ *
+ * Getup Attack and Edge/Ledge Attack (type 7/8) are excluded here — unlike
+ * the per-move On Hit breakdown table (isExcludedFromOnHit), which
+ * intentionally keeps them. This panel is meant to answer "which of this
+ * character's neutral attacking options beat CC/ASDI Down," and a getup or
+ * ledge attack isn't a freely-selectable neutral option — it only comes out
+ * when already knocked down or hanging on the ledge, so it doesn't belong
+ * in a list framed around what an attacker can throw out on demand.
  */
 function getMeleeBreakers(attackerData, defenderWeight) {
   const seen = new Set();
   const results = [];
   attackerData.moves.forEach(function(move) {
     if (isExcludedFromOnHit(move)) return;
+    if (move.type === 7 || move.type === 8) return;
     move.hitboxes.forEach(function(h) {
       const minKB = calcMeleeKnockback(h, defenderWeight, 0);
       if (minKB == null) return;
@@ -757,20 +787,29 @@ function getMeleeOnHitOptions(characterData) {
     options.push({ move: 'Grab', label: 'Grab', startup: 7, onHitStartup: 7, oosStartup: 7, jumpCancel: false, category: 'Misc' });
   }
   options.push({ move: 'Shield', label: 'Shield', startup: 1, onHitStartup: 1, oosStartup: 1, jumpCancel: false, category: 'Misc' });
+  if (characterData.wavedashOOSFrames != null) {
+    options.push({
+      move:         'Wavedash',
+      label:        'Wavedash',
+      startup:      characterData.wavedashOOSFrames,
+      onHitStartup: characterData.wavedashOOSFrames,
+      oosStartup:   characterData.wavedashOOSFrames,
+      jumpCancel:   false,
+      category:     'Misc',
+    });
+  }
   options.sort(function(a, b) { return a.onHitStartup - b.onHitStartup; });
   return options;
 }
 
 /**
- * On Hit breakdown: given attacker/defender character data and the
- * defender's current damage % (pct), returns a breakdown of each attacker
- * move+hitbox with the resulting advantage and which defender moves can
- * punish it. No defensive-tech toggle — the defender is assumed to always
- * take Crouch Cancel's knockback reduction when it helps (see
- * calcMeleeOnHitOutcome), and tumble/knockdown is checked against raw
- * knockback (ASDI Down never reduces knockback, so "beats ASDI Down" and
- * "causes tumble" are the same check — already surfaced via isKnockdown and
- * tumblePercent below).
+ * On Hit breakdown: given attacker/defender character data, the defender's
+ * current damage % (pct), and which technique is toggled (isCrouch — true
+ * for Crouch Cancel, false for ASDI Down), returns a breakdown of each
+ * attacker move+hitbox with the resulting advantage and which defender
+ * moves can punish it. Tumble % is always computed against the ASDI Down
+ * threshold on raw knockback, independent of the toggle — see the module
+ * doc above.
  *
  * Projectile hitboxes are excluded entirely (not badged, unlike the
  * shield-safety table's PROJ treatment) — the attacker isn't physically
@@ -779,7 +818,7 @@ function getMeleeOnHitOptions(characterData) {
  * still included in getMeleeBreakers, since "does this always break
  * CC/ASDI" only depends on the hit's own knockback numbers.
  */
-function getMeleeOnHitBreakdown(attackerData, defenderData, pct) {
+function getMeleeOnHitBreakdown(attackerData, defenderData, pct, isCrouch) {
   const defenderWeight = defenderData.weight;
   const defenderOptions = getMeleeOnHitOptions(defenderData);
   const results = [];
@@ -789,7 +828,7 @@ function getMeleeOnHitBreakdown(attackerData, defenderData, pct) {
     move.hitboxes.forEach(function(h) {
       if (h.shieldSafety && h.shieldSafety.isProjectile) return;
 
-      const outcome = calcMeleeOnHitOutcome(h, defenderWeight, pct);
+      const outcome = calcMeleeOnHitOutcome(h, defenderWeight, pct, isCrouch);
       if (!outcome || h.endlag == null) return;
       const advantage = outcome.hitstun - h.endlag;
 
@@ -803,7 +842,6 @@ function getMeleeOnHitBreakdown(attackerData, defenderData, pct) {
         hitbox:     h.hitbox || null,
         category:   getCategory(move),
         startup:    move.startup,
-        beatsCC:    outcome.beatsCC,
         isKnockdown,
         advantage,
         punishes,
