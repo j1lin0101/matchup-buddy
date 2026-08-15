@@ -699,24 +699,40 @@ function calcMeleeOnHitOutcome(hitbox, defenderWeight, pct) {
   return { rawKB, finalKB, isKnockdown, beatsCC, angleEligible, hitstun: Math.floor(finalKB * ON_HIT_HITSTUN_SCALAR) };
 }
 
-// The defender % at which this hitbox's raw knockback first reaches the
-// tumble threshold (independent of CC/ASDI — tumble is a raw-knockback
-// state, not affected by DI input). calcMeleeKnockback is linear in pct
-// (KB = pct*slope + intercept), so this is solved directly rather than
-// searched. Returns 0 if the hit always tumbles (even at 0%), null if it
-// never does (fixed/scaling knockback that can't reach 80).
-function calcMeleeTumblePercent(hitbox, defenderWeight) {
+// The defender % at which this hitbox's raw knockback first reaches a given
+// threshold. calcMeleeKnockback is linear in pct (KB = pct*slope +
+// intercept), so this is solved directly rather than searched. Returns 0 if
+// the hit already meets the threshold at 0%, null if it never does
+// (fixed/scaling knockback that can't reach it). Shared by
+// calcMeleeTumblePercent (threshold = ASDI_DOWN_KB_THRESHOLD, 80 — "breaks
+// ASDI Down at X%") and calcMeleeCcBreakPercent (threshold = CC_KB_THRESHOLD,
+// 120 — "breaks Crouch Cancel at X%"), mirroring FightCore's own pair of
+// threshold cards ("ASDI Down" / "Crouch-Cancel").
+function calcMeleeBreakPercent(hitbox, defenderWeight, threshold) {
   if (hitbox.setKnockback) {
-    return hitbox.setKnockback >= ASDI_DOWN_KB_THRESHOLD ? 0 : null;
+    return hitbox.setKnockback >= threshold ? 0 : null;
   }
   if (hitbox.damage == null || hitbox.knockbackGrowth == null ||
       hitbox.baseKnockback == null || defenderWeight == null) return null;
   const growthFactor = (1 / 10 + hitbox.damage / 20) * (200 / (defenderWeight + 100)) * 1.4;
   const slope = growthFactor * hitbox.knockbackGrowth / 100;
   const intercept = (18 * hitbox.knockbackGrowth / 100) + hitbox.baseKnockback;
-  if (intercept >= ASDI_DOWN_KB_THRESHOLD) return 0;
+  if (intercept >= threshold) return 0;
   if (slope <= 0) return null;
-  return Math.ceil((ASDI_DOWN_KB_THRESHOLD - intercept) / slope);
+  return Math.ceil((threshold - intercept) / slope);
+}
+
+function calcMeleeTumblePercent(hitbox, defenderWeight) {
+  return calcMeleeBreakPercent(hitbox, defenderWeight, ASDI_DOWN_KB_THRESHOLD);
+}
+
+// The defender % at which this hitbox's raw knockback first reaches
+// CC_KB_THRESHOLD (120) — the % at which Crouch Cancel stops reducing the
+// hit at all, mirroring FightCore's own "Crouch-Cancel" threshold card
+// exactly the same way calcMeleeTumblePercent already mirrors their "ASDI
+// Down" card.
+function calcMeleeCcBreakPercent(hitbox, defenderWeight) {
+  return calcMeleeBreakPercent(hitbox, defenderWeight, CC_KB_THRESHOLD);
 }
 
 /**
@@ -843,6 +859,7 @@ function getMeleeOnHitBreakdown(attackerData, defenderData, pct) {
         advantage,
         punishes,
         tumblePercent: calcMeleeTumblePercent(h, defenderWeight),
+        ccBreakPercent: calcMeleeCcBreakPercent(h, defenderWeight),
         angleEligible: outcome.angleEligible,
       });
     });

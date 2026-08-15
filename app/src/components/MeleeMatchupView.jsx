@@ -325,20 +325,24 @@ function BreakersList({ charData, opponentWeight }) {
   )
 }
 
-// Tumble % color scale — mirrors Rivals' MatchupView.jsx tumbleColor exactly.
-// Low % = good (combos early) → High % = risky (won't tumble until late).
-function tumbleColor(pct) {
+// Break-% color scale — mirrors Rivals' MatchupView.jsx tumbleColor exactly.
+// Low % = good (combos early) → High % = risky (won't break until late).
+// Shared by both the Tumble %/ASDI Down column (breaks at KB≥80) and the CC
+// % column (breaks at KB≥120) — same idea, different threshold, so one
+// generic badge covers both, matching FightCore's own pair of "breaks at
+// X%" cards for ASDI Down and Crouch-Cancel.
+function breakPercentColor(pct) {
   if (pct === null || pct === undefined) return '#888899'
-  if (pct <= 40)  return '#00CED1'  // cyan          — tumbles very early, great combo tool
-  if (pct <= 80)  return '#F0E442'  // yellow        — tumbles at low %
+  if (pct <= 40)  return '#00CED1'  // cyan          — breaks very early, great combo tool
+  if (pct <= 80)  return '#F0E442'  // yellow        — breaks at low %
   if (pct <= 130) return '#DA70D6'  // orchid/purple — mid-range, situational
   if (pct <= 200) return '#888899'  // muted gray    — high %, hard to use
   return '#444455'                  // very muted    — extreme threshold, rarely relevant
 }
 
-function MeleeTumbleBadge({ pct }) {
+function MeleeBreakPercentBadge({ pct }) {
   if (pct === null || pct === undefined) return <span style={{ color: 'var(--muted)', fontSize: '0.75rem' }}>—</span>
-  const color = tumbleColor(pct)
+  const color = breakPercentColor(pct)
   return (
     <span style={{
       display: 'inline-block', padding: '2px 8px', borderRadius: '4px',
@@ -346,23 +350,6 @@ function MeleeTumbleBadge({ pct }) {
       fontSize: '0.75rem', fontWeight: 700, whiteSpace: 'nowrap',
     }}>
       {pct}%
-    </span>
-  )
-}
-
-// "Beats CC?" — whether this hit's raw knockback overcomes Crouch Cancel's
-// reduction (KB ≥ 120). Independent of the Tumble %/Knockdown check (KB ≥
-// 80), which answers "beats ASDI Down?" — ASDI Down never reduces
-// knockback, so that question is just the tumble check, not a separate axis.
-function BeatsCCBadge({ beats }) {
-  if (!beats) return <span style={{ color: 'var(--muted)', fontSize: '0.75rem' }}>No</span>
-  return (
-    <span style={{
-      display: 'inline-block', padding: '2px 8px', borderRadius: '4px',
-      background: 'var(--muted)22', color: 'var(--text)', border: '1px solid var(--muted)44',
-      fontSize: '0.75rem', fontWeight: 700, whiteSpace: 'nowrap',
-    }}>
-      Yes
     </span>
   )
 }
@@ -538,12 +525,12 @@ function OnHitMoveRow({ row, oosFilter, simplified }) {
         )}
         {!simplified && (
           <div style={{ textAlign: 'center' }}>
-            <MeleeTumbleBadge pct={row.tumblePercent} />
+            {row.angleEligible ? <MeleeBreakPercentBadge pct={row.tumblePercent} /> : <AngleIneligibleBadge />}
           </div>
         )}
         {!simplified && (
           <div style={{ textAlign: 'center' }}>
-            {row.angleEligible ? <BeatsCCBadge beats={row.beatsCC} /> : <AngleIneligibleBadge />}
+            {row.angleEligible ? <MeleeBreakPercentBadge pct={row.ccBreakPercent} /> : <AngleIneligibleBadge />}
           </div>
         )}
         <div>
@@ -577,12 +564,12 @@ function OnHitMoveRow({ row, oosFilter, simplified }) {
       )}
       {!simplified && (
         <div style={{ textAlign: 'center' }}>
-          <MeleeTumbleBadge pct={row.tumblePercent} />
+          {row.angleEligible ? <MeleeBreakPercentBadge pct={row.tumblePercent} /> : <AngleIneligibleBadge />}
         </div>
       )}
       {!simplified && (
         <div style={{ textAlign: 'center' }}>
-          <BeatsCCBadge beats={row.beatsCC} />
+          {row.angleEligible ? <MeleeBreakPercentBadge pct={row.ccBreakPercent} /> : <AngleIneligibleBadge />}
         </div>
       )}
       <div>
@@ -653,7 +640,7 @@ function OnHitCategoryAccordion({ category, rows, oosFilter, simplified }) {
             <span style={{ fontSize: '0.65rem', fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'var(--muted)' }}>Move</span>
             {!simplified && <span style={{ fontSize: '0.65rem', fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'var(--muted)', textAlign: 'center' }}>On Hit</span>}
             {!simplified && <span style={{ fontSize: '0.65rem', fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'var(--muted)', textAlign: 'center' }}>Tumble %</span>}
-            {!simplified && <span style={{ fontSize: '0.65rem', fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'var(--muted)', textAlign: 'center' }}>Beats CC?</span>}
+            {!simplified && <span style={{ fontSize: '0.65rem', fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'var(--muted)', textAlign: 'center' }}>CC %</span>}
             <span style={{ fontSize: '0.65rem', fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'var(--muted)' }}>Punish Options</span>
           </div>
           {sorted.map((row, i) => <OnHitMoveRow key={i} row={row} oosFilter={oosFilter} simplified={simplified} />)}
