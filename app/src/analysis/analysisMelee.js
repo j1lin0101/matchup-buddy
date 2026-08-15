@@ -69,7 +69,7 @@ const SAFE_THRESHOLD = -3;
 
 // "On hit" (not-shielding) constants — Crouch Cancel and ASDI Down. See the
 // getMelee* functions below for how these are used.
-const CC_KB_THRESHOLD = 32;        // Crouch Cancel reduces knockback below this; at/above, CC doesn't help
+const CC_KB_THRESHOLD = 120;       // Crouch Cancel reduces knockback below this; at/above, CC doesn't help
 const CC_REDUCTION = 2 / 3;        // multiplier CC applies to knockback when it helps
 const ASDI_DOWN_KB_THRESHOLD = 80; // Melee's real tumble/special-fall threshold — ASDI Down can't keep you grounded at/above this
 const ON_HIT_HITSTUN_SCALAR = 0.4; // hitstun = floor(finalKB * ON_HIT_HITSTUN_SCALAR)
@@ -620,7 +620,7 @@ function analyzeMatchup(attackerData, defenderData, shieldReleaseFrames = SHIELD
  * Melee's real Crouch Cancel and ASDI Down mechanics.
  *
  * Crouch Cancel: standard Melee knockback formula; if the result is under
- * CC_KB_THRESHOLD (32), CC reduces it by CC_REDUCTION (2/3) and the
+ * CC_KB_THRESHOLD (120), CC reduces it by CC_REDUCTION (2/3) and the
  * character survives with reduced hitstun. At/above the threshold, CC
  * doesn't help at all — full knockback applies.
  *
@@ -631,6 +631,15 @@ function analyzeMatchup(attackerData, defenderData, shieldReleaseFrames = SHIELD
  * as a Knockdown badge with no punish list — mirrors Rivals' exact
  * treatment of a broken floorhug). Below that, ASDI Down keeps them
  * grounded with the same hitstun as if nothing special happened.
+ *
+ * Both thresholds (and the angle-eligibility rule below) are taken directly
+ * from FightCore's own live calculator — website/utilities/crouch-cancel-calculator.ts
+ * and website/components/moves/crouch-cancel-table.tsx in FightCore/fightcore-next
+ * — rather than re-derived, since this is the same site our raw hitbox data
+ * comes from. An earlier version of this file had CC_KB_THRESHOLD wrong at
+ * 32 (FightCore's site uses 32 for a completely different, angle-specific
+ * check — see isCcAsdiAngleEligible below), which incorrectly flagged many
+ * moves as always breaking CC.
  */
 
 /**
@@ -650,6 +659,29 @@ function calcMeleeKnockback(hitbox, defenderWeight, pct) {
   return (scaled * hitbox.knockbackGrowth / 100) + hitbox.baseKnockback;
 }
 
+// A hitbox can only be Crouch Cancelled or ASDI'd against if it sends at an
+// angle with a real launching component — pure horizontal (0°) or downward
+// (meteors/spikes, 180°+) hits aren't affected by either technique at all,
+// regardless of knockback magnitude (holding down doesn't reduce a hit
+// that's already sending you flat along the ground, or already sending you
+// into the floor). Melee's "Sakurai Angle" (angle 361, used by many
+// normals — e.g. Fox/Falco/Luigi/Jigglypuff's jabs) is a special case: it
+// sends at a flat 0° — same as any other 0° hit, ineligible — until the
+// hit's own raw knockback crosses 32 units, at which point it starts
+// sending at a real angle and becomes eligible. This is purely informational
+// (surfaced as a caveat badge) — it doesn't change the breaksCC/breaksASDI
+// magnitude checks themselves, mirroring how FightCore's own site still
+// shows a computed percentage alongside its "can't be ASDI'd" warning
+// rather than suppressing the number. Source: FightCore/fightcore-next's
+// isCrouchCancelPossible + the Sakurai Angle alert in crouch-cancel-table.tsx.
+const SAKURAI_ANGLE = 361;
+const SAKURAI_ANGLE_ELIGIBLE_KB = 32;
+function isCcAsdiAngleEligible(hitbox, rawKB) {
+  if (hitbox.angle == null) return true; // no angle data — don't withhold the badge over a data gap
+  if (hitbox.angle === SAKURAI_ANGLE) return rawKB == null || rawKB >= SAKURAI_ANGLE_ELIGIBLE_KB;
+  return hitbox.angle > 0 && hitbox.angle < 180;
+}
+
 // Computes a hitbox's on-hit outcome assuming the defender always takes
 // Crouch Cancel's knockback reduction when it's available (CC never hurts,
 // so a defender minimizing hitstun never has a reason to skip it). Tumble
@@ -663,7 +695,8 @@ function calcMeleeOnHitOutcome(hitbox, defenderWeight, pct) {
   const isKnockdown = rawKB >= ASDI_DOWN_KB_THRESHOLD;
   const beatsCC = rawKB >= CC_KB_THRESHOLD;
   const finalKB = beatsCC ? rawKB : rawKB * CC_REDUCTION;
-  return { rawKB, finalKB, isKnockdown, beatsCC, hitstun: Math.floor(finalKB * ON_HIT_HITSTUN_SCALAR) };
+  const angleEligible = isCcAsdiAngleEligible(hitbox, rawKB);
+  return { rawKB, finalKB, isKnockdown, beatsCC, angleEligible, hitstun: Math.floor(finalKB * ON_HIT_HITSTUN_SCALAR) };
 }
 
 // The defender % at which this hitbox's raw knockback first reaches the
@@ -705,6 +738,7 @@ function getMeleeBreakers(attackerData, defenderWeight) {
       const breaksCC = minKB >= CC_KB_THRESHOLD;
       const breaksASDI = minKB >= ASDI_DOWN_KB_THRESHOLD;
       if (!breaksCC && !breaksASDI) return;
+      const angleEligible = isCcAsdiAngleEligible(h, minKB);
       const hitbox = isGenericHitboxName(h.hitbox) ? null : h.hitbox;
       const key = move.move + '|' + (hitbox || '') + '|' + breaksCC + '|' + breaksASDI;
       if (seen.has(key)) return;
@@ -716,6 +750,7 @@ function getMeleeBreakers(attackerData, defenderWeight) {
         startup:  move.startup,
         breaksCC,
         breaksASDI,
+        angleEligible,
       });
     });
   });
@@ -808,6 +843,7 @@ function getMeleeOnHitBreakdown(attackerData, defenderData, pct) {
         advantage,
         punishes,
         tumblePercent: calcMeleeTumblePercent(h, defenderWeight),
+        angleEligible: outcome.angleEligible,
       });
     });
   });

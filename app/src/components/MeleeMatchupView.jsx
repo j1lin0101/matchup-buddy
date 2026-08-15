@@ -317,6 +317,7 @@ function BreakersList({ charData, opponentWeight }) {
           <div style={{ display: 'flex', gap: '6px', flexShrink: 0 }}>
             {b.breaksCC && <FrameOnlyBadge label="Breaks CC" color={PUNISH_COLOR} />}
             {b.breaksASDI && <FrameOnlyBadge label="Breaks ASDI" color={PUNISH_COLOR} />}
+            {!b.angleEligible && <AngleIneligibleBadge />}
           </div>
         </div>
       ))}
@@ -350,7 +351,7 @@ function MeleeTumbleBadge({ pct }) {
 }
 
 // "Beats CC?" — whether this hit's raw knockback overcomes Crouch Cancel's
-// reduction (KB ≥ 32). Independent of the Tumble %/Knockdown check (KB ≥
+// reduction (KB ≥ 120). Independent of the Tumble %/Knockdown check (KB ≥
 // 80), which answers "beats ASDI Down?" — ASDI Down never reduces
 // knockback, so that question is just the tumble check, not a separate axis.
 function BeatsCCBadge({ beats }) {
@@ -362,6 +363,27 @@ function BeatsCCBadge({ beats }) {
       fontSize: '0.75rem', fontWeight: 700, whiteSpace: 'nowrap',
     }}>
       Yes
+    </span>
+  )
+}
+
+// Shown when a hitbox's angle means Crouch Cancel/ASDI Down don't apply at
+// all — pure horizontal (0°) or downward (meteor/spike) hits aren't caught
+// or reduced by either technique regardless of knockback magnitude. Purely
+// informational (doesn't change the breaksCC/breaksASDI numbers themselves,
+// mirroring how FightCore's own calculator still shows a computed
+// percentage alongside this same warning).
+function AngleIneligibleBadge() {
+  return (
+    <span
+      title="This hit's angle means Crouch Cancel/ASDI Down can't catch or reduce it at all, regardless of percent."
+      style={{
+        display: 'inline-block', padding: '2px 8px', borderRadius: '4px',
+        background: 'var(--risky)22', color: 'var(--risky)', border: '1px solid var(--risky)44',
+        fontSize: '0.7rem', fontWeight: 700, whiteSpace: 'nowrap', flexShrink: 0,
+      }}
+    >
+      Angle N/A
     </span>
   )
 }
@@ -521,7 +543,7 @@ function OnHitMoveRow({ row, oosFilter, simplified }) {
         )}
         {!simplified && (
           <div style={{ textAlign: 'center' }}>
-            <BeatsCCBadge beats={row.beatsCC} />
+            {row.angleEligible ? <BeatsCCBadge beats={row.beatsCC} /> : <AngleIneligibleBadge />}
           </div>
         )}
         <div>
