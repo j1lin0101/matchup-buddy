@@ -1,7 +1,7 @@
 {
   "character": "Mewtwo",
   "slug": "Mewtwo",
-  "scrapedAt": "2026-07-16T23:32:37.722Z",
+  "scrapedAt": "2026-08-15T19:34:44.441Z",
   "jumpSquat": 5,
   "weight": 85,
   "wavedashOOSFrames": 15,
@@ -2286,115 +2286,91 @@
       "hitboxes": [
         {
           "hitbox": "Back",
-          "shieldSafety": {
-            "min": -45,
-            "max": -45
-          },
-          "shieldRaw": "-45",
+          "shieldSafety": null,
+          "shieldRaw": null,
           "damage": 6,
           "knockbackGrowth": 50,
           "baseKnockback": 80,
           "setKnockback": 0,
           "angle": 361,
-          "endlag": 49
+          "endlag": null
         },
         {
           "hitbox": "Back",
-          "shieldSafety": {
-            "min": -45,
-            "max": -45
-          },
-          "shieldRaw": "-45",
+          "shieldSafety": null,
+          "shieldRaw": null,
           "damage": 6,
           "knockbackGrowth": 50,
           "baseKnockback": 80,
           "setKnockback": 0,
           "angle": 361,
-          "endlag": 49
+          "endlag": null
         },
         {
           "hitbox": "Back",
-          "shieldSafety": {
-            "min": -45,
-            "max": -45
-          },
-          "shieldRaw": "-45",
+          "shieldSafety": null,
+          "shieldRaw": null,
           "damage": 5,
           "knockbackGrowth": 50,
           "baseKnockback": 80,
           "setKnockback": 0,
           "angle": 361,
-          "endlag": 49
+          "endlag": null
         },
         {
           "hitbox": "Back",
-          "shieldSafety": {
-            "min": -45,
-            "max": -45
-          },
-          "shieldRaw": "-45",
+          "shieldSafety": null,
+          "shieldRaw": null,
           "damage": 5,
           "knockbackGrowth": 50,
           "baseKnockback": 80,
           "setKnockback": 0,
           "angle": 361,
-          "endlag": 49
+          "endlag": null
         },
         {
           "hitbox": "Front",
-          "shieldSafety": {
-            "min": -44,
-            "max": -44
-          },
-          "shieldRaw": "-44",
+          "shieldSafety": null,
+          "shieldRaw": null,
           "damage": 7,
           "knockbackGrowth": 50,
           "baseKnockback": 80,
           "setKnockback": 0,
           "angle": 361,
-          "endlag": 49
+          "endlag": null
         },
         {
           "hitbox": "Front",
-          "shieldSafety": {
-            "min": -44,
-            "max": -44
-          },
-          "shieldRaw": "-44",
+          "shieldSafety": null,
+          "shieldRaw": null,
           "damage": 7,
           "knockbackGrowth": 50,
           "baseKnockback": 80,
           "setKnockback": 0,
           "angle": 361,
-          "endlag": 49
+          "endlag": null
         },
         {
           "hitbox": "Front",
-          "shieldSafety": {
-            "min": -45,
-            "max": -45
-          },
-          "shieldRaw": "-45",
+          "shieldSafety": null,
+          "shieldRaw": null,
           "damage": 5,
           "knockbackGrowth": 50,
           "baseKnockback": 80,
           "setKnockback": 0,
           "angle": 361,
-          "endlag": 49
+          "endlag": null
         },
         {
           "hitbox": "Front",
-          "shieldSafety": {
-            "min": -45,
-            "max": -45
-          },
-          "shieldRaw": "-45",
+          "shieldSafety": null,
+          "shieldRaw": null,
           "damage": 5,
           "knockbackGrowth": 50,
           "baseKnockback": 80,
           "setKnockback": 0,
           "angle": 361,
-          "endlag": 49
+          "endlag": null
         }
       ]
     },
