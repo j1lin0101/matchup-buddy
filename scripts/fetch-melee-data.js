@@ -300,8 +300,22 @@ function buildHitboxes(move, isProjectile) {
   const totalEnd = move.iasa ?? (move.totalFrames > 0 ? move.totalFrames : null);
 
   (move.hits || []).forEach(hit => {
-    const active = (hit.start != null && hit.end != null) ? hit.end - hit.start + 1 : null;
-    const recovery = (totalEnd != null && hit.end != null) ? totalEnd - hit.end : null;
+    // Getup Attack's (type 7) structured start/end are a universal 0/0
+    // placeholder in FightCore's raw data for every character — the real
+    // active-frame timing only exists as free-text in the move's `notes`
+    // field (e.g. "Hit: 10-11 (Front), 26-27 (Behind)"), which isn't parsed
+    // here since its format varies too much per character (single-frame
+    // hits with no dash, "Both Sides" instead of separate Front/Behind
+    // windows, fewer notes entries than structured hits, etc.) to do
+    // reliably. Treating the 0/0 placeholder as real timing silently
+    // produced a fabricated ~-45 shield-safety number (shieldstun minus the
+    // move's full totalFrames) and an equally bogus on-hit endlag — worse
+    // than showing no data, since it looked like a real result. Edge/Ledge
+    // Attack (type 8) needs no such guard: it has no totalFrames or notes
+    // at all, so it already naturally resolves to null via totalEnd above.
+    const hasPlaceholderTiming = move.type === 7 && hit.start === 0 && hit.end === 0;
+    const active = (!hasPlaceholderTiming && hit.start != null && hit.end != null) ? hit.end - hit.start + 1 : null;
+    const recovery = (!hasPlaceholderTiming && totalEnd != null && hit.end != null) ? totalEnd - hit.end : null;
 
     (hit.hitboxes || []).forEach(hb => {
       let shieldSafety = null;
