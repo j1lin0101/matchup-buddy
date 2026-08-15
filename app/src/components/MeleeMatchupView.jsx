@@ -194,7 +194,7 @@ function TooltipIcon({ text }) {
   )
 }
 
-function Section({ title, accent, tooltip, children }) {
+function Section({ title, accent, subtitle, tooltip, children }) {
   return (
     <div style={{
       background: 'var(--surface)', border: '1px solid var(--border)',
@@ -203,12 +203,20 @@ function Section({ title, accent, tooltip, children }) {
     }}>
       <div style={{
         padding: '12px 16px', minHeight: '44px', borderBottom: '1px solid var(--border)',
-        display: 'flex', alignItems: 'center', gap: '6px',
+        display: 'flex',
+        alignItems: subtitle ? 'flex-start' : 'center',
+        flexDirection: subtitle ? 'column' : 'row',
+        gap: '2px',
       }}>
-        <span style={{ fontSize: '0.7rem', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: accent }}>
-          {title}
-        </span>
-        {tooltip && <TooltipIcon text={tooltip} />}
+        <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+          <span style={{ fontSize: '0.7rem', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: accent }}>
+            {title}
+          </span>
+          {tooltip && <TooltipIcon text={tooltip} />}
+        </div>
+        {subtitle && (
+          <span style={{ fontSize: '0.6rem', color: 'var(--muted)', opacity: 0.7 }}>{subtitle}</span>
+        )}
       </div>
       <div>{children}</div>
     </div>
@@ -939,7 +947,7 @@ function AttackingView({ attackerData, defenderData, attackerName, attackerColor
         ) : (
           <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
             <span style={{ fontSize: '0.72rem', fontWeight: 700, color: 'var(--muted)', textTransform: 'uppercase', letterSpacing: '0.07em', flexShrink: 0 }}>
-              {defenderName}
+              Defender
             </span>
             <input
               type="number"
@@ -1029,7 +1037,69 @@ function AttackingView({ attackerData, defenderData, attackerName, attackerColor
   )
 }
 
+function HelpModal({ onClose }) {
+  return (
+    <div
+      onClick={onClose}
+      style={{
+        position: 'fixed', inset: 0, zIndex: 1000,
+        background: 'rgba(0,0,0,0.6)',
+        display: 'flex', alignItems: 'center', justifyContent: 'center',
+        padding: '24px',
+      }}
+    >
+      <div
+        onClick={e => e.stopPropagation()}
+        style={{
+          background: 'var(--surface)',
+          border: '1px solid var(--border)',
+          borderRadius: 'var(--radius)',
+          maxWidth: '560px',
+          width: '100%',
+          maxHeight: '80vh',
+          overflowY: 'auto',
+          padding: '24px',
+          display: 'flex',
+          flexDirection: 'column',
+          gap: '20px',
+        }}
+      >
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+          <h2 style={{ fontSize: '1rem', fontWeight: 700, color: 'var(--text)' }}>How to Read This</h2>
+          <button
+            onClick={onClose}
+            style={{ background: 'none', border: 'none', color: 'var(--muted)', cursor: 'pointer', fontSize: '1.2rem', lineHeight: 1, padding: '2px 6px' }}
+          >✕</button>
+        </div>
+
+        <div style={{ position: 'relative', paddingBottom: '56.25%', height: 0, borderRadius: 'var(--radius)', overflow: 'hidden' }}>
+          <iframe
+            src="https://www.youtube.com/embed/W2QBwcA57y0"
+            title="How to read this"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+            style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', border: 'none' }}
+          />
+        </div>
+
+        <div>
+          <h3 style={{ fontSize: '0.72rem', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--accent)', marginBottom: '8px' }}>
+            What is this?
+          </h3>
+          <p style={{ fontSize: '0.85rem', color: 'var(--text)', lineHeight: 1.6 }}>
+            MatchupBuddy shows frame data in a matchup context. The Matchup Overview gives a quick snapshot of each character's safest moves, OOS options, and Crouch Cancel/ASDI Down breakers. The individual character tabs break down every move with On Shield and On Hit analysis.
+          </p>
+          <p style={{ fontSize: '0.85rem', color: 'var(--muted)', lineHeight: 1.6, marginTop: '8px' }}>
+            Hover the <strong>?</strong> icons on the overview for quick definitions of each panel.
+          </p>
+        </div>
+      </div>
+    </div>
+  )
+}
+
 export default function MeleeMatchupView({ myChar, oppChar, onBack }) {
+  const [helpOpen, setHelpOpen] = useState(false)
   const [activeTab, setActiveTab] = useState('overview')
   const { data: myData,  loading: myLoading }  = useCharacterData(myChar, 'ssbm')
   const { data: oppData, loading: oppLoading } = useCharacterData(oppChar, 'ssbm')
@@ -1059,6 +1129,8 @@ export default function MeleeMatchupView({ myChar, oppChar, onBack }) {
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh', overflowX: 'hidden' }}>
+      {helpOpen && <HelpModal onClose={() => setHelpOpen(false)} />}
+
       <header className="page-header">
         <button onClick={onBack} style={{
           background: 'none', border: '1px solid var(--border)', color: 'var(--muted)',
@@ -1074,6 +1146,42 @@ export default function MeleeMatchupView({ myChar, oppChar, onBack }) {
           <p style={{ color: 'var(--muted)', fontSize: '0.72rem', marginTop: '2px', lineHeight: 1.6 }}>
             Shield safety &amp; punish analysis
           </p>
+        </div>
+
+        <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flexShrink: 0 }}>
+          <a
+            href="https://ko-fi.com/boi_jiro"
+            target="_blank"
+            rel="noopener noreferrer"
+            title="Support me on Ko-Fi!"
+            style={{
+              background: 'none',
+              border: '1px solid var(--border)',
+              color: 'var(--muted)',
+              borderRadius: '6px',
+              height: '26px', padding: '0 8px',
+              fontSize: '1rem',
+              lineHeight: 1,
+              display: 'flex', alignItems: 'center', justifyContent: 'center',
+              textDecoration: 'none',
+            }}
+          >☕</a>
+          <button
+            onClick={() => setHelpOpen(true)}
+            title="How to read this"
+            style={{
+              background: 'none',
+              border: '1px solid var(--border)',
+              color: 'var(--text)',
+              borderRadius: '6px',
+              height: '26px', padding: '0 10px',
+              cursor: 'pointer',
+              fontSize: '0.72rem',
+              fontWeight: 700,
+              lineHeight: 1,
+              display: 'flex', alignItems: 'center', justifyContent: 'center',
+            }}
+          >Demo</button>
         </div>
       </header>
 
@@ -1124,14 +1232,14 @@ export default function MeleeMatchupView({ myChar, oppChar, onBack }) {
 
             <div className="char-panel-oos-my">
               {myData
-                ? <Section title="Fastest OOS Options" accent="var(--accent)" tooltip="Fastest options available out of shield, sorted by total frames from shielding to the move hitting. Includes wavedash.">
+                ? <Section title="Fastest OOS Options" accent="var(--accent)" subtitle={`Shield release ${SHIELD_RELEASE_FRAMES}f · Jump squat ${myData.jumpSquat ?? '?'}f`} tooltip="Out of Shield options, sorted by total frames from shielding to the move hitting. Grounded moves cost shield release; aerials and jump-cancelled specials cost jump squat; Up Smash/Up Special skip jump squat via jump-cancel (+1f); grab has no extra delay; wavedash costs jump squat + 10f landing lag.">
                     <OOSList charData={myData} />
                   </Section>
                 : null}
             </div>
             <div className="char-panel-oos-opp">
               {oppData
-                ? <Section title="Fastest OOS Options" accent="var(--accent2)" tooltip="Fastest options available out of shield, sorted by total frames from shielding to the move hitting. Includes wavedash.">
+                ? <Section title="Fastest OOS Options" accent="var(--accent2)" subtitle={`Shield release ${SHIELD_RELEASE_FRAMES}f · Jump squat ${oppData.jumpSquat ?? '?'}f`} tooltip="Out of Shield options, sorted by total frames from shielding to the move hitting. Grounded moves cost shield release; aerials and jump-cancelled specials cost jump squat; Up Smash/Up Special skip jump squat via jump-cancel (+1f); grab has no extra delay; wavedash costs jump squat + 10f landing lag.">
                     <OOSList charData={oppData} />
                   </Section>
                 : null}
@@ -1139,14 +1247,14 @@ export default function MeleeMatchupView({ myChar, oppChar, onBack }) {
 
             <div className="char-panel-breakers-my">
               {myData && oppData
-                ? <Section title="CC/ASDI Breakers" accent="var(--accent)" tooltip="Moves that always beat Crouch Cancel or ASDI Down against this opponent's weight, regardless of their percent.">
+                ? <Section title="CC/ASDI Breakers" accent="var(--accent)" subtitle="Always causes knockdown" tooltip="Moves that always beat Crouch Cancel or ASDI Down against this opponent's weight, regardless of their percent — the defender is knocked down no matter what they input.">
                     <BreakersList charData={myData} opponentWeight={oppData.weight} />
                   </Section>
                 : null}
             </div>
             <div className="char-panel-breakers-opp">
               {myData && oppData
-                ? <Section title="CC/ASDI Breakers" accent="var(--accent2)" tooltip="Moves that always beat Crouch Cancel or ASDI Down against this opponent's weight, regardless of their percent.">
+                ? <Section title="CC/ASDI Breakers" accent="var(--accent2)" subtitle="Always causes knockdown" tooltip="Moves that always beat Crouch Cancel or ASDI Down against this opponent's weight, regardless of their percent — the defender is knocked down no matter what they input.">
                     <BreakersList charData={oppData} opponentWeight={myData.weight} />
                   </Section>
                 : null}

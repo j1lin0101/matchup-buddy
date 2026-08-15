@@ -535,9 +535,15 @@ function getOOSOptions(characterData) {
  * Returns only the OOS options at 15f or faster — used for the overview display
  * panel. analyzeMatchup uses the full getOOSOptions so punish counts reflect all
  * moves that can realistically punish, not just the fastest ones.
+ *
+ * Wavedash is always kept regardless of the 15f cutoff — unlike Rivals (a fixed
+ * 12f for every character, which always clears its own display filter), Melee's
+ * wavedash cost is jumpSquat + 10 and varies per character (13f-18f), so a flat
+ * threshold would silently drop it for slower-jumpsquat characters (e.g. Bowser
+ * at 18f) even though the panel's own tooltip promises "Includes wavedash."
  */
 function getDisplayOOSOptions(characterData) {
-  return getOOSOptions(characterData).filter(function(o) { return o.oosStartup <= 15; });
+  return getOOSOptions(characterData).filter(function(o) { return o.oosStartup <= 15 || o.move === 'Wavedash'; });
 }
 
 /**
