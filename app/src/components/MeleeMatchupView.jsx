@@ -317,7 +317,6 @@ function BreakersList({ charData, opponentWeight }) {
           <div style={{ display: 'flex', gap: '6px', flexShrink: 0 }}>
             {b.breaksCC && <FrameOnlyBadge label="Breaks CC" color={PUNISH_COLOR} />}
             {b.breaksASDI && <FrameOnlyBadge label="Breaks ASDI" color={PUNISH_COLOR} />}
-            {!b.angleEligible && <AngleIneligibleBadge />}
           </div>
         </div>
       ))}
@@ -327,10 +326,8 @@ function BreakersList({ charData, opponentWeight }) {
 
 // Break-% color scale — mirrors Rivals' MatchupView.jsx tumbleColor exactly.
 // Low % = good (combos early) → High % = risky (won't break until late).
-// Shared by both the Tumble %/ASDI Down column (breaks at KB≥80) and the CC
-// % column (breaks at KB≥120) — same idea, different threshold, so one
-// generic badge covers both, matching FightCore's own pair of "breaks at
-// X%" cards for ASDI Down and Crouch-Cancel.
+// Used for the Tumble % column (breaks at raw KB≥80, FightCore's own "ASDI
+// Down" threshold card).
 function breakPercentColor(pct) {
   if (pct === null || pct === undefined) return '#888899'
   if (pct <= 40)  return '#00CED1'  // cyan          — breaks very early, great combo tool
@@ -350,27 +347,6 @@ function MeleeBreakPercentBadge({ pct }) {
       fontSize: '0.75rem', fontWeight: 700, whiteSpace: 'nowrap',
     }}>
       {pct}%
-    </span>
-  )
-}
-
-// Shown when a hitbox's angle means Crouch Cancel/ASDI Down don't apply at
-// all — pure horizontal (0°) or downward (meteor/spike) hits aren't caught
-// or reduced by either technique regardless of knockback magnitude. Purely
-// informational (doesn't change the breaksCC/breaksASDI numbers themselves,
-// mirroring how FightCore's own calculator still shows a computed
-// percentage alongside this same warning).
-function AngleIneligibleBadge() {
-  return (
-    <span
-      title="This hit's angle means Crouch Cancel/ASDI Down can't catch or reduce it at all, regardless of percent."
-      style={{
-        display: 'inline-block', padding: '2px 8px', borderRadius: '4px',
-        background: 'var(--risky)22', color: 'var(--risky)', border: '1px solid var(--risky)44',
-        fontSize: '0.7rem', fontWeight: 700, whiteSpace: 'nowrap', flexShrink: 0,
-      }}
-    >
-      Angle N/A
     </span>
   )
 }
@@ -497,11 +473,11 @@ function BreakdownTable({ matchup, categoryFilter, oosFilter, simplified }) {
   )
 }
 
-// On-hit (CC/ASDI Down) row — rows have `advantage`/`beatsCC`/`isKnockdown`
-// instead of `shieldSafety`, so this can't reuse MoveRow directly. No
-// defensive-tech toggle: the defender always gets CC's reduction when it
-// applies, and Knockdown (row.isKnockdown) already answers "beats ASDI
-// Down?" since ASDI Down never reduces knockback — see analysisMelee.js.
+// On-hit (CC/ASDI Down) row — rows have `advantage`/`isKnockdown` instead of
+// `shieldSafety`, so this can't reuse MoveRow directly. row.isKnockdown is
+// mode-aware (computed against whichever technique is currently toggled —
+// see analysisMelee.js's calcMeleeOnHitOutcome), while Tumble % always
+// reflects the ASDI Down threshold on raw knockback regardless of toggle.
 function OnHitMoveRow({ row, oosFilter, simplified }) {
   const punishes = (oosFilter && oosFilter.size > 0)
     ? row.punishes.filter(p => oosFilter.has(p.move))
@@ -509,7 +485,7 @@ function OnHitMoveRow({ row, oosFilter, simplified }) {
 
   if (row.isKnockdown) {
     return (
-      <div className={`melee-on-hit-row${simplified ? ' simplified' : ''}`}>
+      <div className={`on-hit-row${simplified ? ' simplified' : ''}`}>
         <div>
           <span style={{ fontWeight: 600, color: SAFE_COLOR }}>{row.move}</span>
           {row.hitbox && (
@@ -525,12 +501,7 @@ function OnHitMoveRow({ row, oosFilter, simplified }) {
         )}
         {!simplified && (
           <div style={{ textAlign: 'center' }}>
-            {row.angleEligible ? <MeleeBreakPercentBadge pct={row.tumblePercent} /> : <AngleIneligibleBadge />}
-          </div>
-        )}
-        {!simplified && (
-          <div style={{ textAlign: 'center' }}>
-            {row.angleEligible ? <MeleeBreakPercentBadge pct={row.ccBreakPercent} /> : <AngleIneligibleBadge />}
+            <MeleeBreakPercentBadge pct={row.tumblePercent} />
           </div>
         )}
         <div>
@@ -544,7 +515,7 @@ function OnHitMoveRow({ row, oosFilter, simplified }) {
   const advLabel = `${row.advantage > 0 ? '+' : ''}${row.advantage}`
 
   return (
-    <div className={`melee-on-hit-row${simplified ? ' simplified' : ''}`}>
+    <div className={`on-hit-row${simplified ? ' simplified' : ''}`}>
       <div>
         <span style={{ fontWeight: 600, color: statusColor }}>{row.move}</span>
         {row.hitbox && (
@@ -564,12 +535,7 @@ function OnHitMoveRow({ row, oosFilter, simplified }) {
       )}
       {!simplified && (
         <div style={{ textAlign: 'center' }}>
-          {row.angleEligible ? <MeleeBreakPercentBadge pct={row.tumblePercent} /> : <AngleIneligibleBadge />}
-        </div>
-      )}
-      {!simplified && (
-        <div style={{ textAlign: 'center' }}>
-          {row.angleEligible ? <MeleeBreakPercentBadge pct={row.ccBreakPercent} /> : <AngleIneligibleBadge />}
+          <MeleeBreakPercentBadge pct={row.tumblePercent} />
         </div>
       )}
       <div>
@@ -636,11 +602,10 @@ function OnHitCategoryAccordion({ category, rows, oosFilter, simplified }) {
       </button>
       {open && (
         <div style={{ background: 'var(--surface)' }}>
-          <div className={`melee-on-hit-col-headers${simplified ? ' simplified' : ''}`}>
+          <div className={`on-hit-col-headers${simplified ? ' simplified' : ''}`}>
             <span style={{ fontSize: '0.65rem', fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'var(--muted)' }}>Move</span>
             {!simplified && <span style={{ fontSize: '0.65rem', fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'var(--muted)', textAlign: 'center' }}>On Hit</span>}
             {!simplified && <span style={{ fontSize: '0.65rem', fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'var(--muted)', textAlign: 'center' }}>Tumble %</span>}
-            {!simplified && <span style={{ fontSize: '0.65rem', fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'var(--muted)', textAlign: 'center' }}>CC %</span>}
             <span style={{ fontSize: '0.65rem', fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'var(--muted)' }}>Punish Options</span>
           </div>
           {sorted.map((row, i) => <OnHitMoveRow key={i} row={row} oosFilter={oosFilter} simplified={simplified} />)}
@@ -877,6 +842,7 @@ function AttackingView({ attackerData, defenderData, attackerName, attackerColor
   const [shieldMode, setShieldMode] = useState('normal')
   const [subTab, setSubTab] = useState('onShield')
   const [pct, setPct] = useState(0)
+  const [isCrouch, setIsCrouch] = useState(false)
   const [viewMode, setViewMode] = useState('expanded')
   const simplified = viewMode === 'simplified'
 
@@ -896,8 +862,8 @@ function AttackingView({ attackerData, defenderData, attackerName, attackerColor
     [defenderData]
   )
   const onHitBreakdown = useMemo(
-    () => getMeleeOnHitBreakdown(attackerData, defenderData, pct),
-    [attackerData, defenderData, pct]
+    () => getMeleeOnHitBreakdown(attackerData, defenderData, pct, isCrouch),
+    [attackerData, defenderData, pct, isCrouch]
   )
 
   const isOnHit = subTab === 'onHit'
@@ -988,6 +954,20 @@ function AttackingView({ attackerData, defenderData, attackerName, attackerColor
             />
             <span style={{ fontSize: '0.82rem', fontWeight: 700, color: 'var(--muted)' }}>%</span>
           </div>
+        )}
+
+        {isOnHit && <ToolbarDivider />}
+
+        {isOnHit && (
+          <SegmentedToggle
+            activeColor={attackerColor}
+            value={isCrouch}
+            onChange={setIsCrouch}
+            options={[
+              { value: false, label: 'ASDI Down' },
+              { value: true, label: 'Crouch Cancel' },
+            ]}
+          />
         )}
 
         <ToolbarDivider />
