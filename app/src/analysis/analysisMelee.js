@@ -714,12 +714,21 @@ function calcMeleeTumblePercent(hitbox, defenderWeight) {
  * characters are always loaded together in this app, this uses the actual
  * opponent's real weight rather than a neutral baseline like Rivals'
  * matchup-agnostic Floorhug panel.
+ *
+ * Getup Attack and Edge/Ledge Attack (type 7/8) are excluded here — unlike
+ * the per-move On Hit breakdown table (isExcludedFromOnHit), which
+ * intentionally keeps them. This panel is meant to answer "which of this
+ * character's neutral attacking options beat CC/ASDI Down," and a getup or
+ * ledge attack isn't a freely-selectable neutral option — it only comes out
+ * when already knocked down or hanging on the ledge, so it doesn't belong
+ * in a list framed around what an attacker can throw out on demand.
  */
 function getMeleeBreakers(attackerData, defenderWeight) {
   const seen = new Set();
   const results = [];
   attackerData.moves.forEach(function(move) {
     if (isExcludedFromOnHit(move)) return;
+    if (move.type === 7 || move.type === 8) return;
     move.hitboxes.forEach(function(h) {
       const minKB = calcMeleeKnockback(h, defenderWeight, 0);
       if (minKB == null) return;
