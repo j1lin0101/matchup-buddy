@@ -2,7 +2,7 @@
   "character": "Isabelle",
   "slug": "Isabelle",
   "patch": "13.1",
-  "scrapedAt": "2026-08-16T20:54:35.724Z",
+  "scrapedAt": "2026-08-16T21:07:07.313Z",
   "sourceSheet": "68 - Isabelle",
   "moves": [
     {
@@ -720,7 +720,7 @@
     },
     {
       "move": "Pocket (throw)",
-      "category": "Grabs/Throws",
+      "category": "Specials",
       "hitboxLabels": null,
       "startup": {
         "raw": "9",
@@ -758,7 +758,7 @@
     },
     {
       "move": "Fishing Rod",
-      "category": "Grabs/Throws",
+      "category": "Specials",
       "hitboxLabels": null,
       "startup": {
         "raw": "21",
@@ -794,7 +794,7 @@
     },
     {
       "move": "Fishing Rod (reel in)",
-      "category": "Grabs/Throws",
+      "category": "Specials",
       "hitboxLabels": null,
       "startup": {
         "raw": "3",
@@ -832,7 +832,7 @@
     },
     {
       "move": "Fishing Rod Throw Forward",
-      "category": "Grabs/Throws",
+      "category": "Specials",
       "hitboxLabels": null,
       "startup": {
         "raw": "15",
@@ -870,7 +870,7 @@
     },
     {
       "move": "Fishing Rod Throw Back",
-      "category": "Grabs/Throws",
+      "category": "Specials",
       "hitboxLabels": null,
       "startup": {
         "raw": "13",
@@ -908,7 +908,7 @@
     },
     {
       "move": "Fishing Rod Throw Up",
-      "category": "Grabs/Throws",
+      "category": "Specials",
       "hitboxLabels": null,
       "startup": {
         "raw": "22",
@@ -946,7 +946,7 @@
     },
     {
       "move": "Fishing Rod Throw Down",
-      "category": "Grabs/Throws",
+      "category": "Specials",
       "hitboxLabels": null,
       "startup": {
         "raw": "18/22",
@@ -985,7 +985,7 @@
     },
     {
       "move": "Balloon Trip",
-      "category": "Grabs/Throws",
+      "category": "Specials",
       "hitboxLabels": null,
       "startup": {
         "raw": null,
@@ -1022,7 +1022,7 @@
     },
     {
       "move": "Lloid Trap",
-      "category": "Grabs/Throws",
+      "category": "Specials",
       "hitboxLabels": [
         "Hits 1-2",
         "3-5",

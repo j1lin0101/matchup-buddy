@@ -2,7 +2,7 @@
   "character": "Incineroar",
   "slug": "Incineroar",
   "patch": "13.1",
-  "scrapedAt": "2026-08-16T20:54:35.725Z",
+  "scrapedAt": "2026-08-16T21:07:07.314Z",
   "sourceSheet": "69 - Incineroar",
   "moves": [
     {
@@ -783,7 +783,7 @@
     },
     {
       "move": "Alolan Whip (grab)",
-      "category": "Grabs/Throws",
+      "category": "Specials",
       "hitboxLabels": null,
       "startup": {
         "raw": "16",
@@ -821,7 +821,7 @@
     },
     {
       "move": "Alolan Whip (lariat)",
-      "category": "Grabs/Throws",
+      "category": "Specials",
       "hitboxLabels": null,
       "startup": {
         "raw": "7",
@@ -861,7 +861,7 @@
     },
     {
       "move": "Alolan Whip (back body drop)",
-      "category": "Grabs/Throws",
+      "category": "Specials",
       "hitboxLabels": null,
       "startup": {
         "raw": "8",
@@ -901,7 +901,7 @@
     },
     {
       "move": "Alolan Whip (failure)",
-      "category": "Grabs/Throws",
+      "category": "Specials",
       "hitboxLabels": null,
       "startup": {
         "raw": null,
@@ -939,7 +939,7 @@
     },
     {
       "move": "Cross Chop",
-      "category": "Grabs/Throws",
+      "category": "Specials",
       "hitboxLabels": [
         "rising",
         "falling early",
@@ -996,7 +996,7 @@
     },
     {
       "move": "Revenge",
-      "category": "Grabs/Throws",
+      "category": "Specials",
       "hitboxLabels": null,
       "startup": {
         "raw": null,
@@ -1032,7 +1032,7 @@
     },
     {
       "move": "Revenge (activation)",
-      "category": "Grabs/Throws",
+      "category": "Specials",
       "hitboxLabels": null,
       "startup": {
         "raw": "7",

@@ -2,7 +2,7 @@
   "character": "King Dedede",
   "slug": "King_Dedede",
   "patch": "13.1",
-  "scrapedAt": "2026-08-16T20:54:35.700Z",
+  "scrapedAt": "2026-08-16T21:07:07.286Z",
   "sourceSheet": "39 King Dedede",
   "moves": [
     {
@@ -874,7 +874,7 @@
     },
     {
       "move": "Gordo Throw",
-      "category": "Grabs/Throws",
+      "category": "Specials",
       "hitboxLabels": [
         "Hammer",
         "gordo",
@@ -922,7 +922,7 @@
     },
     {
       "move": "Super Dedede Jump",
-      "category": "Grabs/Throws",
+      "category": "Specials",
       "hitboxLabels": [
         "Falling",
         "landing",
@@ -975,7 +975,7 @@
     },
     {
       "move": "Jet Hammer (partial charge)",
-      "category": "Grabs/Throws",
+      "category": "Specials",
       "hitboxLabels": null,
       "startup": {
         "raw": "10 (+17)",
@@ -1011,7 +1011,7 @@
     },
     {
       "move": "Jet Hammer (full charge)",
-      "category": "Grabs/Throws",
+      "category": "Specials",
       "hitboxLabels": null,
       "startup": {
         "raw": "9",

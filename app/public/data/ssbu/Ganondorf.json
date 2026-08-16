@@ -2,7 +2,7 @@
   "character": "Ganondorf",
   "slug": "Ganondorf",
   "patch": "13.1",
-  "scrapedAt": "2026-08-16T20:54:35.688Z",
+  "scrapedAt": "2026-08-16T21:07:07.271Z",
   "sourceSheet": "23 - Ganondorf",
   "moves": [
     {
@@ -968,7 +968,7 @@
     },
     {
       "move": "Dark Dive (grab success)",
-      "category": "Grabs/Throws",
+      "category": "Specials",
       "hitboxLabels": [
         "multi",
         "final"
@@ -1016,7 +1016,7 @@
     },
     {
       "move": "Wizard's Foot",
-      "category": "Grabs/Throws",
+      "category": "Specials",
       "hitboxLabels": [
         "close",
         "far"
@@ -1070,7 +1070,7 @@
     },
     {
       "move": "Wizard's Foot (air)",
-      "category": "Grabs/Throws",
+      "category": "Specials",
       "hitboxLabels": [
         "Close",
         "far",

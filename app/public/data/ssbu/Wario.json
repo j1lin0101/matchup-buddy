@@ -2,7 +2,7 @@
   "character": "Wario",
   "slug": "Wario",
   "patch": "13.1",
-  "scrapedAt": "2026-08-16T20:54:35.694Z",
+  "scrapedAt": "2026-08-16T21:07:07.277Z",
   "sourceSheet": "30 - Wario",
   "moves": [
     {
@@ -743,7 +743,7 @@
     },
     {
       "move": "Chomp (grab release)",
-      "category": "Grabs/Throws",
+      "category": "Specials",
       "hitboxLabels": null,
       "startup": {
         "raw": "11",
@@ -781,7 +781,7 @@
     },
     {
       "move": "Chomp (eat)",
-      "category": "Grabs/Throws",
+      "category": "Specials",
       "hitboxLabels": null,
       "startup": {
         "raw": null,
@@ -815,7 +815,7 @@
     },
     {
       "move": "Wario Bike",
-      "category": "Grabs/Throws",
+      "category": "Specials",
       "hitboxLabels": null,
       "startup": {
         "raw": "20/24",
@@ -852,7 +852,7 @@
     },
     {
       "move": "Wario Bike (wheelie)",
-      "category": "Grabs/Throws",
+      "category": "Specials",
       "hitboxLabels": null,
       "startup": {
         "raw": "4/54",
@@ -900,7 +900,7 @@
     },
     {
       "move": "Wario Bike (turnaround)",
-      "category": "Grabs/Throws",
+      "category": "Specials",
       "hitboxLabels": null,
       "startup": {
         "raw": "6",
@@ -944,7 +944,7 @@
     },
     {
       "move": "Corkscrew",
-      "category": "Grabs/Throws",
+      "category": "Specials",
       "hitboxLabels": [
         "First",
         "multi",
@@ -999,7 +999,7 @@
     },
     {
       "move": "Wario Waft (first stage)",
-      "category": "Grabs/Throws",
+      "category": "Specials",
       "hitboxLabels": null,
       "startup": {
         "raw": "16",
@@ -1037,7 +1037,7 @@
     },
     {
       "move": "Wario Waft (second stage)",
-      "category": "Grabs/Throws",
+      "category": "Specials",
       "hitboxLabels": null,
       "startup": {
         "raw": "10",
@@ -1081,7 +1081,7 @@
     },
     {
       "move": "Wario Waft (third stage)",
-      "category": "Grabs/Throws",
+      "category": "Specials",
       "hitboxLabels": null,
       "startup": {
         "raw": "8",
@@ -1125,7 +1125,7 @@
     },
     {
       "move": "Wario Waft (final stage)",
-      "category": "Grabs/Throws",
+      "category": "Specials",
       "hitboxLabels": [
         "Cloud",
         "Body"

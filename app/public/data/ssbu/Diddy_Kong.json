@@ -2,7 +2,7 @@
   "character": "Diddy Kong",
   "slug": "Diddy_Kong",
   "patch": "13.1",
-  "scrapedAt": "2026-08-16T20:54:35.698Z",
+  "scrapedAt": "2026-08-16T21:07:07.283Z",
   "sourceSheet": "36 - Diddy Kong",
   "moves": [
     {
@@ -927,7 +927,7 @@
     },
     {
       "move": "Monkey Flip (grab success)",
-      "category": "Grabs/Throws",
+      "category": "Specials",
       "hitboxLabels": null,
       "startup": {
         "raw": "11/29/56...",
@@ -961,7 +961,7 @@
     },
     {
       "move": "Monkey Flip (grab attack)",
-      "category": "Grabs/Throws",
+      "category": "Specials",
       "hitboxLabels": null,
       "startup": {
         "raw": "18/21",
@@ -1000,7 +1000,7 @@
     },
     {
       "move": "Monkey Flip (grab jump)",
-      "category": "Grabs/Throws",
+      "category": "Specials",
       "hitboxLabels": null,
       "startup": {
         "raw": "18/27",
@@ -1039,7 +1039,7 @@
     },
     {
       "move": "Rocketbarrel Boost",
-      "category": "Grabs/Throws",
+      "category": "Specials",
       "hitboxLabels": [
         "Early",
         "Late",
@@ -1091,7 +1091,7 @@
     },
     {
       "move": "Rocketbarrel Boost (explosion)",
-      "category": "Grabs/Throws",
+      "category": "Specials",
       "hitboxLabels": null,
       "startup": {
         "raw": "1",
@@ -1133,7 +1133,7 @@
     },
     {
       "move": "Banana Peel",
-      "category": "Grabs/Throws",
+      "category": "Specials",
       "hitboxLabels": null,
       "startup": {
         "raw": null,

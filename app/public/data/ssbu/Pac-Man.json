@@ -2,7 +2,7 @@
   "character": "Pac-Man",
   "slug": "Pac-Man",
   "patch": "13.1",
-  "scrapedAt": "2026-08-16T20:54:35.712Z",
+  "scrapedAt": "2026-08-16T21:07:07.301Z",
   "sourceSheet": "55 - PAC-MAN",
   "moves": [
     {
@@ -756,7 +756,7 @@
     },
     {
       "move": "Bonus Fruit (throw)",
-      "category": "Grabs/Throws",
+      "category": "Specials",
       "hitboxLabels": null,
       "startup": {
         "raw": "12 (+7)",
@@ -792,7 +792,7 @@
     },
     {
       "move": "Power Pellet (travel | Dash)",
-      "category": "Grabs/Throws",
+      "category": "Specials",
       "hitboxLabels": null,
       "startup": {
         "raw": "24-42 | 35-53",
@@ -826,7 +826,7 @@
     },
     {
       "move": "Pac-Jump",
-      "category": "Grabs/Throws",
+      "category": "Specials",
       "hitboxLabels": [
         "first",
         "second",
@@ -868,7 +868,7 @@
     },
     {
       "move": "Fire Hydrant",
-      "category": "Grabs/Throws",
+      "category": "Specials",
       "hitboxLabels": [
         "initial",
         "launched"

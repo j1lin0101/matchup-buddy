@@ -2,7 +2,7 @@
   "character": "Snake",
   "slug": "Snake",
   "patch": "13.1",
-  "scrapedAt": "2026-08-16T20:54:35.694Z",
+  "scrapedAt": "2026-08-16T21:07:07.278Z",
   "sourceSheet": "31 - Snake",
   "moves": [
     {
@@ -862,7 +862,7 @@
     },
     {
       "move": "Hand Grenade (neutral throw)",
-      "category": "Grabs/Throws",
+      "category": "Specials",
       "hitboxLabels": [
         "collide",
         "explosion"
@@ -909,7 +909,7 @@
     },
     {
       "move": "Hand Grenade (smash throw)",
-      "category": "Grabs/Throws",
+      "category": "Specials",
       "hitboxLabels": [
         "^"
       ],
@@ -949,7 +949,7 @@
     },
     {
       "move": "Hand Grenade (underhand throw)",
-      "category": "Grabs/Throws",
+      "category": "Specials",
       "hitboxLabels": [
         "^"
       ],
@@ -989,7 +989,7 @@
     },
     {
       "move": "Remote Missile",
-      "category": "Grabs/Throws",
+      "category": "Specials",
       "hitboxLabels": [
         "Early",
         "late"
@@ -1040,7 +1040,7 @@
     },
     {
       "move": "Cypher",
-      "category": "Grabs/Throws",
+      "category": "Specials",
       "hitboxLabels": null,
       "startup": {
         "raw": null,
@@ -1080,7 +1080,7 @@
     },
     {
       "move": "C4 (Sticky)",
-      "category": "Grabs/Throws",
+      "category": "Specials",
       "hitboxLabels": null,
       "startup": {
         "raw": "9",
@@ -1118,7 +1118,7 @@
     },
     {
       "move": "C4 (Air Sticky)",
-      "category": "Grabs/Throws",
+      "category": "Specials",
       "hitboxLabels": null,
       "startup": {
         "raw": "9",
@@ -1156,7 +1156,7 @@
     },
     {
       "move": "C4 (plant on the ground)",
-      "category": "Grabs/Throws",
+      "category": "Specials",
       "hitboxLabels": null,
       "startup": {
         "raw": "14",
@@ -1194,7 +1194,7 @@
     },
     {
       "move": "C4 (air drop)",
-      "category": "Grabs/Throws",
+      "category": "Specials",
       "hitboxLabels": null,
       "startup": {
         "raw": "16",
@@ -1232,7 +1232,7 @@
     },
     {
       "move": "C4 (detonation)",
-      "category": "Grabs/Throws",
+      "category": "Specials",
       "hitboxLabels": [
         "sticky",
         "non sticky"
@@ -1284,7 +1284,7 @@
     },
     {
       "move": "Taunt (emerge)",
-      "category": "Grabs/Throws",
+      "category": "Specials",
       "hitboxLabels": null,
       "startup": {
         "raw": "40",

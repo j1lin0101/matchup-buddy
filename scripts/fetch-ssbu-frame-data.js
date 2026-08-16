@@ -185,11 +185,20 @@ const COLUMN_MATCHERS = [
 // "Fireball"/"Cape"/"Blaster"), so they're the positional default for any
 // row that doesn't match a more specific pattern and hasn't reached the
 // Grab/Throws phase yet — see classifyRow.
+// All patterns are anchored to the start of the move name and match only
+// the sheet's own canonical labels for these rows — a plain substring match
+// (e.g. "throw" or "grab" anywhere in the name) is NOT safe here: special
+// moves like Charizard's "Flamethrower", Snake's "Hand Grenade (neutral
+// throw)", and Pac-Man's "Bonus Fruit (throw)" all contain "throw" without
+// being a real grab-game throw, and once a row is misclassified the
+// phase-tracking state machine below never recovers (everything after it
+// falls into the same wrong category too) — confirmed this the hard way
+// when Charizard and Pac-Man came out with zero Specials.
 const NORMAL_PATTERN = /^(jab|rapid|dash attack|f-tilt|u-tilt|d-tilt)/i;
-const SMASH_PATTERN = /-smash/i;
+const SMASH_PATTERN = /^[fud]-smash/i;
 const AERIAL_PATTERN = /^[nfbud]-air/i;
-const GRAB_THROW_PATTERN = /(grab|pummel|throw)/i;
-const DEFENSIVE_PATTERN = /(spot dodge|forward roll|back roll|air dodge|^dir\.?\s*ad)/i;
+const GRAB_THROW_PATTERN = /^(grab|dash grab|pivot grab|pummel|forward throw|back throw|up throw|down throw)/i;
+const DEFENSIVE_PATTERN = /^(spot dodge|forward roll|back roll|neutral air dodge|dir\.?\s*ad)/i;
 
 function classifyRow(moveName, phase) {
   if (NORMAL_PATTERN.test(moveName)) return { category: 'Normals', phase: Math.max(phase, 1) };

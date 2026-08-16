@@ -2,7 +2,7 @@
   "character": "Charizard",
   "slug": "Charizard",
   "patch": "13.1",
-  "scrapedAt": "2026-08-16T20:54:35.697Z",
+  "scrapedAt": "2026-08-16T21:07:07.282Z",
   "sourceSheet": "35 - Charizard",
   "moves": [
     {
@@ -764,7 +764,7 @@
     },
     {
       "move": "Flamethrower",
-      "category": "Grabs/Throws",
+      "category": "Specials",
       "hitboxLabels": [
         "Close",
         "Far"
@@ -819,7 +819,7 @@
     },
     {
       "move": "Flare Blitz",
-      "category": "Grabs/Throws",
+      "category": "Specials",
       "hitboxLabels": null,
       "startup": {
         "raw": "23/24",
@@ -867,7 +867,7 @@
     },
     {
       "move": "Fly",
-      "category": "Grabs/Throws",
+      "category": "Specials",
       "hitboxLabels": null,
       "startup": {
         "raw": "9/16/19/22/25/27",
@@ -922,7 +922,7 @@
     },
     {
       "move": "Pokemon Change",
-      "category": "Grabs/Throws",
+      "category": "Specials",
       "hitboxLabels": null,
       "startup": {
         "raw": null,

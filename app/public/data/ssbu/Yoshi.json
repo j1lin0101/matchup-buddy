@@ -2,7 +2,7 @@
   "character": "Yoshi",
   "slug": "Yoshi",
   "patch": "13.1",
-  "scrapedAt": "2026-08-16T20:54:35.675Z",
+  "scrapedAt": "2026-08-16T21:07:07.258Z",
   "sourceSheet": "05 - Yoshi",
   "moves": [
     {
@@ -799,7 +799,7 @@
     },
     {
       "move": "Egg Throw",
-      "category": "Grabs/Throws",
+      "category": "Specials",
       "hitboxLabels": null,
       "startup": {
         "raw": "16",
@@ -845,7 +845,7 @@
     },
     {
       "move": "Yoshi Bomb",
-      "category": "Grabs/Throws",
+      "category": "Specials",
       "hitboxLabels": [
         "Rising",
         "falling",
@@ -904,7 +904,7 @@
     },
     {
       "move": "Yoshi Bomb (air)",
-      "category": "Grabs/Throws",
+      "category": "Specials",
       "hitboxLabels": [
         "falling",
         "star"
