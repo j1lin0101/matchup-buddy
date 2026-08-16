@@ -128,11 +128,129 @@ function getDisplayOOSOptions(characterData) {
   return getOOSOptions(characterData).filter(function(o) { return o.oosStartup <= 15; });
 }
 
+const CATEGORY_ORDER = ['Normals', 'Smashes', 'Aerials', 'Specials', 'Grabs/Throws'];
+const SAFE_THRESHOLD = -3;
+
+/**
+ * Matchup analysis: given attacker and defender character data, returns a
+ * breakdown of each attacker move as safe/risky/punishable on shield,
+ * using the spreadsheet's own precomputed Advantage column directly —
+ * unlike Melee/Rivals, there's no raw-ingredient shield-safety formula to
+ * derive here (see file header doc / memory: ssbu-data-status on why that
+ * matters). Moves whose Advantage isn't confidently parseable (a range, a
+ * "shieldbreak" sentinel, a character-state-variant cell) are skipped
+ * rather than guessed — same as everywhere else in this module.
+ *
+ * Non-first-hit combo continuations (Jab 2/3, etc.) ARE included here,
+ * unlike the OOS options list — a real match sees Jab 2 connect and get
+ * shielded just like any other move, so its own safety is worth showing;
+ * it's only excluded from the *defender's punish-option* list, since the
+ * defender can't throw it out on demand.
+ *
+ * Grabs/Throws only ever includes plain "Grab" — Dash Grab/Pivot
+ * Grab/Pummel/Throws never have an Advantage value in the source data
+ * (they don't hit a shield), so they're already filtered out by the
+ * "Advantage not parseable" check without needing a separate exclusion.
+ *
+ * A move's Advantage can carry more than one number (hitbox variants, e.g.
+ * close/far) — classification uses the WORST (most negative) value, since
+ * that's the outcome that actually determines whether the defender gets a
+ * punish; every value is kept in the returned `advantage` array for
+ * display.
+ */
+function analyzeMatchup(attackerData, defenderData) {
+  const defenderOOSOptions = getOOSOptions(defenderData);
+  const results = [];
+
+  attackerData.moves.forEach(function(move) {
+    if (move.category === 'Defensive') return;
+    const advantage = move.advantage && move.advantage.parsed;
+    if (!advantage || advantage.length === 0) return;
+
+    const worst = Math.min.apply(null, advantage);
+    const defenderFrameAdv = -worst;
+    const punishes = defenderOOSOptions.filter(function(opt) { return opt.oosStartup <= defenderFrameAdv; });
+
+    const isSafe = punishes.length === 0;
+    const isRisky = punishes.length >= 1 && punishes.length <= 3;
+    const isPunishable = punishes.length >= 4;
+
+    results.push({
+      move: move.move,
+      category: move.category,
+      hitboxLabels: (move.hitboxLabels && move.hitboxLabels.length === advantage.length) ? move.hitboxLabels : null,
+      advantage,
+      worstAdvantage: worst,
+      isSafe,
+      isRisky,
+      isPunishable,
+      punishCount: punishes.length,
+      defenderFrameAdv,
+      punishes,
+    });
+  });
+
+  results.sort(function(a, b) {
+    if (a.punishCount !== b.punishCount) return a.punishCount - b.punishCount;
+    return b.worstAdvantage - a.worstAdvantage;
+  });
+
+  return {
+    attacker: attackerData.character,
+    defender: defenderData.character,
+    safeThreshold: SAFE_THRESHOLD,
+    breakdown: results,
+  };
+}
+
+/**
+ * Returns the character's safest moves on shield. When defenderOOSOptions
+ * is provided (matchup context), "safest" means 0-3 punish options
+ * available against that specific opponent; without it, falls back to a
+ * flat threshold — mirrors Melee/Rivals' own getSafestOptions convention.
+ */
+function getSafestOptions(characterData, defenderOOSOptions) {
+  const results = [];
+  characterData.moves.forEach(function(move) {
+    if (move.category === 'Defensive') return;
+    const advantage = move.advantage && move.advantage.parsed;
+    if (!advantage || advantage.length === 0) return;
+    const worst = Math.min.apply(null, advantage);
+
+    let punishCount = null;
+    if (defenderOOSOptions) {
+      const defenderFrameAdv = -worst;
+      punishCount = defenderOOSOptions.filter(function(opt) { return opt.oosStartup <= defenderFrameAdv; }).length;
+      if (punishCount > 3) return;
+    } else if (worst < SAFE_THRESHOLD) {
+      return;
+    }
+
+    results.push({
+      move: move.move,
+      category: move.category,
+      hitboxLabels: (move.hitboxLabels && move.hitboxLabels.length === advantage.length) ? move.hitboxLabels : null,
+      advantage,
+      worstAdvantage: worst,
+      punishCount,
+    });
+  });
+  results.sort(function(a, b) {
+    if (a.punishCount !== b.punishCount) return (a.punishCount ?? 0) - (b.punishCount ?? 0);
+    return b.worstAdvantage - a.worstAdvantage;
+  });
+  return results;
+}
+
 export {
   SHIELD_DROP_FRAMES,
   GRAB_OOS_DELAY,
   AERIAL_OOS_DELAY,
   UP_B_UP_SMASH_OOS_DELAY,
+  CATEGORY_ORDER,
+  SAFE_THRESHOLD,
   getOOSOptions,
   getDisplayOOSOptions,
+  analyzeMatchup,
+  getSafestOptions,
 };
