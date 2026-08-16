@@ -1,0 +1,1767 @@
+{
+  "character": "Sephiroth",
+  "slug": "Sephiroth",
+  "patch": "13.1",
+  "scrapedAt": "2026-08-16T20:54:35.732Z",
+  "sourceSheet": "78 - Sephiroth",
+  "moves": [
+    {
+      "move": "Jab 1",
+      "category": "Normals",
+      "hitboxLabels": null,
+      "startup": {
+        "raw": "5",
+        "parsed": [
+          5
+        ]
+      },
+      "totalFrames": {
+        "raw": "28",
+        "parsed": [
+          28
+        ]
+      },
+      "landingLag": {
+        "raw": null,
+        "parsed": null
+      },
+      "baseDamage": {
+        "raw": "2.5",
+        "parsed": [
+          2.5
+        ]
+      },
+      "shieldlag": {
+        "raw": "7",
+        "parsed": [
+          7
+        ]
+      },
+      "shieldstun": {
+        "raw": "4",
+        "parsed": [
+          4
+        ]
+      },
+      "advantage": {
+        "raw": "[+0]",
+        "parsed": [
+          0
+        ]
+      },
+      "notes": "Transitions to jab 2 on frame 10"
+    },
+    {
+      "move": "Jab 2",
+      "category": "Normals",
+      "hitboxLabels": null,
+      "startup": {
+        "raw": "5",
+        "parsed": [
+          5
+        ]
+      },
+      "totalFrames": {
+        "raw": "33",
+        "parsed": [
+          33
+        ]
+      },
+      "landingLag": {
+        "raw": null,
+        "parsed": null
+      },
+      "baseDamage": {
+        "raw": "2.0",
+        "parsed": [
+          2
+        ]
+      },
+      "shieldlag": {
+        "raw": "6",
+        "parsed": [
+          6
+        ]
+      },
+      "shieldstun": {
+        "raw": "3",
+        "parsed": [
+          3
+        ]
+      },
+      "advantage": {
+        "raw": "[+1}",
+        "parsed": null
+      },
+      "notes": "Transitions to jab 3 on frame 10"
+    },
+    {
+      "move": "Jab 3",
+      "category": "Normals",
+      "hitboxLabels": null,
+      "startup": {
+        "raw": "7",
+        "parsed": [
+          7
+        ]
+      },
+      "totalFrames": {
+        "raw": "35",
+        "parsed": [
+          35
+        ]
+      },
+      "landingLag": {
+        "raw": null,
+        "parsed": null
+      },
+      "baseDamage": {
+        "raw": "4.0",
+        "parsed": [
+          4
+        ]
+      },
+      "shieldlag": {
+        "raw": "8",
+        "parsed": [
+          8
+        ]
+      },
+      "shieldstun": {
+        "raw": "5",
+        "parsed": [
+          5
+        ]
+      },
+      "advantage": {
+        "raw": "[+1}",
+        "parsed": null
+      },
+      "notes": null
+    },
+    {
+      "move": "F-Tilt",
+      "category": "Normals",
+      "hitboxLabels": [
+        "close",
+        "middle",
+        "tip"
+      ],
+      "startup": {
+        "raw": "14",
+        "parsed": [
+          14
+        ]
+      },
+      "totalFrames": {
+        "raw": "37",
+        "parsed": [
+          37
+        ]
+      },
+      "landingLag": {
+        "raw": null,
+        "parsed": null
+      },
+      "baseDamage": {
+        "raw": "7.5 / 12.0 / 9.0",
+        "parsed": [
+          7.5,
+          12,
+          9
+        ]
+      },
+      "shieldlag": {
+        "raw": "7/10/7",
+        "parsed": [
+          7,
+          10,
+          7
+        ]
+      },
+      "shieldstun": {
+        "raw": "8/11/9",
+        "parsed": [
+          8,
+          11,
+          9
+        ]
+      },
+      "advantage": {
+        "raw": "[+1/+3/+2]",
+        "parsed": null
+      },
+      "notes": null
+    },
+    {
+      "move": "U-Tilt",
+      "category": "Normals",
+      "hitboxLabels": [
+        "launcher",
+        "close",
+        "middle",
+        "tip"
+      ],
+      "startup": {
+        "raw": "10/13",
+        "parsed": [
+          10,
+          13
+        ]
+      },
+      "totalFrames": {
+        "raw": "44",
+        "parsed": [
+          44
+        ]
+      },
+      "landingLag": {
+        "raw": null,
+        "parsed": null
+      },
+      "baseDamage": {
+        "raw": "1.0 / 11.0 / \n12.5 / 14.0",
+        "parsed": null
+      },
+      "shieldlag": {
+        "raw": "4/8\n10/15",
+        "parsed": null
+      },
+      "shieldstun": {
+        "raw": "2/10\n12/13",
+        "parsed": null
+      },
+      "advantage": {
+        "raw": "[+1/+3]\n[+4/+3]",
+        "parsed": null
+      },
+      "notes": "Arm and upper body intangible on frame 13-15"
+    },
+    {
+      "move": "D-Tilt",
+      "category": "Normals",
+      "hitboxLabels": [
+        "early",
+        "late"
+      ],
+      "startup": {
+        "raw": "9",
+        "parsed": [
+          9
+        ]
+      },
+      "totalFrames": {
+        "raw": "42",
+        "parsed": [
+          42
+        ]
+      },
+      "landingLag": {
+        "raw": null,
+        "parsed": null
+      },
+      "baseDamage": {
+        "raw": "8.0 / 6.0",
+        "parsed": [
+          8,
+          6
+        ]
+      },
+      "shieldlag": {
+        "raw": "7/6",
+        "parsed": [
+          7,
+          6
+        ]
+      },
+      "shieldstun": {
+        "raw": "8/6",
+        "parsed": [
+          8,
+          6
+        ]
+      },
+      "advantage": {
+        "raw": "[+2/+2]",
+        "parsed": null
+      },
+      "notes": null
+    },
+    {
+      "move": "Dash Attack",
+      "category": "Normals",
+      "hitboxLabels": null,
+      "startup": {
+        "raw": "14",
+        "parsed": [
+          14
+        ]
+      },
+      "totalFrames": {
+        "raw": "46",
+        "parsed": [
+          46
+        ]
+      },
+      "landingLag": {
+        "raw": null,
+        "parsed": null
+      },
+      "baseDamage": {
+        "raw": "13.0",
+        "parsed": [
+          13
+        ]
+      },
+      "shieldlag": {
+        "raw": "11",
+        "parsed": [
+          11
+        ]
+      },
+      "shieldstun": {
+        "raw": "12",
+        "parsed": [
+          12
+        ]
+      },
+      "advantage": {
+        "raw": "[+3]",
+        "parsed": [
+          3
+        ]
+      },
+      "notes": null
+    },
+    {
+      "move": "F-Smash",
+      "category": "Smashes",
+      "hitboxLabels": [
+        "close",
+        "middle",
+        "tip"
+      ],
+      "startup": {
+        "raw": "24",
+        "parsed": [
+          24
+        ]
+      },
+      "totalFrames": {
+        "raw": "67",
+        "parsed": [
+          67
+        ]
+      },
+      "landingLag": {
+        "raw": null,
+        "parsed": null
+      },
+      "baseDamage": {
+        "raw": "13.5 / 20.0 / 15.0",
+        "parsed": [
+          13.5,
+          20,
+          15
+        ]
+      },
+      "shieldlag": {
+        "raw": "9/15/10",
+        "parsed": [
+          9,
+          15,
+          10
+        ]
+      },
+      "shieldstun": {
+        "raw": "9/13/10",
+        "parsed": [
+          9,
+          13,
+          10
+        ]
+      },
+      "advantage": {
+        "raw": "[+4/+4/+3]",
+        "parsed": null
+      },
+      "notes": "charge hold on frame 8. Super armor on frame 10-23 with One Wing active."
+    },
+    {
+      "move": "U-Smash",
+      "category": "Smashes",
+      "hitboxLabels": [
+        "early close",
+        "middle",
+        "far",
+        "late close",
+        "middle",
+        "far"
+      ],
+      "startup": {
+        "raw": "23",
+        "parsed": [
+          23
+        ]
+      },
+      "totalFrames": {
+        "raw": "63",
+        "parsed": [
+          63
+        ]
+      },
+      "landingLag": {
+        "raw": null,
+        "parsed": null
+      },
+      "baseDamage": {
+        "raw": "10.5 / 15.5 / 11.5\n12.0 / 17.0 / 13.0",
+        "parsed": null
+      },
+      "shieldlag": {
+        "raw": "8/14/9\n9/14/9",
+        "parsed": null
+      },
+      "shieldstun": {
+        "raw": "8/10/8\n8/11/9",
+        "parsed": null
+      },
+      "advantage": {
+        "raw": "[+1/+6/+3]",
+        "parsed": null
+      },
+      "notes": "charge hold on frame 12. Super armor on frame 14-22 with One Wing active."
+    },
+    {
+      "move": "D-Smash",
+      "category": "Smashes",
+      "hitboxLabels": [
+        "close",
+        "far"
+      ],
+      "startup": {
+        "raw": "21",
+        "parsed": [
+          21
+        ]
+      },
+      "totalFrames": {
+        "raw": "53",
+        "parsed": [
+          53
+        ]
+      },
+      "landingLag": {
+        "raw": null,
+        "parsed": null
+      },
+      "baseDamage": {
+        "raw": "10.5 / 13.5",
+        "parsed": [
+          10.5,
+          13.5
+        ]
+      },
+      "shieldlag": {
+        "raw": "8/13",
+        "parsed": [
+          8,
+          13
+        ]
+      },
+      "shieldstun": {
+        "raw": "8/11",
+        "parsed": [
+          8,
+          11
+        ]
+      },
+      "advantage": {
+        "raw": "[+4/+3]",
+        "parsed": null
+      },
+      "notes": "charge hold on frame 8. Super armor on frame 10-20 with One Wing active."
+    },
+    {
+      "move": "N-Air",
+      "category": "Aerials",
+      "hitboxLabels": null,
+      "startup": {
+        "raw": "9",
+        "parsed": [
+          9
+        ]
+      },
+      "totalFrames": {
+        "raw": "33",
+        "parsed": [
+          33
+        ]
+      },
+      "landingLag": {
+        "raw": "9",
+        "parsed": [
+          9
+        ]
+      },
+      "baseDamage": {
+        "raw": "8.5",
+        "parsed": [
+          8.5
+        ]
+      },
+      "shieldlag": {
+        "raw": "7",
+        "parsed": [
+          7
+        ]
+      },
+      "shieldstun": {
+        "raw": "4",
+        "parsed": [
+          4
+        ]
+      },
+      "advantage": {
+        "raw": "[+0]",
+        "parsed": [
+          0
+        ]
+      },
+      "notes": "Autocancels on frame 30 onward"
+    },
+    {
+      "move": "F-Air",
+      "category": "Aerials",
+      "hitboxLabels": [
+        "early close",
+        "middle",
+        "far",
+        "late close",
+        "middle",
+        "far"
+      ],
+      "startup": {
+        "raw": "13",
+        "parsed": [
+          13
+        ]
+      },
+      "totalFrames": {
+        "raw": "41",
+        "parsed": [
+          41
+        ]
+      },
+      "landingLag": {
+        "raw": "14",
+        "parsed": [
+          14
+        ]
+      },
+      "baseDamage": {
+        "raw": "8.5 / 10.0 / 11.0\n5.5 / 7.0 / 8.0",
+        "parsed": null
+      },
+      "shieldlag": {
+        "raw": "7/8/10\n6/7/7",
+        "parsed": null
+      },
+      "shieldstun": {
+        "raw": "4/4/4\n3/3/4",
+        "parsed": null
+      },
+      "advantage": {
+        "raw": "[+0/+1/+1]\n[+0/+1/+0]",
+        "parsed": null
+      },
+      "notes": "Autocancels on frame 1-2 and 39 onward"
+    },
+    {
+      "move": "B-Air",
+      "category": "Aerials",
+      "hitboxLabels": [
+        "close",
+        "middle",
+        "far"
+      ],
+      "startup": {
+        "raw": "15",
+        "parsed": [
+          15
+        ]
+      },
+      "totalFrames": {
+        "raw": "46",
+        "parsed": [
+          46
+        ]
+      },
+      "landingLag": {
+        "raw": "16",
+        "parsed": [
+          16
+        ]
+      },
+      "baseDamage": {
+        "raw": "9.5 / 14.5 / 11.5",
+        "parsed": [
+          9.5,
+          14.5,
+          11.5
+        ]
+      },
+      "shieldlag": {
+        "raw": "8/12/9",
+        "parsed": [
+          8,
+          12,
+          9
+        ]
+      },
+      "shieldstun": {
+        "raw": "4/5/5",
+        "parsed": [
+          4,
+          5,
+          5
+        ]
+      },
+      "advantage": {
+        "raw": "[+1/+1/+0]",
+        "parsed": null
+      },
+      "notes": "Autocancels on frame 1-4 and 46 onward"
+    },
+    {
+      "move": "U-Air",
+      "category": "Aerials",
+      "hitboxLabels": [
+        "close",
+        "middle",
+        "far"
+      ],
+      "startup": {
+        "raw": "16",
+        "parsed": [
+          16
+        ]
+      },
+      "totalFrames": {
+        "raw": "53",
+        "parsed": [
+          53
+        ]
+      },
+      "landingLag": {
+        "raw": "21",
+        "parsed": [
+          21
+        ]
+      },
+      "baseDamage": {
+        "raw": "7.0 / 11.0 / 8.5",
+        "parsed": [
+          7,
+          11,
+          8.5
+        ]
+      },
+      "shieldlag": {
+        "raw": "7/9/7",
+        "parsed": [
+          7,
+          9,
+          7
+        ]
+      },
+      "shieldstun": {
+        "raw": "3/4/4",
+        "parsed": [
+          3,
+          4,
+          4
+        ]
+      },
+      "advantage": {
+        "raw": "[+1/+1/+0]",
+        "parsed": null
+      },
+      "notes": "Autocancels on frame 1-4 and 52 onward"
+    },
+    {
+      "move": "D-Air",
+      "category": "Aerials",
+      "hitboxLabels": [
+        "early",
+        "late",
+        "landing"
+      ],
+      "startup": {
+        "raw": "19",
+        "parsed": [
+          19
+        ]
+      },
+      "totalFrames": {
+        "raw": "60",
+        "parsed": [
+          60
+        ]
+      },
+      "landingLag": {
+        "raw": "26",
+        "parsed": [
+          26
+        ]
+      },
+      "baseDamage": {
+        "raw": "15.0 / 10.0 / 5.0",
+        "parsed": [
+          15,
+          10,
+          5
+        ]
+      },
+      "shieldlag": {
+        "raw": "12/8/6",
+        "parsed": [
+          12,
+          8,
+          6
+        ]
+      },
+      "shieldstun": {
+        "raw": "5/4/6",
+        "parsed": [
+          5,
+          4,
+          6
+        ]
+      },
+      "advantage": {
+        "raw": "[+2/+1/+1]",
+        "parsed": null
+      },
+      "notes": "Autocancels on frame 54 onward. Landing hit on frame 1 of landing, \nbut falling and landing hits cannot seem to hit the same target"
+    },
+    {
+      "move": "Flare",
+      "category": "Specials",
+      "hitboxLabels": [
+        "initial",
+        "explode"
+      ],
+      "startup": {
+        "raw": "41 (+3)",
+        "parsed": null
+      },
+      "totalFrames": {
+        "raw": "83",
+        "parsed": [
+          83
+        ]
+      },
+      "landingLag": {
+        "raw": null,
+        "parsed": null
+      },
+      "baseDamage": {
+        "raw": "3.0 / 10.5",
+        "parsed": [
+          3,
+          10.5
+        ]
+      },
+      "shieldlag": {
+        "raw": "-/8",
+        "parsed": null
+      },
+      "shieldstun": {
+        "raw": "-/4",
+        "parsed": null
+      },
+      "advantage": {
+        "raw": "[+2]",
+        "parsed": [
+          2
+        ]
+      },
+      "notes": "explosion occurs three frames after contact. Can cancel as early as frame 20\nTakes 7 frames to cancel with shield"
+    },
+    {
+      "move": "Megaflare",
+      "category": "Specials",
+      "hitboxLabels": [
+        "initial",
+        "multi",
+        "explode"
+      ],
+      "startup": {
+        "raw": "52 (+10/13/16/19)",
+        "parsed": null
+      },
+      "totalFrames": {
+        "raw": "103",
+        "parsed": [
+          103
+        ]
+      },
+      "landingLag": {
+        "raw": null,
+        "parsed": null
+      },
+      "baseDamage": {
+        "raw": "3.5 / 3.7 / 9.0",
+        "parsed": [
+          3.5,
+          3.7,
+          9
+        ]
+      },
+      "shieldlag": {
+        "raw": "5/-/7",
+        "parsed": null
+      },
+      "shieldstun": {
+        "raw": "2/-/4",
+        "parsed": null
+      },
+      "advantage": {
+        "raw": "[+2]",
+        "parsed": [
+          2
+        ]
+      },
+      "notes": "Must hold for 31 frames to reach this level of charge."
+    },
+    {
+      "move": "Gigaflare",
+      "category": "Specials",
+      "hitboxLabels": [
+        "initial",
+        "multi",
+        "explode"
+      ],
+      "startup": {
+        "raw": "130 (+7/10/13/16/19/22/25)",
+        "parsed": null
+      },
+      "totalFrames": {
+        "raw": "181",
+        "parsed": [
+          181
+        ]
+      },
+      "landingLag": {
+        "raw": null,
+        "parsed": null
+      },
+      "baseDamage": {
+        "raw": "6.0 / 3.7 / 11.0",
+        "parsed": [
+          6,
+          3.7,
+          11
+        ]
+      },
+      "shieldlag": {
+        "raw": "6/-/10",
+        "parsed": null
+      },
+      "shieldstun": {
+        "raw": "-/-/4",
+        "parsed": null
+      },
+      "advantage": {
+        "raw": "[-2]",
+        "parsed": [
+          -2
+        ]
+      },
+      "notes": null
+    },
+    {
+      "move": "Shadow Flare",
+      "category": "Specials",
+      "hitboxLabels": [
+        "projectile",
+        "explode"
+      ],
+      "startup": {
+        "raw": "16-42",
+        "parsed": null
+      },
+      "totalFrames": {
+        "raw": "38-64",
+        "parsed": null
+      },
+      "landingLag": {
+        "raw": null,
+        "parsed": null
+      },
+      "baseDamage": {
+        "raw": "1.6 - 4.5 / 6.5",
+        "parsed": null
+      },
+      "shieldlag": {
+        "raw": "4-5 / 8",
+        "parsed": null
+      },
+      "shieldstun": {
+        "raw": "2-3 / 3",
+        "parsed": null
+      },
+      "advantage": {
+        "raw": "[+1 on full charge]",
+        "parsed": null
+      },
+      "notes": null
+    },
+    {
+      "move": "Blade Dash",
+      "category": "Specials",
+      "hitboxLabels": null,
+      "startup": {
+        "raw": "25",
+        "parsed": [
+          25
+        ]
+      },
+      "totalFrames": {
+        "raw": "56",
+        "parsed": [
+          56
+        ]
+      },
+      "landingLag": {
+        "raw": "27",
+        "parsed": [
+          27
+        ]
+      },
+      "baseDamage": {
+        "raw": "7.0",
+        "parsed": [
+          7
+        ]
+      },
+      "shieldlag": {
+        "raw": "7",
+        "parsed": [
+          7
+        ]
+      },
+      "shieldstun": {
+        "raw": "4",
+        "parsed": [
+          4
+        ]
+      },
+      "advantage": {
+        "raw": "[+1]",
+        "parsed": [
+          1
+        ]
+      },
+      "notes": "total frames assumes travel along the ground"
+    },
+    {
+      "move": "Octaslash",
+      "category": "Specials",
+      "hitboxLabels": [
+        "multi",
+        "final"
+      ],
+      "startup": {
+        "raw": "36/38/40/42/44/36/48/50",
+        "parsed": [
+          36,
+          38,
+          40,
+          42,
+          44,
+          36,
+          48,
+          50
+        ]
+      },
+      "totalFrames": {
+        "raw": "104",
+        "parsed": [
+          104
+        ]
+      },
+      "landingLag": {
+        "raw": "56",
+        "parsed": [
+          56
+        ]
+      },
+      "baseDamage": {
+        "raw": "2.2 / 7.0",
+        "parsed": [
+          2.2,
+          7
+        ]
+      },
+      "shieldlag": {
+        "raw": "5/15",
+        "parsed": [
+          5,
+          15
+        ]
+      },
+      "shieldstun": {
+        "raw": "-/7",
+        "parsed": null
+      },
+      "advantage": {
+        "raw": "[+2]",
+        "parsed": [
+          2
+        ]
+      },
+      "notes": "total frames assumes travel along the ground"
+    },
+    {
+      "move": "Scintilla",
+      "category": "Specials",
+      "hitboxLabels": [
+        "multi",
+        "final"
+      ],
+      "startup": {
+        "raw": "38/43/48/53",
+        "parsed": [
+          38,
+          43,
+          48,
+          53
+        ]
+      },
+      "totalFrames": {
+        "raw": "86",
+        "parsed": [
+          86
+        ]
+      },
+      "landingLag": {
+        "raw": null,
+        "parsed": null
+      },
+      "baseDamage": {
+        "raw": "1.0 / 5.0",
+        "parsed": [
+          1,
+          5
+        ]
+      },
+      "shieldlag": {
+        "raw": "4/6",
+        "parsed": [
+          4,
+          6
+        ]
+      },
+      "shieldstun": {
+        "raw": "-/3",
+        "parsed": null
+      },
+      "advantage": {
+        "raw": "[+0]",
+        "parsed": [
+          0
+        ]
+      },
+      "notes": "Counter only activates when something hits the wall, not Sephiroth's body"
+    },
+    {
+      "move": "Scintilla (Activation)",
+      "category": "Specials",
+      "hitboxLabels": null,
+      "startup": {
+        "raw": "7/12/17/22",
+        "parsed": [
+          7,
+          12,
+          17,
+          22
+        ]
+      },
+      "totalFrames": {
+        "raw": "51",
+        "parsed": [
+          51
+        ]
+      },
+      "landingLag": {
+        "raw": null,
+        "parsed": null
+      },
+      "baseDamage": {
+        "raw": null,
+        "parsed": null
+      },
+      "shieldlag": {
+        "raw": null,
+        "parsed": null
+      },
+      "shieldstun": {
+        "raw": null,
+        "parsed": null
+      },
+      "advantage": {
+        "raw": null,
+        "parsed": null
+      },
+      "notes": "startup is not counting the counter freeze frames"
+    },
+    {
+      "move": "Grab",
+      "category": "Grabs/Throws",
+      "hitboxLabels": null,
+      "startup": {
+        "raw": "7",
+        "parsed": [
+          7
+        ]
+      },
+      "totalFrames": {
+        "raw": "36",
+        "parsed": [
+          36
+        ]
+      },
+      "landingLag": {
+        "raw": null,
+        "parsed": null
+      },
+      "baseDamage": {
+        "raw": null,
+        "parsed": null
+      },
+      "shieldlag": {
+        "raw": null,
+        "parsed": null
+      },
+      "shieldstun": {
+        "raw": null,
+        "parsed": null
+      },
+      "advantage": {
+        "raw": null,
+        "parsed": null
+      },
+      "notes": null
+    },
+    {
+      "move": "Dash Grab",
+      "category": "Grabs/Throws",
+      "hitboxLabels": null,
+      "startup": {
+        "raw": "10",
+        "parsed": [
+          10
+        ]
+      },
+      "totalFrames": {
+        "raw": "44",
+        "parsed": [
+          44
+        ]
+      },
+      "landingLag": {
+        "raw": null,
+        "parsed": null
+      },
+      "baseDamage": {
+        "raw": null,
+        "parsed": null
+      },
+      "shieldlag": {
+        "raw": null,
+        "parsed": null
+      },
+      "shieldstun": {
+        "raw": null,
+        "parsed": null
+      },
+      "advantage": {
+        "raw": null,
+        "parsed": null
+      },
+      "notes": null
+    },
+    {
+      "move": "Pivot Grab",
+      "category": "Grabs/Throws",
+      "hitboxLabels": null,
+      "startup": {
+        "raw": "11",
+        "parsed": [
+          11
+        ]
+      },
+      "totalFrames": {
+        "raw": "39",
+        "parsed": [
+          39
+        ]
+      },
+      "landingLag": {
+        "raw": null,
+        "parsed": null
+      },
+      "baseDamage": {
+        "raw": null,
+        "parsed": null
+      },
+      "shieldlag": {
+        "raw": null,
+        "parsed": null
+      },
+      "shieldstun": {
+        "raw": null,
+        "parsed": null
+      },
+      "advantage": {
+        "raw": null,
+        "parsed": null
+      },
+      "notes": null
+    },
+    {
+      "move": "Pummel",
+      "category": "Grabs/Throws",
+      "hitboxLabels": null,
+      "startup": {
+        "raw": "1",
+        "parsed": [
+          1
+        ]
+      },
+      "totalFrames": {
+        "raw": "19",
+        "parsed": [
+          19
+        ]
+      },
+      "landingLag": {
+        "raw": null,
+        "parsed": null
+      },
+      "baseDamage": {
+        "raw": "1.3",
+        "parsed": [
+          1.3
+        ]
+      },
+      "shieldlag": {
+        "raw": null,
+        "parsed": null
+      },
+      "shieldstun": {
+        "raw": null,
+        "parsed": null
+      },
+      "advantage": {
+        "raw": null,
+        "parsed": null
+      },
+      "notes": "includes 14 frames of hitlag (plus one in 1v1)"
+    },
+    {
+      "move": "Forward Throw",
+      "category": "Grabs/Throws",
+      "hitboxLabels": null,
+      "startup": {
+        "raw": "14/15",
+        "parsed": [
+          14,
+          15
+        ]
+      },
+      "totalFrames": {
+        "raw": "34",
+        "parsed": [
+          34
+        ]
+      },
+      "landingLag": {
+        "raw": null,
+        "parsed": null
+      },
+      "baseDamage": {
+        "raw": "3.0 / 3.0",
+        "parsed": [
+          3,
+          3
+        ]
+      },
+      "shieldlag": {
+        "raw": null,
+        "parsed": null
+      },
+      "shieldstun": {
+        "raw": null,
+        "parsed": null
+      },
+      "advantage": {
+        "raw": null,
+        "parsed": null
+      },
+      "notes": null
+    },
+    {
+      "move": "Back Throw",
+      "category": "Grabs/Throws",
+      "hitboxLabels": null,
+      "startup": {
+        "raw": "18/19",
+        "parsed": [
+          18,
+          19
+        ]
+      },
+      "totalFrames": {
+        "raw": "31",
+        "parsed": [
+          31
+        ]
+      },
+      "landingLag": {
+        "raw": null,
+        "parsed": null
+      },
+      "baseDamage": {
+        "raw": "3.0 / 3.5",
+        "parsed": [
+          3,
+          3.5
+        ]
+      },
+      "shieldlag": {
+        "raw": null,
+        "parsed": null
+      },
+      "shieldstun": {
+        "raw": null,
+        "parsed": null
+      },
+      "advantage": {
+        "raw": null,
+        "parsed": null
+      },
+      "notes": null
+    },
+    {
+      "move": "Up Throw",
+      "category": "Grabs/Throws",
+      "hitboxLabels": null,
+      "startup": {
+        "raw": "13/14",
+        "parsed": [
+          13,
+          14
+        ]
+      },
+      "totalFrames": {
+        "raw": "32",
+        "parsed": [
+          32
+        ]
+      },
+      "landingLag": {
+        "raw": null,
+        "parsed": null
+      },
+      "baseDamage": {
+        "raw": "4.0 / 3.0",
+        "parsed": [
+          4,
+          3
+        ]
+      },
+      "shieldlag": {
+        "raw": null,
+        "parsed": null
+      },
+      "shieldstun": {
+        "raw": null,
+        "parsed": null
+      },
+      "advantage": {
+        "raw": null,
+        "parsed": null
+      },
+      "notes": null
+    },
+    {
+      "move": "Down Throw",
+      "category": "Grabs/Throws",
+      "hitboxLabels": null,
+      "startup": {
+        "raw": "40",
+        "parsed": [
+          40
+        ]
+      },
+      "totalFrames": {
+        "raw": "47",
+        "parsed": [
+          47
+        ]
+      },
+      "landingLag": {
+        "raw": null,
+        "parsed": null
+      },
+      "baseDamage": {
+        "raw": "4.0",
+        "parsed": [
+          4
+        ]
+      },
+      "shieldlag": {
+        "raw": null,
+        "parsed": null
+      },
+      "shieldstun": {
+        "raw": null,
+        "parsed": null
+      },
+      "advantage": {
+        "raw": null,
+        "parsed": null
+      },
+      "notes": null
+    },
+    {
+      "move": "Spot Dodge",
+      "category": "Defensive",
+      "hitboxLabels": null,
+      "startup": {
+        "raw": null,
+        "parsed": null
+      },
+      "totalFrames": {
+        "raw": "20/25",
+        "parsed": [
+          20,
+          25
+        ]
+      },
+      "landingLag": {
+        "raw": null,
+        "parsed": null
+      },
+      "baseDamage": {
+        "raw": null,
+        "parsed": null
+      },
+      "shieldlag": {
+        "raw": null,
+        "parsed": null
+      },
+      "shieldstun": {
+        "raw": null,
+        "parsed": null
+      },
+      "advantage": {
+        "raw": null,
+        "parsed": null
+      },
+      "notes": "Invulnerable on frame 3-17"
+    },
+    {
+      "move": "Forward Roll",
+      "category": "Defensive",
+      "hitboxLabels": null,
+      "startup": {
+        "raw": null,
+        "parsed": null
+      },
+      "totalFrames": {
+        "raw": "29",
+        "parsed": [
+          29
+        ]
+      },
+      "landingLag": {
+        "raw": null,
+        "parsed": null
+      },
+      "baseDamage": {
+        "raw": null,
+        "parsed": null
+      },
+      "shieldlag": {
+        "raw": null,
+        "parsed": null
+      },
+      "shieldstun": {
+        "raw": null,
+        "parsed": null
+      },
+      "advantage": {
+        "raw": null,
+        "parsed": null
+      },
+      "notes": "Invulenrable on frame 4-15"
+    },
+    {
+      "move": "Back Roll",
+      "category": "Defensive",
+      "hitboxLabels": null,
+      "startup": {
+        "raw": null,
+        "parsed": null
+      },
+      "totalFrames": {
+        "raw": "34",
+        "parsed": [
+          34
+        ]
+      },
+      "landingLag": {
+        "raw": null,
+        "parsed": null
+      },
+      "baseDamage": {
+        "raw": null,
+        "parsed": null
+      },
+      "shieldlag": {
+        "raw": null,
+        "parsed": null
+      },
+      "shieldstun": {
+        "raw": null,
+        "parsed": null
+      },
+      "advantage": {
+        "raw": null,
+        "parsed": null
+      },
+      "notes": "Invulnerable on frame 5-16"
+    },
+    {
+      "move": "Neutral Air Dodge",
+      "category": "Defensive",
+      "hitboxLabels": null,
+      "startup": {
+        "raw": null,
+        "parsed": null
+      },
+      "totalFrames": {
+        "raw": "44",
+        "parsed": [
+          44
+        ]
+      },
+      "landingLag": {
+        "raw": null,
+        "parsed": null
+      },
+      "baseDamage": {
+        "raw": null,
+        "parsed": null
+      },
+      "shieldlag": {
+        "raw": null,
+        "parsed": null
+      },
+      "shieldstun": {
+        "raw": null,
+        "parsed": null
+      },
+      "advantage": {
+        "raw": null,
+        "parsed": null
+      },
+      "notes": "Invulenrable on frame 3-30"
+    },
+    {
+      "move": "Dir. AD Down",
+      "category": "Defensive",
+      "hitboxLabels": null,
+      "startup": {
+        "raw": null,
+        "parsed": null
+      },
+      "totalFrames": {
+        "raw": "61",
+        "parsed": [
+          61
+        ]
+      },
+      "landingLag": {
+        "raw": null,
+        "parsed": null
+      },
+      "baseDamage": {
+        "raw": null,
+        "parsed": null
+      },
+      "shieldlag": {
+        "raw": null,
+        "parsed": null
+      },
+      "shieldstun": {
+        "raw": null,
+        "parsed": null
+      },
+      "advantage": {
+        "raw": null,
+        "parsed": null
+      },
+      "notes": "Invulnerable on frame 3-21"
+    },
+    {
+      "move": "Dir. AD Diagonally Down",
+      "category": "Defensive",
+      "hitboxLabels": null,
+      "startup": {
+        "raw": null,
+        "parsed": null
+      },
+      "totalFrames": {
+        "raw": "69",
+        "parsed": [
+          69
+        ]
+      },
+      "landingLag": {
+        "raw": null,
+        "parsed": null
+      },
+      "baseDamage": {
+        "raw": null,
+        "parsed": null
+      },
+      "shieldlag": {
+        "raw": null,
+        "parsed": null
+      },
+      "shieldstun": {
+        "raw": null,
+        "parsed": null
+      },
+      "advantage": {
+        "raw": null,
+        "parsed": null
+      },
+      "notes": "Invulnerable on frame 3-21"
+    },
+    {
+      "move": "Dir. AD left or right",
+      "category": "Defensive",
+      "hitboxLabels": null,
+      "startup": {
+        "raw": null,
+        "parsed": null
+      },
+      "totalFrames": {
+        "raw": "74",
+        "parsed": [
+          74
+        ]
+      },
+      "landingLag": {
+        "raw": null,
+        "parsed": null
+      },
+      "baseDamage": {
+        "raw": null,
+        "parsed": null
+      },
+      "shieldlag": {
+        "raw": null,
+        "parsed": null
+      },
+      "shieldstun": {
+        "raw": null,
+        "parsed": null
+      },
+      "advantage": {
+        "raw": null,
+        "parsed": null
+      },
+      "notes": "Invulnerable on frame 3-21"
+    },
+    {
+      "move": "Dir. AD Diagonally Up",
+      "category": "Defensive",
+      "hitboxLabels": null,
+      "startup": {
+        "raw": null,
+        "parsed": null
+      },
+      "totalFrames": {
+        "raw": "86",
+        "parsed": [
+          86
+        ]
+      },
+      "landingLag": {
+        "raw": null,
+        "parsed": null
+      },
+      "baseDamage": {
+        "raw": null,
+        "parsed": null
+      },
+      "shieldlag": {
+        "raw": null,
+        "parsed": null
+      },
+      "shieldstun": {
+        "raw": null,
+        "parsed": null
+      },
+      "advantage": {
+        "raw": null,
+        "parsed": null
+      },
+      "notes": "Invulnerable on frame 3-21"
+    },
+    {
+      "move": "Dir. AD Up",
+      "category": "Defensive",
+      "hitboxLabels": null,
+      "startup": {
+        "raw": null,
+        "parsed": null
+      },
+      "totalFrames": {
+        "raw": "97",
+        "parsed": [
+          97
+        ]
+      },
+      "landingLag": {
+        "raw": null,
+        "parsed": null
+      },
+      "baseDamage": {
+        "raw": null,
+        "parsed": null
+      },
+      "shieldlag": {
+        "raw": null,
+        "parsed": null
+      },
+      "shieldstun": {
+        "raw": null,
+        "parsed": null
+      },
+      "advantage": {
+        "raw": null,
+        "parsed": null
+      },
+      "notes": "Invulnerable on frame 3-21"
+    }
+  ],
+  "forms": null
+}
