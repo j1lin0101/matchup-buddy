@@ -2,7 +2,7 @@
   "character": "Bowser",
   "slug": "Bowser",
   "patch": "13.1",
-  "scrapedAt": "2026-08-16T21:07:07.265Z",
+  "scrapedAt": "2026-08-16T21:39:41.956Z",
   "sourceSheet": "14 - Bowser",
   "moves": [
     {
@@ -98,7 +98,7 @@
       "notes": "Arm intangibility on frame 9-11"
     },
     {
-      "move": "F-Tilt",
+      "move": "Forward Tilt",
       "category": "Normals",
       "hitboxLabels": null,
       "startup": {
@@ -144,7 +144,7 @@
       "notes": "Damage based heavy armor on frame 7-9. Arm intangibility on frame 10-14"
     },
     {
-      "move": "U-Tilt",
+      "move": "Up Tilt",
       "category": "Normals",
       "hitboxLabels": null,
       "startup": {
@@ -190,7 +190,7 @@
       "notes": "Damage based heavy armor on frame 8-10. Arm intangibility on frame 11-16"
     },
     {
-      "move": "D-Tilt",
+      "move": "Down Tilt",
       "category": "Normals",
       "hitboxLabels": null,
       "startup": {
@@ -289,7 +289,7 @@
       "notes": null
     },
     {
-      "move": "F-Smash",
+      "move": "Forward Smash",
       "category": "Smashes",
       "hitboxLabels": null,
       "startup": {
@@ -335,7 +335,7 @@
       "notes": "Damage based heavy armor frame 17-19. Leg Invincible 20-25. Charge hold frame 3"
     },
     {
-      "move": "U-Smash",
+      "move": "Up Smash",
       "category": "Smashes",
       "hitboxLabels": [
         "Sweet",
@@ -394,7 +394,7 @@
       "notes": "Damage based heavy armor frame 11-13 and 28-31. Invincible 14-27. Charge hold frame 9"
     },
     {
-      "move": "D-Smash",
+      "move": "Down Smash",
       "category": "Smashes",
       "hitboxLabels": null,
       "startup": {
@@ -445,7 +445,7 @@
       "notes": "Damage based heavy armor frame 5-11. Charge hold is frame 4"
     },
     {
-      "move": "N-Air",
+      "move": "Neutral Air",
       "category": "Aerials",
       "hitboxLabels": null,
       "startup": {
@@ -495,7 +495,7 @@
       "notes": "Autocancels on frame 1-3 and 41 onward"
     },
     {
-      "move": "F-Air",
+      "move": "Forward Air",
       "category": "Aerials",
       "hitboxLabels": [
         "Far",
@@ -550,7 +550,7 @@
       "notes": "Autocancels on frame 1-3 and 31 onward"
     },
     {
-      "move": "B-Air",
+      "move": "Back Air",
       "category": "Aerials",
       "hitboxLabels": null,
       "startup": {
@@ -598,7 +598,7 @@
       "notes": "Autocancels on frame 1-2 and 31 onward"
     },
     {
-      "move": "U-Air",
+      "move": "Up Air",
       "category": "Aerials",
       "hitboxLabels": null,
       "startup": {
@@ -646,7 +646,7 @@
       "notes": "Head intangibility on frame 3-13. Autocancels on frame 1-2 and 40 onward"
     },
     {
-      "move": "D-Air",
+      "move": "Down Air",
       "category": "Aerials",
       "hitboxLabels": [
         "Normal",
@@ -700,7 +700,7 @@
       "notes": "Landing hit on frame 1. Autocancels on frame 1-13 and 70 onward"
     },
     {
-      "move": "Fire Breath",
+      "move": "Neutral Special",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {
@@ -747,7 +747,7 @@
       "notes": "Total frames is minimum usage. Endlag is 31 frames on release."
     },
     {
-      "move": "Flying Slam",
+      "move": "Side Special",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {
@@ -785,7 +785,7 @@
       "notes": "40 frames endlag after a slam, but can be cancelled by landing on a platform.\n23 frames of invulnerability after a successful grab"
     },
     {
-      "move": "Flying Slam (air)",
+      "move": "Side Special (air)",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {
@@ -823,7 +823,7 @@
       "notes": null
     },
     {
-      "move": "Whirling Fortress",
+      "move": "Up Special",
       "category": "Specials",
       "hitboxLabels": [
         "Multi",
@@ -882,7 +882,7 @@
       "notes": null
     },
     {
-      "move": "Whirling Fortress (air)",
+      "move": "Up Special (air)",
       "category": "Specials",
       "hitboxLabels": [
         "First",
@@ -943,7 +943,7 @@
       "notes": "Will snap to ledges as early as frame 9"
     },
     {
-      "move": "Bowser Bomb",
+      "move": "Down Special",
       "category": "Specials",
       "hitboxLabels": [
         "Rise",
@@ -992,7 +992,7 @@
       "notes": "Landing hit on frame 1."
     },
     {
-      "move": "Bowser Bomb (air)",
+      "move": "Down Special (air)",
       "category": "Specials",
       "hitboxLabels": [
         "Fall",

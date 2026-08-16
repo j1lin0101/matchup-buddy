@@ -2,7 +2,7 @@
   "character": "King Dedede",
   "slug": "King_Dedede",
   "patch": "13.1",
-  "scrapedAt": "2026-08-16T21:07:07.286Z",
+  "scrapedAt": "2026-08-16T21:39:41.984Z",
   "sourceSheet": "39 King Dedede",
   "moves": [
     {
@@ -184,7 +184,7 @@
       "notes": null
     },
     {
-      "move": "F-Tilt",
+      "move": "Forward Tilt",
       "category": "Normals",
       "hitboxLabels": [
         "Multi",
@@ -239,7 +239,7 @@
       "notes": null
     },
     {
-      "move": "U-Tilt",
+      "move": "Up Tilt",
       "category": "Normals",
       "hitboxLabels": [
         "Close",
@@ -292,7 +292,7 @@
       "notes": "Head intangible on frame 7-13."
     },
     {
-      "move": "D-Tilt",
+      "move": "Down Tilt",
       "category": "Normals",
       "hitboxLabels": [
         "Early",
@@ -396,7 +396,7 @@
       "notes": null
     },
     {
-      "move": "F-Smash",
+      "move": "Forward Smash",
       "category": "Smashes",
       "hitboxLabels": [
         "Early",
@@ -439,7 +439,7 @@
       "notes": "This attack only hits directly above Dedede on 40. Hammer comes down on 43.\nShockwave on 44. Charge hold is frame 33"
     },
     {
-      "move": "U-Smash",
+      "move": "Up Smash",
       "category": "Smashes",
       "hitboxLabels": null,
       "startup": {
@@ -485,7 +485,7 @@
       "notes": "Charge hold is frame 6"
     },
     {
-      "move": "D-Smash",
+      "move": "Down Smash",
       "category": "Smashes",
       "hitboxLabels": null,
       "startup": {
@@ -533,7 +533,7 @@
       "notes": "Charge hold is frame 3"
     },
     {
-      "move": "N-Air",
+      "move": "Neutral Air",
       "category": "Aerials",
       "hitboxLabels": [
         "Early",
@@ -588,7 +588,7 @@
       "notes": "Autocancels on frame 1-2 and 35 onward"
     },
     {
-      "move": "F-Air",
+      "move": "Forward Air",
       "category": "Aerials",
       "hitboxLabels": null,
       "startup": {
@@ -636,7 +636,7 @@
       "notes": "Autocancels on frame 1-4 and 40 onward"
     },
     {
-      "move": "B-Air",
+      "move": "Back Air",
       "category": "Aerials",
       "hitboxLabels": null,
       "startup": {
@@ -684,7 +684,7 @@
       "notes": "Autocancels on frame 1-4 and 33 onward"
     },
     {
-      "move": "U-Air",
+      "move": "Up Air",
       "category": "Aerials",
       "hitboxLabels": [
         "Multi",
@@ -742,7 +742,7 @@
       "notes": "Autocancels on frame 1-4 and 42 onward"
     },
     {
-      "move": "D-Air",
+      "move": "Down Air",
       "category": "Aerials",
       "hitboxLabels": [
         "Sweet",
@@ -797,7 +797,7 @@
       "notes": "Autocancels on frame 1-6 and 44 onward"
     },
     {
-      "move": "Inhale",
+      "move": "Neutral Special",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {
@@ -835,7 +835,7 @@
       "notes": "Startup and total frames refer to minimum usage. 19 endlag after extended usage.\nCan inhale projectiles starting on frame 17 and involuntarily spit them back"
     },
     {
-      "move": "Inhale (spit)",
+      "move": "Neutral Special (spit)",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {
@@ -873,7 +873,7 @@
       "notes": null
     },
     {
-      "move": "Gordo Throw",
+      "move": "Side Special",
       "category": "Specials",
       "hitboxLabels": [
         "Hammer",
@@ -921,7 +921,7 @@
       "notes": "Dedede can catch a deflected gordo out of the air with this move as early as frame 1.\nThe second startup and total frames values refer to that rethrow animation."
     },
     {
-      "move": "Super Dedede Jump",
+      "move": "Up Special",
       "category": "Specials",
       "hitboxLabels": [
         "Falling",
@@ -974,7 +974,7 @@
       "notes": "Cancelling incurs 30 landing lag. Invulnerable on frame 18-21. Super Armor on\nframe 22-? Leg invulnerability on frame 73-landing. Landing hitbox on frame 3. Stars on 5.\nCan grab ledges as early as frame 19 (facing toward) or 23 (facing away)"
     },
     {
-      "move": "Jet Hammer (partial charge)",
+      "move": "Down Special (partial charge)",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {
@@ -1010,7 +1010,7 @@
       "notes": "10 startup from release. 17 to enter charge state. 136 frames to reach full charge\nHeavy armor on frame 1-14 from release. Only on ground version"
     },
     {
-      "move": "Jet Hammer (full charge)",
+      "move": "Down Special (full charge)",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {

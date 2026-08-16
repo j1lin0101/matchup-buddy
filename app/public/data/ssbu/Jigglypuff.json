@@ -2,7 +2,7 @@
   "character": "Jigglypuff",
   "slug": "Jigglypuff",
   "patch": "13.1",
-  "scrapedAt": "2026-08-16T21:07:07.263Z",
+  "scrapedAt": "2026-08-16T21:39:41.953Z",
   "sourceSheet": "12 - Jigglypuff",
   "moves": [
     {
@@ -98,7 +98,7 @@
       "notes": null
     },
     {
-      "move": "F-Tilt",
+      "move": "Forward Tilt",
       "category": "Normals",
       "hitboxLabels": null,
       "startup": {
@@ -144,7 +144,7 @@
       "notes": null
     },
     {
-      "move": "U-Tilt",
+      "move": "Up Tilt",
       "category": "Normals",
       "hitboxLabels": [
         "Early",
@@ -196,7 +196,7 @@
       "notes": null
     },
     {
-      "move": "D-Tilt",
+      "move": "Down Tilt",
       "category": "Normals",
       "hitboxLabels": null,
       "startup": {
@@ -294,7 +294,7 @@
       "notes": null
     },
     {
-      "move": "F-Smash",
+      "move": "Forward Smash",
       "category": "Smashes",
       "hitboxLabels": [
         "Early",
@@ -346,7 +346,7 @@
       "notes": "Charge hold is frame 4"
     },
     {
-      "move": "U-Smash",
+      "move": "Up Smash",
       "category": "Smashes",
       "hitboxLabels": null,
       "startup": {
@@ -392,7 +392,7 @@
       "notes": "Charge hold is frame 8"
     },
     {
-      "move": "D-Smash",
+      "move": "Down Smash",
       "category": "Smashes",
       "hitboxLabels": null,
       "startup": {
@@ -438,7 +438,7 @@
       "notes": "Charge hold is frame 4"
     },
     {
-      "move": "N-Air",
+      "move": "Neutral Air",
       "category": "Aerials",
       "hitboxLabels": [
         "Early",
@@ -493,7 +493,7 @@
       "notes": "Autocancels on frame 1-3 and 40 onward"
     },
     {
-      "move": "F-Air",
+      "move": "Forward Air",
       "category": "Aerials",
       "hitboxLabels": [
         "Early",
@@ -548,7 +548,7 @@
       "notes": "Autocancels on frame 1-3 and 28 onward"
     },
     {
-      "move": "B-Air",
+      "move": "Back Air",
       "category": "Aerials",
       "hitboxLabels": null,
       "startup": {
@@ -596,7 +596,7 @@
       "notes": "Autocancels on frame 1-3 and 26 onward"
     },
     {
-      "move": "U-Air",
+      "move": "Up Air",
       "category": "Aerials",
       "hitboxLabels": null,
       "startup": {
@@ -644,7 +644,7 @@
       "notes": "Autocancels on frame 1-3 and 35 onward"
     },
     {
-      "move": "D-Air",
+      "move": "Down Air",
       "category": "Aerials",
       "hitboxLabels": [
         "Mult",
@@ -706,7 +706,7 @@
       "notes": "Autocancels on frame 42 onward"
     },
     {
-      "move": "Rollout",
+      "move": "Neutral Special",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {
@@ -743,7 +743,7 @@
       "notes": "Reaches full charge at frame 51. Partial charge at 30. Endlag on hit is 52 on level ground. \nJigglypuff is helpless if she does not land or grab an edge after a hit, but she will pass through shields"
     },
     {
-      "move": "Pound",
+      "move": "Side Special",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {
@@ -789,7 +789,7 @@
       "notes": "Can grab ledges on frame 30 onward"
     },
     {
-      "move": "Sing",
+      "move": "Up Special",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {
@@ -829,7 +829,7 @@
       "notes": "Can snap to ledges as early as frame 2 if descending."
     },
     {
-      "move": "Rest",
+      "move": "Down Special",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {

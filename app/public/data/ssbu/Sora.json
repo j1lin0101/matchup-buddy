@@ -2,7 +2,7 @@
   "character": "Sora",
   "slug": "Sora",
   "patch": "13.1",
-  "scrapedAt": "2026-08-16T21:07:07.324Z",
+  "scrapedAt": "2026-08-16T21:39:42.049Z",
   "sourceSheet": "82 - Sora",
   "moves": [
     {
@@ -144,7 +144,7 @@
       "notes": null
     },
     {
-      "move": "F-Tilt (no combo)",
+      "move": "Forward Tilt (no combo)",
       "category": "Normals",
       "hitboxLabels": null,
       "startup": {
@@ -190,7 +190,7 @@
       "notes": null
     },
     {
-      "move": "F-Tilt (combo)",
+      "move": "Forward Tilt (combo)",
       "category": "Normals",
       "hitboxLabels": null,
       "startup": {
@@ -240,7 +240,7 @@
       "notes": null
     },
     {
-      "move": "F-Tilt (combo w/ finisher)",
+      "move": "Forward Tilt (combo w/ finisher)",
       "category": "Normals",
       "hitboxLabels": null,
       "startup": {
@@ -288,7 +288,7 @@
       "notes": null
     },
     {
-      "move": "U-Tilt",
+      "move": "Up Tilt",
       "category": "Normals",
       "hitboxLabels": [
         "multi",
@@ -350,7 +350,7 @@
       "notes": null
     },
     {
-      "move": "D-Tilt",
+      "move": "Down Tilt",
       "category": "Normals",
       "hitboxLabels": null,
       "startup": {
@@ -448,7 +448,7 @@
       "notes": "Front leg invulnerable on frame 7-18"
     },
     {
-      "move": "F-Smash",
+      "move": "Forward Smash",
       "category": "Smashes",
       "hitboxLabels": null,
       "startup": {
@@ -494,7 +494,7 @@
       "notes": "Charge hold on frame 5."
     },
     {
-      "move": "U-Smash",
+      "move": "Up Smash",
       "category": "Smashes",
       "hitboxLabels": null,
       "startup": {
@@ -544,7 +544,7 @@
       "notes": "Charge hold on frame 6."
     },
     {
-      "move": "D-Smash",
+      "move": "Down Smash",
       "category": "Smashes",
       "hitboxLabels": [
         "Close",
@@ -596,7 +596,7 @@
       "notes": "Fully invulnerable on frame 3-6. Legs invulnerable on frame 7-10.\nCharge hold on frame 2."
     },
     {
-      "move": "N-Air",
+      "move": "Neutral Air",
       "category": "Aerials",
       "hitboxLabels": null,
       "startup": {
@@ -644,7 +644,7 @@
       "notes": "Transitions to N-air 2 as early as frame 23. Autocancels on frame 30 onward."
     },
     {
-      "move": "N-Air 2",
+      "move": "Neutral Air 2",
       "category": "Aerials",
       "hitboxLabels": null,
       "startup": {
@@ -692,7 +692,7 @@
       "notes": "Transitions to N-air 3 as early as frame 20. Autocancels on frame 28 onward"
     },
     {
-      "move": "N-Air 3",
+      "move": "Neutral Air 3",
       "category": "Aerials",
       "hitboxLabels": null,
       "startup": {
@@ -740,7 +740,7 @@
       "notes": "Autocancels on frame 36 onward"
     },
     {
-      "move": "F-Air",
+      "move": "Forward Air",
       "category": "Aerials",
       "hitboxLabels": null,
       "startup": {
@@ -788,7 +788,7 @@
       "notes": "Transitions to F-air 2 as early as frame 23. Autocancels on frame 1-2 and 38 onward"
     },
     {
-      "move": "F-Air 2",
+      "move": "Forward Air 2",
       "category": "Aerials",
       "hitboxLabels": null,
       "startup": {
@@ -836,7 +836,7 @@
       "notes": "Transitions to F-Air 3 as early as frame 20. Autocancels on frame 28 onward"
     },
     {
-      "move": "F-Air 3",
+      "move": "Forward Air 3",
       "category": "Aerials",
       "hitboxLabels": null,
       "startup": {
@@ -884,7 +884,7 @@
       "notes": "Autocancels on frame 36 onward"
     },
     {
-      "move": "B-Air",
+      "move": "Back Air",
       "category": "Aerials",
       "hitboxLabels": null,
       "startup": {
@@ -932,7 +932,7 @@
       "notes": "Autocancels on frame 1-4 and 37 onward"
     },
     {
-      "move": "U-Air",
+      "move": "Up Air",
       "category": "Aerials",
       "hitboxLabels": null,
       "startup": {
@@ -980,7 +980,7 @@
       "notes": "Autocancels on frame 32 onward"
     },
     {
-      "move": "D-Air",
+      "move": "Down Air",
       "category": "Aerials",
       "hitboxLabels": [
         "Falling",
@@ -1182,7 +1182,7 @@
       "notes": null
     },
     {
-      "move": "Sonic Blade",
+      "move": "Side Special",
       "category": "Specials",
       "hitboxLabels": [
         "first",
@@ -1244,7 +1244,7 @@
       "notes": "Total frames refers to travel along the ground. Second and third lunges are voluntary."
     },
     {
-      "move": "Aerial Sweep",
+      "move": "Up Special",
       "category": "Specials",
       "hitboxLabels": [
         "first",
@@ -1301,7 +1301,7 @@
       "notes": "Can cancel into Sonic Blade on frame 50"
     },
     {
-      "move": "Counterattack",
+      "move": "Down Special",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {
@@ -1337,7 +1337,7 @@
       "notes": "Invulnerable on frame 7-8. Counters on frames 8-25. Sora must be facing his attacker."
     },
     {
-      "move": "Counterattack (success)",
+      "move": "Down Special (success)",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {

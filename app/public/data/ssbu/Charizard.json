@@ -2,7 +2,7 @@
   "character": "Charizard",
   "slug": "Charizard",
   "patch": "13.1",
-  "scrapedAt": "2026-08-16T21:07:07.282Z",
+  "scrapedAt": "2026-08-16T21:39:41.980Z",
   "sourceSheet": "35 - Charizard",
   "moves": [
     {
@@ -144,7 +144,7 @@
       "notes": null
     },
     {
-      "move": "F-Tilt",
+      "move": "Forward Tilt",
       "category": "Normals",
       "hitboxLabels": [
         "Close",
@@ -197,7 +197,7 @@
       "notes": null
     },
     {
-      "move": "U-Tilt",
+      "move": "Up Tilt",
       "category": "Normals",
       "hitboxLabels": null,
       "startup": {
@@ -243,7 +243,7 @@
       "notes": null
     },
     {
-      "move": "D-Tilt",
+      "move": "Down Tilt",
       "category": "Normals",
       "hitboxLabels": null,
       "startup": {
@@ -341,7 +341,7 @@
       "notes": null
     },
     {
-      "move": "F-Smash",
+      "move": "Forward Smash",
       "category": "Smashes",
       "hitboxLabels": [
         "Close",
@@ -394,7 +394,7 @@
       "notes": "Invulnerable on frame 20-24. Charge hold is frame 15"
     },
     {
-      "move": "U-Smash",
+      "move": "Up Smash",
       "category": "Smashes",
       "hitboxLabels": null,
       "startup": {
@@ -444,7 +444,7 @@
       "notes": "Charge hold is frame 2"
     },
     {
-      "move": "D-Smash",
+      "move": "Down Smash",
       "category": "Smashes",
       "hitboxLabels": null,
       "startup": {
@@ -490,7 +490,7 @@
       "notes": "Charge hold is frame 1"
     },
     {
-      "move": "N-Air",
+      "move": "Neutral Air",
       "category": "Aerials",
       "hitboxLabels": [
         "Close",
@@ -545,7 +545,7 @@
       "notes": "Autocancels on frame 1-3 and 31 onward "
     },
     {
-      "move": "F-Air",
+      "move": "Forward Air",
       "category": "Aerials",
       "hitboxLabels": [
         "Close",
@@ -600,7 +600,7 @@
       "notes": "Autocancels on frame 1-4 and 35 onward"
     },
     {
-      "move": "B-Air",
+      "move": "Back Air",
       "category": "Aerials",
       "hitboxLabels": [
         "Close",
@@ -660,7 +660,7 @@
       "notes": "Autocancels on frame 1-3 and 44 onward"
     },
     {
-      "move": "U-Air",
+      "move": "Up Air",
       "category": "Aerials",
       "hitboxLabels": null,
       "startup": {
@@ -708,7 +708,7 @@
       "notes": "Head intangibility on frame 11-15. Autocancels on frame 1-3 and 38 onward"
     },
     {
-      "move": "D-Air",
+      "move": "Down Air",
       "category": "Aerials",
       "hitboxLabels": [
         "Early",
@@ -763,7 +763,7 @@
       "notes": "Autocancels on frame 1-5 and 42 onward"
     },
     {
-      "move": "Flamethrower",
+      "move": "Neutral Special",
       "category": "Specials",
       "hitboxLabels": [
         "Close",
@@ -818,7 +818,7 @@
       "notes": "Startup and total frames are the minimum. Endlag is 27 from extended use"
     },
     {
-      "move": "Flare Blitz",
+      "move": "Side Special",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {
@@ -866,7 +866,7 @@
       "notes": "58 endlag on hit if nothing catches your fall first. Lands on 48 on level ground \nand can input a wakeup move on 73. Total frames is when you don't hit anything\nCan grab ledges on frame 45 onward"
     },
     {
-      "move": "Fly",
+      "move": "Up Special",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {
@@ -921,7 +921,7 @@
       "notes": "Super armor on frame 4-15. Grabs ledges on frame 2-11 when descending and 6-11 \nimmediately following a jump. Otherwise frame 22 onward."
     },
     {
-      "move": "Pokemon Change",
+      "move": "Down Special",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {

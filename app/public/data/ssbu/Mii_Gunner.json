@@ -2,7 +2,7 @@
   "character": "Mii Gunner",
   "slug": "Mii_Gunner",
   "patch": "13.1",
-  "scrapedAt": "2026-08-16T21:07:07.300Z",
+  "scrapedAt": "2026-08-16T21:39:41.999Z",
   "sourceSheet": "53 - Mii Gunner",
   "moves": [
     {
@@ -148,7 +148,7 @@
       "notes": null
     },
     {
-      "move": "F-Tilt",
+      "move": "Forward Tilt",
       "category": "Normals",
       "hitboxLabels": [
         "Early",
@@ -204,7 +204,7 @@
       "notes": null
     },
     {
-      "move": "U-Tilt",
+      "move": "Up Tilt",
       "category": "Normals",
       "hitboxLabels": null,
       "startup": {
@@ -250,7 +250,7 @@
       "notes": null
     },
     {
-      "move": "D-Tilt",
+      "move": "Down Tilt",
       "category": "Normals",
       "hitboxLabels": null,
       "startup": {
@@ -342,7 +342,7 @@
       "notes": null
     },
     {
-      "move": "F-Smash",
+      "move": "Forward Smash",
       "category": "Smashes",
       "hitboxLabels": [
         "multi",
@@ -400,7 +400,7 @@
       "notes": "Charge hold is frame 5"
     },
     {
-      "move": "U-Smash",
+      "move": "Up Smash",
       "category": "Smashes",
       "hitboxLabels": [
         "First",
@@ -460,7 +460,7 @@
       "notes": "Charge hold is frame 7"
     },
     {
-      "move": "D-Smash",
+      "move": "Down Smash",
       "category": "Smashes",
       "hitboxLabels": null,
       "startup": {
@@ -511,7 +511,7 @@
       "notes": "Charge hold is frame 5"
     },
     {
-      "move": "N-Air",
+      "move": "Neutral Air",
       "category": "Aerials",
       "hitboxLabels": null,
       "startup": {
@@ -559,7 +559,7 @@
       "notes": "Autocancels on frame 1-3 and 35 onward"
     },
     {
-      "move": "F-Air",
+      "move": "Forward Air",
       "category": "Aerials",
       "hitboxLabels": [
         "Early",
@@ -613,7 +613,7 @@
       "notes": "Autocancels on frame 44 onward"
     },
     {
-      "move": "B-Air",
+      "move": "Back Air",
       "category": "Aerials",
       "hitboxLabels": null,
       "startup": {
@@ -661,7 +661,7 @@
       "notes": "Autocancels on frame 1-3 and 32 onward"
     },
     {
-      "move": "U-Air",
+      "move": "Up Air",
       "category": "Aerials",
       "hitboxLabels": [
         "multi",
@@ -722,7 +722,7 @@
       "notes": "Autocancels on frame 1-10 and 58 onward"
     },
     {
-      "move": "D-Air",
+      "move": "Down Air",
       "category": "Aerials",
       "hitboxLabels": [
         "Far",
@@ -782,7 +782,7 @@
       "notes": "Autocancels on frame 1-3 and 54 onward"
     },
     {
-      "move": "Charge Blast",
+      "move": "Neutral Special (Charge Blast)",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {
@@ -818,7 +818,7 @@
       "notes": "startup is 3 from charge state. 12 frames to enter charge state. \n4 to cancel charge with shield. Takes 132 frames to reach full charge"
     },
     {
-      "move": "Laser Blaze",
+      "move": "Neutral Special (Laser Blaze)",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {
@@ -864,7 +864,7 @@
       "notes": "Fire rate is one shot per 22 frames"
     },
     {
-      "move": "Grenade Launch",
+      "move": "Neutral Special (Grenade Launch)",
       "category": "Specials",
       "hitboxLabels": [
         "multi",
@@ -913,7 +913,7 @@
       "notes": "Explosion hits are: 1/6/11/16/18"
     },
     {
-      "move": "Flame Pillar",
+      "move": "Side Special (Flame Pillar)",
       "category": "Specials",
       "hitboxLabels": [
         "multi",
@@ -963,7 +963,7 @@
       "notes": "Eruption hits: 1/9/17/25/33. Will not erupt on shields"
     },
     {
-      "move": "Stealth Burst",
+      "move": "Side Special (Stealth Burst)",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {
@@ -997,7 +997,7 @@
       "notes": "Startup is 5 from release. "
     },
     {
-      "move": "Gunner Missile (homing)",
+      "move": "Side Special (Gunner Missile (homing))",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {
@@ -1043,7 +1043,7 @@
       "notes": null
     },
     {
-      "move": "Gunner Missile (super)",
+      "move": "Side Special (Gunner Missile (super))",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {
@@ -1089,7 +1089,7 @@
       "notes": null
     },
     {
-      "move": "Lunar Launch",
+      "move": "Up Special (Lunar Launch)",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {
@@ -1133,7 +1133,7 @@
       "notes": "Grabs ledges as early as frame 15 (facing toward) or 44 (facing away)"
     },
     {
-      "move": "Cannon Jump Kick",
+      "move": "Up Special (Cannon Jump Kick)",
       "category": "Specials",
       "hitboxLabels": [
         "first",
@@ -1188,7 +1188,7 @@
       "notes": "Invulnerable on frame 5-7 on the ground. Grabs ledges on frame 17 (facing toward) or \n36 (facing away). Ot frame 2-9 if input immediately after a jump"
     },
     {
-      "move": "Arm Rocket",
+      "move": "Up Special (Arm Rocket)",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {
@@ -1224,7 +1224,7 @@
       "notes": null
     },
     {
-      "move": "Echo Reflector",
+      "move": "Down Special (Echo Reflector)",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {
@@ -1270,7 +1270,7 @@
       "notes": "Reflects on 4. Total frames is the minimum usage. Endlag is 15 frames otherwise."
     },
     {
-      "move": "Bomb Drop",
+      "move": "Down Special (Bomb Drop)",
       "category": "Specials",
       "hitboxLabels": [
         "contact",
@@ -1317,7 +1317,7 @@
       "notes": "Auto detonates on 134. Or six frames after contact"
     },
     {
-      "move": "Absorbing Vortex",
+      "move": "Down Special (Absorbing Vortex)",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {

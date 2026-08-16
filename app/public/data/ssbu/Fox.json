@@ -2,7 +2,7 @@
   "character": "Fox",
   "slug": "Fox",
   "patch": "13.1",
-  "scrapedAt": "2026-08-16T21:07:07.260Z",
+  "scrapedAt": "2026-08-16T21:39:41.948Z",
   "sourceSheet": "07 - Fox",
   "moves": [
     {
@@ -182,7 +182,7 @@
       "notes": null
     },
     {
-      "move": "F-Tilt",
+      "move": "Forward Tilt",
       "category": "Normals",
       "hitboxLabels": [
         "no angle",
@@ -235,7 +235,7 @@
       "notes": "Deals 1.0 more damage when angled."
     },
     {
-      "move": "U-Tilt",
+      "move": "Up Tilt",
       "category": "Normals",
       "hitboxLabels": [
         "close",
@@ -288,7 +288,7 @@
       "notes": null
     },
     {
-      "move": "D-Tilt",
+      "move": "Down Tilt",
       "category": "Normals",
       "hitboxLabels": [
         "close",
@@ -393,7 +393,7 @@
       "notes": null
     },
     {
-      "move": "F-Smash",
+      "move": "Forward Smash",
       "category": "Smashes",
       "hitboxLabels": null,
       "startup": {
@@ -439,7 +439,7 @@
       "notes": "Charge hold is frame 4"
     },
     {
-      "move": "U-Smash",
+      "move": "Up Smash",
       "category": "Smashes",
       "hitboxLabels": [
         "Early",
@@ -491,7 +491,7 @@
       "notes": "Charge hold is frame 2"
     },
     {
-      "move": "D-Smash",
+      "move": "Down Smash",
       "category": "Smashes",
       "hitboxLabels": null,
       "startup": {
@@ -537,7 +537,7 @@
       "notes": "Leg intangibility on frame 6-7. Charge hold is frame 2"
     },
     {
-      "move": "N-Air",
+      "move": "Neutral Air",
       "category": "Aerials",
       "hitboxLabels": [
         "Early",
@@ -592,7 +592,7 @@
       "notes": "Autocancels on frame 1-3 and 32 onward"
     },
     {
-      "move": "F-Air",
+      "move": "Forward Air",
       "category": "Aerials",
       "hitboxLabels": [
         "Last one is",
@@ -648,7 +648,7 @@
       "notes": "Landing hit on frame 1. Autocancels on frame 45 onward"
     },
     {
-      "move": "B-Air",
+      "move": "Back Air",
       "category": "Aerials",
       "hitboxLabels": null,
       "startup": {
@@ -696,7 +696,7 @@
       "notes": "Autocancels on frame 1-6 and 18 onward"
     },
     {
-      "move": "U-Air",
+      "move": "Up Air",
       "category": "Aerials",
       "hitboxLabels": null,
       "startup": {
@@ -749,7 +749,7 @@
       "notes": "Autocancels on frame 1-8 and 25 onward"
     },
     {
-      "move": "D-Air",
+      "move": "Down Air",
       "category": "Aerials",
       "hitboxLabels": [
         "multi",
@@ -813,7 +813,7 @@
       "notes": "Landing hit on frame 1. Autocancels on frame 1-4 and 28 onward"
     },
     {
-      "move": "Blaster (ground/air)",
+      "move": "Neutral Special (ground/air)",
       "category": "Specials",
       "hitboxLabels": [
         "Early",
@@ -872,7 +872,7 @@
       "notes": "Fire rate is one shot per ten frames."
     },
     {
-      "move": "Fox Illusion",
+      "move": "Side Special",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {
@@ -918,7 +918,7 @@
       "notes": "Fox does not suffer hitlag/shieldlag from this attack. "
     },
     {
-      "move": "Fox Illusion (air)",
+      "move": "Side Special (air)",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {
@@ -966,7 +966,7 @@
       "notes": "Advantage assumes lowest altitude possible.\nGrabs ledges as early as frame 25"
     },
     {
-      "move": "Fire Fox",
+      "move": "Up Special",
       "category": "Specials",
       "hitboxLabels": [
         "multi",
@@ -1027,7 +1027,7 @@
       "notes": "Total frames is when traveling along the ground.\nSnaps to a ledge on frame 44 onward."
     },
     {
-      "move": "Reflector",
+      "move": "Down Special",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {

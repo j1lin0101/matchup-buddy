@@ -2,7 +2,7 @@
   "character": "Captain Falcon",
   "slug": "Captain_Falcon",
   "patch": "13.1",
-  "scrapedAt": "2026-08-16T21:07:07.263Z",
+  "scrapedAt": "2026-08-16T21:39:41.952Z",
   "sourceSheet": "11 - Captain Falcon",
   "moves": [
     {
@@ -228,7 +228,7 @@
       "notes": null
     },
     {
-      "move": "F-Tilt",
+      "move": "Forward Tilt",
       "category": "Normals",
       "hitboxLabels": [
         "close",
@@ -281,7 +281,7 @@
       "notes": "Damage and shieldstun increases by 1.0 when angled"
     },
     {
-      "move": "U-Tilt",
+      "move": "Up Tilt",
       "category": "Normals",
       "hitboxLabels": null,
       "startup": {
@@ -327,7 +327,7 @@
       "notes": null
     },
     {
-      "move": "D-Tilt",
+      "move": "Down Tilt",
       "category": "Normals",
       "hitboxLabels": null,
       "startup": {
@@ -425,7 +425,7 @@
       "notes": null
     },
     {
-      "move": "F-Smash",
+      "move": "Forward Smash",
       "category": "Smashes",
       "hitboxLabels": [
         "no angle",
@@ -477,7 +477,7 @@
       "notes": "Charge hold is frame 11"
     },
     {
-      "move": "U-Smash",
+      "move": "Up Smash",
       "category": "Smashes",
       "hitboxLabels": [
         "close",
@@ -534,7 +534,7 @@
       "notes": "Charge hold is frame 8"
     },
     {
-      "move": "D-Smash",
+      "move": "Down Smash",
       "category": "Smashes",
       "hitboxLabels": null,
       "startup": {
@@ -585,7 +585,7 @@
       "notes": "Leg intangibility on frame 14-16. Charge hold is frame 11"
     },
     {
-      "move": "N-Air",
+      "move": "Neutral Air",
       "category": "Aerials",
       "hitboxLabels": null,
       "startup": {
@@ -638,7 +638,7 @@
       "notes": "Autocancels on frame 1-3 and 32 onward"
     },
     {
-      "move": "F-Air",
+      "move": "Forward Air",
       "category": "Aerials",
       "hitboxLabels": [
         "Early",
@@ -693,7 +693,7 @@
       "notes": "Autocancels on frame 1-4 and 42 onward"
     },
     {
-      "move": "B-Air",
+      "move": "Back Air",
       "category": "Aerials",
       "hitboxLabels": [
         "Early",
@@ -748,7 +748,7 @@
       "notes": "Autocancels on frame 1-4 and 19 onward"
     },
     {
-      "move": "U-Air",
+      "move": "Up Air",
       "category": "Aerials",
       "hitboxLabels": [
         "close",
@@ -808,7 +808,7 @@
       "notes": "Autocancels on frame 24 onward"
     },
     {
-      "move": "D-Air",
+      "move": "Down Air",
       "category": "Aerials",
       "hitboxLabels": null,
       "startup": {
@@ -856,7 +856,7 @@
       "notes": "Autocancels on frame 1-3 and 39 onward"
     },
     {
-      "move": "Falcon Punch (normal/turnaround)",
+      "move": "Neutral Special (normal/turnaround)",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {
@@ -908,7 +908,7 @@
       "notes": null
     },
     {
-      "move": "Raptor Boost",
+      "move": "Side Special",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {
@@ -953,7 +953,7 @@
       "notes": "Startup is 6 upon reaching target. On hit total frames is 28. Proximity sensor is active starting on 10.\nTotal frames on a miss is 71. Damage based armor activates on frame 1 of reaching a target."
     },
     {
-      "move": "Raptor Boost (air)",
+      "move": "Side Special (air)",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {
@@ -995,7 +995,7 @@
       "notes": "39 endlag on hit. Startup is 5 upon reaching a target. Proximity sensor active starting on 19.\nCan grab ledges on frame 26 or 8 after proximity sensor activates."
     },
     {
-      "move": "Falcon Dive",
+      "move": "Up Special",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {
@@ -1033,7 +1033,7 @@
       "notes": "22 frames endlag when blasting off the victim. Can snap to ledges on frames 10-12. And then 20 \nonward (facing toward) or 37 onward (facing away)"
     },
     {
-      "move": "Falcon Kick",
+      "move": "Down Special",
       "category": "Specials",
       "hitboxLabels": [
         "Early",
@@ -1090,7 +1090,7 @@
       "notes": "Total frames is 70 on the ground or 67 if you go over an edge."
     },
     {
-      "move": "Falcon Kick (air)",
+      "move": "Down Special (air)",
       "category": "Specials",
       "hitboxLabels": [
         "Early",

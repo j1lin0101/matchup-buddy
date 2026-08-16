@@ -2,7 +2,7 @@
   "character": "Cloud",
   "slug": "Cloud",
   "patch": "13.1",
-  "scrapedAt": "2026-08-16T21:07:07.307Z",
+  "scrapedAt": "2026-08-16T21:39:42.013Z",
   "sourceSheet": "61 - Cloud",
   "moves": [
     {
@@ -144,7 +144,7 @@
       "notes": null
     },
     {
-      "move": "F-Tilt",
+      "move": "Forward Tilt",
       "category": "Normals",
       "hitboxLabels": null,
       "startup": {
@@ -190,7 +190,7 @@
       "notes": null
     },
     {
-      "move": "U-Tilt",
+      "move": "Up Tilt",
       "category": "Normals",
       "hitboxLabels": null,
       "startup": {
@@ -236,7 +236,7 @@
       "notes": null
     },
     {
-      "move": "D-Tilt",
+      "move": "Down Tilt",
       "category": "Normals",
       "hitboxLabels": null,
       "startup": {
@@ -334,7 +334,7 @@
       "notes": null
     },
     {
-      "move": "F-Smash",
+      "move": "Forward Smash",
       "category": "Smashes",
       "hitboxLabels": [
         "first",
@@ -392,7 +392,7 @@
       "notes": "Charge hold is frame 5"
     },
     {
-      "move": "U-Smash",
+      "move": "Up Smash",
       "category": "Smashes",
       "hitboxLabels": [
         "early",
@@ -444,7 +444,7 @@
       "notes": "Charge hold is frame 6"
     },
     {
-      "move": "D-Smash",
+      "move": "Down Smash",
       "category": "Smashes",
       "hitboxLabels": null,
       "startup": {
@@ -495,7 +495,7 @@
       "notes": "Charge hold is frame 2"
     },
     {
-      "move": "N-Air",
+      "move": "Neutral Air",
       "category": "Aerials",
       "hitboxLabels": null,
       "startup": {
@@ -543,7 +543,7 @@
       "notes": "Autocancels on frame 31 onward"
     },
     {
-      "move": "F-Air",
+      "move": "Forward Air",
       "category": "Aerials",
       "hitboxLabels": [
         "Early",
@@ -603,7 +603,7 @@
       "notes": "Autocancels on frame 1-2 and 43 onward"
     },
     {
-      "move": "B-Air",
+      "move": "Back Air",
       "category": "Aerials",
       "hitboxLabels": null,
       "startup": {
@@ -651,7 +651,7 @@
       "notes": "Autocancels on frame 1-4 and 37 onward"
     },
     {
-      "move": "U-Air",
+      "move": "Up Air",
       "category": "Aerials",
       "hitboxLabels": [
         "Early",
@@ -706,7 +706,7 @@
       "notes": "Autocancels on frame 32 onward"
     },
     {
-      "move": "D-Air",
+      "move": "Down Air",
       "category": "Aerials",
       "hitboxLabels": [
         "Early",
@@ -761,7 +761,7 @@
       "notes": "Autocancels on frame 1-4 and 46 onward"
     },
     {
-      "move": "Blade Beam",
+      "move": "Neutral Special",
       "category": "Specials",
       "hitboxLabels": [
         "Early",
@@ -813,7 +813,7 @@
       "notes": null
     },
     {
-      "move": "Blade Beam (air)",
+      "move": "Neutral Special (air)",
       "category": "Specials",
       "hitboxLabels": [
         "Early",
@@ -865,7 +865,7 @@
       "notes": null
     },
     {
-      "move": "Limit Blade Beam",
+      "move": "Limit Neutral Special",
       "category": "Specials",
       "hitboxLabels": [
         "First",
@@ -957,7 +957,7 @@
       "notes": "Invulnerable on frame 10-17"
     },
     {
-      "move": "Cross Slash",
+      "move": "Side Special",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {
@@ -1003,7 +1003,7 @@
       "notes": "Transitions to next slash as early as frame 10 if you hit"
     },
     {
-      "move": "Cross Slash 2",
+      "move": "Side Special 2",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {
@@ -1049,7 +1049,7 @@
       "notes": "Transitiions to next slash as early as frame 14 if you hit"
     },
     {
-      "move": "Cross Slash 3",
+      "move": "Side Special 3",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {
@@ -1103,7 +1103,7 @@
       "notes": "First of these hits has no hitlag"
     },
     {
-      "move": "Limit Cross Slash",
+      "move": "Limit Side Special",
       "category": "Specials",
       "hitboxLabels": [
         "Hits 1-2",
@@ -1159,7 +1159,7 @@
       "notes": "Invulnerable on frame 6-11"
     },
     {
-      "move": "Climhazzard",
+      "move": "Up Special",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {
@@ -1204,7 +1204,7 @@
       "notes": "Transitions to followup as early as frame 20. Can grab ledges as early as 24.\nOr frames 2-9 if used while descending or immediately after jumping."
     },
     {
-      "move": "Limit Climhazzard",
+      "move": "Limit Up Special",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {
@@ -1249,7 +1249,7 @@
       "notes": "Invulnerable on frame 5-12 Transitions to followup as early as frame 33"
     },
     {
-      "move": "Climhazzard followup",
+      "move": "Up Special followup",
       "category": "Specials",
       "hitboxLabels": [
         "falling",
@@ -1301,7 +1301,7 @@
       "notes": "Landing hit on frame 1. Grabs ledges as early as frame 23"
     },
     {
-      "move": "Limit charge",
+      "move": "Down Special",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {
@@ -1335,7 +1335,7 @@
       "notes": "Takes 7 frames to cancel. About 7 seconds to fully charge limit meter."
     },
     {
-      "move": "Finishing Touch (ground/air)",
+      "move": "Down Special (ground/air)",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {

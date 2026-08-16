@@ -2,7 +2,7 @@
   "character": "Sephiroth",
   "slug": "Sephiroth",
   "patch": "13.1",
-  "scrapedAt": "2026-08-16T21:07:07.321Z",
+  "scrapedAt": "2026-08-16T21:39:42.045Z",
   "sourceSheet": "78 - Sephiroth",
   "moves": [
     {
@@ -140,7 +140,7 @@
       "notes": null
     },
     {
-      "move": "F-Tilt",
+      "move": "Forward Tilt",
       "category": "Normals",
       "hitboxLabels": [
         "close",
@@ -194,7 +194,7 @@
       "notes": null
     },
     {
-      "move": "U-Tilt",
+      "move": "Up Tilt",
       "category": "Normals",
       "hitboxLabels": [
         "launcher",
@@ -238,7 +238,7 @@
       "notes": "Arm and upper body intangible on frame 13-15"
     },
     {
-      "move": "D-Tilt",
+      "move": "Down Tilt",
       "category": "Normals",
       "hitboxLabels": [
         "early",
@@ -334,7 +334,7 @@
       "notes": null
     },
     {
-      "move": "F-Smash",
+      "move": "Forward Smash",
       "category": "Smashes",
       "hitboxLabels": [
         "close",
@@ -388,7 +388,7 @@
       "notes": "charge hold on frame 8. Super armor on frame 10-23 with One Wing active."
     },
     {
-      "move": "U-Smash",
+      "move": "Up Smash",
       "category": "Smashes",
       "hitboxLabels": [
         "early close",
@@ -433,7 +433,7 @@
       "notes": "charge hold on frame 12. Super armor on frame 14-22 with One Wing active."
     },
     {
-      "move": "D-Smash",
+      "move": "Down Smash",
       "category": "Smashes",
       "hitboxLabels": [
         "close",
@@ -483,7 +483,7 @@
       "notes": "charge hold on frame 8. Super armor on frame 10-20 with One Wing active."
     },
     {
-      "move": "N-Air",
+      "move": "Neutral Air",
       "category": "Aerials",
       "hitboxLabels": null,
       "startup": {
@@ -531,7 +531,7 @@
       "notes": "Autocancels on frame 30 onward"
     },
     {
-      "move": "F-Air",
+      "move": "Forward Air",
       "category": "Aerials",
       "hitboxLabels": [
         "early close",
@@ -578,7 +578,7 @@
       "notes": "Autocancels on frame 1-2 and 39 onward"
     },
     {
-      "move": "B-Air",
+      "move": "Back Air",
       "category": "Aerials",
       "hitboxLabels": [
         "close",
@@ -634,7 +634,7 @@
       "notes": "Autocancels on frame 1-4 and 46 onward"
     },
     {
-      "move": "U-Air",
+      "move": "Up Air",
       "category": "Aerials",
       "hitboxLabels": [
         "close",
@@ -690,7 +690,7 @@
       "notes": "Autocancels on frame 1-4 and 52 onward"
     },
     {
-      "move": "D-Air",
+      "move": "Down Air",
       "category": "Aerials",
       "hitboxLabels": [
         "early",
@@ -746,7 +746,7 @@
       "notes": "Autocancels on frame 54 onward. Landing hit on frame 1 of landing, \nbut falling and landing hits cannot seem to hit the same target"
     },
     {
-      "move": "Flare",
+      "move": "Neutral Special",
       "category": "Specials",
       "hitboxLabels": [
         "initial",
@@ -790,7 +790,7 @@
       "notes": "explosion occurs three frames after contact. Can cancel as early as frame 20\nTakes 7 frames to cancel with shield"
     },
     {
-      "move": "Megaflare",
+      "move": "Neutral Special",
       "category": "Specials",
       "hitboxLabels": [
         "initial",
@@ -836,7 +836,7 @@
       "notes": "Must hold for 31 frames to reach this level of charge."
     },
     {
-      "move": "Gigaflare",
+      "move": "Neutral Special",
       "category": "Specials",
       "hitboxLabels": [
         "initial",
@@ -882,7 +882,7 @@
       "notes": null
     },
     {
-      "move": "Shadow Flare",
+      "move": "Shadow Neutral Special",
       "category": "Specials",
       "hitboxLabels": [
         "projectile",
@@ -919,7 +919,7 @@
       "notes": null
     },
     {
-      "move": "Blade Dash",
+      "move": "Up Special",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {
@@ -967,7 +967,7 @@
       "notes": "total frames assumes travel along the ground"
     },
     {
-      "move": "Octaslash",
+      "move": "Up Special",
       "category": "Specials",
       "hitboxLabels": [
         "multi",
@@ -1025,7 +1025,7 @@
       "notes": "total frames assumes travel along the ground"
     },
     {
-      "move": "Scintilla",
+      "move": "Down Special",
       "category": "Specials",
       "hitboxLabels": [
         "multi",
@@ -1077,7 +1077,7 @@
       "notes": "Counter only activates when something hits the wall, not Sephiroth's body"
     },
     {
-      "move": "Scintilla (Activation)",
+      "move": "Down Special (Activation)",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {

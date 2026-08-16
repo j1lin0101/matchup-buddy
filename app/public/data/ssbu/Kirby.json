@@ -2,7 +2,7 @@
   "character": "Kirby",
   "slug": "Kirby",
   "patch": "13.1",
-  "scrapedAt": "2026-08-16T21:07:07.259Z",
+  "scrapedAt": "2026-08-16T21:39:41.947Z",
   "sourceSheet": "06 - Kirby",
   "moves": [
     {
@@ -182,7 +182,7 @@
       "notes": null
     },
     {
-      "move": "F-Tilt",
+      "move": "Forward Tilt",
       "category": "Normals",
       "hitboxLabels": [
         "Close",
@@ -235,7 +235,7 @@
       "notes": null
     },
     {
-      "move": "U-Tilt",
+      "move": "Up Tilt",
       "category": "Normals",
       "hitboxLabels": [
         "Early",
@@ -287,7 +287,7 @@
       "notes": "Leg intangibility on frame 4-10"
     },
     {
-      "move": "D-Tilt",
+      "move": "Down Tilt",
       "category": "Normals",
       "hitboxLabels": null,
       "startup": {
@@ -389,7 +389,7 @@
       "notes": null
     },
     {
-      "move": "F-Smash",
+      "move": "Forward Smash",
       "category": "Smashes",
       "hitboxLabels": [
         "Early",
@@ -441,7 +441,7 @@
       "notes": "Charge hold is frame 4"
     },
     {
-      "move": "U-Smash",
+      "move": "Up Smash",
       "category": "Smashes",
       "hitboxLabels": [
         "close",
@@ -498,7 +498,7 @@
       "notes": "Leg intangibility on frame 12-17. Charge hold is frame 8."
     },
     {
-      "move": "D-Smash",
+      "move": "Down Smash",
       "category": "Smashes",
       "hitboxLabels": null,
       "startup": {
@@ -544,7 +544,7 @@
       "notes": "Leg intangibility on frame 3-11. Charge hold is frame 2."
     },
     {
-      "move": "N-Air",
+      "move": "Neutral Air",
       "category": "Aerials",
       "hitboxLabels": [
         "Early",
@@ -599,7 +599,7 @@
       "notes": "Autocancels on frame 1-4 and 51 onward"
     },
     {
-      "move": "F-Air",
+      "move": "Forward Air",
       "category": "Aerials",
       "hitboxLabels": null,
       "startup": {
@@ -657,7 +657,7 @@
       "notes": "Autocancels on frame 1-9 and 41 onward"
     },
     {
-      "move": "B-Air",
+      "move": "Back Air",
       "category": "Aerials",
       "hitboxLabels": [
         "Early",
@@ -712,7 +712,7 @@
       "notes": "Autocancels on frame 1-2 and 32 onward"
     },
     {
-      "move": "U-Air",
+      "move": "Up Air",
       "category": "Aerials",
       "hitboxLabels": null,
       "startup": {
@@ -760,7 +760,7 @@
       "notes": "Autocancels on frame 1-9 and 22 onward"
     },
     {
-      "move": "D-Air",
+      "move": "Down Air",
       "category": "Aerials",
       "hitboxLabels": [
         "multi",
@@ -823,7 +823,7 @@
       "notes": "Landing hit on frame 1. Autocancels on frame 1-17 and 48 onward"
     },
     {
-      "move": "Inhale",
+      "move": "Neutral Special",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {
@@ -861,7 +861,7 @@
       "notes": "Minimum total frames is 63. Endlag is 19 frames upon release. \nA successful inhale grants kirby 15 frames of invulnerability.\nCan eat certain projectiles, or spit others out as a projectile. \nThe animation for eating a projectile is 51 frames long, or 71 for explosives."
     },
     {
-      "move": "Inhale (copy/spit)",
+      "move": "Neutral Special (copy/spit)",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {
@@ -901,7 +901,7 @@
       "notes": "Can hit other opponents nearby on frame 9 of copying the victim \nThe damage of that and Spit projectile depends on the weight of victim.\n(10.0 base damage for Jigglypuff, 21.0 for Bowser)"
     },
     {
-      "move": "Hammer Flip (release)",
+      "move": "Side Special (release)",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {
@@ -937,7 +937,7 @@
       "notes": "Startup is 11 from charging state. Takes 15 frames to enter charging state."
     },
     {
-      "move": "Hammer Flip (full charge)",
+      "move": "Side Special (full charge)",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {
@@ -983,7 +983,7 @@
       "notes": "invulnerable on frame 2-10 if on the ground and Super armor on frame 11-17\nReaches full charge on frame 135."
     },
     {
-      "move": "Hammer Flip (air, no charge)",
+      "move": "Side Special (air, no charge)",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {
@@ -1030,7 +1030,7 @@
       "notes": null
     },
     {
-      "move": "Final Cutter",
+      "move": "Up Special",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {
@@ -1083,7 +1083,7 @@
       "notes": "Projectile appears on frame 1 of landing and disappears on 18.\nSnaps to a ledge on frame 33 onward, and only when Kirby is facing the ledge"
     },
     {
-      "move": "Stone",
+      "move": "Down Special",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {
@@ -1125,7 +1125,7 @@
       "notes": "Emerging from stone is a 31 frame animation. Stone armor begins on frame 11"
     },
     {
-      "move": "Stone (air)",
+      "move": "Down Special (air)",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {

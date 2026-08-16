@@ -2,7 +2,7 @@
   "character": "Corrin",
   "slug": "Corrin",
   "patch": "13.1",
-  "scrapedAt": "2026-08-16T21:07:07.308Z",
+  "scrapedAt": "2026-08-16T21:39:42.015Z",
   "sourceSheet": "62 - Corrin",
   "moves": [
     {
@@ -242,7 +242,7 @@
       "notes": null
     },
     {
-      "move": "F-Tilt",
+      "move": "Forward Tilt",
       "category": "Normals",
       "hitboxLabels": null,
       "startup": {
@@ -288,7 +288,7 @@
       "notes": null
     },
     {
-      "move": "U-Tilt",
+      "move": "Up Tilt",
       "category": "Normals",
       "hitboxLabels": null,
       "startup": {
@@ -334,7 +334,7 @@
       "notes": null
     },
     {
-      "move": "D-Tilt",
+      "move": "Down Tilt",
       "category": "Normals",
       "hitboxLabels": null,
       "startup": {
@@ -434,7 +434,7 @@
       "notes": null
     },
     {
-      "move": "F-Smash",
+      "move": "Forward Smash",
       "category": "Smashes",
       "hitboxLabels": [
         "charging",
@@ -491,7 +491,7 @@
       "notes": "Charging hold is frame 12 and includes a hitbox that hits every 5 frames"
     },
     {
-      "move": "U-Smash",
+      "move": "Up Smash",
       "category": "Smashes",
       "hitboxLabels": [
         "close",
@@ -549,7 +549,7 @@
       "notes": "Charge hold is frame 9"
     },
     {
-      "move": "D-Smash",
+      "move": "Down Smash",
       "category": "Smashes",
       "hitboxLabels": [
         "front",
@@ -607,7 +607,7 @@
       "notes": "Charge hold is frame 8"
     },
     {
-      "move": "N-Air",
+      "move": "Neutral Air",
       "category": "Aerials",
       "hitboxLabels": [
         "early",
@@ -662,7 +662,7 @@
       "notes": "Autocancels on frame 1-5 and 47 onward"
     },
     {
-      "move": "F-Air",
+      "move": "Forward Air",
       "category": "Aerials",
       "hitboxLabels": null,
       "startup": {
@@ -710,7 +710,7 @@
       "notes": "Autocancels on frame 1-8 and 30 onward"
     },
     {
-      "move": "B-Air",
+      "move": "Back Air",
       "category": "Aerials",
       "hitboxLabels": [
         "early",
@@ -765,7 +765,7 @@
       "notes": "Autocancels on frame 1-5 and 42 onward"
     },
     {
-      "move": "U-Air",
+      "move": "Up Air",
       "category": "Aerials",
       "hitboxLabels": null,
       "startup": {
@@ -813,7 +813,7 @@
       "notes": "Autocancels on frame 1-3 and 38 onward"
     },
     {
-      "move": "D-Air",
+      "move": "Down Air",
       "category": "Aerials",
       "hitboxLabels": [
         "falling",
@@ -875,7 +875,7 @@
       "notes": "Landing hit on frame 1. Autocancels on frame 1-11 and 41 onward"
     },
     {
-      "move": "Dragon Fang Shot",
+      "move": "Neutral Special",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {
@@ -909,7 +909,7 @@
       "notes": null
     },
     {
-      "move": "Dragon Fang Shot (chomp)",
+      "move": "Neutral Special (chomp)",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {
@@ -943,7 +943,7 @@
       "notes": "Chomp can be charged an additional 30 frames independently of shot for more damage."
     },
     {
-      "move": "Dragon Lunge (Pin)",
+      "move": "Side Special (Pin)",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {
@@ -987,7 +987,7 @@
       "notes": "After pinning the ground, 13 frame waiting period before you can select one of the options\nEmpty hop on the ground without Pin is 45 frames. Cannot pin a shielding target."
     },
     {
-      "move": "Dragon Lunge (air)",
+      "move": "Side Special (air)",
       "category": "Specials",
       "hitboxLabels": [
         "close",
@@ -1039,7 +1039,7 @@
       "notes": null
     },
     {
-      "move": "Dragon Lunge (Pin cancel)",
+      "move": "Side Special (Pin cancel)",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {
@@ -1075,7 +1075,7 @@
       "notes": "Second total frames is if you don't land on the ground"
     },
     {
-      "move": "Dragon Lunge (Pin Jump)",
+      "move": "Side Special (Pin Jump)",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {
@@ -1111,7 +1111,7 @@
       "notes": "Invulnerable on frame 2-7"
     },
     {
-      "move": "Dragon Lunge (Pin Kick)",
+      "move": "Side Special (Pin Kick)",
       "category": "Specials",
       "hitboxLabels": [
         "Early",
@@ -1164,7 +1164,7 @@
       "notes": "Second total frames is if you go over an edge."
     },
     {
-      "move": "Dragon Lunge (Back kick)",
+      "move": "Side Special (Back kick)",
       "category": "Specials",
       "hitboxLabels": [
         "Early",
@@ -1217,7 +1217,7 @@
       "notes": "Second total frames is if you go over an edge."
     },
     {
-      "move": "Dragon Ascent",
+      "move": "Up Special",
       "category": "Specials",
       "hitboxLabels": [
         "first",
@@ -1273,7 +1273,7 @@
       "notes": "Invulnerable on frame 7-17. Grabs ledges on frame 24 (facing toward) or 32 (facing away)\nOr 2-19 if descending or immediately after a jump."
     },
     {
-      "move": "Counter Surge",
+      "move": "Down Special",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {
@@ -1309,7 +1309,7 @@
       "notes": "Invulnerable on frame 6. Counters on 7-26"
     },
     {
-      "move": "Counter Surge (attack)",
+      "move": "Down Special (attack)",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {

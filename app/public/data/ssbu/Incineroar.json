@@ -2,7 +2,7 @@
   "character": "Incineroar",
   "slug": "Incineroar",
   "patch": "13.1",
-  "scrapedAt": "2026-08-16T21:07:07.314Z",
+  "scrapedAt": "2026-08-16T21:39:42.025Z",
   "sourceSheet": "69 - Incineroar",
   "moves": [
     {
@@ -144,7 +144,7 @@
       "notes": null
     },
     {
-      "move": "F-Tilt",
+      "move": "Forward Tilt",
       "category": "Normals",
       "hitboxLabels": null,
       "startup": {
@@ -190,7 +190,7 @@
       "notes": null
     },
     {
-      "move": "U-Tilt",
+      "move": "Up Tilt",
       "category": "Normals",
       "hitboxLabels": null,
       "startup": {
@@ -236,7 +236,7 @@
       "notes": "Head intangibility on frame 6-11"
     },
     {
-      "move": "D-Tilt",
+      "move": "Down Tilt",
       "category": "Normals",
       "hitboxLabels": null,
       "startup": {
@@ -334,7 +334,7 @@
       "notes": null
     },
     {
-      "move": "F-Smash",
+      "move": "Forward Smash",
       "category": "Smashes",
       "hitboxLabels": [
         "close",
@@ -387,7 +387,7 @@
       "notes": "Charge hold is frame 1"
     },
     {
-      "move": "U-Smash",
+      "move": "Up Smash",
       "category": "Smashes",
       "hitboxLabels": null,
       "startup": {
@@ -433,7 +433,7 @@
       "notes": "Arm intangibility on frame 13-18. Charge hold is frame 5"
     },
     {
-      "move": "D-Smash",
+      "move": "Down Smash",
       "category": "Smashes",
       "hitboxLabels": null,
       "startup": {
@@ -479,7 +479,7 @@
       "notes": "Charge hold is frame 1"
     },
     {
-      "move": "N-Air",
+      "move": "Neutral Air",
       "category": "Aerials",
       "hitboxLabels": [
         "Early",
@@ -534,7 +534,7 @@
       "notes": "Autocancels on frame 1-3 and 36 onward"
     },
     {
-      "move": "F-Air",
+      "move": "Forward Air",
       "category": "Aerials",
       "hitboxLabels": [
         "Early close",
@@ -579,7 +579,7 @@
       "notes": "Autocancels on frame 1-6 and 46 onward"
     },
     {
-      "move": "B-Air",
+      "move": "Back Air",
       "category": "Aerials",
       "hitboxLabels": [
         "close",
@@ -634,7 +634,7 @@
       "notes": "Autocancels on frame 1-5 and 36 onward"
     },
     {
-      "move": "U-Air",
+      "move": "Up Air",
       "category": "Aerials",
       "hitboxLabels": null,
       "startup": {
@@ -682,7 +682,7 @@
       "notes": "Autocancels on frame 1-5 and 26 onward"
     },
     {
-      "move": "D-Air",
+      "move": "Down Air",
       "category": "Aerials",
       "hitboxLabels": [
         "meteor",
@@ -742,7 +742,7 @@
       "notes": "Autocancels on frame 1-3 and 45 onward"
     },
     {
-      "move": "Darkest Lariat",
+      "move": "Neutral Special",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {
@@ -782,7 +782,7 @@
       "notes": "On the ground, Invincible on frame 5-6 and Arm invicibility on frame 7-57"
     },
     {
-      "move": "Alolan Whip (grab)",
+      "move": "Side Special (grab)",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {
@@ -820,7 +820,7 @@
       "notes": null
     },
     {
-      "move": "Alolan Whip (lariat)",
+      "move": "Side Special (lariat)",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {
@@ -860,7 +860,7 @@
       "notes": "Following a grab, successful window for a lariat is frame 43-47. Any later is a failure."
     },
     {
-      "move": "Alolan Whip (back body drop)",
+      "move": "Side Special (back body drop)",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {
@@ -900,7 +900,7 @@
       "notes": "You can hold the button to guarantee this particular attack"
     },
     {
-      "move": "Alolan Whip (failure)",
+      "move": "Side Special (failure)",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {
@@ -938,7 +938,7 @@
       "notes": "4.0 recoil damage"
     },
     {
-      "move": "Cross Chop",
+      "move": "Up Special",
       "category": "Specials",
       "hitboxLabels": [
         "rising",
@@ -995,7 +995,7 @@
       "notes": "landing hitbox on frame 1. Arm intangibility on frame 13-26. Some kind of armor on frame 4-15\nTotal frames is if you never land during the dive. Second landing lag is if you land too late.\nCan grab ledges as early as frame 14 (facing toward) or 21 (facing away)\nThe falling hit does 3.5% base damage on an airborne opponent."
     },
     {
-      "move": "Revenge",
+      "move": "Down Special",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {
@@ -1031,7 +1031,7 @@
       "notes": "Counter window 3-27. Next attack's damage increased by about 40% when successful"
     },
     {
-      "move": "Revenge (activation)",
+      "move": "Down Special (activation)",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {

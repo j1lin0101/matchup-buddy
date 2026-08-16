@@ -2,7 +2,7 @@
   "character": "Diddy Kong",
   "slug": "Diddy_Kong",
   "patch": "13.1",
-  "scrapedAt": "2026-08-16T21:07:07.283Z",
+  "scrapedAt": "2026-08-16T21:39:41.981Z",
   "sourceSheet": "36 - Diddy Kong",
   "moves": [
     {
@@ -144,7 +144,7 @@
       "notes": null
     },
     {
-      "move": "F-Tilt",
+      "move": "Forward Tilt",
       "category": "Normals",
       "hitboxLabels": [
         "Early",
@@ -196,7 +196,7 @@
       "notes": null
     },
     {
-      "move": "U-Tilt",
+      "move": "Up Tilt",
       "category": "Normals",
       "hitboxLabels": null,
       "startup": {
@@ -242,7 +242,7 @@
       "notes": null
     },
     {
-      "move": "D-Tilt",
+      "move": "Down Tilt",
       "category": "Normals",
       "hitboxLabels": null,
       "startup": {
@@ -342,7 +342,7 @@
       "notes": null
     },
     {
-      "move": "F-Smash",
+      "move": "Forward Smash",
       "category": "Smashes",
       "hitboxLabels": null,
       "startup": {
@@ -392,7 +392,7 @@
       "notes": "Charge hold is frame 4"
     },
     {
-      "move": "U-Smash",
+      "move": "Up Smash",
       "category": "Smashes",
       "hitboxLabels": [
         "Multi",
@@ -446,7 +446,7 @@
       "notes": "Charge hold is frame 1"
     },
     {
-      "move": "D-Smash",
+      "move": "Down Smash",
       "category": "Smashes",
       "hitboxLabels": null,
       "startup": {
@@ -497,7 +497,7 @@
       "notes": "Charge hold is frame 2"
     },
     {
-      "move": "N-Air",
+      "move": "Neutral Air",
       "category": "Aerials",
       "hitboxLabels": null,
       "startup": {
@@ -545,7 +545,7 @@
       "notes": "Autocancels on frame 1-3 and 27 onward"
     },
     {
-      "move": "F-Air",
+      "move": "Forward Air",
       "category": "Aerials",
       "hitboxLabels": [
         "Early",
@@ -600,7 +600,7 @@
       "notes": "Autocancels on frame 1-2 and 26 onward"
     },
     {
-      "move": "B-Air",
+      "move": "Back Air",
       "category": "Aerials",
       "hitboxLabels": null,
       "startup": {
@@ -648,7 +648,7 @@
       "notes": "Autocancels on frame 1-2 and 20 onward"
     },
     {
-      "move": "U-Air",
+      "move": "Up Air",
       "category": "Aerials",
       "hitboxLabels": null,
       "startup": {
@@ -696,7 +696,7 @@
       "notes": "Autocancels on frame 27 onward"
     },
     {
-      "move": "D-Air",
+      "move": "Down Air",
       "category": "Aerials",
       "hitboxLabels": null,
       "startup": {
@@ -747,7 +747,7 @@
       "notes": "Autocancels on frame 1-16 and 37 onward"
     },
     {
-      "move": "Peanut Popgun",
+      "move": "Neutral Special",
       "category": "Specials",
       "hitboxLabels": [
         "Projectile",
@@ -784,7 +784,7 @@
       "notes": "Melee hitbox generated after projectile. Diddy does not suffer hitlag from melee attack\nYou can cancel charge into shield/air dodge as early as frame 14."
     },
     {
-      "move": "Peanut Popgun (misfire)",
+      "move": "Neutral Special (misfire)",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {
@@ -830,7 +830,7 @@
       "notes": "Holding the button down past frame 94 results in misfire."
     },
     {
-      "move": "Monkey Flip",
+      "move": "Side Special",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {
@@ -871,7 +871,7 @@
       "notes": "First total frames is in the air, second is along level ground."
     },
     {
-      "move": "Monkey Flip (attack)",
+      "move": "Side Special (attack)",
       "category": "Specials",
       "hitboxLabels": [
         "Early",
@@ -926,7 +926,7 @@
       "notes": "Total frames is in the air."
     },
     {
-      "move": "Monkey Flip (grab success)",
+      "move": "Side Special (grab success)",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {
@@ -960,7 +960,7 @@
       "notes": null
     },
     {
-      "move": "Monkey Flip (grab attack)",
+      "move": "Side Special (grab attack)",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {
@@ -999,7 +999,7 @@
       "notes": null
     },
     {
-      "move": "Monkey Flip (grab jump)",
+      "move": "Side Special (grab jump)",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {
@@ -1038,7 +1038,7 @@
       "notes": null
     },
     {
-      "move": "Rocketbarrel Boost",
+      "move": "Up Special",
       "category": "Specials",
       "hitboxLabels": [
         "Early",
@@ -1090,7 +1090,7 @@
       "notes": "Touching a solid surface during boost activates explosion. Can grab ledges as early \nas a frame after release."
     },
     {
-      "move": "Rocketbarrel Boost (explosion)",
+      "move": "Up Special (explosion)",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {
@@ -1132,7 +1132,7 @@
       "notes": "Total frames assumes exploding on level ground, Diddy doesn't suffer hitlag from explosion"
     },
     {
-      "move": "Banana Peel",
+      "move": "Down Special",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {

@@ -2,7 +2,7 @@
   "character": "Steve",
   "slug": "Steve",
   "patch": "13.1",
-  "scrapedAt": "2026-08-16T21:07:07.320Z",
+  "scrapedAt": "2026-08-16T21:39:42.043Z",
   "sourceSheet": "77 - Steve",
   "moves": [
     {
@@ -228,7 +228,7 @@
       "notes": null
     },
     {
-      "move": "D-Tilt",
+      "move": "Down Tilt",
       "category": "Normals",
       "hitboxLabels": [
         "multi",
@@ -374,7 +374,7 @@
       "notes": null
     },
     {
-      "move": "F-Smash",
+      "move": "Forward Smash",
       "category": "Smashes",
       "hitboxLabels": [
         "Fist",
@@ -418,7 +418,7 @@
       "notes": "Charge hold on frame 5"
     },
     {
-      "move": "F-Smash (Gold)",
+      "move": "Forward Smash (Gold)",
       "category": "Smashes",
       "hitboxLabels": null,
       "startup": {
@@ -464,7 +464,7 @@
       "notes": "Chrage hold on frame 5"
     },
     {
-      "move": "U-Smash",
+      "move": "Up Smash",
       "category": "Smashes",
       "hitboxLabels": [
         "first",
@@ -527,7 +527,7 @@
       "notes": "Charge hold is frame 6. Steve only incurs hitlag on final hit."
     },
     {
-      "move": "D-Smash",
+      "move": "Down Smash",
       "category": "Smashes",
       "hitboxLabels": [
         "multi",
@@ -579,7 +579,7 @@
       "notes": "Charge hold is frame 2. Final hits incur 5 more shieldlag on Steve than victim"
     },
     {
-      "move": "F-Air (fist)",
+      "move": "Forward Air (fist)",
       "category": "Aerials",
       "hitboxLabels": [
         "Early",
@@ -634,7 +634,7 @@
       "notes": "Autocancels on frame 1-2 and 20 onward"
     },
     {
-      "move": "F-Air (wood)",
+      "move": "Forward Air (wood)",
       "category": "Aerials",
       "hitboxLabels": [
         "Early",
@@ -689,7 +689,7 @@
       "notes": "Autocancels on frame 1-2 and 20 onward"
     },
     {
-      "move": "F-Air (stone)",
+      "move": "Forward Air (stone)",
       "category": "Aerials",
       "hitboxLabels": [
         "Early",
@@ -744,7 +744,7 @@
       "notes": "Autocancels on frame 1-2 and 20 onward"
     },
     {
-      "move": "F-Air (iron)",
+      "move": "Forward Air (iron)",
       "category": "Aerials",
       "hitboxLabels": [
         "Early",
@@ -799,7 +799,7 @@
       "notes": "Autocancels on frame 1-2 and 20 onward"
     },
     {
-      "move": "F-Air (Gold)",
+      "move": "Forward Air (Gold)",
       "category": "Aerials",
       "hitboxLabels": [
         "Early",
@@ -854,7 +854,7 @@
       "notes": "Autocancels on frame 1-2 and 19 onward"
     },
     {
-      "move": "F-Air (diamond)",
+      "move": "Forward Air (diamond)",
       "category": "Aerials",
       "hitboxLabels": [
         "Early",
@@ -909,7 +909,7 @@
       "notes": "Autocancels on frame 1-2 and 20 onward"
     },
     {
-      "move": "B-Air (fist)",
+      "move": "Back Air (fist)",
       "category": "Aerials",
       "hitboxLabels": [
         "Early",
@@ -964,7 +964,7 @@
       "notes": "Autocancels on frame 1-4 and 22 onward"
     },
     {
-      "move": "B-Air (wood)",
+      "move": "Back Air (wood)",
       "category": "Aerials",
       "hitboxLabels": [
         "Early",
@@ -1019,7 +1019,7 @@
       "notes": "Autocancels on frame 1-4 and 22 onward"
     },
     {
-      "move": "B-Air (stone)",
+      "move": "Back Air (stone)",
       "category": "Aerials",
       "hitboxLabels": [
         "Early",
@@ -1074,7 +1074,7 @@
       "notes": "Autocancels on frame 1-4 and 22 onward"
     },
     {
-      "move": "B-Air (iron)",
+      "move": "Back Air (iron)",
       "category": "Aerials",
       "hitboxLabels": [
         "Early",
@@ -1129,7 +1129,7 @@
       "notes": "Autocancels on frame 1-4 and 22 onward"
     },
     {
-      "move": "B-Air (Gold )",
+      "move": "Back Air (Gold )",
       "category": "Aerials",
       "hitboxLabels": [
         "Early",
@@ -1184,7 +1184,7 @@
       "notes": "Autocancels on frame 1-4 and 21 onward"
     },
     {
-      "move": "B-Air (diamond)",
+      "move": "Back Air (diamond)",
       "category": "Aerials",
       "hitboxLabels": [
         "Early",
@@ -1239,7 +1239,7 @@
       "notes": "Autocancels on frame 1-4 and 22 onward"
     },
     {
-      "move": "D-Air",
+      "move": "Down Air",
       "category": "Aerials",
       "hitboxLabels": [
         "normal",
@@ -1297,7 +1297,7 @@
       "notes": "Frame 25 is the earliest you can jump off (plus a 3 frame jumpsquat)\nIf Steve lacks the materials, he has a 19 frame failure animation instead\nLanding hit on frame 1 (whether or not Steve is still standing on it).\nLanding lag and advantage assumes Steve still is standing on it."
     },
     {
-      "move": "Craft Weapon",
+      "move": "Neutral Special Weapon",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {
@@ -1370,7 +1370,7 @@
       "notes": "The block is generated on frame 4"
     },
     {
-      "move": "Minecart",
+      "move": "Side Special",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {
@@ -1406,7 +1406,7 @@
       "notes": "If Steve lacks the materials, he has a 15 frame failure animation instead\nDamage depends on current speed. If traveling too slow, there's no hitbox"
     },
     {
-      "move": "Minecart (bail out)",
+      "move": "Side Special (bail out)",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {
@@ -1442,7 +1442,7 @@
       "notes": "Jumping out animation is 5 frames before Steve can act.\nOn frame 6 is when the cart can grab opponents"
     },
     {
-      "move": "Elytra (ground)",
+      "move": "Up Special (ground)",
       "category": "Specials",
       "hitboxLabels": [
         "Early",
@@ -1493,7 +1493,7 @@
       "notes": null
     },
     {
-      "move": "Elytra (air)",
+      "move": "Up Special (air)",
       "category": "Specials",
       "hitboxLabels": [
         "Early",
@@ -1544,7 +1544,7 @@
       "notes": "19 landing lag for landing while still in a glide. 20 for special fall landings"
     },
     {
-      "move": "Place TNT",
+      "move": "Place Down Special",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {

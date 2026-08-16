@@ -2,7 +2,7 @@
   "character": "Wario",
   "slug": "Wario",
   "patch": "13.1",
-  "scrapedAt": "2026-08-16T21:07:07.277Z",
+  "scrapedAt": "2026-08-16T21:39:41.975Z",
   "sourceSheet": "30 - Wario",
   "moves": [
     {
@@ -98,7 +98,7 @@
       "notes": null
     },
     {
-      "move": "F-Tilt",
+      "move": "Forward Tilt",
       "category": "Normals",
       "hitboxLabels": null,
       "startup": {
@@ -144,7 +144,7 @@
       "notes": null
     },
     {
-      "move": "U-Tilt",
+      "move": "Up Tilt",
       "category": "Normals",
       "hitboxLabels": null,
       "startup": {
@@ -190,7 +190,7 @@
       "notes": null
     },
     {
-      "move": "D-Tilt",
+      "move": "Down Tilt",
       "category": "Normals",
       "hitboxLabels": null,
       "startup": {
@@ -288,7 +288,7 @@
       "notes": null
     },
     {
-      "move": "F-Smash",
+      "move": "Forward Smash",
       "category": "Smashes",
       "hitboxLabels": null,
       "startup": {
@@ -334,7 +334,7 @@
       "notes": "Charge hold is frame 4"
     },
     {
-      "move": "U-Smash",
+      "move": "Up Smash",
       "category": "Smashes",
       "hitboxLabels": [
         "Close",
@@ -387,7 +387,7 @@
       "notes": "Head intangibility on frame 8-14. Charge hold is frame 4"
     },
     {
-      "move": "D-Smash",
+      "move": "Down Smash",
       "category": "Smashes",
       "hitboxLabels": [
         "Early",
@@ -439,7 +439,7 @@
       "notes": "Charge hold is frame 2"
     },
     {
-      "move": "N-Air",
+      "move": "Neutral Air",
       "category": "Aerials",
       "hitboxLabels": null,
       "startup": {
@@ -492,7 +492,7 @@
       "notes": "Autocancels on frame 1-3 and 43 onward"
     },
     {
-      "move": "F-Air",
+      "move": "Forward Air",
       "category": "Aerials",
       "hitboxLabels": [
         "Early",
@@ -547,7 +547,7 @@
       "notes": "Autocancels on frame 1-4 and 27 onward"
     },
     {
-      "move": "B-Air",
+      "move": "Back Air",
       "category": "Aerials",
       "hitboxLabels": null,
       "startup": {
@@ -595,7 +595,7 @@
       "notes": "Autocancels on frame 1-4 and 34 onward"
     },
     {
-      "move": "U-Air",
+      "move": "Up Air",
       "category": "Aerials",
       "hitboxLabels": null,
       "startup": {
@@ -643,7 +643,7 @@
       "notes": "Autocancels on frame 1-3 and 37 onward"
     },
     {
-      "move": "D-Air",
+      "move": "Down Air",
       "category": "Aerials",
       "hitboxLabels": [
         "Multi",
@@ -704,7 +704,7 @@
       "notes": "Autocancels on frame 1-2 and 42 onward"
     },
     {
-      "move": "Chomp",
+      "move": "Neutral Special",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {
@@ -742,7 +742,7 @@
       "notes": "25 endlag from release of the button. "
     },
     {
-      "move": "Chomp (grab release)",
+      "move": "Neutral Special (grab release)",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {
@@ -780,7 +780,7 @@
       "notes": null
     },
     {
-      "move": "Chomp (eat)",
+      "move": "Neutral Special (eat)",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {
@@ -814,7 +814,7 @@
       "notes": "Can eat projectiles on frame 9-. With the exception of Bike being eaten on frame 2\nAnimation for eating a projectile is 25 frames. 55 for the Bike."
     },
     {
-      "move": "Wario Bike",
+      "move": "Side Special",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {
@@ -851,7 +851,7 @@
       "notes": "Startup is 24 if mounting a bike laying on the ground\nFrame 20 is the earliest you can jump, turnaround, wheelie\nWario seems to suffer more shieldlag than the defender on any hit. Bug?"
     },
     {
-      "move": "Wario Bike (wheelie)",
+      "move": "Side Special (wheelie)",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {
@@ -899,7 +899,7 @@
       "notes": "Bike armor on frame 10. Jump animation takes 28 frames."
     },
     {
-      "move": "Wario Bike (turnaround)",
+      "move": "Side Special (turnaround)",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {
@@ -943,7 +943,7 @@
       "notes": "Looking for Bike animation takes 39 frames"
     },
     {
-      "move": "Corkscrew",
+      "move": "Up Special",
       "category": "Specials",
       "hitboxLabels": [
         "First",
@@ -998,7 +998,7 @@
       "notes": "Snaps to ledges on frame 9 onward."
     },
     {
-      "move": "Wario Waft (first stage)",
+      "move": "Down Special (first stage)",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {
@@ -1036,7 +1036,7 @@
       "notes": null
     },
     {
-      "move": "Wario Waft (second stage)",
+      "move": "Down Special (second stage)",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {
@@ -1080,7 +1080,7 @@
       "notes": null
     },
     {
-      "move": "Wario Waft (third stage)",
+      "move": "Down Special (third stage)",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {
@@ -1124,7 +1124,7 @@
       "notes": null
     },
     {
-      "move": "Wario Waft (final stage)",
+      "move": "Down Special (final stage)",
       "category": "Specials",
       "hitboxLabels": [
         "Cloud",

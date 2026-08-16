@@ -2,7 +2,7 @@
   "character": "Mewtwo",
   "slug": "Mewtwo",
   "patch": "13.1",
-  "scrapedAt": "2026-08-16T21:07:07.272Z",
+  "scrapedAt": "2026-08-16T21:39:41.967Z",
   "sourceSheet": "24 - Mewtwo",
   "moves": [
     {
@@ -138,7 +138,7 @@
       "notes": null
     },
     {
-      "move": "F-Tilt",
+      "move": "Forward Tilt",
       "category": "Normals",
       "hitboxLabels": [
         "Close",
@@ -196,7 +196,7 @@
       "notes": null
     },
     {
-      "move": "U-Tilt",
+      "move": "Up Tilt",
       "category": "Normals",
       "hitboxLabels": [
         "Early close",
@@ -244,7 +244,7 @@
       "notes": null
     },
     {
-      "move": "D-Tilt",
+      "move": "Down Tilt",
       "category": "Normals",
       "hitboxLabels": [
         "Close",
@@ -354,7 +354,7 @@
       "notes": null
     },
     {
-      "move": "F-Smash",
+      "move": "Forward Smash",
       "category": "Smashes",
       "hitboxLabels": [
         "Close",
@@ -407,7 +407,7 @@
       "notes": "Charge hold is frame 12"
     },
     {
-      "move": "U-Smash",
+      "move": "Up Smash",
       "category": "Smashes",
       "hitboxLabels": [
         "Multi",
@@ -462,7 +462,7 @@
       "notes": "Charge hold is frame 2"
     },
     {
-      "move": "D-Smash",
+      "move": "Down Smash",
       "category": "Smashes",
       "hitboxLabels": null,
       "startup": {
@@ -508,7 +508,7 @@
       "notes": "Charge hold is frame 15"
     },
     {
-      "move": "N-Air",
+      "move": "Neutral Air",
       "category": "Aerials",
       "hitboxLabels": [
         "Multi",
@@ -568,7 +568,7 @@
       "notes": "Autocancels on frame 46 onward"
     },
     {
-      "move": "F-Air",
+      "move": "Forward Air",
       "category": "Aerials",
       "hitboxLabels": null,
       "startup": {
@@ -616,7 +616,7 @@
       "notes": "Autocancels on frame 37 onward"
     },
     {
-      "move": "B-Air",
+      "move": "Back Air",
       "category": "Aerials",
       "hitboxLabels": [
         "Close",
@@ -676,7 +676,7 @@
       "notes": "Autocancels on frame 1-2 and 38 onward"
     },
     {
-      "move": "U-Air",
+      "move": "Up Air",
       "category": "Aerials",
       "hitboxLabels": [
         "Close",
@@ -736,7 +736,7 @@
       "notes": "Autocancels on frame 1-2 and 36 onward"
     },
     {
-      "move": "D-Air",
+      "move": "Down Air",
       "category": "Aerials",
       "hitboxLabels": null,
       "startup": {
@@ -784,7 +784,7 @@
       "notes": "Autocancels on frame 1-3 and frame 42 onward"
     },
     {
-      "move": "Shadow Ball (partial charge)",
+      "move": "Neutral Special (partial charge)",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {
@@ -820,7 +820,7 @@
       "notes": "9 startup from charge state. 12 to enter charge state. Takes 4 frames to cancel charge with shield. "
     },
     {
-      "move": "Shadow Ball (full charge)",
+      "move": "Neutral Special (full charge)",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {
@@ -866,7 +866,7 @@
       "notes": "133 frames to reach full charge."
     },
     {
-      "move": "Confusion",
+      "move": "Side Special",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {
@@ -913,7 +913,7 @@
       "notes": "Grab is on frame 10, the following hits are when successful. 42 total frames when you miss.\nReflects on frame 10-33"
     },
     {
-      "move": "Teleport",
+      "move": "Up Special",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {
@@ -951,7 +951,7 @@
       "notes": "Total frames is if you end on the ground. Intangible from 9-19. Grabs ledges as early as frame 16"
     },
     {
-      "move": "Disable",
+      "move": "Down Special",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {

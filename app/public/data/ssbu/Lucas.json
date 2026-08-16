@@ -2,7 +2,7 @@
   "character": "Lucas",
   "slug": "Lucas",
   "patch": "13.1",
-  "scrapedAt": "2026-08-16T21:07:07.284Z",
+  "scrapedAt": "2026-08-16T21:39:41.982Z",
   "sourceSheet": "37 - Lucas",
   "moves": [
     {
@@ -144,7 +144,7 @@
       "notes": null
     },
     {
-      "move": "F-Tilt",
+      "move": "Forward Tilt",
       "category": "Normals",
       "hitboxLabels": [
         "Cose",
@@ -197,7 +197,7 @@
       "notes": null
     },
     {
-      "move": "U-Tilt",
+      "move": "Up Tilt",
       "category": "Normals",
       "hitboxLabels": [
         "first",
@@ -250,7 +250,7 @@
       "notes": null
     },
     {
-      "move": "D-Tilt",
+      "move": "Down Tilt",
       "category": "Normals",
       "hitboxLabels": null,
       "startup": {
@@ -349,7 +349,7 @@
       "notes": null
     },
     {
-      "move": "F-Smash",
+      "move": "Forward Smash",
       "category": "Smashes",
       "hitboxLabels": [
         "Close",
@@ -401,7 +401,7 @@
       "notes": "Reflects on frame 11-20. Charge hold is frame 7"
     },
     {
-      "move": "U-Smash",
+      "move": "Up Smash",
       "category": "Smashes",
       "hitboxLabels": null,
       "startup": {
@@ -448,7 +448,7 @@
       "notes": "Invincible on frame 1-7. Head intangibility on frame 15-29. \nCharge hold is frame 4. Lucas is not invincible during charge hold however"
     },
     {
-      "move": "D-Smash",
+      "move": "Down Smash",
       "category": "Smashes",
       "hitboxLabels": null,
       "startup": {
@@ -498,7 +498,7 @@
       "notes": "Charge hold is frame 5"
     },
     {
-      "move": "N-Air",
+      "move": "Neutral Air",
       "category": "Aerials",
       "hitboxLabels": [
         "Multi",
@@ -556,7 +556,7 @@
       "notes": "Autocancels on frame 37 onward"
     },
     {
-      "move": "F-Air",
+      "move": "Forward Air",
       "category": "Aerials",
       "hitboxLabels": [
         "Close",
@@ -611,7 +611,7 @@
       "notes": "Autocancels on frame 34 onward"
     },
     {
-      "move": "B-Air",
+      "move": "Back Air",
       "category": "Aerials",
       "hitboxLabels": [
         "Close",
@@ -671,7 +671,7 @@
       "notes": "Autocancels on frame 1-2 and 34 onward"
     },
     {
-      "move": "U-Air",
+      "move": "Up Air",
       "category": "Aerials",
       "hitboxLabels": null,
       "startup": {
@@ -719,7 +719,7 @@
       "notes": "Autocancels on frame 34 onward"
     },
     {
-      "move": "D-Air",
+      "move": "Down Air",
       "category": "Aerials",
       "hitboxLabels": [
         "Multi",
@@ -825,7 +825,7 @@
       "notes": "Tethers on frame 7."
     },
     {
-      "move": "PK Freeze",
+      "move": "Neutral Special",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {
@@ -859,7 +859,7 @@
       "notes": "From charge release, startup is 5 and total frames is 31"
     },
     {
-      "move": "PK Fire",
+      "move": "Side Special",
       "category": "Specials",
       "hitboxLabels": [
         "Spark",
@@ -912,7 +912,7 @@
       "notes": "Explosion 1 frame after projectile hits something. Does not erupt on shields.\nSecond advantage is for landing a frame after PK fire is blocked."
     },
     {
-      "move": "PK Thunder",
+      "move": "Up Special",
       "category": "Specials",
       "hitboxLabels": [
         "Head",
@@ -958,7 +958,7 @@
       "notes": "Hits every six frames as it passes through somebody. 44 endlag when projectile ends"
     },
     {
-      "move": "PK Thunder 2",
+      "move": "Up Special 2",
       "category": "Specials",
       "hitboxLabels": [
         "First",
@@ -1021,7 +1021,7 @@
       "notes": "Total frames refers to travel along the ground. Can grab ledges on \nframe 2 (facing toward) or 81 (facing away)"
     },
     {
-      "move": "PSI Magnet",
+      "move": "Down Special",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {

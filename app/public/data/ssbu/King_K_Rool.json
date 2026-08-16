@@ -1,8 +1,8 @@
 {
-  "character": "King K Rool",
+  "character": "King K. Rool",
   "slug": "King_K_Rool",
   "patch": "13.1",
-  "scrapedAt": "2026-08-16T21:07:07.312Z",
+  "scrapedAt": "2026-08-16T21:39:42.023Z",
   "sourceSheet": "67 - King K Rool",
   "moves": [
     {
@@ -144,7 +144,7 @@
       "notes": null
     },
     {
-      "move": "F-Tilt",
+      "move": "Forward Tilt",
       "category": "Normals",
       "hitboxLabels": [
         "Close",
@@ -197,7 +197,7 @@
       "notes": "Belly armor on frame 5-11"
     },
     {
-      "move": "U-Tilt",
+      "move": "Up Tilt",
       "category": "Normals",
       "hitboxLabels": [
         "Early",
@@ -253,7 +253,7 @@
       "notes": "Arm intangibility on frame 4-9"
     },
     {
-      "move": "D-Tilt",
+      "move": "Down Tilt",
       "category": "Normals",
       "hitboxLabels": [
         "frame 13",
@@ -361,7 +361,7 @@
       "notes": "Belly armor on frame 7-28"
     },
     {
-      "move": "F-Smash",
+      "move": "Forward Smash",
       "category": "Smashes",
       "hitboxLabels": [
         "neutral far",
@@ -406,7 +406,7 @@
       "notes": "Charge hold on frame 9"
     },
     {
-      "move": "U-Smash",
+      "move": "Up Smash",
       "category": "Smashes",
       "hitboxLabels": null,
       "startup": {
@@ -457,7 +457,7 @@
       "notes": "Head intangibility on frame 6-11. Belly armor on frame 6-19.  Charge hold is frame 2"
     },
     {
-      "move": "D-Smash",
+      "move": "Down Smash",
       "category": "Smashes",
       "hitboxLabels": [
         "body",
@@ -509,7 +509,7 @@
       "notes": "Belly armor on frame 8-21. Charge hold is frame 1"
     },
     {
-      "move": "N-Air",
+      "move": "Neutral Air",
       "category": "Aerials",
       "hitboxLabels": [
         "Early",
@@ -564,7 +564,7 @@
       "notes": "Belly armor on frame 6-30. Autocancels on frame 1-3 and 40 onward"
     },
     {
-      "move": "F-Air",
+      "move": "Forward Air",
       "category": "Aerials",
       "hitboxLabels": [
         "Early far",
@@ -609,7 +609,7 @@
       "notes": "Autocancels on frame 1-2 and 40 onward"
     },
     {
-      "move": "B-Air",
+      "move": "Back Air",
       "category": "Aerials",
       "hitboxLabels": [
         "far",
@@ -664,7 +664,7 @@
       "notes": "Autocancels on frame 1-3 and 50 onward"
     },
     {
-      "move": "U-Air",
+      "move": "Up Air",
       "category": "Aerials",
       "hitboxLabels": [
         "early",
@@ -719,7 +719,7 @@
       "notes": "Head intangibility on frame 7-13. Belly armor on frame 6-20. Autocancels on frame 1-2 and 70 onward"
     },
     {
-      "move": "D-Air",
+      "move": "Down Air",
       "category": "Aerials",
       "hitboxLabels": [
         "early",
@@ -774,7 +774,7 @@
       "notes": "Belly armor on frame 14-25. Autocancels on frame 1-3 and 40 onward"
     },
     {
-      "move": "Blunderbuss",
+      "move": "Neutral Special",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {
@@ -820,7 +820,7 @@
       "notes": "Transitions to Vacuum on frame 45. K Rool can pass under platforms during any stage of this attack."
     },
     {
-      "move": "Blunderbuss (vacuum)",
+      "move": "Neutral Special (vacuum)",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {
@@ -856,7 +856,7 @@
       "notes": null
     },
     {
-      "move": "Blunderbuss (second shot)",
+      "move": "Neutral Special (second shot)",
       "category": "Specials",
       "hitboxLabels": [
         "person",
@@ -909,7 +909,7 @@
       "notes": "12.0 damage dealt to vacuumed victim on frame 26"
     },
     {
-      "move": "Blunderbuss (second shot up)",
+      "move": "Neutral Special (second shot up)",
       "category": "Specials",
       "hitboxLabels": [
         "person",
@@ -962,7 +962,7 @@
       "notes": "12.0 damage dealt to vacuumed victim on frame 26"
     },
     {
-      "move": "Blunderbuss (second shot back)",
+      "move": "Neutral Special (second shot back)",
       "category": "Specials",
       "hitboxLabels": [
         "person",
@@ -1015,7 +1015,7 @@
       "notes": "12.0 damage dealt to vacuumed victim on frame 32"
     },
     {
-      "move": "Crownerang",
+      "move": "Side Special",
       "category": "Specials",
       "hitboxLabels": [
         "going",
@@ -1067,7 +1067,7 @@
       "notes": "17 frame animation of catching the crown. Knockback based armor on frame 6-63"
     },
     {
-      "move": "Propellerpack",
+      "move": "Up Special",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {
@@ -1109,7 +1109,7 @@
       "notes": "Seems to have rehit rate of 14 frames. K Rool does not suffer hitlag from this attack\nCan grab ledges on frame 12 onward"
     },
     {
-      "move": "Gut Check",
+      "move": "Down Special",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {
@@ -1145,7 +1145,7 @@
       "notes": "Invulnerable on frame 4-15. Counters or reflects on 5-28. Must be facing attacker to activate."
     },
     {
-      "move": "Gut Check (counterattack)",
+      "move": "Down Special (counterattack)",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {

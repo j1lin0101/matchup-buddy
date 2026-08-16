@@ -2,7 +2,7 @@
   "character": "Sheik",
   "slug": "Sheik",
   "patch": "13.1",
-  "scrapedAt": "2026-08-16T21:07:07.266Z",
+  "scrapedAt": "2026-08-16T21:39:41.957Z",
   "sourceSheet": "16 - Sheik",
   "moves": [
     {
@@ -182,7 +182,7 @@
       "notes": null
     },
     {
-      "move": "F-Tilt",
+      "move": "Forward Tilt",
       "category": "Normals",
       "hitboxLabels": null,
       "startup": {
@@ -228,7 +228,7 @@
       "notes": null
     },
     {
-      "move": "U-Tilt",
+      "move": "Up Tilt",
       "category": "Normals",
       "hitboxLabels": null,
       "startup": {
@@ -278,7 +278,7 @@
       "notes": null
     },
     {
-      "move": "D-Tilt",
+      "move": "Down Tilt",
       "category": "Normals",
       "hitboxLabels": null,
       "startup": {
@@ -370,7 +370,7 @@
       "notes": null
     },
     {
-      "move": "F-Smash",
+      "move": "Forward Smash",
       "category": "Smashes",
       "hitboxLabels": null,
       "startup": {
@@ -420,7 +420,7 @@
       "notes": "Charge hold is frame 3"
     },
     {
-      "move": "U-Smash",
+      "move": "Up Smash",
       "category": "Smashes",
       "hitboxLabels": null,
       "startup": {
@@ -470,7 +470,7 @@
       "notes": "Arm intangibility on frame 8-15. Charge hold is frame 6"
     },
     {
-      "move": "D-Smash",
+      "move": "Down Smash",
       "category": "Smashes",
       "hitboxLabels": null,
       "startup": {
@@ -520,7 +520,7 @@
       "notes": "Charge hold is frame 1"
     },
     {
-      "move": "N-Air",
+      "move": "Neutral Air",
       "category": "Aerials",
       "hitboxLabels": [
         "Early",
@@ -575,7 +575,7 @@
       "notes": "Autocancels on frame 1-2 and 31 onward"
     },
     {
-      "move": "F-Air",
+      "move": "Forward Air",
       "category": "Aerials",
       "hitboxLabels": [
         "Close",
@@ -630,7 +630,7 @@
       "notes": "Autocancels on frame 1-4 and 11 onward"
     },
     {
-      "move": "B-Air",
+      "move": "Back Air",
       "category": "Aerials",
       "hitboxLabels": [
         "Early",
@@ -685,7 +685,7 @@
       "notes": "Autocancels on frame 1-3 and 31 onward"
     },
     {
-      "move": "U-Air",
+      "move": "Up Air",
       "category": "Aerials",
       "hitboxLabels": [
         "Multi",
@@ -743,7 +743,7 @@
       "notes": "Autocancels on frame 1-3 and 44 onward"
     },
     {
-      "move": "D-Air",
+      "move": "Down Air",
       "category": "Aerials",
       "hitboxLabels": [
         "Falling",
@@ -797,7 +797,7 @@
       "notes": "landing hit on frame 1. Autocancels on frame 1-2 and 53 onward"
     },
     {
-      "move": "Needle Storm (partial charge)",
+      "move": "Neutral Special (partial charge)",
       "category": "Specials",
       "hitboxLabels": [
         "Close",
@@ -850,7 +850,7 @@
       "notes": "Startup is 5 from a charging state. 7 frames to enter charge state.\nTakes 4 frames to exit charge with shield. Second total frames is for the air."
     },
     {
-      "move": "Needle Storm (full charge)",
+      "move": "Neutral Special (full charge)",
       "category": "Specials",
       "hitboxLabels": [
         "Close",
@@ -910,7 +910,7 @@
       "notes": "86 frames to reach full charge. Second total frames is for the air. "
     },
     {
-      "move": "Burst Grenade",
+      "move": "Side Special",
       "category": "Specials",
       "hitboxLabels": [
         "grenade",
@@ -967,7 +967,7 @@
       "notes": "From release, startup is 29/32/35/38/41/44/50 and endlag is 31 frames. All but the final hit are just windboxes.\nCan cancel endlag by grabbing a ledge"
     },
     {
-      "move": "Vanish",
+      "move": "Up Special",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {
@@ -1019,7 +1019,7 @@
       "notes": "Invulnerable on frame 14-60 on the ground or 19-55 in the air. Landing lag only occurs if you enter special fall.\nWill snap to a ledge on frame 20 onward or 38 onward if she actually requires vanishing."
     },
     {
-      "move": "Bouncing Fish",
+      "move": "Down Special",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {

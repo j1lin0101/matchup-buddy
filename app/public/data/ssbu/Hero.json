@@ -2,7 +2,7 @@
   "character": "Hero",
   "slug": "Hero",
   "patch": "13.1",
-  "scrapedAt": "2026-08-16T21:07:07.317Z",
+  "scrapedAt": "2026-08-16T21:39:42.038Z",
   "sourceSheet": "72 - Hero",
   "moves": [
     {
@@ -144,7 +144,7 @@
       "notes": null
     },
     {
-      "move": "F-Tilt 1",
+      "move": "Forward Tilt 1",
       "category": "Normals",
       "hitboxLabels": null,
       "startup": {
@@ -190,7 +190,7 @@
       "notes": "Transitions to next attack as early as frame 18. Arm, head, leg invincibility on frame 9.\nArm invincibility on frame 10-11"
     },
     {
-      "move": "F-Tilt 2",
+      "move": "Forward Tilt 2",
       "category": "Normals",
       "hitboxLabels": null,
       "startup": {
@@ -236,7 +236,7 @@
       "notes": null
     },
     {
-      "move": "U-Tilt",
+      "move": "Up Tilt",
       "category": "Normals",
       "hitboxLabels": null,
       "startup": {
@@ -282,7 +282,7 @@
       "notes": null
     },
     {
-      "move": "D-Tilt",
+      "move": "Down Tilt",
       "category": "Normals",
       "hitboxLabels": null,
       "startup": {
@@ -381,7 +381,7 @@
       "notes": null
     },
     {
-      "move": "F-Smash",
+      "move": "Forward Smash",
       "category": "Smashes",
       "hitboxLabels": [
         "normal",
@@ -434,7 +434,7 @@
       "notes": "Critical hits can occur on shields, but won't do the additional shield damage. Charge hold on frame 5"
     },
     {
-      "move": "U-Smash",
+      "move": "Up Smash",
       "category": "Smashes",
       "hitboxLabels": [
         "normal",
@@ -487,7 +487,7 @@
       "notes": "Charge hold on frame 6"
     },
     {
-      "move": "D-Smash",
+      "move": "Down Smash",
       "category": "Smashes",
       "hitboxLabels": [
         "normal close",
@@ -531,7 +531,7 @@
       "notes": "Charge hold on frame 2"
     },
     {
-      "move": "N-Air",
+      "move": "Neutral Air",
       "category": "Aerials",
       "hitboxLabels": null,
       "startup": {
@@ -579,7 +579,7 @@
       "notes": "Autocancels on frame 1-2 and 40 onward"
     },
     {
-      "move": "F-Air",
+      "move": "Forward Air",
       "category": "Aerials",
       "hitboxLabels": [
         "far",
@@ -634,7 +634,7 @@
       "notes": "Autocancels on frame 1-2 and 42 onward"
     },
     {
-      "move": "B-Air",
+      "move": "Back Air",
       "category": "Aerials",
       "hitboxLabels": [
         "far",
@@ -689,7 +689,7 @@
       "notes": "Autocancels on frame 1-2 and 47 onward"
     },
     {
-      "move": "U-Air",
+      "move": "Up Air",
       "category": "Aerials",
       "hitboxLabels": null,
       "startup": {
@@ -737,7 +737,7 @@
       "notes": "Autocancels on frame 30 onward"
     },
     {
-      "move": "D-Air",
+      "move": "Down Air",
       "category": "Aerials",
       "hitboxLabels": [
         "early",
@@ -792,7 +792,7 @@
       "notes": "Autocancels on frame 1-2 and 45 onward"
     },
     {
-      "move": "Frizz",
+      "move": "Neutral Special",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {
@@ -836,7 +836,7 @@
       "notes": "Takes 7 frames to enter charge state and 5 frames to exit charge state. Cost: 6MP"
     },
     {
-      "move": "Frizzle",
+      "move": "Neutral Special",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {
@@ -880,7 +880,7 @@
       "notes": "Takes 25 frames to reach this level of charge. Cost: 16MP"
     },
     {
-      "move": "Kafrizz",
+      "move": "Neutral Special",
       "category": "Specials",
       "hitboxLabels": [
         "projectile",
@@ -928,7 +928,7 @@
       "notes": "Eruption upon reaching a target hits on frame (2/8/14/20). Cost: 36 MP"
     },
     {
-      "move": "Zap",
+      "move": "Side Special",
       "category": "Specials",
       "hitboxLabels": [
         "close",
@@ -980,7 +980,7 @@
       "notes": "7 frames to enter charge state. Bolt does not occur on block. Cost: 8MP"
     },
     {
-      "move": "Zapple",
+      "move": "Side Special",
       "category": "Specials",
       "hitboxLabels": [
         "first",
@@ -1028,7 +1028,7 @@
       "notes": "Takes 16 frames to reach this level of charge. Second hit does not occur on block. Cost: 18 MP"
     },
     {
-      "move": "Kazap",
+      "move": "Side Special",
       "category": "Specials",
       "hitboxLabels": [
         "first",
@@ -1080,7 +1080,7 @@
       "notes": "Final hit does not occur on a blocking opponent. Cost: 42MP"
     },
     {
-      "move": "Woosh",
+      "move": "Up Special",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {
@@ -1122,7 +1122,7 @@
       "notes": "Takes 3 frames to enter charge state. Cost: 5MP. Can grab ledges on frame 15"
     },
     {
-      "move": "Swoosh",
+      "move": "Up Special",
       "category": "Specials",
       "hitboxLabels": [
         "multi",
@@ -1170,7 +1170,7 @@
       "notes": "Takes 13 frames to reach this level of charge. Cost: 9MP. Can grab ledges on frame 21."
     },
     {
-      "move": "Kaswoosh",
+      "move": "Up Special",
       "category": "Specials",
       "hitboxLabels": [
         "multi",
@@ -1225,7 +1225,7 @@
       "notes": "Cost: 18 MP. Failing to cast any level of charge results in 12 landing lag.\nCan grab ledges on frame 19"
     },
     {
-      "move": "Command Selection",
+      "move": "Down Special",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {

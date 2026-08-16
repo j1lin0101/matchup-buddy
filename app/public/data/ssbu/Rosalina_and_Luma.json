@@ -1,8 +1,8 @@
 {
-  "character": "Rosalina and Luma",
+  "character": "Rosalina & Luma",
   "slug": "Rosalina_and_Luma",
   "patch": "13.1",
-  "scrapedAt": "2026-08-16T21:07:07.294Z",
+  "scrapedAt": "2026-08-16T21:39:41.992Z",
   "sourceSheet": "48 - Rosalina & Luma",
   "moves": [
     {
@@ -430,7 +430,7 @@
       "notes": null
     },
     {
-      "move": "F-Tilt",
+      "move": "Forward Tilt",
       "category": "Normals",
       "hitboxLabels": null,
       "startup": {
@@ -476,7 +476,7 @@
       "notes": null
     },
     {
-      "move": "F-Tilt (Luma)",
+      "move": "Forward Tilt (Luma)",
       "category": "Normals",
       "hitboxLabels": null,
       "startup": {
@@ -516,7 +516,7 @@
       "notes": null
     },
     {
-      "move": "U-Tilt",
+      "move": "Up Tilt",
       "category": "Normals",
       "hitboxLabels": [
         "Early",
@@ -568,7 +568,7 @@
       "notes": "Head Intangible on frame 4-10"
     },
     {
-      "move": "U-Tilt (Luma)",
+      "move": "Up Tilt (Luma)",
       "category": "Normals",
       "hitboxLabels": [
         "Early",
@@ -616,7 +616,7 @@
       "notes": null
     },
     {
-      "move": "D-Tilt",
+      "move": "Down Tilt",
       "category": "Normals",
       "hitboxLabels": null,
       "startup": {
@@ -662,7 +662,7 @@
       "notes": null
     },
     {
-      "move": "D-Tilt (Luma)",
+      "move": "Down Tilt (Luma)",
       "category": "Normals",
       "hitboxLabels": null,
       "startup": {
@@ -792,7 +792,7 @@
       "notes": null
     },
     {
-      "move": "F-Smash",
+      "move": "Forward Smash",
       "category": "Smashes",
       "hitboxLabels": null,
       "startup": {
@@ -838,7 +838,7 @@
       "notes": "Charge hold is frame 9"
     },
     {
-      "move": "F-Smash (Luma)",
+      "move": "Forward Smash (Luma)",
       "category": "Smashes",
       "hitboxLabels": null,
       "startup": {
@@ -878,7 +878,7 @@
       "notes": "Charge hold is frame 9"
     },
     {
-      "move": "U-Smash",
+      "move": "Up Smash",
       "category": "Smashes",
       "hitboxLabels": null,
       "startup": {
@@ -924,7 +924,7 @@
       "notes": "Head intangible on frame 7-16. Charge hold is frame 3"
     },
     {
-      "move": "U-Smash (Luma)",
+      "move": "Up Smash (Luma)",
       "category": "Smashes",
       "hitboxLabels": null,
       "startup": {
@@ -964,7 +964,7 @@
       "notes": "Charge hold is frame 3"
     },
     {
-      "move": "D-Smash",
+      "move": "Down Smash",
       "category": "Smashes",
       "hitboxLabels": null,
       "startup": {
@@ -1015,7 +1015,7 @@
       "notes": "Charge hold is frame 3"
     },
     {
-      "move": "D-Smash (Luma)",
+      "move": "Down Smash (Luma)",
       "category": "Smashes",
       "hitboxLabels": null,
       "startup": {
@@ -1058,7 +1058,7 @@
       "notes": null
     },
     {
-      "move": "N-Air",
+      "move": "Neutral Air",
       "category": "Aerials",
       "hitboxLabels": [
         "Early",
@@ -1113,7 +1113,7 @@
       "notes": "Autocancels on frame 1-4 and 33 onward"
     },
     {
-      "move": "N-Air (Luma)",
+      "move": "Neutral Air (Luma)",
       "category": "Aerials",
       "hitboxLabels": null,
       "startup": {
@@ -1156,7 +1156,7 @@
       "notes": null
     },
     {
-      "move": "F-Air",
+      "move": "Forward Air",
       "category": "Aerials",
       "hitboxLabels": [
         "Multi",
@@ -1215,7 +1215,7 @@
       "notes": "Autocancels on frame 1-3 and 50 onward"
     },
     {
-      "move": "F-Air (Luma)",
+      "move": "Forward Air (Luma)",
       "category": "Aerials",
       "hitboxLabels": null,
       "startup": {
@@ -1255,7 +1255,7 @@
       "notes": null
     },
     {
-      "move": "B-Air",
+      "move": "Back Air",
       "category": "Aerials",
       "hitboxLabels": null,
       "startup": {
@@ -1303,7 +1303,7 @@
       "notes": "Autocancels on frame 1-3 and 50 onward"
     },
     {
-      "move": "B-Air (Luma)",
+      "move": "Back Air (Luma)",
       "category": "Aerials",
       "hitboxLabels": null,
       "startup": {
@@ -1343,7 +1343,7 @@
       "notes": null
     },
     {
-      "move": "U-Air",
+      "move": "Up Air",
       "category": "Aerials",
       "hitboxLabels": [
         "Early",
@@ -1403,7 +1403,7 @@
       "notes": "Autocancels on frame 45 onward"
     },
     {
-      "move": "U-Air (Luma)",
+      "move": "Up Air (Luma)",
       "category": "Aerials",
       "hitboxLabels": null,
       "startup": {
@@ -1443,7 +1443,7 @@
       "notes": null
     },
     {
-      "move": "D-Air",
+      "move": "Down Air",
       "category": "Aerials",
       "hitboxLabels": [
         "Early",
@@ -1503,7 +1503,7 @@
       "notes": "Autocancels on frame 50 onward"
     },
     {
-      "move": "D-Air (Luma)",
+      "move": "Down Air (Luma)",
       "category": "Aerials",
       "hitboxLabels": null,
       "startup": {
@@ -1543,7 +1543,7 @@
       "notes": null
     },
     {
-      "move": "Luma Shot",
+      "move": "Neutral Special",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {
@@ -1614,7 +1614,7 @@
       "notes": "Second total frames is in the air."
     },
     {
-      "move": "Star Bits",
+      "move": "Side Special",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {
@@ -1662,7 +1662,7 @@
       "notes": null
     },
     {
-      "move": "Launch Star",
+      "move": "Up Special",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {
@@ -1698,7 +1698,7 @@
       "notes": "Can grab ledges as early as frame 23 (facing toward) or 30 (facing away)"
     },
     {
-      "move": "Gravitational Pull",
+      "move": "Down Special",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {

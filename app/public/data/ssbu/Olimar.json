@@ -2,7 +2,7 @@
   "character": "Olimar",
   "slug": "Olimar",
   "patch": "13.1",
-  "scrapedAt": "2026-08-16T21:07:07.287Z",
+  "scrapedAt": "2026-08-16T21:39:41.985Z",
   "sourceSheet": "40 - Olimar",
   "moves": [
     {
@@ -112,7 +112,7 @@
       "notes": null
     },
     {
-      "move": "F-Tilt",
+      "move": "Forward Tilt",
       "category": "Normals",
       "hitboxLabels": null,
       "startup": {
@@ -158,7 +158,7 @@
       "notes": null
     },
     {
-      "move": "U-Tilt",
+      "move": "Up Tilt",
       "category": "Normals",
       "hitboxLabels": [
         "Multi",
@@ -215,7 +215,7 @@
       "notes": null
     },
     {
-      "move": "D-Tilt",
+      "move": "Down Tilt",
       "category": "Normals",
       "hitboxLabels": null,
       "startup": {
@@ -308,7 +308,7 @@
       "notes": null
     },
     {
-      "move": "F-Smash (early)",
+      "move": "Forward Smash (early)",
       "category": "Smashes",
       "hitboxLabels": null,
       "startup": {
@@ -476,7 +476,7 @@
       "notes": null
     },
     {
-      "move": "U-Smash (close)",
+      "move": "Up Smash (close)",
       "category": "Smashes",
       "hitboxLabels": null,
       "startup": {
@@ -644,7 +644,7 @@
       "notes": null
     },
     {
-      "move": "D-Smash (early)",
+      "move": "Down Smash (early)",
       "category": "Smashes",
       "hitboxLabels": null,
       "startup": {
@@ -756,7 +756,7 @@
       "notes": null
     },
     {
-      "move": "N-Air",
+      "move": "Neutral Air",
       "category": "Aerials",
       "hitboxLabels": [
         "Multi",
@@ -815,7 +815,7 @@
       "notes": "Autocancels on frame 1-2 and 34 onward"
     },
     {
-      "move": "F-Air",
+      "move": "Forward Air",
       "category": "Aerials",
       "hitboxLabels": null,
       "startup": {
@@ -873,7 +873,7 @@
       "notes": "Autocancels on frame 1-5 and 31 onward"
     },
     {
-      "move": "B-Air",
+      "move": "Back Air",
       "category": "Aerials",
       "hitboxLabels": null,
       "startup": {
@@ -931,7 +931,7 @@
       "notes": "Autocancels on frame 1-5 and 36 onward"
     },
     {
-      "move": "U-Air",
+      "move": "Up Air",
       "category": "Aerials",
       "hitboxLabels": null,
       "startup": {
@@ -989,7 +989,7 @@
       "notes": "Autocancels on frame 1-5 and 31 onward"
     },
     {
-      "move": "D-Air",
+      "move": "Down Air",
       "category": "Aerials",
       "hitboxLabels": null,
       "startup": {
@@ -1047,7 +1047,7 @@
       "notes": "Autocancels on frame 1-5 and 31 onward"
     },
     {
-      "move": "Pikmin Pluck",
+      "move": "Neutral Special",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {
@@ -1083,7 +1083,7 @@
       "notes": "32 frame failure animation when your squad is full."
     },
     {
-      "move": "Pikmin Throw",
+      "move": "Side Special",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {
@@ -1167,7 +1167,7 @@
       "notes": null
     },
     {
-      "move": "Winged Pikmin",
+      "move": "Up Special",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {
@@ -1204,7 +1204,7 @@
       "notes": "30 landing lag if the pikmin let go of you. Frame 30 is the earliest you can cancel the move.\nCan grab ledges as early as frame 2"
     },
     {
-      "move": "Pikmin Order",
+      "move": "Down Special",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {

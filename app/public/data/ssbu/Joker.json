@@ -2,7 +2,7 @@
   "character": "Joker",
   "slug": "Joker",
   "patch": "13.1",
-  "scrapedAt": "2026-08-16T21:07:07.316Z",
+  "scrapedAt": "2026-08-16T21:39:42.028Z",
   "sourceSheet": "71 - Joker",
   "moves": [
     {
@@ -120,7 +120,7 @@
       "notes": null
     },
     {
-      "move": "F-Tilt",
+      "move": "Forward Tilt",
       "category": "Normals",
       "hitboxLabels": null,
       "startup": {
@@ -159,7 +159,7 @@
       "notes": null
     },
     {
-      "move": "U-Tilt",
+      "move": "Up Tilt",
       "category": "Normals",
       "hitboxLabels": [
         "first",
@@ -205,7 +205,7 @@
       "notes": null
     },
     {
-      "move": "D-Tilt",
+      "move": "Down Tilt",
       "category": "Normals",
       "hitboxLabels": null,
       "startup": {
@@ -282,7 +282,7 @@
       "notes": null
     },
     {
-      "move": "F-Smash",
+      "move": "Forward Smash",
       "category": "Smashes",
       "hitboxLabels": null,
       "startup": {
@@ -320,7 +320,7 @@
       "notes": "Charge hold is frame 5"
     },
     {
-      "move": "U-Smash",
+      "move": "Up Smash",
       "category": "Smashes",
       "hitboxLabels": null,
       "startup": {
@@ -358,7 +358,7 @@
       "notes": "Charge hold is frame 4"
     },
     {
-      "move": "D-Smash",
+      "move": "Down Smash",
       "category": "Smashes",
       "hitboxLabels": null,
       "startup": {
@@ -397,7 +397,7 @@
       "notes": "Charge hold is frame 5"
     },
     {
-      "move": "N-Air",
+      "move": "Neutral Air",
       "category": "Aerials",
       "hitboxLabels": [
         "front",
@@ -440,7 +440,7 @@
       "notes": "Arsene version has a separate hit covering Joker's back \nAutocancels on frame 1-4 and 48 onward"
     },
     {
-      "move": "F-Air",
+      "move": "Forward Air",
       "category": "Aerials",
       "hitboxLabels": null,
       "startup": {
@@ -481,7 +481,7 @@
       "notes": "Autocancels on frame 1-3 and 42 onward"
     },
     {
-      "move": "B-Air",
+      "move": "Back Air",
       "category": "Aerials",
       "hitboxLabels": null,
       "startup": {
@@ -521,7 +521,7 @@
       "notes": "Autocancels on frame 1-3 and 30 onward"
     },
     {
-      "move": "U-Air",
+      "move": "Up Air",
       "category": "Aerials",
       "hitboxLabels": [
         "multi",
@@ -568,7 +568,7 @@
       "notes": "Autocancels on frame 1-4 and 40 onward"
     },
     {
-      "move": "D-Air",
+      "move": "Down Air",
       "category": "Aerials",
       "hitboxLabels": [
         "knife",
@@ -611,7 +611,7 @@
       "notes": "Arsene version has separate meteor hit on frame 15.\nAutocancels on frame 1-3 and 40 onward"
     },
     {
-      "move": "Gun",
+      "move": "Neutral Special",
       "category": "Specials",
       "hitboxLabels": [
         "close",
@@ -943,7 +943,7 @@
       "notes": "Can be extended for more shots"
     },
     {
-      "move": "Gun Special (Arsene)",
+      "move": "Neutral Special Special (Arsene)",
       "category": "Specials",
       "hitboxLabels": [
         "close",
@@ -1263,7 +1263,7 @@
       "notes": "Can be extended for more shots. Added shots in Arsene version deal just 0.8"
     },
     {
-      "move": "Eiha",
+      "move": "Side Special",
       "category": "Specials",
       "hitboxLabels": [
         "contact",
@@ -1362,7 +1362,7 @@
       "notes": "Eruption hits in parenthesis, but won't erupt on shields"
     },
     {
-      "move": "Grappling Hook",
+      "move": "Up Special",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {
@@ -1441,7 +1441,7 @@
       "notes": "The air version cannot grab, instead hitting the target for 5.0 damage."
     },
     {
-      "move": "Wings of Rebellion (Arsene)",
+      "move": "Up Special (Arsene)",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {
@@ -1477,7 +1477,7 @@
       "notes": "Invulnerable on frame 1-25. Grabs ledge on frame 17 onward."
     },
     {
-      "move": "Rebel's Guard",
+      "move": "Down Special",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {
@@ -1553,7 +1553,7 @@
       "notes": "Invulnerable on frame 1-14"
     },
     {
-      "move": "Tetrakarn/Makarakarn (Arsene)",
+      "move": "Down Special/Makarakarn (Arsene)",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {

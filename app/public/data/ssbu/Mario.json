@@ -2,7 +2,7 @@
   "character": "Mario",
   "slug": "Mario",
   "patch": "13.1",
-  "scrapedAt": "2026-08-16T21:07:07.252Z",
+  "scrapedAt": "2026-08-16T21:39:41.940Z",
   "sourceSheet": "01 - Mario",
   "moves": [
     {
@@ -144,7 +144,7 @@
       "notes": null
     },
     {
-      "move": "F-Tilt",
+      "move": "Forward Tilt",
       "category": "Normals",
       "hitboxLabels": null,
       "startup": {
@@ -190,7 +190,7 @@
       "notes": null
     },
     {
-      "move": "U-Tilt",
+      "move": "Up Tilt",
       "category": "Normals",
       "hitboxLabels": null,
       "startup": {
@@ -236,7 +236,7 @@
       "notes": null
     },
     {
-      "move": "D-Tilt",
+      "move": "Down Tilt",
       "category": "Normals",
       "hitboxLabels": [
         "Close",
@@ -341,7 +341,7 @@
       "notes": null
     },
     {
-      "move": "F-Smash",
+      "move": "Forward Smash",
       "category": "Smashes",
       "hitboxLabels": [
         "Far",
@@ -394,7 +394,7 @@
       "notes": "Charge hold frame is 5."
     },
     {
-      "move": "U-Smash",
+      "move": "Up Smash",
       "category": "Smashes",
       "hitboxLabels": null,
       "startup": {
@@ -440,7 +440,7 @@
       "notes": "Head Invulnerability on frame 9-12. Charge hold is frame 6"
     },
     {
-      "move": "D-Smash",
+      "move": "Down Smash",
       "category": "Smashes",
       "hitboxLabels": [
         "First",
@@ -494,7 +494,7 @@
       "notes": "Charge hold frame is 2"
     },
     {
-      "move": "N-Air",
+      "move": "Neutral Air",
       "category": "Aerials",
       "hitboxLabels": [
         "Early",
@@ -551,7 +551,7 @@
       "notes": "Auto cancels on frame 1-2 and frame 39 onward"
     },
     {
-      "move": "F-Air",
+      "move": "Forward Air",
       "category": "Aerials",
       "hitboxLabels": [
         "Meteor",
@@ -608,7 +608,7 @@
       "notes": "Auto cancels on frame 1-2 and frame 43 onward"
     },
     {
-      "move": "B-Air",
+      "move": "Back Air",
       "category": "Aerials",
       "hitboxLabels": [
         "Early",
@@ -665,7 +665,7 @@
       "notes": "Auto cancels on frame 1-5 and frame 19 onward"
     },
     {
-      "move": "U-Air",
+      "move": "Up Air",
       "category": "Aerials",
       "hitboxLabels": null,
       "startup": {
@@ -717,7 +717,7 @@
       "notes": "Auto cancels on frame 17 onward"
     },
     {
-      "move": "D-Air",
+      "move": "Down Air",
       "category": "Aerials",
       "hitboxLabels": [
         "Multihit",
@@ -779,7 +779,7 @@
       "notes": "Auto cancels on frame 1-4 and frame 33 onward"
     },
     {
-      "move": "Fireball",
+      "move": "Neutral Special",
       "category": "Specials",
       "hitboxLabels": [
         "Early",
@@ -831,7 +831,7 @@
       "notes": "Fireball disappears on frame 88."
     },
     {
-      "move": "Cape",
+      "move": "Side Special",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {
@@ -877,7 +877,7 @@
       "notes": "Reflects on frame 6-20"
     },
     {
-      "move": "Super Jump Punch",
+      "move": "Up Special",
       "category": "Specials",
       "hitboxLabels": [
         "First",
@@ -937,7 +937,7 @@
       "notes": "Invulnerable on frame 3-6. Can snap to a ledge on frame 14 onward.\nAs well as frames 2-6 if descending or recently jumped."
     },
     {
-      "move": "F.L.U.D.D.",
+      "move": "Down Special",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {
@@ -973,7 +973,7 @@
       "notes": "Startup is 2 from a charging state. Entering charge state\ntakes 19 frames and is shield cancellable on 20."
     },
     {
-      "move": "F.L.U.D.D. (full charge)",
+      "move": "Down Special (full charge)",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {

@@ -2,7 +2,7 @@
   "character": "Ness",
   "slug": "Ness",
   "patch": "13.1",
-  "scrapedAt": "2026-08-16T21:07:07.262Z",
+  "scrapedAt": "2026-08-16T21:39:41.951Z",
   "sourceSheet": "10 - Ness",
   "moves": [
     {
@@ -144,7 +144,7 @@
       "notes": null
     },
     {
-      "move": "F-Tilt",
+      "move": "Forward Tilt",
       "category": "Normals",
       "hitboxLabels": null,
       "startup": {
@@ -190,7 +190,7 @@
       "notes": null
     },
     {
-      "move": "U-Tilt",
+      "move": "Up Tilt",
       "category": "Normals",
       "hitboxLabels": [
         "Close",
@@ -243,7 +243,7 @@
       "notes": null
     },
     {
-      "move": "D-Tilt",
+      "move": "Down Tilt",
       "category": "Normals",
       "hitboxLabels": [
         "close",
@@ -350,7 +350,7 @@
       "notes": null
     },
     {
-      "move": "F-Smash",
+      "move": "Forward Smash",
       "category": "Smashes",
       "hitboxLabels": [
         "close",
@@ -408,7 +408,7 @@
       "notes": "Reflects on frame 18-30. Charge hold is frame 10."
     },
     {
-      "move": "U-Smash",
+      "move": "Up Smash",
       "category": "Smashes",
       "hitboxLabels": [
         "charging",
@@ -459,7 +459,7 @@
       "notes": "Charge hold on frame 10 and also creates a hitbox hitting every 6 frames"
     },
     {
-      "move": "D-Smash",
+      "move": "Down Smash",
       "category": "Smashes",
       "hitboxLabels": [
         "weak",
@@ -515,7 +515,7 @@
       "notes": "Charge hold on frame 12 and also creates a hitbox hitting every 6 frames"
     },
     {
-      "move": "N-Air",
+      "move": "Neutral Air",
       "category": "Aerials",
       "hitboxLabels": [
         "early",
@@ -570,7 +570,7 @@
       "notes": "Autocancels on frame 1-4 and 26 onward"
     },
     {
-      "move": "F-Air",
+      "move": "Forward Air",
       "category": "Aerials",
       "hitboxLabels": [
         "multi",
@@ -628,7 +628,7 @@
       "notes": "Autocancels on frame 1-7 and 33 onward"
     },
     {
-      "move": "B-Air",
+      "move": "Back Air",
       "category": "Aerials",
       "hitboxLabels": [
         "early",
@@ -683,7 +683,7 @@
       "notes": "Autocancels on frame 1-9 and 25 onward"
     },
     {
-      "move": "U-Air",
+      "move": "Up Air",
       "category": "Aerials",
       "hitboxLabels": [
         "multi",
@@ -742,7 +742,7 @@
       "notes": "Autocancels on frame 1-7 and 34 onward"
     },
     {
-      "move": "D-Air",
+      "move": "Down Air",
       "category": "Aerials",
       "hitboxLabels": [
         "early",
@@ -785,7 +785,7 @@
       "notes": "Autocancels on frame 1-17 and 39 onward "
     },
     {
-      "move": "PK Flash",
+      "move": "Neutral Special",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {
@@ -819,7 +819,7 @@
       "notes": "On release, startup is 14 and total frames is 35."
     },
     {
-      "move": "PK Fire",
+      "move": "Side Special",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {
@@ -866,7 +866,7 @@
       "notes": "Will not erupt on shields. The flame pillar has a rehit rate of 7 and lasts about 100 frames"
     },
     {
-      "move": "PK Fire (air)",
+      "move": "Side Special (air)",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {
@@ -906,7 +906,7 @@
       "notes": null
     },
     {
-      "move": "PK Thunder",
+      "move": "Up Special",
       "category": "Specials",
       "hitboxLabels": [
         "direct",
@@ -956,7 +956,7 @@
       "notes": "39 endlag after hitting a target. Can grab ledges 12 frames after hitting something and then falling."
     },
     {
-      "move": "PK Thunder 2",
+      "move": "Up Special 2",
       "category": "Specials",
       "hitboxLabels": [
         "early",
@@ -1010,7 +1010,7 @@
       "notes": "Invulnerable on frame 1-32. Landing lag is if you enter special fall. Can snap to a ledge as early as \nframe 2 (facing toward) or 68 (facing away)"
     },
     {
-      "move": "PSI Magnet",
+      "move": "Down Special",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {

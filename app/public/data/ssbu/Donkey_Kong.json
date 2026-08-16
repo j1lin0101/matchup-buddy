@@ -2,7 +2,7 @@
   "character": "Donkey Kong",
   "slug": "Donkey_Kong",
   "patch": "13.1",
-  "scrapedAt": "2026-08-16T21:07:07.255Z",
+  "scrapedAt": "2026-08-16T21:39:41.942Z",
   "sourceSheet": "02 - Donkey Kong",
   "moves": [
     {
@@ -98,7 +98,7 @@
       "notes": null
     },
     {
-      "move": "F-Tilt",
+      "move": "Forward Tilt",
       "category": "Normals",
       "hitboxLabels": [
         "No angle",
@@ -151,7 +151,7 @@
       "notes": "Arm intangibility on frame 6-9"
     },
     {
-      "move": "U-Tilt",
+      "move": "Up Tilt",
       "category": "Normals",
       "hitboxLabels": null,
       "startup": {
@@ -197,7 +197,7 @@
       "notes": "Arm intangibility on frame 5-11"
     },
     {
-      "move": "D-Tilt",
+      "move": "Down Tilt",
       "category": "Normals",
       "hitboxLabels": null,
       "startup": {
@@ -295,7 +295,7 @@
       "notes": null
     },
     {
-      "move": "F-Smash",
+      "move": "Forward Smash",
       "category": "Smashes",
       "hitboxLabels": [
         "Far",
@@ -345,7 +345,7 @@
       "notes": "Arm and head intangibility on frame 20-26. Charge hold is frame 14."
     },
     {
-      "move": "U-Smash",
+      "move": "Up Smash",
       "category": "Smashes",
       "hitboxLabels": null,
       "startup": {
@@ -391,7 +391,7 @@
       "notes": "Arm and head intangibility on frame 12-15. Charge hold is frame 6"
     },
     {
-      "move": "D-Smash",
+      "move": "Down Smash",
       "category": "Smashes",
       "hitboxLabels": null,
       "startup": {
@@ -437,7 +437,7 @@
       "notes": "Arm intangibility on frame 11-14. Charge hold is frame 2"
     },
     {
-      "move": "N-Air",
+      "move": "Neutral Air",
       "category": "Aerials",
       "hitboxLabels": [
         "Early",
@@ -492,7 +492,7 @@
       "notes": "Autocancels on frame 1-9 and 27 onward"
     },
     {
-      "move": "F-Air",
+      "move": "Forward Air",
       "category": "Aerials",
       "hitboxLabels": [
         "Early",
@@ -547,7 +547,7 @@
       "notes": "Autocancels on frame 56 onward"
     },
     {
-      "move": "B-Air",
+      "move": "Back Air",
       "category": "Aerials",
       "hitboxLabels": [
         "Early",
@@ -602,7 +602,7 @@
       "notes": "Autocancels on frame 1-6 and 31 onward"
     },
     {
-      "move": "U-Air",
+      "move": "Up Air",
       "category": "Aerials",
       "hitboxLabels": null,
       "startup": {
@@ -650,7 +650,7 @@
       "notes": "Head intangibility on frame 5-10. Autocancels on frame 1-5 and 26 onward"
     },
     {
-      "move": "D-Air",
+      "move": "Down Air",
       "category": "Aerials",
       "hitboxLabels": null,
       "startup": {
@@ -698,7 +698,7 @@
       "notes": "Autocancels on frame 1-2 and 50 onward"
     },
     {
-      "move": "Giant Punch",
+      "move": "Neutral Special",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {
@@ -734,7 +734,7 @@
       "notes": "Entering charge window takes 7 frames. 4 to cancel with shield.\nArm intangibility on frame 4-20."
     },
     {
-      "move": "Giant Punch (full charge)",
+      "move": "Neutral Special (full charge)",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {
@@ -780,7 +780,7 @@
       "notes": "Super armor on frame 9-20 on the ground. Takes 121 frames to reach full charge"
     },
     {
-      "move": "Headbutt",
+      "move": "Side Special",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {
@@ -826,7 +826,7 @@
       "notes": "Super armor on frame 5-14 on the ground and in the air."
     },
     {
-      "move": "Spinning Kong",
+      "move": "Up Special",
       "category": "Specials",
       "hitboxLabels": [
         "First",
@@ -888,7 +888,7 @@
       "notes": "Super armor on frame 5-17. Arm intangibility on frame 19-24"
     },
     {
-      "move": "Spinning Kong (air)",
+      "move": "Up Special (air)",
       "category": "Specials",
       "hitboxLabels": [
         "First",
@@ -940,7 +940,7 @@
       "notes": "Past frame 12, this move hits once every 1, 2, or 3 frames, seems inconsistent. \nArm intangibility from frame 10-38. Will snap to a ledge as early as frame 14 onward"
     },
     {
-      "move": "Hand Slap",
+      "move": "Down Special",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {
@@ -987,7 +987,7 @@
       "notes": "Each additional rep takes another 26 frames as you mash."
     },
     {
-      "move": "Hand Slap (air)",
+      "move": "Down Special (air)",
       "category": "Specials",
       "hitboxLabels": [
         "First",

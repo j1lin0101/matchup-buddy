@@ -2,7 +2,7 @@
   "character": "Lucina",
   "slug": "Lucina",
   "patch": "13.1",
-  "scrapedAt": "2026-08-16T21:07:07.270Z",
+  "scrapedAt": "2026-08-16T21:39:41.964Z",
   "sourceSheet": "21e - Lucina",
   "moves": [
     {
@@ -98,7 +98,7 @@
       "notes": null
     },
     {
-      "move": "F-Tilt",
+      "move": "Forward Tilt",
       "category": "Normals",
       "hitboxLabels": null,
       "startup": {
@@ -144,7 +144,7 @@
       "notes": null
     },
     {
-      "move": "U-Tilt",
+      "move": "Up Tilt",
       "category": "Normals",
       "hitboxLabels": [
         "Early",
@@ -196,7 +196,7 @@
       "notes": null
     },
     {
-      "move": "D-Tilt",
+      "move": "Down Tilt",
       "category": "Normals",
       "hitboxLabels": null,
       "startup": {
@@ -288,7 +288,7 @@
       "notes": null
     },
     {
-      "move": "F-Smash",
+      "move": "Forward Smash",
       "category": "Smashes",
       "hitboxLabels": null,
       "startup": {
@@ -334,7 +334,7 @@
       "notes": "Charge hold is frame 2."
     },
     {
-      "move": "U-Smash",
+      "move": "Up Smash",
       "category": "Smashes",
       "hitboxLabels": [
         "Body",
@@ -387,7 +387,7 @@
       "notes": "Launcher and sword hits generate on the same frame. Charge hold is frame 9"
     },
     {
-      "move": "D-Smash",
+      "move": "Down Smash",
       "category": "Smashes",
       "hitboxLabels": null,
       "startup": {
@@ -438,7 +438,7 @@
       "notes": "Charge hold is frame 3."
     },
     {
-      "move": "N-Air",
+      "move": "Neutral Air",
       "category": "Aerials",
       "hitboxLabels": null,
       "startup": {
@@ -491,7 +491,7 @@
       "notes": "Autocancels on frame 47 onward"
     },
     {
-      "move": "F-Air",
+      "move": "Forward Air",
       "category": "Aerials",
       "hitboxLabels": null,
       "startup": {
@@ -539,7 +539,7 @@
       "notes": "Autocancels on frame 36 onward"
     },
     {
-      "move": "B-Air",
+      "move": "Back Air",
       "category": "Aerials",
       "hitboxLabels": null,
       "startup": {
@@ -587,7 +587,7 @@
       "notes": "Autocancels on frame 1-2 and 32 onward"
     },
     {
-      "move": "U-Air",
+      "move": "Up Air",
       "category": "Aerials",
       "hitboxLabels": null,
       "startup": {
@@ -635,7 +635,7 @@
       "notes": "Autocancels on frame 1-2 and 38 onward"
     },
     {
-      "move": "D-Air",
+      "move": "Down Air",
       "category": "Aerials",
       "hitboxLabels": [
         "sour",
@@ -690,7 +690,7 @@
       "notes": "Autocancels on frame 1-2 and 55 onward"
     },
     {
-      "move": "Shieldbreaker",
+      "move": "Neutral Special",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {
@@ -724,7 +724,7 @@
       "notes": "On release, startup is 8 and total frames is 39"
     },
     {
-      "move": "Dancing Blade 1",
+      "move": "Side Special 1",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {
@@ -772,7 +772,7 @@
       "notes": "Second total frames is the air version. Can transition to next slash on frame 12"
     },
     {
-      "move": "Dancing Blade 2 Neutral",
+      "move": "Side Special 2 Neutral",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {
@@ -818,7 +818,7 @@
       "notes": "Can transition to next slash on frame 8"
     },
     {
-      "move": "Dancing Blade 3 Neutral",
+      "move": "Side Special 3 Neutral",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {
@@ -864,7 +864,7 @@
       "notes": "Can transition to next slash on frame 7"
     },
     {
-      "move": "Dancing Blade 4 Neutral",
+      "move": "Side Special 4 Neutral",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {
@@ -910,7 +910,7 @@
       "notes": null
     },
     {
-      "move": "Dancing Blade 2 Up",
+      "move": "Side Special 2 Up",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {
@@ -956,7 +956,7 @@
       "notes": "Can transition to next slash on frame 8"
     },
     {
-      "move": "Dancing Blade 3 Up",
+      "move": "Side Special 3 Up",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {
@@ -1002,7 +1002,7 @@
       "notes": "Can transition to next slash on frame 8"
     },
     {
-      "move": "Dancing Blade 4 Up",
+      "move": "Side Special 4 Up",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {
@@ -1048,7 +1048,7 @@
       "notes": null
     },
     {
-      "move": "Dancing Blade 3 Down",
+      "move": "Side Special 3 Down",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {
@@ -1094,7 +1094,7 @@
       "notes": "Can transition to next slash on frame 8"
     },
     {
-      "move": "Dancing Blade 4 Down",
+      "move": "Side Special 4 Down",
       "category": "Specials",
       "hitboxLabels": [
         "Multi",
@@ -1147,7 +1147,7 @@
       "notes": null
     },
     {
-      "move": "Dolphin Slash",
+      "move": "Up Special",
       "category": "Specials",
       "hitboxLabels": [
         "Early",
@@ -1197,7 +1197,7 @@
       "notes": "Invulnerable on frame 4-5. 1-5 in the air. Can grab ledges as early as frame \n8 (facing toward) or 41 (facing away). And frames 2-5 if descending or very recently jumped"
     },
     {
-      "move": "Counter",
+      "move": "Down Special",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {
@@ -1233,7 +1233,7 @@
       "notes": "Invulnerable on frame 5. Counter window 6-27."
     },
     {
-      "move": "Counter (attack)",
+      "move": "Down Special (attack)",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {

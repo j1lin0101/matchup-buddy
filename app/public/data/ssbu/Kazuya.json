@@ -2,7 +2,7 @@
   "character": "Kazuya",
   "slug": "Kazuya",
   "patch": "13.1",
-  "scrapedAt": "2026-08-16T21:07:07.323Z",
+  "scrapedAt": "2026-08-16T21:39:42.048Z",
   "sourceSheet": "81 - Kazuya",
   "moves": [
     {
@@ -1409,7 +1409,7 @@
       "notes": "Legs intangible on frame 4-7. Back leg intangible on frame 13-19"
     },
     {
-      "move": "F-Smash",
+      "move": "Forward Smash",
       "category": "Smashes",
       "hitboxLabels": [
         "close",
@@ -1462,7 +1462,7 @@
       "notes": "10.0% Damage based Armor on frame 7-24. Charge hold on frame 5. "
     },
     {
-      "move": "U-Smash",
+      "move": "Up Smash",
       "category": "Smashes",
       "hitboxLabels": [
         "early",
@@ -1514,7 +1514,7 @@
       "notes": "Arm intangible on frame 12-17. 6.0% damage based Armor on frame 7-11. \nCharge hold on frame 5."
     },
     {
-      "move": "D-Smash",
+      "move": "Down Smash",
       "category": "Smashes",
       "hitboxLabels": null,
       "startup": {
@@ -1560,7 +1560,7 @@
       "notes": "Arm intangible on frame 17-19. 6.0% damage basedArmor on frame 7-15. \nCharge hold on frame 2."
     },
     {
-      "move": "N-Air",
+      "move": "Neutral Air",
       "category": "Aerials",
       "hitboxLabels": [
         "sweet",
@@ -1620,7 +1620,7 @@
       "notes": "Autocancels on frame 25 onward"
     },
     {
-      "move": "F-Air",
+      "move": "Forward Air",
       "category": "Aerials",
       "hitboxLabels": [
         "early",
@@ -1675,7 +1675,7 @@
       "notes": "Autocancels on frame 25 onward"
     },
     {
-      "move": "B-Air",
+      "move": "Back Air",
       "category": "Aerials",
       "hitboxLabels": [
         "early",
@@ -1730,7 +1730,7 @@
       "notes": "Autocancels on frame 1-4 and 35 onward"
     },
     {
-      "move": "U-Air",
+      "move": "Up Air",
       "category": "Aerials",
       "hitboxLabels": null,
       "startup": {
@@ -1778,7 +1778,7 @@
       "notes": "Leg intangible on frame 4-9. Autoacancels on frame 30 onward"
     },
     {
-      "move": "D-Air",
+      "move": "Down Air",
       "category": "Aerials",
       "hitboxLabels": null,
       "startup": {
@@ -1827,7 +1827,7 @@
       "notes": "Autocancels on frame 50 onward"
     },
     {
-      "move": "Devil Blaster",
+      "move": "Neutral Special",
       "category": "Specials",
       "hitboxLabels": [
         "normal",
@@ -1885,7 +1885,7 @@
       "notes": "Shieldstun is 4 on all types of lasers when not blocked at point blank range."
     },
     {
-      "move": "Devil Blaster (air)",
+      "move": "Neutral Special (air)",
       "category": "Specials",
       "hitboxLabels": [
         "normal",
@@ -1943,7 +1943,7 @@
       "notes": "Shieldstun is 4 on all types of lasers when not blocked at point blank range."
     },
     {
-      "move": "Devil Fist",
+      "move": "Side Special",
       "category": "Specials",
       "hitboxLabels": [
         "close",
@@ -1993,7 +1993,7 @@
       "notes": "Invulnerable on frame 6-9. Kazuya does not suffer hitlag from this attack, \nbut does suffer shieldlag. Hitting a shield stops him and forces 38-45 endlag.\nI do not know what determines the exact amount, other than close hits are less."
     },
     {
-      "move": "Heaven's Door",
+      "move": "Down Special",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {
@@ -2031,7 +2031,7 @@
       "notes": "10% damage based Armor on frame 4-13. When Rage mode is activated, Invulnerable on \nframe 1-3. And super armor on frame 4-13. And a successful grab results in the Rage Drive.\n39 endlag from a successful ground slam, or 40 if you land on the same ground"
     },
     {
-      "move": "Heaven's Door (air)",
+      "move": "Down Special (air)",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {
@@ -2071,7 +2071,7 @@
       "notes": "10% damage based Armor on frame 4-13.\nWith Rage Mode activated, nothing about the air version is changed.\n39 endlag from a successful ground slam, or 40 if you land on the same ground"
     },
     {
-      "move": "Devil Wings",
+      "move": "Up Special",
       "category": "Specials",
       "hitboxLabels": [
         "early...latest"

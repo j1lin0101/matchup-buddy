@@ -45,10 +45,25 @@
 const fs = require('fs');
 const path = require('path');
 const ExcelJS = require('exceljs');
+const fetch = require('node-fetch');
 
 const SOURCE_XLSX = path.join(__dirname, '../data/ssbu/frame-data-source.xlsx');
 const OUT_DIR = path.join(__dirname, '../app/public/data/ssbu');
+const ROSTER_JSON = path.join(__dirname, '../app/public/data/ssbu/characters.json');
 const PATCH = '13.1';
+const SSBWIKI_API = 'https://www.ssbwiki.com/api.php';
+const UA = 'MatchupBuddy/1.0 (https://matchupbuddy.gg)';
+
+async function withRetry(fn, label, attempts = 3) {
+  for (let i = 1; i <= attempts; i++) {
+    try {
+      return await fn();
+    } catch (err) {
+      if (i === attempts) throw new Error(`${label} failed after ${attempts} attempts: ${err.message}`);
+      await new Promise(r => setTimeout(r, i * 1000));
+    }
+  }
+}
 
 // Sheets structurally incompatible with the canonical 9-column schema, or
 // bonus/supplementary sheets layered on top of a character's primary
@@ -214,6 +229,243 @@ function classifyRow(moveName, phase) {
   return { category: phase >= 6 ? 'Defensive' : 'Grabs/Throws', phase };
 }
 
+// Expands the sheet's abbreviated move labels to full words, matching the
+// naming convention already used for Melee/Rivals (analysisMelee.js/
+// analysis.js — "Neutral Air" not "N-Air"). Applied after classifyRow (which
+// already matches the abbreviated forms), so this only touches the stored
+// label, not categorization. Anchored + word-boundary so it only rewrites
+// the move's own prefix, preserving any trailing variant text (e.g.
+// Snake's "F-Tilt 1"/"F-Tilt 2" -> "Forward Tilt 1"/"Forward Tilt 2").
+const ABBREVIATED_MOVE_RENAMES = [
+  [/^N-Air\b/i, 'Neutral Air'],
+  [/^F-Air\b/i, 'Forward Air'],
+  [/^B-Air\b/i, 'Back Air'],
+  [/^U-Air\b/i, 'Up Air'],
+  [/^D-Air\b/i, 'Down Air'],
+  [/^F-Tilt\b/i, 'Forward Tilt'],
+  [/^U-Tilt\b/i, 'Up Tilt'],
+  [/^D-Tilt\b/i, 'Down Tilt'],
+  [/^F-Smash\b/i, 'Forward Smash'],
+  [/^U-Smash\b/i, 'Up Smash'],
+  [/^D-Smash\b/i, 'Down Smash'],
+];
+
+function expandAbbreviatedMoveName(name) {
+  for (const [pattern, replacement] of ABBREVIATED_MOVE_RENAMES) {
+    if (pattern.test(name)) return name.replace(pattern, replacement);
+  }
+  return name;
+}
+
+/* ── Special-move name generalization ──
+ *
+ * The sheet labels each Specials-category row with the character's own
+ * flavor name (e.g. Mario's "Super Jump Punch", Snake's "Cypher") rather
+ * than a generic "Neutral/Side/Up/Down Special" label — the same problem
+ * Melee's scraper solved (see fetch-melee-data.js) by cross-referencing
+ * ssbwiki.com's {{MovesetTable}} template, which names each of the four
+ * special-move slots per character via nsname/ssname/usname/dsname params.
+ * SSBU character pages use the exact same template param names (confirmed
+ * directly against ssbwiki.com's live "<Name> (SSBU)" pages), so the same
+ * technique applies here.
+ */
+const SPECIAL_DIRECTIONS = [
+  ['neutral', 'nsname', 'Neutral Special'],
+  ['side',    'ssname', 'Side Special'],
+  ['up',      'usname', 'Up Special'],
+  ['down',    'dsname', 'Down Special'],
+];
+
+// Echo pairs sharing one spreadsheet row (see SHEET_TO_SLUGS) use the
+// PRIMARY character's own ssbwiki flavor names for matching — the
+// spreadsheet's move-name text is written once for the pair and matches
+// the primary's names (e.g. "Peach Bomber" appears in both Peach.json and
+// Daisy.json, even though Daisy's own ssbwiki page documents her distinct
+// "Daisy Bomber"/"Daisy Parasol" flavor names — confirmed by direct
+// comparison against ssbwiki).
+const WIKI_NAME_SOURCE_OVERRIDES = {
+  Daisy: 'Peach',
+  Dark_Samus: 'Samus',
+  Richter: 'Simon',
+};
+
+// Pit and Dark Pit are the one echo pair whose spreadsheet Neutral/Side
+// rows genuinely differ and are explicitly labeled "(Pit)"/"(Dark Pit)"
+// within the same shared sheet (unlike Peach/Daisy, Samus/Dark Samus, and
+// Simon/Richter, whose spreadsheet text is 100% identical for both
+// members) — confirmed by direct inspection. Both Pit.json and
+// Dark_Pit.json need BOTH characters' own flavor names available to match
+// against, not just one.
+const WIKI_NAME_MERGE_SOURCES = {
+  Pit: ['Pit', 'Dark Pit'],
+  Dark_Pit: ['Pit', 'Dark Pit'],
+};
+
+// Mii Fighters' ssbwiki pages don't use the standard MovesetTable
+// nsname/ssname/usname/dsname params at all — confirmed directly (their
+// {{MovesetTable}} has no such params). Their movesets are genuinely
+// customizable (3 selectable options per Neutral/Side/Up slot, 2-3 for
+// Down, picked at character select), so there's no single "the" special
+// per direction the way every other character has, and no wiki param to
+// cross-reference. Hand-grouped directly from the spreadsheet's own row
+// ordering instead — like every other character, it lists Neutral's
+// options, then Side's, then Up's, then Down's, in that order — verified
+// against each Mii's actual generated Specials list before use.
+const MII_SPECIAL_GROUPS = {
+  Mii_Brawler: {
+    neutral: ['Shot Put', 'Flashing Mach Punch', 'Exploding Side Kick'],
+    side:    ['Onslaught', 'Burning Dropkick', 'Suplex'],
+    up:      ['Soaring Axe Kick', 'Helicopter Kick', 'Thrust Uppercut'],
+    down:    ['Head-On Assault', 'Feint Jump'],
+  },
+  Mii_Swordfighter: {
+    neutral: ['Gale Strike', 'Shuriken of Light', 'Blurring Blade'],
+    side:    ['Airborne Assault', 'Gale Stab', 'Chakram'],
+    up:      ['Stone Scabbard', 'Skyward Slash Dash', "Hero's Spin"],
+    down:    ['Blade Counter', 'Reversal Slash', 'Power Thrust'],
+  },
+  Mii_Gunner: {
+    neutral: ['Charge Blast', 'Laser Blaze', 'Grenade Launch'],
+    side:    ['Flame Pillar', 'Stealth Burst', 'Gunner Missile'],
+    up:      ['Lunar Launch', 'Cannon Jump Kick', 'Arm Rocket'],
+    down:    ['Echo Reflector', 'Bomb Drop', 'Absorbing Vortex'],
+  },
+};
+
+// A handful of ssbwiki flavor names differ from the spreadsheet's own
+// move-name text in ways that plain accent/punctuation normalization
+// doesn't cover (a genuinely different word, not just formatting) —
+// applied to the wiki-fetched flavor name to align it with the
+// spreadsheet's own wording.
+const SPECIAL_NAME_CORRECTIONS = {
+  'Palutena Bow': "Palutena's Bow",
+  'Bow and Arrows': "Hero's Bow",       // Link only — Toon Link/Young Link's own wiki names already match
+  'Double-Edge Dance': 'Double Edged Dance', // Chrom/Roy
+  'Shield Breaker': 'Shieldbreaker',    // Marth/Lucina
+  'Megavitamins': 'Megavitamin',        // Dr. Mario — spreadsheet uses the singular
+};
+
+// Strips accents and normalizes punctuation so "Pokémon Change" matches
+// "Pokemon Change" and "Abandon Ship!" matches "Abandon Ship" — real
+// mismatches between ssbwiki's prose formatting and the spreadsheet's
+// plainer move-name text, not different moves.
+function normalizeForMatch(s) {
+  return s
+    .normalize('NFD').replace(/[̀-ͯ]/g, '')
+    .replace(/!/g, '')
+    .replace(/[‘’]/g, "'")
+    .trim()
+    .toLowerCase();
+}
+
+function correctFlavorName(name) {
+  return SPECIAL_NAME_CORRECTIONS[name] || name;
+}
+
+function escapeRegExp(s) {
+  return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+}
+
+// Renames a Specials-category move from its character-specific flavor name
+// to a generic "<Direction> Special" label. Three shapes of match, tried in
+// order against each direction's flavor name (normalized for accents/
+// punctuation on both sides, e.g. "Pokémon Change" vs "Pokemon Change"):
+//   - Exact match                                    -> bare label
+//   - Flavor name is a PREFIX, followed by a
+//     space/slash/paren/end (e.g. "Screw Attack (air)",
+//     "Thunder/Elthunder/Arcthunder")                -> label + trailing text
+//   - Flavor name is a SUFFIX, preceded by a
+//     qualifier word (e.g. "Homing Missile", "True
+//     Hadoken", "Limit Blade Beam")                   -> qualifier + " " + label
+// Left alone if none of the four directions' flavor names match at all —
+// covers characters with no wiki data and genuine mismatches (e.g. Sora's
+// neutral special is generically named "Magic" on ssbwiki, but the sheet
+// lists each element by its own name — "Firaga"/"Thundaga"/"Blizzaga" —
+// which intentionally doesn't match, left as-is rather than guessed).
+//
+// keepOriginalName (used for the three Mii Fighters — see
+// MII_SPECIAL_GROUPS) appends the un-renamed flavor name in parens even on
+// an otherwise-bare exact match (e.g. "Up Special (Soaring Axe Kick)"
+// instead of a bare "Up Special") — a Mii's three selectable options per
+// slot would otherwise collapse into identical, indistinguishable rows.
+//
+// flavorNameSources is an array, usually of length 1 — Pit/Dark Pit are
+// the one pair needing more than one (see WIKI_NAME_MERGE_SOURCES), since
+// their sheet embeds both characters' own flavor names side by side.
+function applyDirectionSpecialName(name, flavorNameSources, keepOriginalName) {
+  for (const flavorNames of flavorNameSources || []) {
+    const renamed = applyDirectionSpecialNameFromOneSource(name, flavorNames, keepOriginalName);
+    if (renamed !== name) return renamed;
+  }
+  return name;
+}
+
+function applyDirectionSpecialNameFromOneSource(name, flavorNames, keepOriginalName) {
+  if (!flavorNames) return name;
+  const normName = normalizeForMatch(name);
+  for (const [key, , label] of SPECIAL_DIRECTIONS) {
+    const rawFlavor = flavorNames[key];
+    if (!rawFlavor) continue;
+    // Compound slots list multiple genuinely different specials sharing
+    // one input, separated by " / " (e.g. Hero's staged "Frizz / Frizzle /
+    // Kafrizz", Terry's "Burning Knuckle / Crack Shoot") — any alternative
+    // is a valid match for this direction.
+    const alternatives = rawFlavor.split('/').map(s => s.trim()).map(correctFlavorName);
+    for (const alt of alternatives) {
+      const normAlt = normalizeForMatch(alt);
+      if (!normAlt) continue;
+      if (normName === normAlt) {
+        return keepOriginalName ? `${label} (${name})` : label;
+      }
+      const prefixMatch = normName.match(new RegExp(`^${escapeRegExp(normAlt)}(\\s|/|\\()`));
+      if (prefixMatch) {
+        const suffix = name.slice(normAlt.length);
+        return keepOriginalName ? `${label} (${name})` : label + suffix;
+      }
+      const suffixMatch = normName.match(new RegExp(`(\\s)${escapeRegExp(normAlt)}$`));
+      if (suffixMatch) {
+        const qualifier = name.slice(0, name.length - normAlt.length).trim();
+        return keepOriginalName ? `${label} (${name})` : `${qualifier} ${label}`;
+      }
+    }
+  }
+  return name;
+}
+
+// Fetches ssbwiki.com's "<Name> (SSBU)" page for every character and parses
+// the {{MovesetTable}} template's four special-move name params into
+// { characterName -> { neutral, side, up, down } flavor names }.
+async function fetchSpecialNames(characterNames) {
+  const result = new Map();
+  const batchSize = 20;
+  for (let i = 0; i < characterNames.length; i += batchSize) {
+    const batch = characterNames.slice(i, i + batchSize);
+    const titles = batch.map(n => `${n} (SSBU)`).join('|');
+    const params = new URLSearchParams({
+      action: 'query', titles, prop: 'revisions', rvprop: 'content', format: 'json',
+    });
+    const data = await withRetry(async () => {
+      const res = await fetch(`${SSBWIKI_API}?${params}`, { headers: { 'User-Agent': UA } });
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      return res.json();
+    }, `Fetching special names batch ${i / batchSize + 1}`);
+
+    Object.values(data.query.pages).forEach(page => {
+      if (page.missing !== undefined || !page.revisions) return;
+      const name = page.title.replace(/ \(SSBU\)$/, '');
+      const content = page.revisions[0]['*'];
+      const flavorNames = {};
+      SPECIAL_DIRECTIONS.forEach(([key, param]) => {
+        const m = content.match(new RegExp(`\\|${param}\\s*=\\s*([^\\n|]+)`, 'i'));
+        if (!m) return;
+        flavorNames[key] = m[1].trim().replace(/\{\{!\}\}/g, '|').replace(/\[\[(?:[^\]|]*\|)?([^\]]+)\]\]/g, '$1').trim();
+      });
+      result.set(name, flavorNames);
+    });
+  }
+  return result;
+}
+
 // Strips a "|+N|" or "[+N]" emphasis wrapper (see file header doc) down to
 // the plain signed number inside, if present.
 function unwrap(segment) {
@@ -335,6 +587,9 @@ async function main() {
   }
   fs.mkdirSync(OUT_DIR, { recursive: true });
 
+  const roster = JSON.parse(fs.readFileSync(ROSTER_JSON, 'utf8')).characters;
+  const slugToDisplayName = new Map(roster.map(c => [c.slug, c.name]));
+
   const workbook = new ExcelJS.Workbook();
   await workbook.xlsx.readFile(SOURCE_XLSX);
 
@@ -344,6 +599,39 @@ async function main() {
     throw new Error(`Unmapped sheet(s) found — add to SHEET_TO_SLUGS or SKIPPED_SHEETS: ${unmapped.join(', ')}`);
   }
 
+  console.log('Fetching special move names from ssbwiki.com...');
+  const allSlugs = Object.values(SHEET_TO_SLUGS).flat();
+  const wikiLookupNames = allSlugs.flatMap(slug => {
+    if (WIKI_NAME_MERGE_SOURCES[slug]) return WIKI_NAME_MERGE_SOURCES[slug];
+    const name = slugToDisplayName.get(WIKI_NAME_SOURCE_OVERRIDES[slug] || slug);
+    return name ? [name] : [];
+  });
+  const specialNames = await fetchSpecialNames([...new Set(wikiLookupNames)]);
+  const missingWikiData = allSlugs.filter(slug => {
+    if (MII_SPECIAL_GROUPS[slug]) return false;
+    if (WIKI_NAME_MERGE_SOURCES[slug]) return WIKI_NAME_MERGE_SOURCES[slug].every(n => !specialNames.has(n));
+    const displayName = slugToDisplayName.get(WIKI_NAME_SOURCE_OVERRIDES[slug] || slug);
+    return !displayName || !specialNames.has(displayName);
+  });
+  if (missingWikiData.length) {
+    console.log(`  No ssbwiki special-name data for: ${missingWikiData.join(', ')} (their Specials rows keep their original flavor names)`);
+  }
+
+  // Returns an array of flavor-name sources to try (usually one; Pit/Dark
+  // Pit get both, since their sheet embeds both characters' own names).
+  function flavorNamesForSlug(slug) {
+    if (MII_SPECIAL_GROUPS[slug]) {
+      const g = MII_SPECIAL_GROUPS[slug];
+      return [{ neutral: g.neutral.join('/'), side: g.side.join('/'), up: g.up.join('/'), down: g.down.join('/') }];
+    }
+    if (WIKI_NAME_MERGE_SOURCES[slug]) {
+      return WIKI_NAME_MERGE_SOURCES[slug].map(n => specialNames.get(n)).filter(Boolean);
+    }
+    const displayName = slugToDisplayName.get(WIKI_NAME_SOURCE_OVERRIDES[slug] || slug);
+    const flavorNames = displayName ? specialNames.get(displayName) : null;
+    return flavorNames ? [flavorNames] : [];
+  }
+
   let written = 0;
   for (const [sheetName, slugs] of Object.entries(SHEET_TO_SLUGS)) {
     const sheet = workbook.getWorksheet(sheetName);
@@ -351,10 +639,17 @@ async function main() {
       console.log(`  WARNING: sheet "${sheetName}" not found in workbook, skipping`);
       continue;
     }
-    const moves = parseSheet(sheet);
+    const baseMoves = parseSheet(sheet);
     for (const slug of slugs) {
+      const flavorNames = flavorNamesForSlug(slug);
+      const isMii = Boolean(MII_SPECIAL_GROUPS[slug]);
+      const moves = baseMoves.map(m => {
+        const expanded = expandAbbreviatedMoveName(m.move);
+        const renamed = m.category === 'Specials' ? applyDirectionSpecialName(expanded, flavorNames, isMii) : expanded;
+        return { ...m, move: renamed };
+      });
       const out = {
-        character: slug.replace(/_/g, ' '),
+        character: slugToDisplayName.get(slug) || slug.replace(/_/g, ' '),
         slug,
         patch: PATCH,
         scrapedAt: new Date().toISOString(),
@@ -365,7 +660,7 @@ async function main() {
       fs.writeFileSync(path.join(OUT_DIR, `${slug}.json`), JSON.stringify(out, null, 2) + '\n');
       written++;
     }
-    console.log(`  ${sheetName} -> ${slugs.join(', ')} (${moves.length} moves)`);
+    console.log(`  ${sheetName} -> ${slugs.join(', ')} (${baseMoves.length} moves)`);
   }
 
   console.log(`\nWrote ${written} character files to ${OUT_DIR}`);

@@ -2,7 +2,7 @@
   "character": "Lucario",
   "slug": "Lucario",
   "patch": "13.1",
-  "scrapedAt": "2026-08-16T21:07:07.287Z",
+  "scrapedAt": "2026-08-16T21:39:41.986Z",
   "sourceSheet": "41 - Lucario",
   "moves": [
     {
@@ -120,7 +120,7 @@
       "notes": null
     },
     {
-      "move": "F-Tilt",
+      "move": "Forward Tilt",
       "category": "Normals",
       "hitboxLabels": null,
       "startup": {
@@ -159,7 +159,7 @@
       "notes": null
     },
     {
-      "move": "U-Tilt",
+      "move": "Up Tilt",
       "category": "Normals",
       "hitboxLabels": [
         "Close",
@@ -200,7 +200,7 @@
       "notes": null
     },
     {
-      "move": "D-Tilt",
+      "move": "Down Tilt",
       "category": "Normals",
       "hitboxLabels": null,
       "startup": {
@@ -281,7 +281,7 @@
       "notes": null
     },
     {
-      "move": "F-Smash",
+      "move": "Forward Smash",
       "category": "Smashes",
       "hitboxLabels": [
         "Close",
@@ -322,7 +322,7 @@
       "notes": "Charge hold is frame 3"
     },
     {
-      "move": "U-Smash",
+      "move": "Up Smash",
       "category": "Smashes",
       "hitboxLabels": [
         "First",
@@ -365,7 +365,7 @@
       "notes": "Charge hold is frame 11"
     },
     {
-      "move": "D-Smash",
+      "move": "Down Smash",
       "category": "Smashes",
       "hitboxLabels": null,
       "startup": {
@@ -403,7 +403,7 @@
       "notes": "Charge hold is frame 4"
     },
     {
-      "move": "N-Air",
+      "move": "Neutral Air",
       "category": "Aerials",
       "hitboxLabels": null,
       "startup": {
@@ -444,7 +444,7 @@
       "notes": "Autocancels on frame 1-4 and 36 onward"
     },
     {
-      "move": "F-Air",
+      "move": "Forward Air",
       "category": "Aerials",
       "hitboxLabels": null,
       "startup": {
@@ -484,7 +484,7 @@
       "notes": "Autocancels on frame 28 onward"
     },
     {
-      "move": "B-Air",
+      "move": "Back Air",
       "category": "Aerials",
       "hitboxLabels": null,
       "startup": {
@@ -524,7 +524,7 @@
       "notes": "Autocancels on frame 1-4 and 41 onward"
     },
     {
-      "move": "U-Air",
+      "move": "Up Air",
       "category": "Aerials",
       "hitboxLabels": [
         "Far",
@@ -567,7 +567,7 @@
       "notes": "Autocancels on frame 29 onward"
     },
     {
-      "move": "D-Air",
+      "move": "Down Air",
       "category": "Aerials",
       "hitboxLabels": null,
       "startup": {
@@ -608,7 +608,7 @@
       "notes": "Autocancels on frame 25 onward"
     },
     {
-      "move": "Aura Sphere",
+      "move": "Neutral Special",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {
@@ -644,7 +644,7 @@
       "notes": "9 startup from charge.Takes 8 frames to enter charge state and 4 frames to cancel charge \nwith shield. Charging sphere becomes hitbox on 9 and hits every six frames"
     },
     {
-      "move": "Aura Sphere (full charge)",
+      "move": "Neutral Special (full charge)",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {
@@ -682,7 +682,7 @@
       "notes": "Takes 99 frames to reach full charge."
     },
     {
-      "move": "Force Palm",
+      "move": "Side Special",
       "category": "Specials",
       "hitboxLabels": [
         "Close",
@@ -723,7 +723,7 @@
       "notes": "Lucario does not suffer hitlag from this attack"
     },
     {
-      "move": "Force Palm (grab)",
+      "move": "Side Special (grab)",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {
@@ -762,7 +762,7 @@
       "notes": "Grabs on frame 9 if on the ground"
     },
     {
-      "move": "Extreme Speed",
+      "move": "Up Special",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {
@@ -801,7 +801,7 @@
       "notes": "28 endlag if you end on the ground. Hitbox on frame 1 if you crash directly into \nground/wall/ceiling. This bounce is a 37 frame animation on the ground.\nCan initiate wall cling on frame 30 and grab a ledge a frame after that."
     },
     {
-      "move": "Double Team",
+      "move": "Down Special",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {
@@ -837,7 +837,7 @@
       "notes": "Invulnerable on frame 4. Counters on frame 5-24"
     },
     {
-      "move": "Double Team (attack)",
+      "move": "Down Special (attack)",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {

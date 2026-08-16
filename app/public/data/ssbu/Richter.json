@@ -2,7 +2,7 @@
   "character": "Richter",
   "slug": "Richter",
   "patch": "13.1",
-  "scrapedAt": "2026-08-16T21:07:07.311Z",
+  "scrapedAt": "2026-08-16T21:39:42.021Z",
   "sourceSheet": "66 - SimonRichter",
   "moves": [
     {
@@ -228,7 +228,7 @@
       "notes": "Can initiate from Jab, F-Tilt, and all three smash attacks. 19 lag when putting it away."
     },
     {
-      "move": "F-Tilt",
+      "move": "Forward Tilt",
       "category": "Normals",
       "hitboxLabels": [
         "chain",
@@ -281,7 +281,7 @@
       "notes": null
     },
     {
-      "move": "U-Tilt",
+      "move": "Up Tilt",
       "category": "Normals",
       "hitboxLabels": null,
       "startup": {
@@ -327,7 +327,7 @@
       "notes": null
     },
     {
-      "move": "D-Tilt 1",
+      "move": "Down Tilt 1",
       "category": "Normals",
       "hitboxLabels": null,
       "startup": {
@@ -373,7 +373,7 @@
       "notes": "Can transition to next hit as early as frame 3"
     },
     {
-      "move": "D-Tilt 2",
+      "move": "Down Tilt 2",
       "category": "Normals",
       "hitboxLabels": [
         "Early",
@@ -478,7 +478,7 @@
       "notes": null
     },
     {
-      "move": "F-Smash",
+      "move": "Forward Smash",
       "category": "Smashes",
       "hitboxLabels": [
         "chain",
@@ -531,7 +531,7 @@
       "notes": "Charge hold is frame 5"
     },
     {
-      "move": "U-Smash",
+      "move": "Up Smash",
       "category": "Smashes",
       "hitboxLabels": [
         "chain",
@@ -584,7 +584,7 @@
       "notes": "Charge hold is frame 2"
     },
     {
-      "move": "D-Smash",
+      "move": "Down Smash",
       "category": "Smashes",
       "hitboxLabels": [
         "chain",
@@ -635,7 +635,7 @@
       "notes": "Charge hold is frame 2"
     },
     {
-      "move": "N-Air",
+      "move": "Neutral Air",
       "category": "Aerials",
       "hitboxLabels": [
         "multi.final"
@@ -695,7 +695,7 @@
       "notes": "Autocancels on frame 1-6 and 36 onward"
     },
     {
-      "move": "F-Air",
+      "move": "Forward Air",
       "category": "Aerials",
       "hitboxLabels": [
         "chain",
@@ -755,7 +755,7 @@
       "notes": "Tethers on frame 13. Autocancels on frame 29 onward"
     },
     {
-      "move": "B-Air",
+      "move": "Back Air",
       "category": "Aerials",
       "hitboxLabels": [
         "chain",
@@ -815,7 +815,7 @@
       "notes": "Tethers on frame 13. Autocancels on frame 28 onward"
     },
     {
-      "move": "U-Air",
+      "move": "Up Air",
       "category": "Aerials",
       "hitboxLabels": [
         "chain",
@@ -875,7 +875,7 @@
       "notes": "Tethers on frame 13. Autocancels on frame 1-11 28 onward"
     },
     {
-      "move": "D-Air",
+      "move": "Down Air",
       "category": "Aerials",
       "hitboxLabels": [
         "early",
@@ -930,7 +930,7 @@
       "notes": "A hit results in 26 frames of endlag. Autocancels on frame 1-3 and 47 onward"
     },
     {
-      "move": "Axe",
+      "move": "Neutral Special",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {
@@ -976,7 +976,7 @@
       "notes": null
     },
     {
-      "move": "Cross",
+      "move": "Side Special",
       "category": "Specials",
       "hitboxLabels": [
         "smash",
@@ -1032,7 +1032,7 @@
       "notes": "9 frame animation of catching the cross if no other action is being performed."
     },
     {
-      "move": "Uppercut",
+      "move": "Up Special",
       "category": "Specials",
       "hitboxLabels": [
         "first",
@@ -1087,7 +1087,7 @@
       "notes": "Can grab ledges on frame 10 (facing toward) or 21 (facing away). Or 2-7 if descending or immediately after a jump"
     },
     {
-      "move": "Holy Water",
+      "move": "Down Special",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {
@@ -1129,7 +1129,7 @@
       "notes": "Lands on level ground at frame 32 if nothing is in the way. "
     },
     {
-      "move": "Holy Water (explosion)",
+      "move": "Down Special (explosion)",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {

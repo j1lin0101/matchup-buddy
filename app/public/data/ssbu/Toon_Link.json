@@ -2,7 +2,7 @@
   "character": "Toon Link",
   "slug": "Toon_Link",
   "patch": "13.1",
-  "scrapedAt": "2026-08-16T21:07:07.289Z",
+  "scrapedAt": "2026-08-16T21:39:41.987Z",
   "sourceSheet": "43 - Toon Link",
   "moves": [
     {
@@ -144,7 +144,7 @@
       "notes": null
     },
     {
-      "move": "F-Tilt",
+      "move": "Forward Tilt",
       "category": "Normals",
       "hitboxLabels": null,
       "startup": {
@@ -190,7 +190,7 @@
       "notes": "Hitbox begins behind and above on 9, swinging forward on 10."
     },
     {
-      "move": "U-Tilt",
+      "move": "Up Tilt",
       "category": "Normals",
       "hitboxLabels": null,
       "startup": {
@@ -236,7 +236,7 @@
       "notes": null
     },
     {
-      "move": "D-Tilt",
+      "move": "Down Tilt",
       "category": "Normals",
       "hitboxLabels": null,
       "startup": {
@@ -328,7 +328,7 @@
       "notes": null
     },
     {
-      "move": "F-Smash",
+      "move": "Forward Smash",
       "category": "Smashes",
       "hitboxLabels": null,
       "startup": {
@@ -374,7 +374,7 @@
       "notes": "Charge hold is frame 8"
     },
     {
-      "move": "U-Smash",
+      "move": "Up Smash",
       "category": "Smashes",
       "hitboxLabels": null,
       "startup": {
@@ -420,7 +420,7 @@
       "notes": "Charge hold is frame 4"
     },
     {
-      "move": "D-Smash",
+      "move": "Down Smash",
       "category": "Smashes",
       "hitboxLabels": null,
       "startup": {
@@ -471,7 +471,7 @@
       "notes": "Charge hold is frame 3"
     },
     {
-      "move": "N-Air",
+      "move": "Neutral Air",
       "category": "Aerials",
       "hitboxLabels": null,
       "startup": {
@@ -524,7 +524,7 @@
       "notes": "Autocancels on frame 1-2 and 41 onward"
     },
     {
-      "move": "F-Air",
+      "move": "Forward Air",
       "category": "Aerials",
       "hitboxLabels": null,
       "startup": {
@@ -572,7 +572,7 @@
       "notes": "Autocancels on frame 1-3 and 39 onward"
     },
     {
-      "move": "B-Air",
+      "move": "Back Air",
       "category": "Aerials",
       "hitboxLabels": null,
       "startup": {
@@ -620,7 +620,7 @@
       "notes": "Autocancels on frame 34 onward"
     },
     {
-      "move": "U-Air",
+      "move": "Up Air",
       "category": "Aerials",
       "hitboxLabels": [
         "Early",
@@ -675,7 +675,7 @@
       "notes": "Autocancels on frame 1-5 and 47 onward"
     },
     {
-      "move": "D-Air",
+      "move": "Down Air",
       "category": "Aerials",
       "hitboxLabels": [
         "Early",
@@ -776,7 +776,7 @@
       "notes": null
     },
     {
-      "move": "Hero's Bow",
+      "move": "Neutral Special",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {
@@ -810,7 +810,7 @@
       "notes": "Startup is 1 from charge release. Reaches full charge on 60"
     },
     {
-      "move": "Boomerang",
+      "move": "Side Special",
       "category": "Specials",
       "hitboxLabels": [
         "going",
@@ -851,7 +851,7 @@
       "notes": "9 frame animation of catching the boomerang if no other action is performed"
     },
     {
-      "move": "Spin Attack",
+      "move": "Up Special",
       "category": "Specials",
       "hitboxLabels": [
         "multi",
@@ -912,7 +912,7 @@
       "notes": "Multihits have shieldlag but no hitlag. Can be charged up to 60 frames for \nup to 60% additional damage. Startup is 3 on charge release"
     },
     {
-      "move": "Spin Attack (air)",
+      "move": "Up Special (air)",
       "category": "Specials",
       "hitboxLabels": [
         "first",
@@ -970,7 +970,7 @@
       "notes": "Can grab ledges as early as frame 20 (facing toward) or 35 (facing away)"
     },
     {
-      "move": "Bomb Pull",
+      "move": "Down Special Pull",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {

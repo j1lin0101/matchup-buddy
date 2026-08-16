@@ -2,7 +2,7 @@
   "character": "Ryu",
   "slug": "Ryu",
   "patch": "13.1",
-  "scrapedAt": "2026-08-16T21:07:07.305Z",
+  "scrapedAt": "2026-08-16T21:39:42.009Z",
   "sourceSheet": "60 - Ryu",
   "moves": [
     {
@@ -190,7 +190,7 @@
       "notes": null
     },
     {
-      "move": "F-Tilt (light)",
+      "move": "Forward Tilt (light)",
       "category": "Normals",
       "hitboxLabels": null,
       "startup": {
@@ -236,7 +236,7 @@
       "notes": "Can't seem to perform this unless within range"
     },
     {
-      "move": "F-Tilt (medium)",
+      "move": "Forward Tilt (medium)",
       "category": "Normals",
       "hitboxLabels": null,
       "startup": {
@@ -282,7 +282,7 @@
       "notes": "Leg intangibility on frame 6-11"
     },
     {
-      "move": "F-Tilt (heavy)",
+      "move": "Forward Tilt (heavy)",
       "category": "Normals",
       "hitboxLabels": null,
       "startup": {
@@ -329,7 +329,7 @@
       "notes": null
     },
     {
-      "move": "U-Tilt (light)",
+      "move": "Up Tilt (light)",
       "category": "Normals",
       "hitboxLabels": null,
       "startup": {
@@ -375,7 +375,7 @@
       "notes": "Transitions to another Utilt as early as frame 8"
     },
     {
-      "move": "U-Tilt (medium)",
+      "move": "Up Tilt (medium)",
       "category": "Normals",
       "hitboxLabels": null,
       "startup": {
@@ -421,7 +421,7 @@
       "notes": "Upper body intangibility on frame 4-10"
     },
     {
-      "move": "D-Tilt (light)",
+      "move": "Down Tilt (light)",
       "category": "Normals",
       "hitboxLabels": null,
       "startup": {
@@ -467,7 +467,7 @@
       "notes": "Transitions to another Dtilt as early as frame 8"
     },
     {
-      "move": "D-Tilt (medium)",
+      "move": "Down Tilt (medium)",
       "category": "Normals",
       "hitboxLabels": [
         "close",
@@ -572,7 +572,7 @@
       "notes": null
     },
     {
-      "move": "F-Smash",
+      "move": "Forward Smash",
       "category": "Smashes",
       "hitboxLabels": [
         "close",
@@ -625,7 +625,7 @@
       "notes": "Charge hold is frame 5"
     },
     {
-      "move": "U-Smash",
+      "move": "Up Smash",
       "category": "Smashes",
       "hitboxLabels": [
         "early",
@@ -677,7 +677,7 @@
       "notes": "Arm intangibility on frame 9-12. Charge hold is frame 6"
     },
     {
-      "move": "D-Smash",
+      "move": "Down Smash",
       "category": "Smashes",
       "hitboxLabels": null,
       "startup": {
@@ -723,7 +723,7 @@
       "notes": "Charge hold is frame 2"
     },
     {
-      "move": "N-Air",
+      "move": "Neutral Air",
       "category": "Aerials",
       "hitboxLabels": [
         "early",
@@ -778,7 +778,7 @@
       "notes": "Autocancels on frame 34 onward"
     },
     {
-      "move": "F-Air",
+      "move": "Forward Air",
       "category": "Aerials",
       "hitboxLabels": [
         "Early close",
@@ -823,7 +823,7 @@
       "notes": "Autocancels on frame 1-2 and 38 onward"
     },
     {
-      "move": "B-Air",
+      "move": "Back Air",
       "category": "Aerials",
       "hitboxLabels": [
         "close",
@@ -878,7 +878,7 @@
       "notes": "Autocancels on frame 25 onward"
     },
     {
-      "move": "U-Air",
+      "move": "Up Air",
       "category": "Aerials",
       "hitboxLabels": null,
       "startup": {
@@ -931,7 +931,7 @@
       "notes": "Arm intangibility on frame 6-11. Autocancels on frame 18 onward"
     },
     {
-      "move": "D-Air",
+      "move": "Down Air",
       "category": "Aerials",
       "hitboxLabels": null,
       "startup": {
@@ -979,7 +979,7 @@
       "notes": "Autocancels on frame 1-2 and 33 onward"
     },
     {
-      "move": "Hadoken",
+      "move": "Neutral Special",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {
@@ -1019,7 +1019,7 @@
       "notes": null
     },
     {
-      "move": "True Hadoken",
+      "move": "True Neutral Special",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {
@@ -1059,7 +1059,7 @@
       "notes": null
     },
     {
-      "move": "Shakunetsu Hadoken",
+      "move": "Shakunetsu Neutral Special",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {
@@ -1105,7 +1105,7 @@
       "notes": "Hits on frame 1,2,3, 7 when reaching a target."
     },
     {
-      "move": "Tatsumaki Senpukyaku",
+      "move": "Side Special",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {
@@ -1141,7 +1141,7 @@
       "notes": "total frames depends on length of press. Leg intangibility on frame 13-"
     },
     {
-      "move": "Tatsumaki Senpukyaku (air)",
+      "move": "Side Special (air)",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {
@@ -1179,7 +1179,7 @@
       "notes": "leg intangibility on frame 13-44"
     },
     {
-      "move": "Shoryuken",
+      "move": "Up Special",
       "category": "Specials",
       "hitboxLabels": [
         "early",
@@ -1220,7 +1220,7 @@
       "notes": "Invulnerable on frame 5. Can grab ledges as early as frame 21"
     },
     {
-      "move": "True Shoryuken",
+      "move": "True Up Special",
       "category": "Specials",
       "hitboxLabels": [
         "early",
@@ -1261,7 +1261,7 @@
       "notes": "Arm intangibility on frame 1-15. Completely Invulnerable on frame 4-7.\nCan grab ledges as early as frame 21"
     },
     {
-      "move": "Focus Attack (stage 1)",
+      "move": "Down Special (stage 1)",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {
@@ -1305,7 +1305,7 @@
       "notes": "Can dash from frame 26 of entering charge or immediately after a successful hit."
     },
     {
-      "move": "Focus Attack (stage 2)",
+      "move": "Down Special (stage 2)",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {
@@ -1349,7 +1349,7 @@
       "notes": "Focus armor begins on frame 1 and lasts until the 11 frames startup of the punch."
     },
     {
-      "move": "Focus Attack (stage 3)",
+      "move": "Down Special (stage 3)",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {

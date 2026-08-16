@@ -2,7 +2,7 @@
   "character": "Isabelle",
   "slug": "Isabelle",
   "patch": "13.1",
-  "scrapedAt": "2026-08-16T21:07:07.313Z",
+  "scrapedAt": "2026-08-16T21:39:42.024Z",
   "sourceSheet": "68 - Isabelle",
   "moves": [
     {
@@ -52,7 +52,7 @@
       "notes": "Transitions to another jab on frame 13."
     },
     {
-      "move": "F-Tilt",
+      "move": "Forward Tilt",
       "category": "Normals",
       "hitboxLabels": null,
       "startup": {
@@ -98,7 +98,7 @@
       "notes": null
     },
     {
-      "move": "U-Tilt",
+      "move": "Up Tilt",
       "category": "Normals",
       "hitboxLabels": null,
       "startup": {
@@ -144,7 +144,7 @@
       "notes": null
     },
     {
-      "move": "D-Tilt",
+      "move": "Down Tilt",
       "category": "Normals",
       "hitboxLabels": [
         "close",
@@ -249,7 +249,7 @@
       "notes": null
     },
     {
-      "move": "F-Smash",
+      "move": "Forward Smash",
       "category": "Smashes",
       "hitboxLabels": [
         "Early",
@@ -301,7 +301,7 @@
       "notes": "Charge hold is frame 5"
     },
     {
-      "move": "U-Smash",
+      "move": "Up Smash",
       "category": "Smashes",
       "hitboxLabels": null,
       "startup": {
@@ -351,7 +351,7 @@
       "notes": "Charge hold is frame 6. Isabelle will not suffer hitlag from this attack. "
     },
     {
-      "move": "D-Smash",
+      "move": "Down Smash",
       "category": "Smashes",
       "hitboxLabels": null,
       "startup": {
@@ -402,7 +402,7 @@
       "notes": "Charge hold is frame 3"
     },
     {
-      "move": "N-Air",
+      "move": "Neutral Air",
       "category": "Aerials",
       "hitboxLabels": [
         "Early",
@@ -457,7 +457,7 @@
       "notes": "Autocancels on frame 1-2 and 34 onward"
     },
     {
-      "move": "F-Air",
+      "move": "Forward Air",
       "category": "Aerials",
       "hitboxLabels": [
         "Early",
@@ -515,7 +515,7 @@
       "notes": "Projectile attack. Autocancels on frame 1-2 and 30 onward"
     },
     {
-      "move": "B-Air",
+      "move": "Back Air",
       "category": "Aerials",
       "hitboxLabels": [
         "Early",
@@ -573,7 +573,7 @@
       "notes": "Projectile attack. Autocancels on frame 1-2 and 30 onward"
     },
     {
-      "move": "U-Air",
+      "move": "Up Air",
       "category": "Aerials",
       "hitboxLabels": [
         "Early",
@@ -628,7 +628,7 @@
       "notes": "Autocancels on frame 1-5 and 39 onward"
     },
     {
-      "move": "D-Air",
+      "move": "Down Air",
       "category": "Aerials",
       "hitboxLabels": [
         "Early",
@@ -683,7 +683,7 @@
       "notes": "Autocancels on frame 1-13 and 36 onward"
     },
     {
-      "move": "Pocket",
+      "move": "Neutral Special",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {
@@ -719,7 +719,7 @@
       "notes": "invulnerable on frame 5-23. Pockets projectiles on frame 9-23."
     },
     {
-      "move": "Pocket (throw)",
+      "move": "Neutral Special (throw)",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {
@@ -757,7 +757,7 @@
       "notes": "This is not the same throw as with a holdable item"
     },
     {
-      "move": "Fishing Rod",
+      "move": "Side Special",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {
@@ -793,7 +793,7 @@
       "notes": "Frame 46 is the earliest you can reel in. Tethers on frame 18"
     },
     {
-      "move": "Fishing Rod (reel in)",
+      "move": "Side Special (reel in)",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {
@@ -831,7 +831,7 @@
       "notes": null
     },
     {
-      "move": "Fishing Rod Throw Forward",
+      "move": "Side Special Throw Forward",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {
@@ -869,7 +869,7 @@
       "notes": null
     },
     {
-      "move": "Fishing Rod Throw Back",
+      "move": "Side Special Throw Back",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {
@@ -907,7 +907,7 @@
       "notes": null
     },
     {
-      "move": "Fishing Rod Throw Up",
+      "move": "Side Special Throw Up",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {
@@ -945,7 +945,7 @@
       "notes": null
     },
     {
-      "move": "Fishing Rod Throw Down",
+      "move": "Side Special Throw Down",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {
@@ -984,7 +984,7 @@
       "notes": null
     },
     {
-      "move": "Balloon Trip",
+      "move": "Up Special",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {
@@ -1021,7 +1021,7 @@
       "notes": "20 landing lag if you land inside the swing. 30 if you land from special fall.\nCan grab ledges as early as frame 7"
     },
     {
-      "move": "Lloid Trap",
+      "move": "Down Special",
       "category": "Specials",
       "hitboxLabels": [
         "Hits 1-2",

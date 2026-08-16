@@ -2,7 +2,7 @@
   "character": "Pac-Man",
   "slug": "Pac-Man",
   "patch": "13.1",
-  "scrapedAt": "2026-08-16T21:07:07.301Z",
+  "scrapedAt": "2026-08-16T21:39:42.001Z",
   "sourceSheet": "55 - PAC-MAN",
   "moves": [
     {
@@ -144,7 +144,7 @@
       "notes": null
     },
     {
-      "move": "F-Tilt",
+      "move": "Forward Tilt",
       "category": "Normals",
       "hitboxLabels": null,
       "startup": {
@@ -190,7 +190,7 @@
       "notes": null
     },
     {
-      "move": "U-Tilt",
+      "move": "Up Tilt",
       "category": "Normals",
       "hitboxLabels": null,
       "startup": {
@@ -236,7 +236,7 @@
       "notes": "Arm intangibile on frame 7-10"
     },
     {
-      "move": "D-Tilt",
+      "move": "Down Tilt",
       "category": "Normals",
       "hitboxLabels": null,
       "startup": {
@@ -337,7 +337,7 @@
       "notes": null
     },
     {
-      "move": "F-Smash",
+      "move": "Forward Smash",
       "category": "Smashes",
       "hitboxLabels": [
         "Early",
@@ -389,7 +389,7 @@
       "notes": "Charge hold is frame 4"
     },
     {
-      "move": "U-Smash",
+      "move": "Up Smash",
       "category": "Smashes",
       "hitboxLabels": null,
       "startup": {
@@ -439,7 +439,7 @@
       "notes": "Charge hold is frame 4"
     },
     {
-      "move": "D-Smash",
+      "move": "Down Smash",
       "category": "Smashes",
       "hitboxLabels": [
         "Early",
@@ -491,7 +491,7 @@
       "notes": "Charge hold is frame 3"
     },
     {
-      "move": "N-Air",
+      "move": "Neutral Air",
       "category": "Aerials",
       "hitboxLabels": [
         "Early",
@@ -546,7 +546,7 @@
       "notes": "Autocancels on frame 1-2 and 45 onward"
     },
     {
-      "move": "F-Air",
+      "move": "Forward Air",
       "category": "Aerials",
       "hitboxLabels": null,
       "startup": {
@@ -594,7 +594,7 @@
       "notes": "Autocancels on frame 26 onward"
     },
     {
-      "move": "B-Air",
+      "move": "Back Air",
       "category": "Aerials",
       "hitboxLabels": [
         "Early",
@@ -649,7 +649,7 @@
       "notes": "Autocancels on frame 1-8 and 36 onward"
     },
     {
-      "move": "U-Air",
+      "move": "Up Air",
       "category": "Aerials",
       "hitboxLabels": null,
       "startup": {
@@ -697,7 +697,7 @@
       "notes": "Autocancels on frame 32 onward"
     },
     {
-      "move": "D-Air",
+      "move": "Down Air",
       "category": "Aerials",
       "hitboxLabels": [
         "Multi",
@@ -755,7 +755,7 @@
       "notes": "Autocancels on frame 50 onward"
     },
     {
-      "move": "Bonus Fruit (throw)",
+      "move": "Neutral Special (throw)",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {
@@ -791,7 +791,7 @@
       "notes": "7 frames to enter charge state. 4 frames to cancel charge with shield. \nFruits are Cherry (8), Strawberry (20), Lemon (32), Apple (52), Melon (72), Galaga (92), Bell (112), Key (132)\nCherry, Strawberry, Lemon, Apple, and Melon linger for 32 frames after bouncing off somebody"
     },
     {
-      "move": "Power Pellet (travel | Dash)",
+      "move": "Side Special (travel | Dash)",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {
@@ -825,7 +825,7 @@
       "notes": "Only the dash's damage depends on level of charge. Can grab ledges on frame 39-59 depending on charge"
     },
     {
-      "move": "Pac-Jump",
+      "move": "Up Special",
       "category": "Specials",
       "hitboxLabels": [
         "first",
@@ -867,7 +867,7 @@
       "notes": "Trampoline can be interracted with as early as frame 10 and is unblockable.  Can grab ledges on frame 5"
     },
     {
-      "move": "Fire Hydrant",
+      "move": "Down Special",
       "category": "Specials",
       "hitboxLabels": [
         "initial",

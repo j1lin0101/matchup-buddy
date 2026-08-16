@@ -2,7 +2,7 @@
   "character": "Bayonetta",
   "slug": "Bayonetta",
   "patch": "13.1",
-  "scrapedAt": "2026-08-16T21:07:07.309Z",
+  "scrapedAt": "2026-08-16T21:39:42.016Z",
   "sourceSheet": "63 - Bayonetta",
   "moves": [
     {
@@ -231,7 +231,7 @@
       "notes": null
     },
     {
-      "move": "F-Tilt",
+      "move": "Forward Tilt",
       "category": "Normals",
       "hitboxLabels": null,
       "startup": {
@@ -277,7 +277,7 @@
       "notes": "Transitions to next hit as early as frame 16"
     },
     {
-      "move": "F-Tilt 2",
+      "move": "Forward Tilt 2",
       "category": "Normals",
       "hitboxLabels": null,
       "startup": {
@@ -323,7 +323,7 @@
       "notes": "Transitions to next hit as early as frame 16"
     },
     {
-      "move": "F-Tilt 3",
+      "move": "Forward Tilt 3",
       "category": "Normals",
       "hitboxLabels": null,
       "startup": {
@@ -369,7 +369,7 @@
       "notes": null
     },
     {
-      "move": "U-Tilt",
+      "move": "Up Tilt",
       "category": "Normals",
       "hitboxLabels": null,
       "startup": {
@@ -420,7 +420,7 @@
       "notes": null
     },
     {
-      "move": "D-Tilt",
+      "move": "Down Tilt",
       "category": "Normals",
       "hitboxLabels": [
         "close",
@@ -524,7 +524,7 @@
       "notes": null
     },
     {
-      "move": "F-Smash",
+      "move": "Forward Smash",
       "category": "Smashes",
       "hitboxLabels": [
         "far",
@@ -577,7 +577,7 @@
       "notes": "Charge hold is frame 2. "
     },
     {
-      "move": "U-Smash",
+      "move": "Up Smash",
       "category": "Smashes",
       "hitboxLabels": [
         "early",
@@ -633,7 +633,7 @@
       "notes": "Charge hold is frame 6"
     },
     {
-      "move": "D-Smash",
+      "move": "Down Smash",
       "category": "Smashes",
       "hitboxLabels": [
         "stomp",
@@ -690,7 +690,7 @@
       "notes": "First hit refers to Bayonetta's stomp. Charge hold is frame 8."
     },
     {
-      "move": "N-Air",
+      "move": "Neutral Air",
       "category": "Aerials",
       "hitboxLabels": [
         "Early",
@@ -751,7 +751,7 @@
       "notes": "Second landing lag is extended version. Autocancels on frame 34 onward"
     },
     {
-      "move": "F-Air",
+      "move": "Forward Air",
       "category": "Aerials",
       "hitboxLabels": null,
       "startup": {
@@ -799,7 +799,7 @@
       "notes": "Autocancels on frame 1-2 and 30 onward"
     },
     {
-      "move": "F-Air 2",
+      "move": "Forward Air 2",
       "category": "Aerials",
       "hitboxLabels": null,
       "startup": {
@@ -847,7 +847,7 @@
       "notes": "Autocancels on frame 32 onward"
     },
     {
-      "move": "F-Air 3",
+      "move": "Forward Air 3",
       "category": "Aerials",
       "hitboxLabels": null,
       "startup": {
@@ -895,7 +895,7 @@
       "notes": "Autocancels on frame 35 onward"
     },
     {
-      "move": "B-Air",
+      "move": "Back Air",
       "category": "Aerials",
       "hitboxLabels": [
         "far",
@@ -950,7 +950,7 @@
       "notes": "Autocancels on frame 29 onward"
     },
     {
-      "move": "U-Air",
+      "move": "Up Air",
       "category": "Aerials",
       "hitboxLabels": [
         "normal",
@@ -1006,7 +1006,7 @@
       "notes": "Second landing lag is extended version. Autocancels on frame 1-2 and 26 onward"
     },
     {
-      "move": "D-Air",
+      "move": "Down Air",
       "category": "Aerials",
       "hitboxLabels": [
         "close",
@@ -1068,7 +1068,7 @@
       "notes": "Landing hit on frame 1. Autocancels on frame 50 onward"
     },
     {
-      "move": "Bullet Climax",
+      "move": "Neutral Special",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {
@@ -1117,7 +1117,7 @@
       "notes": "Reaches full charge on 42. Can only shield cancel as early as frame 45\nRepeated shots occur on the same pattern. Alternating 10 and 5 frames later."
     },
     {
-      "move": "Bullet Climax (full charge)",
+      "move": "Neutral Special (full charge)",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {
@@ -1166,7 +1166,7 @@
       "notes": "Repeated shots occur on the same pattern. Alternating 10 and 5 frames later."
     },
     {
-      "move": "Heel Slide",
+      "move": "Side Special",
       "category": "Specials",
       "hitboxLabels": [
         "early",
@@ -1226,7 +1226,7 @@
       "notes": "Second kick occurs only when button is held. Will not occur if first is blocked.\n33 endlag when slide is blocked"
     },
     {
-      "move": "After Burner Kick",
+      "move": "Side Special",
       "category": "Specials",
       "hitboxLabels": [
         "early",
@@ -1284,7 +1284,7 @@
       "notes": null
     },
     {
-      "move": "After Burner Kick (down)",
+      "move": "Side Special (down)",
       "category": "Specials",
       "hitboxLabels": [
         "normal",
@@ -1339,7 +1339,7 @@
       "notes": "21 endlag on hit. Landing hit occurs on frame 1-2"
     },
     {
-      "move": "Witch Twist",
+      "move": "Up Special",
       "category": "Specials",
       "hitboxLabels": [
         "first",
@@ -1403,7 +1403,7 @@
       "notes": "Aerial version has 1.0 less damage on air version first hit.\nCan grab ledges on frame 28 (facing toward) or 33 (facing away)"
     },
     {
-      "move": "Witch Time",
+      "move": "Down Special",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {

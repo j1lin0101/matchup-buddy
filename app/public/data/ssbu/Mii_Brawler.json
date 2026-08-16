@@ -2,7 +2,7 @@
   "character": "Mii Brawler",
   "slug": "Mii_Brawler",
   "patch": "13.1",
-  "scrapedAt": "2026-08-16T21:07:07.298Z",
+  "scrapedAt": "2026-08-16T21:39:41.995Z",
   "sourceSheet": "51 - Mii Brawler",
   "moves": [
     {
@@ -184,7 +184,7 @@
       "notes": null
     },
     {
-      "move": "F-Tilt",
+      "move": "Forward Tilt",
       "category": "Normals",
       "hitboxLabels": [
         "neutral",
@@ -242,7 +242,7 @@
       "notes": null
     },
     {
-      "move": "U-Tilt",
+      "move": "Up Tilt",
       "category": "Normals",
       "hitboxLabels": null,
       "startup": {
@@ -288,7 +288,7 @@
       "notes": null
     },
     {
-      "move": "D-Tilt",
+      "move": "Down Tilt",
       "category": "Normals",
       "hitboxLabels": null,
       "startup": {
@@ -386,7 +386,7 @@
       "notes": null
     },
     {
-      "move": "F-Smash",
+      "move": "Forward Smash",
       "category": "Smashes",
       "hitboxLabels": null,
       "startup": {
@@ -432,7 +432,7 @@
       "notes": "Charge hold is frame 5"
     },
     {
-      "move": "U-Smash",
+      "move": "Up Smash",
       "category": "Smashes",
       "hitboxLabels": [
         "Early",
@@ -484,7 +484,7 @@
       "notes": "Legs intangibile on frame 8-11. Charge hold is frame 3"
     },
     {
-      "move": "D-Smash",
+      "move": "Down Smash",
       "category": "Smashes",
       "hitboxLabels": null,
       "startup": {
@@ -530,7 +530,7 @@
       "notes": "Charge hold is frame 2"
     },
     {
-      "move": "N-Air",
+      "move": "Neutral Air",
       "category": "Aerials",
       "hitboxLabels": null,
       "startup": {
@@ -582,7 +582,7 @@
       "notes": "Autocancels on frame 1-2 and 37 onward"
     },
     {
-      "move": "F-Air",
+      "move": "Forward Air",
       "category": "Aerials",
       "hitboxLabels": null,
       "startup": {
@@ -635,7 +635,7 @@
       "notes": "Autocancels on frame 1-2 and 30 onward"
     },
     {
-      "move": "B-Air",
+      "move": "Back Air",
       "category": "Aerials",
       "hitboxLabels": null,
       "startup": {
@@ -683,7 +683,7 @@
       "notes": "Autocancels on frame 28 onward"
     },
     {
-      "move": "U-Air",
+      "move": "Up Air",
       "category": "Aerials",
       "hitboxLabels": null,
       "startup": {
@@ -731,7 +731,7 @@
       "notes": "Autocancels on frame 23 onward"
     },
     {
-      "move": "D-Air",
+      "move": "Down Air",
       "category": "Aerials",
       "hitboxLabels": null,
       "startup": {
@@ -779,7 +779,7 @@
       "notes": "Autocancels on frame 1-4 and 37 onward"
     },
     {
-      "move": "Shot Put",
+      "move": "Neutral Special (Shot Put)",
       "category": "Specials",
       "hitboxLabels": [
         "falling",
@@ -831,7 +831,7 @@
       "notes": null
     },
     {
-      "move": "Flashing Mach Punch",
+      "move": "Neutral Special (Flashing Mach Punch)",
       "category": "Specials",
       "hitboxLabels": [
         "multi",
@@ -880,7 +880,7 @@
       "notes": "First total frames is when successful. Second is when you miss.\nWhen successful, invincible on frame 10-69\nLanding any of the first five hits will activate the full version, but not on shields"
     },
     {
-      "move": "Exploding Side Kick",
+      "move": "Neutral Special (Exploding Side Kick)",
       "category": "Specials",
       "hitboxLabels": [
         "normal",
@@ -923,7 +923,7 @@
       "notes": "Super armor on frame 40-52 (42-54 turn around), on the ground and in the air.\nDepending on how late you turn around, the kick can be delayed to come out \nlater. Frame 52 is the earliest startup. 73 is the latest."
     },
     {
-      "move": "Onslaught",
+      "move": "Side Special (Onslaught)",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {
@@ -968,7 +968,7 @@
       "notes": "Begins on frame 1 of reaching a target. Second total frames is if you don't hit\nStops on shields. When blocked, endlag equates to remaining total frames"
     },
     {
-      "move": "Onslaught (air)",
+      "move": "Side Special (Onslaught (air))",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {
@@ -1013,7 +1013,7 @@
       "notes": "Begins on frame 1 of reaching a target. Second landing lag is if you don't hit.\nStops on shields"
     },
     {
-      "move": "Burning Dropkick",
+      "move": "Side Special (Burning Dropkick)",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {
@@ -1060,7 +1060,7 @@
       "notes": "First total frames is in the air, second is on level ground. \n34 endlag on hit, as well as 17 landing lag if you land during that animation"
     },
     {
-      "move": "Suplex",
+      "move": "Side Special (Suplex)",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {
@@ -1100,7 +1100,7 @@
       "notes": "15 frames special landing lag."
     },
     {
-      "move": "Suplex (success)",
+      "move": "Side Special (Suplex (success))",
       "category": "Specials",
       "hitboxLabels": [
         "grab",
@@ -1144,7 +1144,7 @@
       "notes": null
     },
     {
-      "move": "Soaring Axe Kick",
+      "move": "Up Special (Soaring Axe Kick)",
       "category": "Specials",
       "hitboxLabels": [
         "rising",
@@ -1202,7 +1202,7 @@
       "notes": "Second landing lag pertains to the kick.\nCan grab ledges on frame 15 of initial input. "
     },
     {
-      "move": "Helicopter Kick",
+      "move": "Up Special (Helicopter Kick)",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {
@@ -1257,7 +1257,7 @@
       "notes": "Legs intangible on frame 8-37. \nCan grab ledges on frame 17 (facing toward) or 33 (facing away)"
     },
     {
-      "move": "Thrust Uppercut",
+      "move": "Up Special (Thrust Uppercut)",
       "category": "Specials",
       "hitboxLabels": [
         "multi",
@@ -1312,7 +1312,7 @@
       "notes": "Can grab ledges on frame 12 (facing toward) or 23 (facing away)"
     },
     {
-      "move": "Head-On Assault",
+      "move": "Down Special (Head-On Assault)",
       "category": "Specials",
       "hitboxLabels": [
         "rising",
@@ -1366,7 +1366,7 @@
       "notes": "Landing hit on frame 1"
     },
     {
-      "move": "Head-On Assault (air)",
+      "move": "Down Special (Head-On Assault (air))",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {
@@ -1404,7 +1404,7 @@
       "notes": "Landing hit on frame 1. Body hitbox hits every three frames."
     },
     {
-      "move": "Feint Jump",
+      "move": "Down Special (Feint Jump)",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {
@@ -1450,7 +1450,7 @@
       "notes": "Total frames is if you don't land during the animation. Invulnerable on frame 2-4\nAutomatic kick has 26 frames of endlag, which can be canceled by landing early\non a platform above the victim. Advantage assumes there is no platform."
     },
     {
-      "move": "Feint Jump (manual kick)",
+      "move": "Down Special (Feint Jump (manual kick))",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {

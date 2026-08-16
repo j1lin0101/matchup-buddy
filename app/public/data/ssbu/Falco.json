@@ -2,7 +2,7 @@
   "character": "Falco",
   "slug": "Falco",
   "patch": "13.1",
-  "scrapedAt": "2026-08-16T21:07:07.268Z",
+  "scrapedAt": "2026-08-16T21:39:41.962Z",
   "sourceSheet": "20 - Falco",
   "moves": [
     {
@@ -184,7 +184,7 @@
       "notes": null
     },
     {
-      "move": "F-Tilt",
+      "move": "Forward Tilt",
       "category": "Normals",
       "hitboxLabels": null,
       "startup": {
@@ -230,7 +230,7 @@
       "notes": null
     },
     {
-      "move": "U-Tilt",
+      "move": "Up Tilt",
       "category": "Normals",
       "hitboxLabels": [
         "first early",
@@ -288,7 +288,7 @@
       "notes": null
     },
     {
-      "move": "D-Tilt",
+      "move": "Down Tilt",
       "category": "Normals",
       "hitboxLabels": [
         "Close",
@@ -398,7 +398,7 @@
       "notes": null
     },
     {
-      "move": "F-Smash",
+      "move": "Forward Smash",
       "category": "Smashes",
       "hitboxLabels": null,
       "startup": {
@@ -444,7 +444,7 @@
       "notes": "Charge hold is frame 9"
     },
     {
-      "move": "U-Smash",
+      "move": "Up Smash",
       "category": "Smashes",
       "hitboxLabels": null,
       "startup": {
@@ -494,7 +494,7 @@
       "notes": "Leg intangibility on frame 7-20. Charge hold is frame 3"
     },
     {
-      "move": "D-Smash",
+      "move": "Down Smash",
       "category": "Smashes",
       "hitboxLabels": null,
       "startup": {
@@ -540,7 +540,7 @@
       "notes": "Leg intangibility on frame 3-8. Charge hold is frame 1"
     },
     {
-      "move": "N-Air",
+      "move": "Neutral Air",
       "category": "Aerials",
       "hitboxLabels": [
         "first",
@@ -602,7 +602,7 @@
       "notes": "Autocancels on frame 1-2 and 41 onward"
     },
     {
-      "move": "F-Air",
+      "move": "Forward Air",
       "category": "Aerials",
       "hitboxLabels": [
         "multi",
@@ -665,7 +665,7 @@
       "notes": "Landing hit on frame 1. Autocancels on frame 1-4 and 42 onward"
     },
     {
-      "move": "B-Air",
+      "move": "Back Air",
       "category": "Aerials",
       "hitboxLabels": [
         "Early",
@@ -720,7 +720,7 @@
       "notes": "Autocancels on frame 1-3 and 20 onward"
     },
     {
-      "move": "U-Air",
+      "move": "Up Air",
       "category": "Aerials",
       "hitboxLabels": null,
       "startup": {
@@ -768,7 +768,7 @@
       "notes": "Autocancels on frame 1-3 and 23 onward"
     },
     {
-      "move": "D-Air",
+      "move": "Down Air",
       "category": "Aerials",
       "hitboxLabels": [
         "Early",
@@ -823,7 +823,7 @@
       "notes": "Autocancels on frame 1-3 and 30 onward"
     },
     {
-      "move": "Blaster (ground/air)",
+      "move": "Neutral Special (ground/air)",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {
@@ -872,7 +872,7 @@
       "notes": "fire rate of one shot per 26 frames."
     },
     {
-      "move": "Falco Phantasm (ground/air)",
+      "move": "Side Special (ground/air)",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {
@@ -925,7 +925,7 @@
       "notes": "A frame 18 hit is impossible unless unnaturally inside of an opponent.\nEndlag is 31 when blocked on the ground, and 24 from the air at lowest possible altitude\nFalco does not suffer hitlag from this attack. Can grab ledges beginning on frame 18."
     },
     {
-      "move": "Fire Bird",
+      "move": "Up Special",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {
@@ -972,7 +972,7 @@
       "notes": "Starts traveling on 44. That hit is the only one that deals 3.0 damage.\nTotal frames assumes travel along the ground. Can grab ledges on frame 44 onward."
     },
     {
-      "move": "Reflector",
+      "move": "Down Special",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {

@@ -1,8 +1,8 @@
 {
-  "character": "Mr Game and Watch",
+  "character": "Mr. Game & Watch",
   "slug": "Mr_Game_and_Watch",
   "patch": "13.1",
-  "scrapedAt": "2026-08-16T21:07:07.273Z",
+  "scrapedAt": "2026-08-16T21:39:41.970Z",
   "sourceSheet": "26 - Mr. Game & Watch",
   "moves": [
     {
@@ -136,7 +136,7 @@
       "notes": null
     },
     {
-      "move": "F-Tilt",
+      "move": "Forward Tilt",
       "category": "Normals",
       "hitboxLabels": null,
       "startup": {
@@ -182,7 +182,7 @@
       "notes": null
     },
     {
-      "move": "U-Tilt",
+      "move": "Up Tilt",
       "category": "Normals",
       "hitboxLabels": null,
       "startup": {
@@ -233,7 +233,7 @@
       "notes": null
     },
     {
-      "move": "D-Tilt",
+      "move": "Down Tilt",
       "category": "Normals",
       "hitboxLabels": null,
       "startup": {
@@ -331,7 +331,7 @@
       "notes": null
     },
     {
-      "move": "F-Smash",
+      "move": "Forward Smash",
       "category": "Smashes",
       "hitboxLabels": [
         "Close",
@@ -384,7 +384,7 @@
       "notes": "Charge hold is frame 7"
     },
     {
-      "move": "U-Smash",
+      "move": "Up Smash",
       "category": "Smashes",
       "hitboxLabels": null,
       "startup": {
@@ -430,7 +430,7 @@
       "notes": "Invincible on frame 21-25. Charge hold is frame 15"
     },
     {
-      "move": "D-Smash",
+      "move": "Down Smash",
       "category": "Smashes",
       "hitboxLabels": [
         "Close",
@@ -483,7 +483,7 @@
       "notes": "Charge hold is frame 6"
     },
     {
-      "move": "N-Air",
+      "move": "Neutral Air",
       "category": "Aerials",
       "hitboxLabels": [
         "Multi",
@@ -541,7 +541,7 @@
       "notes": "Autocancels on frame 1-2 and 40 onward"
     },
     {
-      "move": "F-Air",
+      "move": "Forward Air",
       "category": "Aerials",
       "hitboxLabels": null,
       "startup": {
@@ -593,7 +593,7 @@
       "notes": "Bomb leaves his hands on 14, exploding automatically on 44 or upon touching ground.\nAutocancels on frame 42 onward. Advantage assumes landing on the same frame as bomb."
     },
     {
-      "move": "B-Air",
+      "move": "Back Air",
       "category": "Aerials",
       "hitboxLabels": [
         "Multi",
@@ -654,7 +654,7 @@
       "notes": "landing hit on frame 1. Autocancels on frame 1-9 and 38 onward"
     },
     {
-      "move": "U-Air",
+      "move": "Up Air",
       "category": "Aerials",
       "hitboxLabels": [
         "Multi",
@@ -711,7 +711,7 @@
       "notes": "Attack is a projectile. Autocancels on frame 44 onward"
     },
     {
-      "move": "D-Air",
+      "move": "Down Air",
       "category": "Aerials",
       "hitboxLabels": null,
       "startup": {
@@ -762,7 +762,7 @@
       "notes": "landing hit on frame 1. Autocancels on frame 1-5 and 50 onward"
     },
     {
-      "move": "Chef",
+      "move": "Neutral Special",
       "category": "Specials",
       "hitboxLabels": [
         "sausage",
@@ -814,7 +814,7 @@
       "notes": "Projectile and melee attack generate on same frame. Generates new sausage every 32 frames"
     },
     {
-      "move": "Judge 1",
+      "move": "Side Special 1",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {
@@ -860,7 +860,7 @@
       "notes": "Deals 12.0 recoil damage and no knockback"
     },
     {
-      "move": "Judge 2",
+      "move": "Side Special 2",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {
@@ -906,7 +906,7 @@
       "notes": null
     },
     {
-      "move": "Judge 3",
+      "move": "Side Special 3",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {
@@ -952,7 +952,7 @@
       "notes": "Bonus shield damage"
     },
     {
-      "move": "Judge 4",
+      "move": "Side Special 4",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {
@@ -998,7 +998,7 @@
       "notes": null
     },
     {
-      "move": "Judge 5",
+      "move": "Side Special 5",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {
@@ -1047,7 +1047,7 @@
       "notes": null
     },
     {
-      "move": "Judge 6",
+      "move": "Side Special 6",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {
@@ -1093,7 +1093,7 @@
       "notes": null
     },
     {
-      "move": "Judge 7",
+      "move": "Side Special 7",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {
@@ -1139,7 +1139,7 @@
       "notes": "spawns three food items"
     },
     {
-      "move": "Judge 8",
+      "move": "Side Special 8",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {
@@ -1185,7 +1185,7 @@
       "notes": "freezes the opponent"
     },
     {
-      "move": "Judge 9",
+      "move": "Side Special 9",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {
@@ -1231,7 +1231,7 @@
       "notes": null
     },
     {
-      "move": "Fire",
+      "move": "Up Special",
       "category": "Specials",
       "hitboxLabels": [
         "Early",
@@ -1281,7 +1281,7 @@
       "notes": "Invulnerable frame 5-13 Takes 7 frames to exit parachute by pressing down and avoiding landing lag.\nCan cancel directly with attacks as well. Opens parachute on frame 37. Grabs ledges on frame 15"
     },
     {
-      "move": "Oil Panic",
+      "move": "Down Special",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {
@@ -1317,7 +1317,7 @@
       "notes": "Begins absorbing/reflecting on frame 6. Takes 13 frames to put away bucket after extended usage."
     },
     {
-      "move": "Oil Panic (overload)",
+      "move": "Down Special (overload)",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {

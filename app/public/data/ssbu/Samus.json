@@ -2,7 +2,7 @@
   "character": "Samus",
   "slug": "Samus",
   "patch": "13.1",
-  "scrapedAt": "2026-08-16T21:07:07.257Z",
+  "scrapedAt": "2026-08-16T21:39:41.944Z",
   "sourceSheet": "04 -SamusDark Samus",
   "moves": [
     {
@@ -98,7 +98,7 @@
       "notes": null
     },
     {
-      "move": "F-Tilt",
+      "move": "Forward Tilt",
       "category": "Normals",
       "hitboxLabels": [
         "close",
@@ -156,7 +156,7 @@
       "notes": "Deals 1.0 more damage when angled. "
     },
     {
-      "move": "U-Tilt",
+      "move": "Up Tilt",
       "category": "Normals",
       "hitboxLabels": null,
       "startup": {
@@ -202,7 +202,7 @@
       "notes": null
     },
     {
-      "move": "D-Tilt",
+      "move": "Down Tilt",
       "category": "Normals",
       "hitboxLabels": null,
       "startup": {
@@ -301,7 +301,7 @@
       "notes": null
     },
     {
-      "move": "F-Smash",
+      "move": "Forward Smash",
       "category": "Smashes",
       "hitboxLabels": [
         "Close",
@@ -354,7 +354,7 @@
       "notes": "Deals 1.0 more damage when angled up, 1.0 less when angled down. Charge hold frame is 3."
     },
     {
-      "move": "U-Smash",
+      "move": "Up Smash",
       "category": "Smashes",
       "hitboxLabels": [
         "Multihit",
@@ -410,7 +410,7 @@
       "notes": "Charge hold frame is 6"
     },
     {
-      "move": "D-Smash",
+      "move": "Down Smash",
       "category": "Smashes",
       "hitboxLabels": null,
       "startup": {
@@ -461,7 +461,7 @@
       "notes": "Charge hold frame is 3"
     },
     {
-      "move": "N-Air",
+      "move": "Neutral Air",
       "category": "Aerials",
       "hitboxLabels": null,
       "startup": {
@@ -514,7 +514,7 @@
       "notes": "Autocancels on frame 1-7 and 35 onward"
     },
     {
-      "move": "F-Air",
+      "move": "Forward Air",
       "category": "Aerials",
       "hitboxLabels": [
         "First",
@@ -578,7 +578,7 @@
       "notes": "Autocancels on frame 47 onward"
     },
     {
-      "move": "B-Air",
+      "move": "Back Air",
       "category": "Aerials",
       "hitboxLabels": [
         "Early",
@@ -633,7 +633,7 @@
       "notes": "Autocancels on frame 1-8 and 42 onward"
     },
     {
-      "move": "U-Air",
+      "move": "Up Air",
       "category": "Aerials",
       "hitboxLabels": [
         "First",
@@ -697,7 +697,7 @@
       "notes": "Autocancels on frame 1-2 and 34 onward"
     },
     {
-      "move": "D-Air",
+      "move": "Down Air",
       "category": "Aerials",
       "hitboxLabels": [
         "Early",
@@ -807,7 +807,7 @@
       "notes": null
     },
     {
-      "move": "Charge Shot (partial charge)",
+      "move": "Neutral Special (partial charge)",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {
@@ -843,7 +843,7 @@
       "notes": "Startup is 3 from charge state. Takes 13 frames to enter charge state."
     },
     {
-      "move": "Charge Shot (full charge)",
+      "move": "Neutral Special (full charge)",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {
@@ -889,7 +889,7 @@
       "notes": "Takes 125 frames to reach full charge"
     },
     {
-      "move": "Homing Missile",
+      "move": "Homing Side Special",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {
@@ -936,7 +936,7 @@
       "notes": "Projectile lasts until frame 118. Total frames is 59 in the air for either missile type."
     },
     {
-      "move": "Super Missile",
+      "move": "Super Side Special",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {
@@ -983,7 +983,7 @@
       "notes": "Projectile lasts until frame 87. Starts moving forward around frame 50, allowing for followups."
     },
     {
-      "move": "Screw Attack",
+      "move": "Up Special",
       "category": "Specials",
       "hitboxLabels": [
         "First",
@@ -1033,7 +1033,7 @@
       "notes": "Invulnerable on frame 3-6"
     },
     {
-      "move": "Screw Attack (air)",
+      "move": "Up Special (air)",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {
@@ -1075,7 +1075,7 @@
       "notes": "Invulnerable on frame 3-4. Will snap to a ledge as early as frame 6 (facing toward) or 30 \n(facing away)"
     },
     {
-      "move": "Bomb",
+      "move": "Down Special",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {

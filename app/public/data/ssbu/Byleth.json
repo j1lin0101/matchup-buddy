@@ -2,7 +2,7 @@
   "character": "Byleth",
   "slug": "Byleth",
   "patch": "13.1",
-  "scrapedAt": "2026-08-16T21:07:07.319Z",
+  "scrapedAt": "2026-08-16T21:39:42.041Z",
   "sourceSheet": "75 - Byleth",
   "moves": [
     {
@@ -230,7 +230,7 @@
       "notes": null
     },
     {
-      "move": "F-Tilt",
+      "move": "Forward Tilt",
       "category": "Normals",
       "hitboxLabels": null,
       "startup": {
@@ -276,7 +276,7 @@
       "notes": null
     },
     {
-      "move": "U-Tilt",
+      "move": "Up Tilt",
       "category": "Normals",
       "hitboxLabels": null,
       "startup": {
@@ -322,7 +322,7 @@
       "notes": null
     },
     {
-      "move": "D-Tilt",
+      "move": "Down Tilt",
       "category": "Normals",
       "hitboxLabels": null,
       "startup": {
@@ -421,7 +421,7 @@
       "notes": null
     },
     {
-      "move": "F-Smash",
+      "move": "Forward Smash",
       "category": "Smashes",
       "hitboxLabels": [
         "close",
@@ -466,7 +466,7 @@
       "notes": "Charge hold on frame 13"
     },
     {
-      "move": "U-Smash",
+      "move": "Up Smash",
       "category": "Smashes",
       "hitboxLabels": [
         "first",
@@ -525,7 +525,7 @@
       "notes": "Charge hold on frame 7"
     },
     {
-      "move": "D-Smash",
+      "move": "Down Smash",
       "category": "Smashes",
       "hitboxLabels": null,
       "startup": {
@@ -573,7 +573,7 @@
       "notes": "Charge hold on frame 2"
     },
     {
-      "move": "N-Air",
+      "move": "Neutral Air",
       "category": "Aerials",
       "hitboxLabels": [
         "multi",
@@ -633,7 +633,7 @@
       "notes": "Autocancels on frame 1-5 and 39 onward\nLanding hitbox comes on frame 2 upon landing. Advantage is for that."
     },
     {
-      "move": "F-Air",
+      "move": "Forward Air",
       "category": "Aerials",
       "hitboxLabels": [
         "close",
@@ -688,7 +688,7 @@
       "notes": "Autocancels on frame 1-2 and 36 onward"
     },
     {
-      "move": "B-Air",
+      "move": "Back Air",
       "category": "Aerials",
       "hitboxLabels": [
         "close",
@@ -743,7 +743,7 @@
       "notes": "Autocancels on frame 1-5 and 40 onward"
     },
     {
-      "move": "U-Air",
+      "move": "Up Air",
       "category": "Aerials",
       "hitboxLabels": [
         "multi",
@@ -800,7 +800,7 @@
       "notes": "Autocancels on frame 1-3 and 49 onward"
     },
     {
-      "move": "D-Air",
+      "move": "Down Air",
       "category": "Aerials",
       "hitboxLabels": null,
       "startup": {
@@ -848,7 +848,7 @@
       "notes": "Autocancels on frame 52 onward"
     },
     {
-      "move": "Failnaught (partial charge)",
+      "move": "Neutral Special (partial charge)",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {
@@ -894,7 +894,7 @@
       "notes": "shield cancellable on frame 21-44. Takes 4 frames to cancel"
     },
     {
-      "move": "Failnaught (full charge)",
+      "move": "Neutral Special (full charge)",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {
@@ -940,7 +940,7 @@
       "notes": null
     },
     {
-      "move": "Areadbhar",
+      "move": "Side Special",
       "category": "Specials",
       "hitboxLabels": [
         "close",
@@ -993,7 +993,7 @@
       "notes": null
     },
     {
-      "move": "Areadbhar (air)",
+      "move": "Side Special (air)",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {
@@ -1043,7 +1043,7 @@
       "notes": "Landing lag equates to how many total frames remain upon landing"
     },
     {
-      "move": "Sword of the Creator",
+      "move": "Up Special",
       "category": "Specials",
       "hitboxLabels": [
         "first",
@@ -1085,7 +1085,7 @@
       "notes": "Numbers in parenthesis are grab frames. Kickoff has no endlag.\nKickoff damage depends on the vertical range you grabbed them."
     },
     {
-      "move": "Sword of the Creator (air)",
+      "move": "Up Special (air)",
       "category": "Specials",
       "hitboxLabels": [
         "grab",
@@ -1128,7 +1128,7 @@
       "notes": "Tethers to ledge on frame 5"
     },
     {
-      "move": "Aymr",
+      "move": "Down Special",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {
@@ -1171,7 +1171,7 @@
       "notes": "Second startup is the quake. Super armor on frame 34-63\nTurning around takes an additional 11 frames"
     },
     {
-      "move": "Aymr (air)",
+      "move": "Down Special (air)",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {

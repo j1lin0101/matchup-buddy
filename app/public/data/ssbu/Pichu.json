@@ -2,7 +2,7 @@
   "character": "Pichu",
   "slug": "Pichu",
   "patch": "13.1",
-  "scrapedAt": "2026-08-16T21:07:07.268Z",
+  "scrapedAt": "2026-08-16T21:39:41.960Z",
   "sourceSheet": "19 - Pichu",
   "moves": [
     {
@@ -52,7 +52,7 @@
       "notes": "Transitions to next Jab as early as frame 7."
     },
     {
-      "move": "F-Tilt",
+      "move": "Forward Tilt",
       "category": "Normals",
       "hitboxLabels": null,
       "startup": {
@@ -98,7 +98,7 @@
       "notes": "1.0 base recoil damage"
     },
     {
-      "move": "U-Tilt",
+      "move": "Up Tilt",
       "category": "Normals",
       "hitboxLabels": null,
       "startup": {
@@ -144,7 +144,7 @@
       "notes": null
     },
     {
-      "move": "D-Tilt",
+      "move": "Down Tilt",
       "category": "Normals",
       "hitboxLabels": null,
       "startup": {
@@ -242,7 +242,7 @@
       "notes": null
     },
     {
-      "move": "F-Smash",
+      "move": "Forward Smash",
       "category": "Smashes",
       "hitboxLabels": [
         "Multi",
@@ -296,7 +296,7 @@
       "notes": "Charge hold is frame 13. 1.5 base recoil damage"
     },
     {
-      "move": "U-Smash",
+      "move": "Up Smash",
       "category": "Smashes",
       "hitboxLabels": null,
       "startup": {
@@ -342,7 +342,7 @@
       "notes": "Ear intangibility on frame 9-11. Charge hold is frame 4."
     },
     {
-      "move": "D-Smash",
+      "move": "Down Smash",
       "category": "Smashes",
       "hitboxLabels": [
         "Multi",
@@ -398,7 +398,7 @@
       "notes": "Invulnerable on frame 7-10. Charge hold is frame 4. 1.3 base recoil damage"
     },
     {
-      "move": "N-Air",
+      "move": "Neutral Air",
       "category": "Aerials",
       "hitboxLabels": [
         "Early",
@@ -453,7 +453,7 @@
       "notes": "Autocancels on frame 1-2 and 35 onward. Ears intangible on frames 3-9"
     },
     {
-      "move": "F-Air",
+      "move": "Forward Air",
       "category": "Aerials",
       "hitboxLabels": [
         "Multi",
@@ -511,7 +511,7 @@
       "notes": "Autocancels on frame 1-9 and 34 onward. 1.0 base recoil damage"
     },
     {
-      "move": "B-Air",
+      "move": "Back Air",
       "category": "Aerials",
       "hitboxLabels": [
         "Multi",
@@ -571,7 +571,7 @@
       "notes": "Autocancels on frame 1-4 and 38 onward. 1.5 base recoil damage"
     },
     {
-      "move": "U-Air",
+      "move": "Up Air",
       "category": "Aerials",
       "hitboxLabels": null,
       "startup": {
@@ -619,7 +619,7 @@
       "notes": "Autocancels on frame 1-3 and 18 onward"
     },
     {
-      "move": "D-Air",
+      "move": "Down Air",
       "category": "Aerials",
       "hitboxLabels": [
         "Early",
@@ -677,7 +677,7 @@
       "notes": "Ear intangibility on frame 14-17. Landing hit on frame 1. Autocancels on frame 32 onward\nRecoil damage is 1.5 when hitbox comes out and 0.5 on landing"
     },
     {
-      "move": "Thunder Jolt (projectile/arc)",
+      "move": "Neutral Special (projectile/arc)",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {
@@ -718,7 +718,7 @@
       "notes": "0.7 base recoil damage"
     },
     {
-      "move": "Skull Bash",
+      "move": "Side Special",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {
@@ -757,7 +757,7 @@
       "notes": "25 on hit endlag. Second total frames is from the air. Startup is 5 from charge release. 1.5 base recoil damage"
     },
     {
-      "move": "Agility",
+      "move": "Up Special",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {

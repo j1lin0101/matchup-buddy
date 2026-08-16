@@ -2,7 +2,7 @@
   "character": "Min Min",
   "slug": "Min_Min",
   "patch": "13.1",
-  "scrapedAt": "2026-08-16T21:07:07.320Z",
+  "scrapedAt": "2026-08-16T21:39:42.042Z",
   "sourceSheet": "76 - Min Min",
   "moves": [
     {
@@ -594,7 +594,7 @@
       "notes": "Charge hold frame 8. Can fire other arm beginning on frame 17. Endlag on hit is 30 \nEndlag on block is 40-41 depending on how far the arm must retract.\nYou cannot fire the beam if you already made contact with a shield or clanked"
     },
     {
-      "move": "U-tilt",
+      "move": "Up Tilt",
       "category": "Normals",
       "hitboxLabels": [
         "close",
@@ -651,7 +651,7 @@
       "notes": null
     },
     {
-      "move": "D-Tilt",
+      "move": "Down Tilt",
       "category": "Normals",
       "hitboxLabels": [
         "close",
@@ -764,7 +764,7 @@
       "notes": null
     },
     {
-      "move": "U-Smash",
+      "move": "Up Smash",
       "category": "Smashes",
       "hitboxLabels": [
         "early close",
@@ -810,7 +810,7 @@
       "notes": "leg intangibility on frame 8-16. Reflects on frame 7-16. Charge hold frame 2"
     },
     {
-      "move": "D-Smash",
+      "move": "Down Smash",
       "category": "Smashes",
       "hitboxLabels": [
         "close",
@@ -863,7 +863,7 @@
       "notes": "leg intangibility on frame 6-8. Charge hold frame 2"
     },
     {
-      "move": "N-air (either Dragon)",
+      "move": "Neutral Air (either Dragon)",
       "category": "Aerials",
       "hitboxLabels": null,
       "startup": {
@@ -911,7 +911,7 @@
       "notes": "arm intangible on frame 10-23. autocancels on frame 1-3 and 37 onward"
     },
     {
-      "move": "N-air (Ramram)",
+      "move": "Neutral Air (Ramram)",
       "category": "Aerials",
       "hitboxLabels": null,
       "startup": {
@@ -959,7 +959,7 @@
       "notes": "arm intangible on frame 8-18. autocancels on frame 1-3 and 28 onward"
     },
     {
-      "move": "N-air (Megawatt)",
+      "move": "Neutral Air (Megawatt)",
       "category": "Aerials",
       "hitboxLabels": null,
       "startup": {
@@ -1007,7 +1007,7 @@
       "notes": "arm intangible on frame 14-32. autocancels on frame 1-5 and 50 onward"
     },
     {
-      "move": "U-air",
+      "move": "Up Air",
       "category": "Aerials",
       "hitboxLabels": null,
       "startup": {
@@ -1055,7 +1055,7 @@
       "notes": "autocancels on frame 29 onward"
     },
     {
-      "move": "D-air",
+      "move": "Down Air",
       "category": "Aerials",
       "hitboxLabels": [
         "early",
@@ -1113,7 +1113,7 @@
       "notes": "landing hit on frame 1 of landing. Autocancels on frame 41 onward"
     },
     {
-      "move": "ARMS Jump",
+      "move": "Up Special",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {

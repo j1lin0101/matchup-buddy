@@ -1,8 +1,8 @@
 {
-  "character": "Bowser Jr",
+  "character": "Bowser Jr.",
   "slug": "Bowser_Jr",
   "patch": "13.1",
-  "scrapedAt": "2026-08-16T21:07:07.304Z",
+  "scrapedAt": "2026-08-16T21:39:42.005Z",
   "sourceSheet": "58 - Bowser Jr",
   "moves": [
     {
@@ -184,7 +184,7 @@
       "notes": null
     },
     {
-      "move": "F-Tilt",
+      "move": "Forward Tilt",
       "category": "Normals",
       "hitboxLabels": [
         "close",
@@ -237,7 +237,7 @@
       "notes": null
     },
     {
-      "move": "U-Tilt",
+      "move": "Up Tilt",
       "category": "Normals",
       "hitboxLabels": null,
       "startup": {
@@ -283,7 +283,7 @@
       "notes": null
     },
     {
-      "move": "D-Tilt",
+      "move": "Down Tilt",
       "category": "Normals",
       "hitboxLabels": [
         "multi",
@@ -394,7 +394,7 @@
       "notes": null
     },
     {
-      "move": "F-Smash",
+      "move": "Forward Smash",
       "category": "Smashes",
       "hitboxLabels": [
         "multi",
@@ -451,7 +451,7 @@
       "notes": "Charge hold is frame 5"
     },
     {
-      "move": "U-Smash",
+      "move": "Up Smash",
       "category": "Smashes",
       "hitboxLabels": [
         "first",
@@ -505,7 +505,7 @@
       "notes": "Charge hold is frame 4"
     },
     {
-      "move": "D-Smash",
+      "move": "Down Smash",
       "category": "Smashes",
       "hitboxLabels": null,
       "startup": {
@@ -551,7 +551,7 @@
       "notes": "Charge hold is frame 2"
     },
     {
-      "move": "N-Air",
+      "move": "Neutral Air",
       "category": "Aerials",
       "hitboxLabels": [
         "close early",
@@ -598,7 +598,7 @@
       "notes": "Autocancels on frame 1-6 and 42 onward"
     },
     {
-      "move": "F-Air",
+      "move": "Forward Air",
       "category": "Aerials",
       "hitboxLabels": [
         "Early",
@@ -656,7 +656,7 @@
       "notes": "Landing hit on frame 2. Autocancels on frame 1-2 and 34 onward"
     },
     {
-      "move": "B-Air",
+      "move": "Back Air",
       "category": "Aerials",
       "hitboxLabels": [
         "Far",
@@ -711,7 +711,7 @@
       "notes": "Autocancels on frame 1-11 and 30 onward"
     },
     {
-      "move": "U-Air",
+      "move": "Up Air",
       "category": "Aerials",
       "hitboxLabels": null,
       "startup": {
@@ -759,7 +759,7 @@
       "notes": "Autocancels on frame 16 onward"
     },
     {
-      "move": "D-Air",
+      "move": "Down Air",
       "category": "Aerials",
       "hitboxLabels": [
         "multi",
@@ -825,7 +825,7 @@
       "notes": "Landing hit on frame 1. Autocancels on frame 55 onward"
     },
     {
-      "move": "Clown Cannon",
+      "move": "Neutral Special",
       "category": "Specials",
       "hitboxLabels": [
         "Early",
@@ -862,7 +862,7 @@
       "notes": "\"late\" hitbox is when the cannonball starts losing altitude"
     },
     {
-      "move": "Clown Kart Dash",
+      "move": "Side Special",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {
@@ -898,7 +898,7 @@
       "notes": "Damage based heavy armor begins on frame 20, and only the kart can \narmor things, not his body. Damage threshold is 10% base damage\nKart Jump can be cancelled into any attack on any frame but \nis otherwise a 33 frame animation. Damage depends on travel speed"
     },
     {
-      "move": "Clown Kart Dash (spinout)",
+      "move": "Side Special (spinout)",
       "category": "Specials",
       "hitboxLabels": [
         "Early - latest"
@@ -940,7 +940,7 @@
       "notes": "Damage also depends on travel speed"
     },
     {
-      "move": "Abandon Ship",
+      "move": "Up Special",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {
@@ -988,7 +988,7 @@
       "notes": "Earliest you can hammer or dodge is on frame 26\nCan grab ledges as early as frame 29"
     },
     {
-      "move": "Abandon Ship (hammer)",
+      "move": "Up Special (hammer)",
       "category": "Specials",
       "hitboxLabels": [
         "Sweet",
@@ -1037,7 +1037,7 @@
       "notes": null
     },
     {
-      "move": "Mechakoopa",
+      "move": "Down Special",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {

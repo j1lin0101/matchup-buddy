@@ -2,7 +2,7 @@
   "character": "Chrom",
   "slug": "Chrom",
   "patch": "13.1",
-  "scrapedAt": "2026-08-16T21:07:07.273Z",
+  "scrapedAt": "2026-08-16T21:39:41.969Z",
   "sourceSheet": "25e - Chrom",
   "moves": [
     {
@@ -52,7 +52,7 @@
       "notes": null
     },
     {
-      "move": "F-Tilt",
+      "move": "Forward Tilt",
       "category": "Normals",
       "hitboxLabels": null,
       "startup": {
@@ -98,7 +98,7 @@
       "notes": null
     },
     {
-      "move": "U-Tilt",
+      "move": "Up Tilt",
       "category": "Normals",
       "hitboxLabels": null,
       "startup": {
@@ -144,7 +144,7 @@
       "notes": null
     },
     {
-      "move": "D-Tilt",
+      "move": "Down Tilt",
       "category": "Normals",
       "hitboxLabels": null,
       "startup": {
@@ -236,7 +236,7 @@
       "notes": null
     },
     {
-      "move": "F-Smash",
+      "move": "Forward Smash",
       "category": "Smashes",
       "hitboxLabels": null,
       "startup": {
@@ -282,7 +282,7 @@
       "notes": "Charge hold is frame 6"
     },
     {
-      "move": "U-Smash",
+      "move": "Up Smash",
       "category": "Smashes",
       "hitboxLabels": [
         "First",
@@ -338,7 +338,7 @@
       "notes": "forearm intangibility on frame 10-23. Charge hold is frame 4"
     },
     {
-      "move": "D-Smash",
+      "move": "Down Smash",
       "category": "Smashes",
       "hitboxLabels": null,
       "startup": {
@@ -389,7 +389,7 @@
       "notes": "Charge hold is frame 3"
     },
     {
-      "move": "N-Air",
+      "move": "Neutral Air",
       "category": "Aerials",
       "hitboxLabels": null,
       "startup": {
@@ -442,7 +442,7 @@
       "notes": "Autocancels on frame 47 onward"
     },
     {
-      "move": "F-Air",
+      "move": "Forward Air",
       "category": "Aerials",
       "hitboxLabels": null,
       "startup": {
@@ -490,7 +490,7 @@
       "notes": "Autocancels on frame 31 onward"
     },
     {
-      "move": "B-Air",
+      "move": "Back Air",
       "category": "Aerials",
       "hitboxLabels": null,
       "startup": {
@@ -538,7 +538,7 @@
       "notes": "Autocancels on frame 1-2 and 32 onward"
     },
     {
-      "move": "U-Air",
+      "move": "Up Air",
       "category": "Aerials",
       "hitboxLabels": null,
       "startup": {
@@ -586,7 +586,7 @@
       "notes": "Autocancels on frame 1-2 and 38 onward"
     },
     {
-      "move": "D-Air",
+      "move": "Down Air",
       "category": "Aerials",
       "hitboxLabels": null,
       "startup": {
@@ -634,7 +634,7 @@
       "notes": "Autocancels on frame 1-2 and 52 onward"
     },
     {
-      "move": "Flare Blade",
+      "move": "Neutral Special",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {
@@ -668,7 +668,7 @@
       "notes": "Startup is 10 from release. 11 frames to enter charge state."
     },
     {
-      "move": "Double Edged Dance",
+      "move": "Side Special",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {
@@ -713,7 +713,7 @@
       "notes": "Second total frames is from the air. Can transition to next slash as early as frame 12."
     },
     {
-      "move": "Double Edged Dance 2 Neutral",
+      "move": "Side Special 2 Neutral",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {
@@ -759,7 +759,7 @@
       "notes": "Can transition to next slash as early as frame 8."
     },
     {
-      "move": "Double Edged Dance 3 Neutral",
+      "move": "Side Special 3 Neutral",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {
@@ -805,7 +805,7 @@
       "notes": "Can transition to next slash as early as frame 7."
     },
     {
-      "move": "Double Edged Dance 4 Neutral",
+      "move": "Side Special 4 Neutral",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {
@@ -851,7 +851,7 @@
       "notes": null
     },
     {
-      "move": "Double Edged Dance 2 Up",
+      "move": "Side Special 2 Up",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {
@@ -897,7 +897,7 @@
       "notes": "Can transition to next slash as early as frame 8."
     },
     {
-      "move": "Double Edged Dance 3 Up",
+      "move": "Side Special 3 Up",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {
@@ -943,7 +943,7 @@
       "notes": "Can transition to next slash as early as frame 8."
     },
     {
-      "move": "Double Edged Dance 4 Up",
+      "move": "Side Special 4 Up",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {
@@ -989,7 +989,7 @@
       "notes": null
     },
     {
-      "move": "Double Edged Dance 3 Down",
+      "move": "Side Special 3 Down",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {
@@ -1035,7 +1035,7 @@
       "notes": "Can transition to next slash as early as frame 8"
     },
     {
-      "move": "Double Edged Dance 4 Down",
+      "move": "Side Special 4 Down",
       "category": "Specials",
       "hitboxLabels": [
         "multi",
@@ -1088,7 +1088,7 @@
       "notes": null
     },
     {
-      "move": "Soaring Slash",
+      "move": "Up Special",
       "category": "Specials",
       "hitboxLabels": [
         "First",
@@ -1146,7 +1146,7 @@
       "notes": "Landing hit on frame 1 Super armor on frame 10-30. Ending just before he ascends\nCan grab ledges on frame 52 onward but only when facing the ledge."
     },
     {
-      "move": "Counter",
+      "move": "Down Special",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {
@@ -1182,7 +1182,7 @@
       "notes": "Invulnerable on frame 7. Counters on 8-29 from 8-27."
     },
     {
-      "move": "Counter (attack)",
+      "move": "Down Special (attack)",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {

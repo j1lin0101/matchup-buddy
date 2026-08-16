@@ -1,8 +1,8 @@
 {
-  "character": "ROB",
+  "character": "R.O.B.",
   "slug": "ROB",
   "patch": "13.1",
-  "scrapedAt": "2026-08-16T21:07:07.288Z",
+  "scrapedAt": "2026-08-16T21:39:41.986Z",
   "sourceSheet": "42 - R.O.B.",
   "moves": [
     {
@@ -98,7 +98,7 @@
       "notes": null
     },
     {
-      "move": "F-Tilt",
+      "move": "Forward Tilt",
       "category": "Normals",
       "hitboxLabels": null,
       "startup": {
@@ -144,7 +144,7 @@
       "notes": null
     },
     {
-      "move": "U-Tilt",
+      "move": "Up Tilt",
       "category": "Normals",
       "hitboxLabels": null,
       "startup": {
@@ -194,7 +194,7 @@
       "notes": null
     },
     {
-      "move": "D-Tilt",
+      "move": "Down Tilt",
       "category": "Normals",
       "hitboxLabels": null,
       "startup": {
@@ -286,7 +286,7 @@
       "notes": null
     },
     {
-      "move": "F-Smash",
+      "move": "Forward Smash",
       "category": "Smashes",
       "hitboxLabels": [
         "Close",
@@ -344,7 +344,7 @@
       "notes": "Charge hold is frame 6"
     },
     {
-      "move": "U-Smash",
+      "move": "Up Smash",
       "category": "Smashes",
       "hitboxLabels": null,
       "startup": {
@@ -395,7 +395,7 @@
       "notes": "Charge hold is frame 7"
     },
     {
-      "move": "D-Smash",
+      "move": "Down Smash",
       "category": "Smashes",
       "hitboxLabels": [
         "Multi",
@@ -449,7 +449,7 @@
       "notes": "Charge hold is frame 3"
     },
     {
-      "move": "N-Air",
+      "move": "Neutral Air",
       "category": "Aerials",
       "hitboxLabels": [
         "Close",
@@ -504,7 +504,7 @@
       "notes": "Autocancels on frame 33 onward"
     },
     {
-      "move": "F-Air",
+      "move": "Forward Air",
       "category": "Aerials",
       "hitboxLabels": null,
       "startup": {
@@ -552,7 +552,7 @@
       "notes": "Autocancels on frame 25 onward"
     },
     {
-      "move": "B-Air",
+      "move": "Back Air",
       "category": "Aerials",
       "hitboxLabels": [
         "Close",
@@ -611,7 +611,7 @@
       "notes": "Autocancels on frame 46 onward"
     },
     {
-      "move": "U-Air",
+      "move": "Up Air",
       "category": "Aerials",
       "hitboxLabels": [
         "Multi",
@@ -670,7 +670,7 @@
       "notes": "Autocancels on frame 40 onward"
     },
     {
-      "move": "D-Air",
+      "move": "Down Air",
       "category": "Aerials",
       "hitboxLabels": [
         "Close",
@@ -730,7 +730,7 @@
       "notes": "Autocancels on frame 45 onward. Advantage uses Total Frames"
     },
     {
-      "move": "Robo Beam (Small)",
+      "move": "Neutral Special (Small)",
       "category": "Specials",
       "hitboxLabels": [
         "Melee",
@@ -788,7 +788,7 @@
       "notes": "Melee attack and projectile generate on same frame"
     },
     {
-      "move": "Robo Beam (Large)",
+      "move": "Neutral Special (Large)",
       "category": "Specials",
       "hitboxLabels": [
         "Melee",
@@ -846,7 +846,7 @@
       "notes": "Melee attack and projectile generate on same frame"
     },
     {
-      "move": "Arm Rotor",
+      "move": "Side Special",
       "category": "Specials",
       "hitboxLabels": [
         "Multi",
@@ -903,7 +903,7 @@
       "notes": "Multihits have no hitlag but do have shieldlag. Reflects on frame 13-35"
     },
     {
-      "move": "Arm Rotor (mashing)",
+      "move": "Side Special (mashing)",
       "category": "Specials",
       "hitboxLabels": [
         "Multi",
@@ -965,7 +965,7 @@
       "notes": "Multihits have no hitlag but do have shieldlag. Reflects on frame 13-60"
     },
     {
-      "move": "Robo Burner",
+      "move": "Up Special",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {
@@ -999,7 +999,7 @@
       "notes": "Invulnerable on frame 2-4 on the ground. Can act on frame 25. Fuel lasts up to 143 frames.\nCan grab ledges as early as frame 2"
     },
     {
-      "move": "Gyro",
+      "move": "Down Special",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {
@@ -1035,7 +1035,7 @@
       "notes": "3 startup from charging state. 6 frames to enter charging state"
     },
     {
-      "move": "Gyro (full charge)",
+      "move": "Down Special (full charge)",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {

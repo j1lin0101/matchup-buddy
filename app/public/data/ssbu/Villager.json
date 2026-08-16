@@ -2,7 +2,7 @@
   "character": "Villager",
   "slug": "Villager",
   "patch": "13.1",
-  "scrapedAt": "2026-08-16T21:07:07.291Z",
+  "scrapedAt": "2026-08-16T21:39:41.989Z",
   "sourceSheet": "45 - Villager",
   "moves": [
     {
@@ -184,7 +184,7 @@
       "notes": null
     },
     {
-      "move": "F-Tilt",
+      "move": "Forward Tilt",
       "category": "Normals",
       "hitboxLabels": null,
       "startup": {
@@ -230,7 +230,7 @@
       "notes": null
     },
     {
-      "move": "U-Tilt",
+      "move": "Up Tilt",
       "category": "Normals",
       "hitboxLabels": null,
       "startup": {
@@ -281,7 +281,7 @@
       "notes": "Arm and head intangibility on frame 7-25"
     },
     {
-      "move": "D-Tilt",
+      "move": "Down Tilt",
       "category": "Normals",
       "hitboxLabels": [
         "Close",
@@ -386,7 +386,7 @@
       "notes": null
     },
     {
-      "move": "F-Smash",
+      "move": "Forward Smash",
       "category": "Smashes",
       "hitboxLabels": [
         "Early",
@@ -438,7 +438,7 @@
       "notes": "Charge hold is frame 16. "
     },
     {
-      "move": "U-Smash",
+      "move": "Up Smash",
       "category": "Smashes",
       "hitboxLabels": null,
       "startup": {
@@ -487,7 +487,7 @@
       "notes": "Charge hold is frame 7. "
     },
     {
-      "move": "D-Smash",
+      "move": "Down Smash",
       "category": "Smashes",
       "hitboxLabels": [
         "Close",
@@ -541,7 +541,7 @@
       "notes": "Charge hold is frame 3"
     },
     {
-      "move": "N-Air",
+      "move": "Neutral Air",
       "category": "Aerials",
       "hitboxLabels": [
         "Early",
@@ -596,7 +596,7 @@
       "notes": "Autocancels on frame 1-2 and 27 onward"
     },
     {
-      "move": "F-Air",
+      "move": "Forward Air",
       "category": "Aerials",
       "hitboxLabels": [
         "Early",
@@ -654,7 +654,7 @@
       "notes": "Autocancels on frame 1-2 and 30 onward"
     },
     {
-      "move": "B-Air",
+      "move": "Back Air",
       "category": "Aerials",
       "hitboxLabels": [
         "Early",
@@ -712,7 +712,7 @@
       "notes": "Autocancels on frame 1-2 and 30 onward "
     },
     {
-      "move": "U-Air",
+      "move": "Up Air",
       "category": "Aerials",
       "hitboxLabels": [
         "3",
@@ -772,7 +772,7 @@
       "notes": "Autocancels on frame 1-5 and 39 onward"
     },
     {
-      "move": "D-Air",
+      "move": "Down Air",
       "category": "Aerials",
       "hitboxLabels": [
         "3",
@@ -832,7 +832,7 @@
       "notes": "Autocancels on frame 1-13 and 36 onward"
     },
     {
-      "move": "Pocket",
+      "move": "Neutral Special",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {
@@ -868,7 +868,7 @@
       "notes": "Invulnerable on frame 5-23. Pockets on 8-23"
     },
     {
-      "move": "Pocket (throw)",
+      "move": "Neutral Special (throw)",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {
@@ -906,7 +906,7 @@
       "notes": "This is not the same throw as with a holdable item"
     },
     {
-      "move": "Lloid Rocket",
+      "move": "Side Special",
       "category": "Specials",
       "hitboxLabels": [
         "Early",
@@ -958,7 +958,7 @@
       "notes": null
     },
     {
-      "move": "Balloon Trip",
+      "move": "Up Special",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {
@@ -995,7 +995,7 @@
       "notes": "First landing lag is from free fall. Second is with balloons still attached.\nCan grab ledges as early as frame 7"
     },
     {
-      "move": "Timber (plant)",
+      "move": "Down Special (plant)",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {
@@ -1031,7 +1031,7 @@
       "notes": null
     },
     {
-      "move": "Timber (water)",
+      "move": "Down Special (water)",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {
@@ -1069,7 +1069,7 @@
       "notes": null
     },
     {
-      "move": "Timber (tree grows/falls)",
+      "move": "Down Special (tree grows/falls)",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {
@@ -1118,7 +1118,7 @@
       "notes": "Refers to how long after water touches sprout/Tree is chopped a second time"
     },
     {
-      "move": "Timber (axe)",
+      "move": "Down Special (axe)",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {

@@ -2,7 +2,7 @@
   "character": "Mythra",
   "slug": "Mythra",
   "patch": "13.1",
-  "scrapedAt": "2026-08-16T21:07:07.322Z",
+  "scrapedAt": "2026-08-16T21:39:42.046Z",
   "sourceSheet": "80 - Mythra",
   "moves": [
     {
@@ -230,7 +230,7 @@
       "notes": null
     },
     {
-      "move": "F-Tilt",
+      "move": "Forward Tilt",
       "category": "Normals",
       "hitboxLabels": null,
       "startup": {
@@ -276,7 +276,7 @@
       "notes": null
     },
     {
-      "move": "U-Tilt",
+      "move": "Up Tilt",
       "category": "Normals",
       "hitboxLabels": null,
       "startup": {
@@ -322,7 +322,7 @@
       "notes": null
     },
     {
-      "move": "D-Tilt",
+      "move": "Down Tilt",
       "category": "Normals",
       "hitboxLabels": [
         "close",
@@ -421,7 +421,7 @@
       "notes": null
     },
     {
-      "move": "F-Smash",
+      "move": "Forward Smash",
       "category": "Smashes",
       "hitboxLabels": null,
       "startup": {
@@ -467,7 +467,7 @@
       "notes": "charge hold on frame 3"
     },
     {
-      "move": "U-Smash",
+      "move": "Up Smash",
       "category": "Smashes",
       "hitboxLabels": [
         "first",
@@ -528,7 +528,7 @@
       "notes": "charge hold on frame 4"
     },
     {
-      "move": "D-Smash",
+      "move": "Down Smash",
       "category": "Smashes",
       "hitboxLabels": [
         "blade close",
@@ -571,7 +571,7 @@
       "notes": "charge hold on frame 2. Blade and leg can both hit the same shield\nThird and fourth advantage assume this scenario, first and second are single, far hits"
     },
     {
-      "move": "N-Air",
+      "move": "Neutral Air",
       "category": "Aerials",
       "hitboxLabels": [
         "multi",
@@ -631,7 +631,7 @@
       "notes": "Landing hit on frame 1. autocancels on frame 1-7 and 38 onward"
     },
     {
-      "move": "F-Air",
+      "move": "Forward Air",
       "category": "Aerials",
       "hitboxLabels": null,
       "startup": {
@@ -679,7 +679,7 @@
       "notes": "autocancels on frame 1-2 and 36 onward"
     },
     {
-      "move": "B-Air",
+      "move": "Back Air",
       "category": "Aerials",
       "hitboxLabels": null,
       "startup": {
@@ -727,7 +727,7 @@
       "notes": "autocancels on frame 1-3 and 26 onward"
     },
     {
-      "move": "U-Air",
+      "move": "Up Air",
       "category": "Aerials",
       "hitboxLabels": null,
       "startup": {
@@ -775,7 +775,7 @@
       "notes": "autocancels on frame 16 onward"
     },
     {
-      "move": "D-Air",
+      "move": "Down Air",
       "category": "Aerials",
       "hitboxLabels": null,
       "startup": {
@@ -823,7 +823,7 @@
       "notes": "autocancels on frame 1-4 and 29 onward"
     },
     {
-      "move": "Lightning Buster",
+      "move": "Neutral Special",
       "category": "Specials",
       "hitboxLabels": [
         "multi",
@@ -860,7 +860,7 @@
       "notes": "startup is 5 from release, with six I-frames beginning on the third frame\nHas a charging hitbox beginning on frame 15 dealing 0.5 base damage."
     },
     {
-      "move": "Photon Edge",
+      "move": "Side Special",
       "category": "Specials",
       "hitboxLabels": [
         "first",
@@ -915,7 +915,7 @@
       "notes": "If you land before the animation has finished, the remaining total frames\nelapse. If you land after, you incur 18 frames of landing lag\nFirst hit has no hitlag, while the later hits have different shieldlag for Mythra"
     },
     {
-      "move": "Ray of Punishment",
+      "move": "Up Special",
       "category": "Specials",
       "hitboxLabels": [
         "slash",
@@ -962,7 +962,7 @@
       "notes": "Ray explodes the next frame after hitting something"
     },
     {
-      "move": "Chroma Dust",
+      "move": "Up Special",
       "category": "Specials",
       "hitboxLabels": [
         "slash",
@@ -1017,7 +1017,7 @@
       "notes": null
     },
     {
-      "move": "Swap to Pyra",
+      "move": "Down Special",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {

@@ -1,8 +1,8 @@
 {
-  "character": "Banjo and Kazooie",
+  "character": "Banjo & Kazooie",
   "slug": "Banjo_and_Kazooie",
   "patch": "13.1",
-  "scrapedAt": "2026-08-16T21:07:07.318Z",
+  "scrapedAt": "2026-08-16T21:39:42.039Z",
   "sourceSheet": "73 - Banjo & Kazooie",
   "moves": [
     {
@@ -230,7 +230,7 @@
       "notes": null
     },
     {
-      "move": "F-Tilt",
+      "move": "Forward Tilt",
       "category": "Normals",
       "hitboxLabels": [
         "far",
@@ -283,7 +283,7 @@
       "notes": null
     },
     {
-      "move": "U-Tilt",
+      "move": "Up Tilt",
       "category": "Normals",
       "hitboxLabels": null,
       "startup": {
@@ -329,7 +329,7 @@
       "notes": null
     },
     {
-      "move": "D-Tilt",
+      "move": "Down Tilt",
       "category": "Normals",
       "hitboxLabels": [
         "far",
@@ -438,7 +438,7 @@
       "notes": null
     },
     {
-      "move": "F-Smash",
+      "move": "Forward Smash",
       "category": "Smashes",
       "hitboxLabels": null,
       "startup": {
@@ -484,7 +484,7 @@
       "notes": "Charge hold is frame 9"
     },
     {
-      "move": "U-Smash",
+      "move": "Up Smash",
       "category": "Smashes",
       "hitboxLabels": [
         "first",
@@ -544,7 +544,7 @@
       "notes": "Charge hold is frame 6"
     },
     {
-      "move": "D-Smash",
+      "move": "Down Smash",
       "category": "Smashes",
       "hitboxLabels": null,
       "startup": {
@@ -590,7 +590,7 @@
       "notes": "Charge hold is frame 2"
     },
     {
-      "move": "N-Air",
+      "move": "Neutral Air",
       "category": "Aerials",
       "hitboxLabels": [
         "multi",
@@ -652,7 +652,7 @@
       "notes": "Autocancels on frame 1-9 and 39 onward"
     },
     {
-      "move": "F-Air",
+      "move": "Forward Air",
       "category": "Aerials",
       "hitboxLabels": [
         "Early",
@@ -707,7 +707,7 @@
       "notes": "Autocancels on frame 1-2 and 37 onward"
     },
     {
-      "move": "B-Air",
+      "move": "Back Air",
       "category": "Aerials",
       "hitboxLabels": [
         "multi",
@@ -764,7 +764,7 @@
       "notes": "Autocancels on frame 1-7 and 37 onward"
     },
     {
-      "move": "U-Air",
+      "move": "Up Air",
       "category": "Aerials",
       "hitboxLabels": [
         "first",
@@ -820,7 +820,7 @@
       "notes": "Autocancels on frame 35 onward"
     },
     {
-      "move": "D-Air",
+      "move": "Down Air",
       "category": "Aerials",
       "hitboxLabels": [
         "falling",
@@ -874,7 +874,7 @@
       "notes": "Landing hit on frame 1. Autocancels on frame 55 onward"
     },
     {
-      "move": "Egg Firing",
+      "move": "Neutral Special",
       "category": "Specials",
       "hitboxLabels": [
         "early",
@@ -930,7 +930,7 @@
       "notes": "Transitions to Blaster on frame 20."
     },
     {
-      "move": "Breegull Blaster",
+      "move": "Neutral Special",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {
@@ -966,7 +966,7 @@
       "notes": "Taking out Kazooie is a 28 frame animation. Putting her away is 11 frames."
     },
     {
-      "move": "Wonderwing",
+      "move": "Side Special",
       "category": "Specials",
       "hitboxLabels": [
         "Early",
@@ -1018,7 +1018,7 @@
       "notes": "Invincible on frames 18-53"
     },
     {
-      "move": "Shock Spring Jump",
+      "move": "Up Special",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {
@@ -1064,7 +1064,7 @@
       "notes": "Invulnerable on frame 15-17. Can be charged an additional 16 frames"
     },
     {
-      "move": "Rear Egg",
+      "move": "Down Special",
       "category": "Specials",
       "hitboxLabels": [
         "contact",

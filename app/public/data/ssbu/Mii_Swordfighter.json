@@ -2,7 +2,7 @@
   "character": "Mii Swordfighter",
   "slug": "Mii_Swordfighter",
   "patch": "13.1",
-  "scrapedAt": "2026-08-16T21:07:07.299Z",
+  "scrapedAt": "2026-08-16T21:39:41.997Z",
   "sourceSheet": "52 - Mii Swordfighter",
   "moves": [
     {
@@ -144,7 +144,7 @@
       "notes": null
     },
     {
-      "move": "F-Tilt",
+      "move": "Forward Tilt",
       "category": "Normals",
       "hitboxLabels": null,
       "startup": {
@@ -190,7 +190,7 @@
       "notes": null
     },
     {
-      "move": "U-Tilt",
+      "move": "Up Tilt",
       "category": "Normals",
       "hitboxLabels": null,
       "startup": {
@@ -236,7 +236,7 @@
       "notes": null
     },
     {
-      "move": "D-Tilt",
+      "move": "Down Tilt",
       "category": "Normals",
       "hitboxLabels": null,
       "startup": {
@@ -328,7 +328,7 @@
       "notes": null
     },
     {
-      "move": "F-Smash",
+      "move": "Forward Smash",
       "category": "Smashes",
       "hitboxLabels": [
         "Close",
@@ -385,7 +385,7 @@
       "notes": "Charge hold is frame 9"
     },
     {
-      "move": "U-Smash",
+      "move": "Up Smash",
       "category": "Smashes",
       "hitboxLabels": null,
       "startup": {
@@ -435,7 +435,7 @@
       "notes": "Charge hold is frame 9"
     },
     {
-      "move": "D-Smash",
+      "move": "Down Smash",
       "category": "Smashes",
       "hitboxLabels": null,
       "startup": {
@@ -486,7 +486,7 @@
       "notes": "Charge hold is frame 3"
     },
     {
-      "move": "N-Air",
+      "move": "Neutral Air",
       "category": "Aerials",
       "hitboxLabels": null,
       "startup": {
@@ -534,7 +534,7 @@
       "notes": "Autocancels on frame 1-5 and 32 onward"
     },
     {
-      "move": "F-Air",
+      "move": "Forward Air",
       "category": "Aerials",
       "hitboxLabels": [
         "multi",
@@ -591,7 +591,7 @@
       "notes": "Autocancels on frame 48 onward"
     },
     {
-      "move": "B-Air",
+      "move": "Back Air",
       "category": "Aerials",
       "hitboxLabels": null,
       "startup": {
@@ -639,7 +639,7 @@
       "notes": "Autocancels on frame 29 onward"
     },
     {
-      "move": "U-Air",
+      "move": "Up Air",
       "category": "Aerials",
       "hitboxLabels": [
         "Early",
@@ -694,7 +694,7 @@
       "notes": "Autocancels on frame 1-10 and 30 onward"
     },
     {
-      "move": "D-Air",
+      "move": "Down Air",
       "category": "Aerials",
       "hitboxLabels": [
         "multi",
@@ -752,7 +752,7 @@
       "notes": "Landing hit on frame 1. Autocancels on frame 1-4 and 50 onward"
     },
     {
-      "move": "Gale Strike",
+      "move": "Neutral Special (Gale Strike)",
       "category": "Specials",
       "hitboxLabels": [
         "Early",
@@ -808,7 +808,7 @@
       "notes": null
     },
     {
-      "move": "Shuriken of Light",
+      "move": "Neutral Special (Shuriken of Light)",
       "category": "Specials",
       "hitboxLabels": [
         "Early",
@@ -868,7 +868,7 @@
       "notes": null
     },
     {
-      "move": "Blurring Blade",
+      "move": "Neutral Special (Blurring Blade)",
       "category": "Specials",
       "hitboxLabels": [
         "multi",
@@ -914,7 +914,7 @@
       "notes": "Startup is 6 from charge release. Can be charged for 50 addittional frames for more damage"
     },
     {
-      "move": "Airborne Assault",
+      "move": "Side Special (Airborne Assault)",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {
@@ -958,7 +958,7 @@
       "notes": "Startup is 2 upon reaching a target. Endlag on hit is 52 on level \nground, 48 in the air. Stops at an edge with 44 frame endlag animation."
     },
     {
-      "move": "Gale Stab",
+      "move": "Side Special (Gale Stab)",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {
@@ -996,7 +996,7 @@
       "notes": "2 startup from charge release. 55 total frames on miss. 32 endlag on hit. Cannot \nattempt a recovery after air hit like Ike can. Landing lag only incurred if you enter special fall"
     },
     {
-      "move": "Chakram",
+      "move": "Side Special (Chakram)",
       "category": "Specials",
       "hitboxLabels": [
         "weak",
@@ -1049,7 +1049,7 @@
       "notes": "Weak throw has rehit rate of 9 but will bounce off shields. Strong throw hits just once."
     },
     {
-      "move": "Stone Scabbard",
+      "move": "Up Special (Stone Scabbard)",
       "category": "Specials",
       "hitboxLabels": [
         "Rising",
@@ -1106,7 +1106,7 @@
       "notes": "Invulnerable on frame 5-12. Landing hit on frame 1. Grabs ledges as early as frame 20"
     },
     {
-      "move": "Skyward Slash Dash",
+      "move": "Up Special (Skyward Slash Dash)",
       "category": "Specials",
       "hitboxLabels": [
         "First",
@@ -1170,7 +1170,7 @@
       "notes": "Total frames assumes you end on the ground. Grabs ledges as early as frame 19"
     },
     {
-      "move": "Hero's Spin",
+      "move": "Up Special (Hero's Spin)",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {
@@ -1208,7 +1208,7 @@
       "notes": "Can be charged for an additional 60 frames. "
     },
     {
-      "move": "Hero's Spin (air)",
+      "move": "Up Special (Hero's Spin (air))",
       "category": "Specials",
       "hitboxLabels": [
         "First",
@@ -1266,7 +1266,7 @@
       "notes": "Grabs ledges as early as frame 13 (facing toward) or 33 (facing away)"
     },
     {
-      "move": "Blade Counter",
+      "move": "Down Special (Blade Counter)",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {
@@ -1302,7 +1302,7 @@
       "notes": "Invulnerable on frame 5. Counters on frame 5-25"
     },
     {
-      "move": "Blade Counter (activated)",
+      "move": "Down Special (Blade Counter (activated))",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {
@@ -1340,7 +1340,7 @@
       "notes": "Attacker placed in a unique stagger animation. Invulnerable \non frame 1-10 in addition to counter freeze frames."
     },
     {
-      "move": "Reversal Slash",
+      "move": "Down Special (Reversal Slash)",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {
@@ -1386,7 +1386,7 @@
       "notes": "Reflects on frame 5-24. Invulnerable on frame 17-26 if you hit somebody or reflect something"
     },
     {
-      "move": "Power Thrust",
+      "move": "Down Special (Power Thrust)",
       "category": "Specials",
       "hitboxLabels": [
         "Early",
@@ -1442,7 +1442,7 @@
       "notes": null
     },
     {
-      "move": "Power Thrust (air)",
+      "move": "Down Special (Power Thrust (air))",
       "category": "Specials",
       "hitboxLabels": [
         "falling",

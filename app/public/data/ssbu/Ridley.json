@@ -2,7 +2,7 @@
   "character": "Ridley",
   "slug": "Ridley",
   "patch": "13.1",
-  "scrapedAt": "2026-08-16T21:07:07.310Z",
+  "scrapedAt": "2026-08-16T21:39:42.019Z",
   "sourceSheet": "65 - Ridley",
   "moves": [
     {
@@ -228,7 +228,7 @@
       "notes": null
     },
     {
-      "move": "F-Tilt",
+      "move": "Forward Tilt",
       "category": "Normals",
       "hitboxLabels": [
         "close",
@@ -281,7 +281,7 @@
       "notes": null
     },
     {
-      "move": "U-Tilt",
+      "move": "Up Tilt",
       "category": "Normals",
       "hitboxLabels": [
         "close",
@@ -334,7 +334,7 @@
       "notes": "Head and arm intangibility on frame 8-9. Wing intangibility on frame 8-12"
     },
     {
-      "move": "D-Tilt",
+      "move": "Down Tilt",
       "category": "Normals",
       "hitboxLabels": [
         "close",
@@ -433,7 +433,7 @@
       "notes": null
     },
     {
-      "move": "F-Smash",
+      "move": "Forward Smash",
       "category": "Smashes",
       "hitboxLabels": null,
       "startup": {
@@ -479,7 +479,7 @@
       "notes": "Charge hold is frame 5"
     },
     {
-      "move": "U-Smash",
+      "move": "Up Smash",
       "category": "Smashes",
       "hitboxLabels": null,
       "startup": {
@@ -525,7 +525,7 @@
       "notes": "Leg intangibility on frame 12-16. Charge hold is frame 6"
     },
     {
-      "move": "D-Smash",
+      "move": "Down Smash",
       "category": "Smashes",
       "hitboxLabels": null,
       "startup": {
@@ -571,7 +571,7 @@
       "notes": "Charge hold is frame 2"
     },
     {
-      "move": "N-Air",
+      "move": "Neutral Air",
       "category": "Aerials",
       "hitboxLabels": [
         "close",
@@ -631,7 +631,7 @@
       "notes": "Autocancels on frame 1-2 and 28 onward"
     },
     {
-      "move": "F-Air",
+      "move": "Forward Air",
       "category": "Aerials",
       "hitboxLabels": [
         "Multi close",
@@ -678,7 +678,7 @@
       "notes": "Autocancels on frame 1-2 and 43 onward"
     },
     {
-      "move": "B-Air",
+      "move": "Back Air",
       "category": "Aerials",
       "hitboxLabels": null,
       "startup": {
@@ -726,7 +726,7 @@
       "notes": "Autocancels on frame 38 onward"
     },
     {
-      "move": "U-Air",
+      "move": "Up Air",
       "category": "Aerials",
       "hitboxLabels": [
         "close",
@@ -781,7 +781,7 @@
       "notes": "Autocancels on frame 1-3 and 35 onward"
     },
     {
-      "move": "D-Air",
+      "move": "Down Air",
       "category": "Aerials",
       "hitboxLabels": [
         "Early meteor",
@@ -836,7 +836,7 @@
       "notes": "Autocancels on frame 1-3 and 50 onward"
     },
     {
-      "move": "Plasma Breath (uncharged | full charge)",
+      "move": "Neutral Special (uncharged | full charge)",
       "category": "Specials",
       "hitboxLabels": [
         "Early",
@@ -875,7 +875,7 @@
       "notes": "If Ridley is hit in the mouth while charging on frame 16-45, he recoils in a 52 frame animation."
     },
     {
-      "move": "Space Pirate Rush",
+      "move": "Side Special",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {
@@ -913,7 +913,7 @@
       "notes": null
     },
     {
-      "move": "Space Pirate Rush (air)",
+      "move": "Side Special (air)",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {
@@ -951,7 +951,7 @@
       "notes": "Landing hitbox on frame 1 after a grab, then transitions to ground drag"
     },
     {
-      "move": "Space Pirate Rush (success)",
+      "move": "Side Special (success)",
       "category": "Specials",
       "hitboxLabels": [
         "Initial",
@@ -1041,7 +1041,7 @@
       "notes": "After a successful grab, can manually release on frame 33 on the ground \n(not counting hitlag/grab freeze). 27 in the air."
     },
     {
-      "move": "Wing Blitz (up/horizontal/down)",
+      "move": "Up Special (up/horizontal/down)",
       "category": "Specials",
       "hitboxLabels": [
         "Up",
@@ -1099,7 +1099,7 @@
       "notes": "Second landing lag is for a dive directly into the ground. Wing intangibility on frame 34-57 when\ntraveling up. 36-59 when traveling horizontally. Damage dependent on direction travelled. \nLanding hit on frame 1. Advantage is for that. Grabs ledges on frame 35/37/38."
     },
     {
-      "move": "Skewer",
+      "move": "Down Special",
       "category": "Specials",
       "hitboxLabels": [
         "graze | skewer"

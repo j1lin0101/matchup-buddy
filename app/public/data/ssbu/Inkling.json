@@ -2,7 +2,7 @@
   "character": "Inkling",
   "slug": "Inkling",
   "patch": "13.1",
-  "scrapedAt": "2026-08-16T21:07:07.309Z",
+  "scrapedAt": "2026-08-16T21:39:42.018Z",
   "sourceSheet": "64 - Inkling",
   "moves": [
     {
@@ -266,7 +266,7 @@
       "notes": "Will not hit opponents when out of Ink"
     },
     {
-      "move": "F-Tilt",
+      "move": "Forward Tilt",
       "category": "Normals",
       "hitboxLabels": null,
       "startup": {
@@ -312,7 +312,7 @@
       "notes": null
     },
     {
-      "move": "U-Tilt",
+      "move": "Up Tilt",
       "category": "Normals",
       "hitboxLabels": null,
       "startup": {
@@ -358,7 +358,7 @@
       "notes": null
     },
     {
-      "move": "D-Tilt",
+      "move": "Down Tilt",
       "category": "Normals",
       "hitboxLabels": null,
       "startup": {
@@ -457,7 +457,7 @@
       "notes": null
     },
     {
-      "move": "F-Smash",
+      "move": "Forward Smash",
       "category": "Smashes",
       "hitboxLabels": [
         "close",
@@ -510,7 +510,7 @@
       "notes": "Gets weaker when out of ink. Charge hold is frame 5"
     },
     {
-      "move": "U-Smash",
+      "move": "Up Smash",
       "category": "Smashes",
       "hitboxLabels": [
         "first",
@@ -569,7 +569,7 @@
       "notes": "Gets weaker when out of ink. Charge hold is frame 3"
     },
     {
-      "move": "D-Smash",
+      "move": "Down Smash",
       "category": "Smashes",
       "hitboxLabels": null,
       "startup": {
@@ -620,7 +620,7 @@
       "notes": "Gets weaker when out of ink. Charge hold is frame 2"
     },
     {
-      "move": "N-Air",
+      "move": "Neutral Air",
       "category": "Aerials",
       "hitboxLabels": null,
       "startup": {
@@ -668,7 +668,7 @@
       "notes": "Autocancels on frame 27 onward"
     },
     {
-      "move": "F-Air",
+      "move": "Forward Air",
       "category": "Aerials",
       "hitboxLabels": [
         "early",
@@ -723,7 +723,7 @@
       "notes": "Autocancels on frame 1-4 and frame 40 onward"
     },
     {
-      "move": "B-Air",
+      "move": "Back Air",
       "category": "Aerials",
       "hitboxLabels": [
         "far",
@@ -778,7 +778,7 @@
       "notes": "Autocancels on frame 1-6 and frame 30 onward"
     },
     {
-      "move": "U-Air",
+      "move": "Up Air",
       "category": "Aerials",
       "hitboxLabels": null,
       "startup": {
@@ -831,7 +831,7 @@
       "notes": "Autocancels on frame 40 onward"
     },
     {
-      "move": "D-Air",
+      "move": "Down Air",
       "category": "Aerials",
       "hitboxLabels": [
         "far",
@@ -886,7 +886,7 @@
       "notes": "Autocancels on frame 1-4 and 33 onward"
     },
     {
-      "move": "Splattershot",
+      "move": "Neutral Special",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {
@@ -935,7 +935,7 @@
       "notes": "Startup and total frames is the minimum. When out of Ink this move enters the refill state."
     },
     {
-      "move": "Splat Roller",
+      "move": "Side Special",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {
@@ -974,7 +974,7 @@
       "notes": "17 frame animation to jump cancel. 35 animation to cancel on the ground.\nInkling suffers more shieldlag than defender. Advantage assumes buffered jump cancel "
     },
     {
-      "move": "Super Jump",
+      "move": "Up Special",
       "category": "Specials",
       "hitboxLabels": [
         "close",
@@ -1027,7 +1027,7 @@
       "notes": "Inkling will not suffer hitlag from this attack. Landing hitbox on frame 1. Can grab ledges on frame 13"
     },
     {
-      "move": "Splat Bomb",
+      "move": "Down Special",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {

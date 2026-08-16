@@ -2,7 +2,7 @@
   "character": "Daisy",
   "slug": "Daisy",
   "patch": "13.1",
-  "scrapedAt": "2026-08-16T21:07:07.264Z",
+  "scrapedAt": "2026-08-16T21:39:41.955Z",
   "sourceSheet": "13 - PeachDaisy",
   "moves": [
     {
@@ -98,7 +98,7 @@
       "notes": null
     },
     {
-      "move": "F-Tilt",
+      "move": "Forward Tilt",
       "category": "Normals",
       "hitboxLabels": [
         "Close",
@@ -151,7 +151,7 @@
       "notes": null
     },
     {
-      "move": "U-Tilt",
+      "move": "Up Tilt",
       "category": "Normals",
       "hitboxLabels": [
         "Close",
@@ -204,7 +204,7 @@
       "notes": null
     },
     {
-      "move": "D-Tilt",
+      "move": "Down Tilt",
       "category": "Normals",
       "hitboxLabels": null,
       "startup": {
@@ -297,7 +297,7 @@
       "notes": "First hit blockstrings into second hit"
     },
     {
-      "move": "F-Smash",
+      "move": "Forward Smash",
       "category": "Smashes",
       "hitboxLabels": [
         "Golf",
@@ -355,7 +355,7 @@
       "notes": "Can now make directional inputs to change weapon. Charge hold is frame 5."
     },
     {
-      "move": "U-Smash",
+      "move": "Up Smash",
       "category": "Smashes",
       "hitboxLabels": [
         "Close",
@@ -408,7 +408,7 @@
       "notes": "Head and arm intangibility on frame 14-20. Charge hold is frame 9"
     },
     {
-      "move": "D-Smash",
+      "move": "Down Smash",
       "category": "Smashes",
       "hitboxLabels": [
         "Multi",
@@ -466,7 +466,7 @@
       "notes": "Charge hold is frame 2"
     },
     {
-      "move": "N-Air",
+      "move": "Neutral Air",
       "category": "Aerials",
       "hitboxLabels": [
         "Early",
@@ -521,7 +521,7 @@
       "notes": "Autocancels on frame 1-4 and 36 onward"
     },
     {
-      "move": "F-Air",
+      "move": "Forward Air",
       "category": "Aerials",
       "hitboxLabels": [
         "Close",
@@ -576,7 +576,7 @@
       "notes": "Autocancels on frame 1-9 and 41 onward"
     },
     {
-      "move": "B-Air",
+      "move": "Back Air",
       "category": "Aerials",
       "hitboxLabels": [
         "Early",
@@ -631,7 +631,7 @@
       "notes": "Autocancels on frame 1-4 and 30 onward"
     },
     {
-      "move": "U-Air",
+      "move": "Up Air",
       "category": "Aerials",
       "hitboxLabels": null,
       "startup": {
@@ -684,7 +684,7 @@
       "notes": "Autocancels on frame 1-4 and 41 onward"
     },
     {
-      "move": "D-Air",
+      "move": "Down Air",
       "category": "Aerials",
       "hitboxLabels": [
         "Multi",
@@ -742,7 +742,7 @@
       "notes": "Autocancels on frame 1-11 and 38 onward"
     },
     {
-      "move": "Toad",
+      "move": "Neutral Special",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {
@@ -778,7 +778,7 @@
       "notes": "Counter window 9-34. Also invulnerable on frame 8."
     },
     {
-      "move": "Toad (attack)",
+      "move": "Neutral Special (attack)",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {
@@ -821,7 +821,7 @@
       "notes": null
     },
     {
-      "move": "Peach Bomber",
+      "move": "Side Special",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {
@@ -868,7 +868,7 @@
       "notes": "Startup is 2 upon reaching a target. 24 endlag on hit. Total frames is 62 on \nlevel ground when you miss. And 87 if you miss and go over an edge"
     },
     {
-      "move": "Peach Bomber (air)",
+      "move": "Side Special (air)",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {
@@ -916,7 +916,7 @@
       "notes": "Startup is 2 upon reaching a target. 24 endlag on hit. Grabs ledges as early as frame 16."
     },
     {
-      "move": "Peach Parasol",
+      "move": "Up Special",
       "category": "Specials",
       "hitboxLabels": [
         "First",
@@ -976,7 +976,7 @@
       "notes": "40 landing lag from special fall. Or 26 if still holding umbrella. Will grab ledges as early \nas frame 17 (facing toward). Can only grab ledges from behind if umbrella is closed"
     },
     {
-      "move": "Vegetable",
+      "move": "Down Special",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {

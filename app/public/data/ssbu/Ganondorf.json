@@ -2,7 +2,7 @@
   "character": "Ganondorf",
   "slug": "Ganondorf",
   "patch": "13.1",
-  "scrapedAt": "2026-08-16T21:07:07.271Z",
+  "scrapedAt": "2026-08-16T21:39:41.966Z",
   "sourceSheet": "23 - Ganondorf",
   "moves": [
     {
@@ -52,7 +52,7 @@
       "notes": null
     },
     {
-      "move": "F-Tilt",
+      "move": "Forward Tilt",
       "category": "Normals",
       "hitboxLabels": [
         "Close",
@@ -105,7 +105,7 @@
       "notes": null
     },
     {
-      "move": "U-Tilt",
+      "move": "Up Tilt",
       "category": "Normals",
       "hitboxLabels": [
         "explosion",
@@ -157,7 +157,7 @@
       "notes": "Flames hit on frame 62 above Ganon"
     },
     {
-      "move": "D-Tilt",
+      "move": "Down Tilt",
       "category": "Normals",
       "hitboxLabels": null,
       "startup": {
@@ -255,7 +255,7 @@
       "notes": null
     },
     {
-      "move": "F-Smash",
+      "move": "Forward Smash",
       "category": "Smashes",
       "hitboxLabels": null,
       "startup": {
@@ -301,7 +301,7 @@
       "notes": "Charge hold is frame 14. Hits targets above him on frame 29"
     },
     {
-      "move": "U-Smash",
+      "move": "Up Smash",
       "category": "Smashes",
       "hitboxLabels": [
         "Far",
@@ -354,7 +354,7 @@
       "notes": "Charge hold is frame 9"
     },
     {
-      "move": "D-Smash",
+      "move": "Down Smash",
       "category": "Smashes",
       "hitboxLabels": null,
       "startup": {
@@ -405,7 +405,7 @@
       "notes": "Charge hold is frame 4"
     },
     {
-      "move": "N-Air",
+      "move": "Neutral Air",
       "category": "Aerials",
       "hitboxLabels": [
         "First Early",
@@ -451,7 +451,7 @@
       "notes": "Autocancels on frame 1-3 and 37 onward"
     },
     {
-      "move": "F-Air",
+      "move": "Forward Air",
       "category": "Aerials",
       "hitboxLabels": [
         "close",
@@ -506,7 +506,7 @@
       "notes": "Autocancels on frame 1-6 and 45 onward"
     },
     {
-      "move": "B-Air",
+      "move": "Back Air",
       "category": "Aerials",
       "hitboxLabels": [
         "close",
@@ -561,7 +561,7 @@
       "notes": "Autocancels on frame 1-6 and 22 onward"
     },
     {
-      "move": "U-Air",
+      "move": "Up Air",
       "category": "Aerials",
       "hitboxLabels": [
         "Early close",
@@ -608,7 +608,7 @@
       "notes": "Autocancels on frame 25 onward"
     },
     {
-      "move": "D-Air",
+      "move": "Down Air",
       "category": "Aerials",
       "hitboxLabels": [
         "legs",
@@ -663,7 +663,7 @@
       "notes": "Autocancels on frame 1-3 and 32 onward"
     },
     {
-      "move": "Warlock Punch (normal/reversed)",
+      "move": "Neutral Special (normal/reversed)",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {
@@ -715,7 +715,7 @@
       "notes": "Super armor on frame 11-66 "
     },
     {
-      "move": "Warlock Punch (air) (normal/reversed)",
+      "move": "Neutral Special (air) (normal/reversed)",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {
@@ -767,7 +767,7 @@
       "notes": null
     },
     {
-      "move": "Flame Choke",
+      "move": "Side Special",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {
@@ -805,7 +805,7 @@
       "notes": "Damage dealt 32 frames after a grab. 57 total frames."
     },
     {
-      "move": "Flame Choke (success)",
+      "move": "Side Special (success)",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {
@@ -845,7 +845,7 @@
       "notes": "Armor on frame 18-41"
     },
     {
-      "move": "Flame Choke (air)",
+      "move": "Side Special (air)",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {
@@ -884,7 +884,7 @@
       "notes": "29 landing lag if you don't enter special fall. 20 if you do."
     },
     {
-      "move": "Flame Choke (air success)",
+      "move": "Side Special (air success)",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {
@@ -922,7 +922,7 @@
       "notes": "Damage dealt on frame 1 of landing."
     },
     {
-      "move": "Dark Dive",
+      "move": "Up Special",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {
@@ -967,7 +967,7 @@
       "notes": "First startup is for the grab. Can grab ledges on frame \n19 (facing toward) or 38 (facing away)"
     },
     {
-      "move": "Dark Dive (grab success)",
+      "move": "Up Special (grab success)",
       "category": "Specials",
       "hitboxLabels": [
         "multi",
@@ -1015,7 +1015,7 @@
       "notes": null
     },
     {
-      "move": "Wizard's Foot",
+      "move": "Down Special",
       "category": "Specials",
       "hitboxLabels": [
         "close",
@@ -1069,7 +1069,7 @@
       "notes": "Total frames is 68 if you go over an edge."
     },
     {
-      "move": "Wizard's Foot (air)",
+      "move": "Down Special (air)",
       "category": "Specials",
       "hitboxLabels": [
         "Close",

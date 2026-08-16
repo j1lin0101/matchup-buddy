@@ -2,7 +2,7 @@
   "character": "Pyra",
   "slug": "Pyra",
   "patch": "13.1",
-  "scrapedAt": "2026-08-16T21:07:07.322Z",
+  "scrapedAt": "2026-08-16T21:39:42.045Z",
   "sourceSheet": "79 - Pyra",
   "moves": [
     {
@@ -230,7 +230,7 @@
       "notes": null
     },
     {
-      "move": "F-Tilt",
+      "move": "Forward Tilt",
       "category": "Normals",
       "hitboxLabels": null,
       "startup": {
@@ -276,7 +276,7 @@
       "notes": null
     },
     {
-      "move": "U-Tilt",
+      "move": "Up Tilt",
       "category": "Normals",
       "hitboxLabels": null,
       "startup": {
@@ -322,7 +322,7 @@
       "notes": null
     },
     {
-      "move": "D-Tilt",
+      "move": "Down Tilt",
       "category": "Normals",
       "hitboxLabels": [
         "close",
@@ -421,7 +421,7 @@
       "notes": null
     },
     {
-      "move": "F-Smash",
+      "move": "Forward Smash",
       "category": "Smashes",
       "hitboxLabels": null,
       "startup": {
@@ -467,7 +467,7 @@
       "notes": "charge hold on frame 5"
     },
     {
-      "move": "U-Smash",
+      "move": "Up Smash",
       "category": "Smashes",
       "hitboxLabels": null,
       "startup": {
@@ -518,7 +518,7 @@
       "notes": "charge hold on frame 6"
     },
     {
-      "move": "D-Smash",
+      "move": "Down Smash",
       "category": "Smashes",
       "hitboxLabels": [
         "blade close",
@@ -561,7 +561,7 @@
       "notes": "charge hold on frame 2. Blade and leg can both hit the same shield\nThird and fourth advantage assume this scenario, first and second are single, far hits"
     },
     {
-      "move": "N-Air",
+      "move": "Neutral Air",
       "category": "Aerials",
       "hitboxLabels": [
         "early",
@@ -616,7 +616,7 @@
       "notes": "autocancels on frame 1-10 and 41 onward"
     },
     {
-      "move": "F-Air",
+      "move": "Forward Air",
       "category": "Aerials",
       "hitboxLabels": null,
       "startup": {
@@ -664,7 +664,7 @@
       "notes": "autocancels on frame 1-2 and 46 onward"
     },
     {
-      "move": "B-Air",
+      "move": "Back Air",
       "category": "Aerials",
       "hitboxLabels": null,
       "startup": {
@@ -712,7 +712,7 @@
       "notes": "autocancels on frame 1-5 and 38 onward"
     },
     {
-      "move": "U-Air",
+      "move": "Up Air",
       "category": "Aerials",
       "hitboxLabels": null,
       "startup": {
@@ -760,7 +760,7 @@
       "notes": "autocancels on frame 25 onward"
     },
     {
-      "move": "D-Air",
+      "move": "Down Air",
       "category": "Aerials",
       "hitboxLabels": null,
       "startup": {
@@ -812,7 +812,7 @@
       "notes": "autocancels on frame 1-4 and 34 onward"
     },
     {
-      "move": "Flame Nova",
+      "move": "Neutral Special",
       "category": "Specials",
       "hitboxLabels": [
         "multihit",
@@ -849,7 +849,7 @@
       "notes": "startup is 7 from release"
     },
     {
-      "move": "Blazing End",
+      "move": "Side Special",
       "category": "Specials",
       "hitboxLabels": [
         "wrist",
@@ -890,7 +890,7 @@
       "notes": "Sword catch animation is 14 frames, but can be avoided by dodging, in shield, etc\nThe sword exerperiences its own hitlag at irregular intervals. There are technically \nas many startup values on the way to the final hit as there are ways to hit somebody.\nIf the blade hits nothing, the final hit is always on 74, and begins returning on 101."
     },
     {
-      "move": "Prominence Revolt",
+      "move": "Up Special",
       "category": "Specials",
       "hitboxLabels": [
         "rising",
@@ -935,7 +935,7 @@
       "notes": "Landing hits on frame 1 and 2"
     },
     {
-      "move": "Swap to Mythra",
+      "move": "Down Special",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {

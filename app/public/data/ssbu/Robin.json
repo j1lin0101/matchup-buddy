@@ -2,7 +2,7 @@
   "character": "Robin",
   "slug": "Robin",
   "patch": "13.1",
-  "scrapedAt": "2026-08-16T21:07:07.302Z",
+  "scrapedAt": "2026-08-16T21:39:42.003Z",
   "sourceSheet": "56 - Robin",
   "moves": [
     {
@@ -230,7 +230,7 @@
       "notes": null
     },
     {
-      "move": "F-Tilt",
+      "move": "Forward Tilt",
       "category": "Normals",
       "hitboxLabels": null,
       "startup": {
@@ -276,7 +276,7 @@
       "notes": null
     },
     {
-      "move": "U-Tilt",
+      "move": "Up Tilt",
       "category": "Normals",
       "hitboxLabels": null,
       "startup": {
@@ -322,7 +322,7 @@
       "notes": null
     },
     {
-      "move": "D-Tilt",
+      "move": "Down Tilt",
       "category": "Normals",
       "hitboxLabels": null,
       "startup": {
@@ -420,7 +420,7 @@
       "notes": null
     },
     {
-      "move": "F-Smash",
+      "move": "Forward Smash",
       "category": "Smashes",
       "hitboxLabels": [
         "Early",
@@ -477,7 +477,7 @@
       "notes": "Charge hold is frame 6"
     },
     {
-      "move": "U-Smash",
+      "move": "Up Smash",
       "category": "Smashes",
       "hitboxLabels": [
         "Close",
@@ -535,7 +535,7 @@
       "notes": "Charge hold is frame 5"
     },
     {
-      "move": "D-Smash",
+      "move": "Down Smash",
       "category": "Smashes",
       "hitboxLabels": [
         "Sword",
@@ -588,7 +588,7 @@
       "notes": "Sparks generate on frame 20 for levin version. Charge hold is frame 3"
     },
     {
-      "move": "N-Air",
+      "move": "Neutral Air",
       "category": "Aerials",
       "hitboxLabels": [
         "Levin",
@@ -644,7 +644,7 @@
       "notes": "Autocancels on frame 1-3 and 34 onward (bronze) or 42 (levin)"
     },
     {
-      "move": "F-Air",
+      "move": "Forward Air",
       "category": "Aerials",
       "hitboxLabels": [
         "Levin",
@@ -699,7 +699,7 @@
       "notes": "Autocancels on frame 1-3 and 27 onward (bronze) or 28 (levin)"
     },
     {
-      "move": "B-Air",
+      "move": "Back Air",
       "category": "Aerials",
       "hitboxLabels": [
         "Early",
@@ -759,7 +759,7 @@
       "notes": "Autocancels on frame 32 onward (either version)"
     },
     {
-      "move": "U-Air",
+      "move": "Up Air",
       "category": "Aerials",
       "hitboxLabels": [
         "Early",
@@ -819,7 +819,7 @@
       "notes": "Autocancels on frame 1-4 and 27 onward (bronze) or 28 (levin)"
     },
     {
-      "move": "D-Air",
+      "move": "Down Air",
       "category": "Aerials",
       "hitboxLabels": [
         "Levin Early",
@@ -879,7 +879,7 @@
       "notes": "Autocancels on frame 48 onward (either version)"
     },
     {
-      "move": "Thunder/Elthunder/Arcthunder",
+      "move": "Neutral Special/Elthunder/Arcthunder",
       "category": "Specials",
       "hitboxLabels": [
         "Thunder",
@@ -1038,7 +1038,7 @@
       "notes": null
     },
     {
-      "move": "Arcfire",
+      "move": "Side Special",
       "category": "Specials",
       "hitboxLabels": [
         "First",
@@ -1094,7 +1094,7 @@
       "notes": "Pillar hits once every eight frames, ending on frame 50.\nOn level ground, will erupt on the floor at frame 40. "
     },
     {
-      "move": "Elwind",
+      "move": "Up Special",
       "category": "Specials",
       "hitboxLabels": [
         "Early",
@@ -1145,7 +1145,7 @@
       "notes": "Can grab ledges as early as frame 29 (facing toward) or 39 (facing away)"
     },
     {
-      "move": "Nosferatu",
+      "move": "Down Special",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {

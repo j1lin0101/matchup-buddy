@@ -2,7 +2,7 @@
   "character": "Luigi",
   "slug": "Luigi",
   "patch": "13.1",
-  "scrapedAt": "2026-08-16T21:07:07.261Z",
+  "scrapedAt": "2026-08-16T21:39:41.950Z",
   "sourceSheet": "09 - Luigi",
   "moves": [
     {
@@ -144,7 +144,7 @@
       "notes": null
     },
     {
-      "move": "F-Tilt",
+      "move": "Forward Tilt",
       "category": "Normals",
       "hitboxLabels": null,
       "startup": {
@@ -190,7 +190,7 @@
       "notes": null
     },
     {
-      "move": "U-Tilt",
+      "move": "Up Tilt",
       "category": "Normals",
       "hitboxLabels": null,
       "startup": {
@@ -236,7 +236,7 @@
       "notes": null
     },
     {
-      "move": "D-Tilt",
+      "move": "Down Tilt",
       "category": "Normals",
       "hitboxLabels": null,
       "startup": {
@@ -338,7 +338,7 @@
       "notes": null
     },
     {
-      "move": "F-Smash",
+      "move": "Forward Smash",
       "category": "Smashes",
       "hitboxLabels": null,
       "startup": {
@@ -384,7 +384,7 @@
       "notes": "Charge hold is frame 4"
     },
     {
-      "move": "U-Smash",
+      "move": "Up Smash",
       "category": "Smashes",
       "hitboxLabels": null,
       "startup": {
@@ -430,7 +430,7 @@
       "notes": "Head intangibility on frame 9-13. Charge hold is frame 6"
     },
     {
-      "move": "D-Smash",
+      "move": "Down Smash",
       "category": "Smashes",
       "hitboxLabels": [
         "Close",
@@ -484,7 +484,7 @@
       "notes": "Charge hold is frame 2"
     },
     {
-      "move": "N-Air",
+      "move": "Neutral Air",
       "category": "Aerials",
       "hitboxLabels": [
         "Early",
@@ -539,7 +539,7 @@
       "notes": "Autocancels on frame 1-2 and 36 onward"
     },
     {
-      "move": "F-Air",
+      "move": "Forward Air",
       "category": "Aerials",
       "hitboxLabels": null,
       "startup": {
@@ -587,7 +587,7 @@
       "notes": "Autocancels on frame 21 onward"
     },
     {
-      "move": "B-Air",
+      "move": "Back Air",
       "category": "Aerials",
       "hitboxLabels": [
         "Early",
@@ -642,7 +642,7 @@
       "notes": "Autocancels on frame 1-2 and 33 onward"
     },
     {
-      "move": "U-Air",
+      "move": "Up Air",
       "category": "Aerials",
       "hitboxLabels": [
         "Early",
@@ -697,7 +697,7 @@
       "notes": "Autocancels on frame 19 onward"
     },
     {
-      "move": "D-Air",
+      "move": "Down Air",
       "category": "Aerials",
       "hitboxLabels": [
         "Early",
@@ -800,7 +800,7 @@
       "notes": "If you land before firing, it will fire on frame 6 of landing. Advantage is that shot."
     },
     {
-      "move": "Fireball",
+      "move": "Neutral Special",
       "category": "Specials",
       "hitboxLabels": [
         "early",
@@ -852,7 +852,7 @@
       "notes": null
     },
     {
-      "move": "Green Missile",
+      "move": "Side Special",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {
@@ -893,7 +893,7 @@
       "notes": "On hit endlag is 18 or 32 total if you landed during that 18 frame animation. Total frames is \n80 in the air, 95 on level ground. 41 landing lag is consistent as long as you land during the \n80 frame animation. Invulnerable on frame 18-22 or 1-5 from charge release."
     },
     {
-      "move": "Super Jump Punch (ground)",
+      "move": "Up Special (ground)",
       "category": "Specials",
       "hitboxLabels": [
         "Sweet",
@@ -948,7 +948,7 @@
       "notes": "Invulnerable on frame 8-10 on the ground. Total frames assumes level ground and \nthat player inputs fast fall on frame 25 which is earliest. It will be 109 with no fast fall."
     },
     {
-      "move": "Super Jump Punch (air)",
+      "move": "Up Special (air)",
       "category": "Specials",
       "hitboxLabels": [
         "Sweet",
@@ -998,7 +998,7 @@
       "notes": "Invulnerable on frame 6-8 in the air. Snaps to a ledge as early as frame 11 (facing toward) \nor 25 (facing away). And on frames 2-8 if descending"
     },
     {
-      "move": "Luigi Cyclone",
+      "move": "Down Special",
       "category": "Specials",
       "hitboxLabels": [
         "multi",

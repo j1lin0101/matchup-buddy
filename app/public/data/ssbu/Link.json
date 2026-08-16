@@ -2,7 +2,7 @@
   "character": "Link",
   "slug": "Link",
   "patch": "13.1",
-  "scrapedAt": "2026-08-16T21:07:07.256Z",
+  "scrapedAt": "2026-08-16T21:39:41.943Z",
   "sourceSheet": "03 - Link",
   "moves": [
     {
@@ -144,7 +144,7 @@
       "notes": null
     },
     {
-      "move": "F-Tilt",
+      "move": "Forward Tilt",
       "category": "Normals",
       "hitboxLabels": null,
       "startup": {
@@ -190,7 +190,7 @@
       "notes": "Only hits targets above him on 15"
     },
     {
-      "move": "U-Tilt",
+      "move": "Up Tilt",
       "category": "Normals",
       "hitboxLabels": null,
       "startup": {
@@ -236,7 +236,7 @@
       "notes": null
     },
     {
-      "move": "D-Tilt",
+      "move": "Down Tilt",
       "category": "Normals",
       "hitboxLabels": null,
       "startup": {
@@ -340,7 +340,7 @@
       "notes": null
     },
     {
-      "move": "F-Smash 1",
+      "move": "Forward Smash 1",
       "category": "Smashes",
       "hitboxLabels": [
         "Close",
@@ -394,7 +394,7 @@
       "notes": "Transitions to second swing as early as frame 22. Sword beam active frames 19-58. \nCharge hold frame is 9"
     },
     {
-      "move": "F-Smash 2",
+      "move": "Forward Smash 2",
       "category": "Smashes",
       "hitboxLabels": null,
       "startup": {
@@ -440,7 +440,7 @@
       "notes": null
     },
     {
-      "move": "U-Smash",
+      "move": "Up Smash",
       "category": "Smashes",
       "hitboxLabels": null,
       "startup": {
@@ -494,7 +494,7 @@
       "notes": "Charge hold frame is 5."
     },
     {
-      "move": "D-Smash",
+      "move": "Down Smash",
       "category": "Smashes",
       "hitboxLabels": null,
       "startup": {
@@ -545,7 +545,7 @@
       "notes": "Charge hold frame is 4"
     },
     {
-      "move": "N-Air",
+      "move": "Neutral Air",
       "category": "Aerials",
       "hitboxLabels": [
         "Early",
@@ -600,7 +600,7 @@
       "notes": "Autocancels on frame 1-3 and 36 onward"
     },
     {
-      "move": "F-Air",
+      "move": "Forward Air",
       "category": "Aerials",
       "hitboxLabels": null,
       "startup": {
@@ -653,7 +653,7 @@
       "notes": "Autocancels on frame 53 onward"
     },
     {
-      "move": "B-Air",
+      "move": "Back Air",
       "category": "Aerials",
       "hitboxLabels": null,
       "startup": {
@@ -706,7 +706,7 @@
       "notes": "Autocancels on frame 29 onward"
     },
     {
-      "move": "U-Air",
+      "move": "Up Air",
       "category": "Aerials",
       "hitboxLabels": [
         "Early",
@@ -760,7 +760,7 @@
       "notes": "Autocancels on frame 1-10 and 43 onward"
     },
     {
-      "move": "D-Air",
+      "move": "Down Air",
       "category": "Aerials",
       "hitboxLabels": [
         "Early",
@@ -818,7 +818,7 @@
       "notes": "Autocancels on frame 1-9 and 65 onward. To avoid bouncing off target, fast fall after D-air input but \nbefore hitting the target. Can hit same target once again after 30 frames during pogo effect"
     },
     {
-      "move": "Hero's Bow",
+      "move": "Neutral Special",
       "category": "Specials",
       "hitboxLabels": [
         "Uncharged-",
@@ -858,7 +858,7 @@
       "notes": "Reaches full charge on 52 Arrows travel for 46 frames after being fired. And will stick into the ground \nfor 3 seconds. When firing two arrows at once, the second one generates three frames after the first"
     },
     {
-      "move": "Boomerang",
+      "move": "Side Special",
       "category": "Specials",
       "hitboxLabels": [
         "Tilt",
@@ -911,7 +911,7 @@
       "notes": "9 frame animation of catching boomerang if no other action is being performed."
     },
     {
-      "move": "Spin Attack",
+      "move": "Up Special",
       "category": "Specials",
       "hitboxLabels": [
         "close",
@@ -952,7 +952,7 @@
       "notes": "Can charge attack for an additional 60 frames. Startup is 4 from charge state."
     },
     {
-      "move": "Spin Attack (air)",
+      "move": "Up Special (air)",
       "category": "Specials",
       "hitboxLabels": [
         "First",
@@ -1010,7 +1010,7 @@
       "notes": "Will snap to a ledge as early as frame 15 (facing toward) or 34 (facing away)"
     },
     {
-      "move": "Remote Bomb (pull)",
+      "move": "Down Special (pull)",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {
@@ -1046,7 +1046,7 @@
       "notes": null
     },
     {
-      "move": "Remote Bomb (detonate)",
+      "move": "Down Special (detonate)",
       "category": "Specials",
       "hitboxLabels": null,
       "startup": {
