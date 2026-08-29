@@ -1,7 +1,7 @@
 {
   "character": "Maypul",
   "slug": "Maypul",
-  "scrapedAt": "2026-08-28T21:56:44.892Z",
+  "scrapedAt": "2026-08-29T20:06:48.970Z",
   "moves": [
     {
       "move": "Jab",
@@ -1428,11 +1428,10 @@
         {
           "hitbox": "Lily Bite (Hitstun): Bite",
           "shieldSafety": {
-            "isStun": true,
-            "min": 3,
-            "max": 3
+            "min": -18,
+            "max": -18
           },
-          "shieldRaw": "Stun: 3",
+          "shieldRaw": "-18",
           "tumblePercent": {
             "min": 59,
             "max": 74
@@ -1960,11 +1959,10 @@
         {
           "hitbox": "Airborne: Dive",
           "shieldSafety": {
-            "isStun": true,
-            "min": 3,
-            "max": 3
+            "min": -26,
+            "max": -19
           },
-          "shieldRaw": "Stun: 3",
+          "shieldRaw": "-26 to -19",
           "tumblePercent": null,
           "tumbleRaw": "Never",
           "perCharacterTumble": {},
@@ -1985,11 +1983,10 @@
         {
           "hitbox": "Airborne: Landing",
           "shieldSafety": {
-            "isStun": true,
-            "min": 4,
-            "max": 4
+            "min": -64,
+            "max": -62
           },
-          "shieldRaw": "Stun: 4",
+          "shieldRaw": "-64 to -62",
           "tumblePercent": {
             "min": 0,
             "max": 0
@@ -2032,11 +2029,10 @@
         {
           "hitbox": "Grounded (Standard): Dive",
           "shieldSafety": {
-            "isStun": true,
-            "min": 3,
-            "max": 3
+            "min": -24,
+            "max": -17
           },
-          "shieldRaw": "Stun: 3",
+          "shieldRaw": "-24 to -17",
           "tumblePercent": null,
           "tumbleRaw": "Never",
           "perCharacterTumble": {},
@@ -2057,11 +2053,10 @@
         {
           "hitbox": "Grounded (Standard): Landing",
           "shieldSafety": {
-            "isStun": true,
-            "min": 4,
-            "max": 4
+            "min": -62,
+            "max": -60
           },
-          "shieldRaw": "Stun: 4",
+          "shieldRaw": "-62 to -60",
           "tumblePercent": {
             "min": 0,
             "max": 0
@@ -2162,11 +2157,10 @@
         {
           "hitbox": "Parrying Terry (Perry): Terry",
           "shieldSafety": {
-            "isStun": true,
-            "min": 4,
-            "max": 4
+            "min": -25,
+            "max": -16
           },
-          "shieldRaw": "Stun: 4",
+          "shieldRaw": "-25 to -16",
           "tumblePercent": {
             "min": 25,
             "max": 32
@@ -2209,11 +2203,10 @@
         {
           "hitbox": "Seed at Terry: Terry",
           "shieldSafety": {
-            "isStun": true,
-            "min": 4,
-            "max": 4
+            "min": -14,
+            "max": -11
           },
-          "shieldRaw": "Stun: 4",
+          "shieldRaw": "-14 to -11",
           "tumblePercent": {
             "min": 25,
             "max": 32
@@ -2252,53 +2245,6 @@
           "hitstunMultiplier": 1,
           "damage": 5,
           "endlag": 15
-        },
-        {
-          "hitbox": "Summoning Terry: Terry",
-          "shieldSafety": {
-            "isStun": true,
-            "min": 4,
-            "max": 4
-          },
-          "shieldRaw": "Stun: 4",
-          "tumblePercent": {
-            "min": 25,
-            "max": 32
-          },
-          "tumbleRaw": "25 - 32%",
-          "perCharacterTumble": {
-            "ABSA": 27,
-            "BIG GOUIE": 31,
-            "CLAIREN": 28,
-            "ETALUS": 31,
-            "FLEET": 28,
-            "FORSBURN": 29,
-            "GALVAN": 31,
-            "GOUIE": 25,
-            "KRAGG": 32,
-            "LA REINA": 30,
-            "LOXODONT": 32,
-            "MAYPUL": 27,
-            "OLYMPIA": 26,
-            "ORCANE": 29,
-            "RANNO": 28,
-            "SLADE": 30,
-            "WRASTOR": 25,
-            "ZETTERBURN": 29
-          },
-          "perCharacterTumbleAerial": {},
-          "knockbackAngle": 50,
-          "knockbackAngleMode": "SpecifiedAngle",
-          "forceTumble": false,
-          "forceFlinch": false,
-          "asdiMultiplier": -1,
-          "sdiMultiplier": 1,
-          "autoFloorhuggable": false,
-          "bkb": 7,
-          "kbs": 0.4,
-          "hitstunMultiplier": 1,
-          "damage": 5,
-          "endlag": 10
         }
       ]
     }
