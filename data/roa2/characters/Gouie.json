@@ -1,7 +1,7 @@
 {
   "character": "Gouie",
   "slug": "Gouie",
-  "scrapedAt": "2026-08-31T20:07:22.168Z",
+  "scrapedAt": "2026-09-01T20:07:46.858Z",
   "moves": [
     {
       "move": "Jab",
@@ -1566,7 +1566,7 @@
           "autoFloorhuggable": false,
           "bkb": 4,
           "kbs": 0.25,
-          "hitstunMultiplier": 0.8,
+          "hitstunMultiplier": 1,
           "damage": 1,
           "endlag": 22
         },
@@ -1612,7 +1612,7 @@
           "autoFloorhuggable": false,
           "bkb": 3,
           "kbs": 0.25,
-          "hitstunMultiplier": 1,
+          "hitstunMultiplier": 0.8,
           "damage": 1,
           "endlag": 22
         }
